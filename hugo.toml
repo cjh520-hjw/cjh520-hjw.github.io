@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Site of 嬉皮士'
+theme = 'PaperMod'
