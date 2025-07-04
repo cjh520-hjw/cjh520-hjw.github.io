@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # 明确指定新版Ubuntu
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,20 +35,28 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
         run: |
           npm install -g sass
-          [[ -f package-lock.json ]] && npm ci || true
+          [ -f package-lock.json ] && npm ci || true
 
       - name: Build
         run: |
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ github.repository == 'cjh520-hjw/cjh520-hjw.github.io' && 'https://cjh520-hjw.github.io' || steps.pages.outputs.base_url }}/"
+            --baseURL "https://cjh520-hjw.github.io/"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3  # 必须使用v3
         with:
           path: ./public
 
@@ -56,7 +64,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Deploy
