@@ -12,11 +12,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: falseHEAD
-jobs:
-  build:
-    runs-on: ubuntu-24.04  # 明确指定新版Ubuntu
-    steps:
+  cancel-in-progress: false
 
 defaults:
   run:
@@ -24,31 +20,27 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       HUGO_VERSION: 0.147.9
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-          
-      - name: Install Dart Sass
-        run: npm install -g sass  # 改用npm安装，避免snap不可用
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
 
- f80a09713928e6705c5e0b3b617e78764146e4cb
+      - name: Install Dart Sass
+        run: npm install -g sass
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
 
- HEAD
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.147.9"
-          extended: true
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -65,38 +57,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -g sass
           [ -f package-lock.json ] && npm ci || true
-
-      - name: Build
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
-
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
- f80a09713928e6705c5e0b3b617e78764146e4cb
         run: |
           hugo \
             --gc \
             --minify \
- HEAD
             --baseURL "https://cjh520-hjw.github.io/"
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3  # 必须使用v3
-
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3  # 从v2升级到v3
- f80a09713928e6705c5e0b3b617e78764146e4cb
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -109,8 +83,4 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
- HEAD
         uses: actions/deploy-pages@v4
-
-        uses: actions/deploy-pages@v4  # 从v3升级到v4
- f80a09713928e6705c5e0b3b617e78764146e4cb
