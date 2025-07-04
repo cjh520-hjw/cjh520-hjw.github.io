@@ -30,7 +30,7 @@ defaults:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       HUGO_VERSION: 0.147.9
       HUGO_ENVIRONMENT: production
@@ -38,15 +38,25 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
+<<<<<<< HEAD
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass
         run: sudo snap install dart-sass
+=======
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${{ env.HUGO_VERSION }}/hugo_extended_${{ env.HUGO_VERSION }}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install Dart Sass
+        run: npm install -g sass
+
+>>>>>>> e462fa176e189054f10927721199b8adc455d805
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
+<<<<<<< HEAD
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -64,10 +74,39 @@ jobs:
       - name: Configure Git
         run: git config core.quotepath false
       - name: Build with Hugo
+=======
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        run: |
+          [ -f package-lock.json ] && npm ci || true
+
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+>>>>>>> e462fa176e189054f10927721199b8adc455d805
         run: |
           hugo \
             --gc \
             --minify \
+<<<<<<< HEAD
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
             --cacheDir "${{ runner.temp }}/hugo_cache"
       - name: Cache Save
@@ -77,6 +116,10 @@ jobs:
           path: |
             ${{ runner.temp }}/hugo_cache
           key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+=======
+            --baseURL "https://cjh520-hjw.github.io/"
+
+>>>>>>> e462fa176e189054f10927721199b8adc455d805
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -92,4 +135,8 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+<<<<<<< HEAD
         uses: actions/deploy-pages@v4
+=======
+        uses: actions/deploy-pages@v4
+>>>>>>> e462fa176e189054f10927721199b8adc455d805
