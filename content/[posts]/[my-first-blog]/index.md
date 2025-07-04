@@ -1,13 +1,13 @@
-+++
-date = '2025-07-04T13:22:23+08:00'
-draft = false
-title = '[My First Blog]'
-
-categories:["技术分享"]
-
-tags:["博客搭建""Hugo"]
-
-+++
+---
+date: 2025-07-04T13:22:23+08:00
+draft: false
+title: "My First Blog"
+categories: 
+  - "技术分享"
+tags:
+  - "博客搭建"
+  - "Hugo"
+---
 
 \# 【Hugo 博客初体验】用 Markdown 写文章也能这么丝滑？  // 一级标题（文章标题） ## 一、写在前面  // 二级标题（大模块标题） ### （一）一键创建文章模板  // 三级标题（小模块标题）
 
