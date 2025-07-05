@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Site of 嬉皮士</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Site of 嬉皮士</description>
+    <title>博客搭建 on Site of 嬉皮士</title>
+    <link>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+    <description>Recent content in 博客搭建 on Site of 嬉皮士</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 04 Jul 2025 13:22:23 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Blog</title>
       <link>http://localhost:1313/posts/my-first-blog/</link>
@@ -24,15 +24,6 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    <item>
-      <title>我是嬉皮士</title>
-      <link>http://localhost:1313/posts/%E6%88%91%E6%98%AF%E5%AC%89%E7%9A%AE%E5%A3%AB/</link>
-      <pubDate>Thu, 03 Jul 2025 22:53:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E6%88%91%E6%98%AF%E5%AC%89%E7%9A%AE%E5%A3%AB/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
-&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

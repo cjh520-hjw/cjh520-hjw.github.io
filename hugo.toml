@@ -1,4 +1,5 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
+baseURL = 'https://cjh520-hjw.github.io/'
+languageCode = 'zh-cn'
 title = 'Site of 嬉皮士'
 theme = 'PaperMod'
+publishDir = 'public'
