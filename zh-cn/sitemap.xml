@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://cjh520-hjw.github.io/</loc>
-    <lastmod>2025-07-07T10:48:22+08:00</lastmod>
+    <lastmod>2025-07-07T21:16:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,11 +15,11 @@
                 href="https://cjh520-hjw.github.io/"
                 />
   </url><url>
-    <loc>https://cjh520-hjw.github.io/p/myfirstblog/</loc>
-    <lastmod>2025-07-07T10:48:22+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/newnewnew/</loc>
+    <lastmod>2025-07-07T21:16:04+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/post/</loc>
-    <lastmod>2025-07-07T10:48:22+08:00</lastmod>
+    <lastmod>2025-07-07T21:16:04+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -30,6 +30,9 @@
                 hreflang="zh-cn"
                 href="https://cjh520-hjw.github.io/post/"
                 />
+  </url><url>
+    <loc>https://cjh520-hjw.github.io/p/myfirstblog/</loc>
+    <lastmod>2025-07-07T10:48:22+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
