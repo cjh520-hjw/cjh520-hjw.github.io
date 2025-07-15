@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.148.1"><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="To make sense out of change is to plunge into it, move with it, and join the dance.">
-<title>Pager 3 - 嬉皮士-Hippie</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="C++对C的增强：\n在原来基于过程的机制基础上，对C语言的功能做了扩充——基于过程的结构化程序设计 增加了面对对象的机制——面向对象的程序设计(信息隐蔽与封装) 最简单的程序： 1 2 3 4 5 6 7 #include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; &#34;I&#39;m Great!&#34; &lt;&lt;endl; return 0; } Note\n">
+<title>C&#43;&#43;初步</title>
 
-<link rel='canonical' href='https://cjh520-hjw.github.io/'>
+<link rel='canonical' href='https://cjh520-hjw.github.io/p/c-%E5%88%9D%E6%AD%A5/'>
 
-<link rel="stylesheet" href="/scss/style.min.fc0971b300a5adbfaf66716db1ae31ade44d6d43999db7572fd6ef582f828d30.css"><meta property='og:title' content="嬉皮士-Hippie">
-<meta property='og:description' content="To make sense out of change is to plunge into it, move with it, and join the dance.">
-<meta property='og:url' content='https://cjh520-hjw.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.fc0971b300a5adbfaf66716db1ae31ade44d6d43999db7572fd6ef582f828d30.css"><meta property='og:title' content="C++初步">
+<meta property='og:description' content="C++对C的增强：\n在原来基于过程的机制基础上，对C语言的功能做了扩充——基于过程的结构化程序设计 增加了面对对象的机制——面向对象的程序设计(信息隐蔽与封装) 最简单的程序： 1 2 3 4 5 6 7 #include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; &#34;I&#39;m Great!&#34; &lt;&lt;endl; return 0; } Note\n">
+<meta property='og:url' content='https://cjh520-hjw.github.io/p/c-%E5%88%9D%E6%AD%A5/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-07-15T10:19:38&#43;08:00 '/>
-<meta name="twitter:title" content="嬉皮士-Hippie">
-<meta name="twitter:description" content="To make sense out of change is to plunge into it, move with it, and join the dance."><link rel="alternate" type="application/rss&#43;xml" href="https://cjh520-hjw.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-15T10:19:38&#43;08:00'/>
+<meta name="twitter:title" content="C++初步">
+<meta name="twitter:description" content="C++对C的增强：\n在原来基于过程的机制基础上，对C语言的功能做了扩充——基于过程的结构化程序设计 增加了面对对象的机制——面向对象的程序设计(信息隐蔽与封装) 最简单的程序： 1 2 3 4 5 6 7 #include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; &#34;I&#39;m Great!&#34; &lt;&lt;endl; return 0; } Note\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <div class="loading">
      
@@ -198,7 +197,9 @@
 </script>
 
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -314,7 +315,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -465,77 +466,10 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2025">
-                        
-                            <span class="year">2025</span>
-                            <span class="count">3</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2020">
-                        
-                            <span class="year">2020</span>
-                            <span class="count">1</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2019">
-                        
-                            <span class="year">2019</span>
-                            <span class="count">4</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -545,184 +479,39 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#声明一个类---定义类类型的变量对象---在main里对对象进行操作">声明一个类 -&gt; 定义类类型的变量(对象) -&gt; 在main里对对象进行操作</a></li>
+  </ol>
 
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/test/" class="font_size_3">
-                Test
-            </a>
-        
-            <a href="/categories/c&#43;&#43;/" class="font_size_1">
-                C&#43;&#43;
-            </a>
-        
-            <a href="/categories/syntax/" class="font_size_1">
-                Syntax
-            </a>
-        
-            <a href="/categories/test-with-whitespaces/" class="font_size_1">
-                Test With Whitespaces
-            </a>
-        
-            <a href="/categories/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="font_size_1">
-                测试
-            </a>
-        
-    </div>
-</section>
+  <ol>
+    <li><a href="#编译">编译：</a></li>
+    <li><a href="#连接">连接</a></li>
+    <li><a href="#运行">运行</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">标签云</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/markdown/" class="font_size_2">
-                Markdown
-            </a>
-        
-            <a href="/tags/css/" class="font_size_1">
-                Css
-            </a>
-        
-            <a href="/tags/emoji/" class="font_size_1">
-                Emoji
-            </a>
-        
-            <a href="/tags/html/" class="font_size_1">
-                Html
-            </a>
-        
-            <a href="/tags/tag-with-whitespaces/" class="font_size_1">
-                Tag With Whitespaces
-            </a>
-        
-            <a href="/tags/text/" class="font_size_1">
-                Text
-            </a>
-        
-            <a href="/tags/themes/" class="font_size_1">
-                Themes
-            </a>
-        
-    </div>
-</section>
             
         
     </aside>
 
 
             <main class="main full-width">
-    
-    
-    
-    
-
-    <section class="article-list">
-        
-            
-<article class="">
+    <article class="main-article">
     <header class="article-header">
-
-    <div class="article-details">
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/math-typesetting/">Math Typesetting</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            A brief guide to setup KaTeX
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">2019-03-08</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    阅读时长: 1 分钟
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
-</div>
-
-</header>
-</article>
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/emoji-support/">
-                <img src="/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash_hu_4478d0ca4dd8c594.jpg"
-                        srcset="/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash_hu_4478d0ca4dd8c594.jpg 800w, /p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash_hu_8df8f39ac35f88d8.jpg 1600w"
-                        width="800" 
-                        height="566" 
-                        loading="lazy"
-                        alt="Featured image of post Emoji Support" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/test/" style="background-color: #2a9d8f; color: #fff;">
-                Test
+            <a href="/categories/c&#43;&#43;/" >
+                C&#43;&#43;
             </a>
         
     </header>
@@ -730,13 +519,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/emoji-support/">Emoji Support</a>
+            <a href="/p/c-%E5%88%9D%E6%AD%A5/">C&#43;&#43;初步</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            Guide to emoji usage in Hugo
-        </h3>
         
     </div>
 
@@ -756,7 +541,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2019-03-05</time>
+                <time class="article-time--published">2025-07-14</time>
             </div>
         
 
@@ -771,7 +556,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -782,29 +567,288 @@
 </div>
 
 </header>
+
+    <section class="article-content">
+    
+    
+    <p>C++对C的增强：</p>
+<ol>
+<li>在原来<strong>基于过程</strong>的机制基础上，对C语言的功能做了扩充——基于过程的结构化程序设计</li>
+<li>增加了<strong>面对对象</strong>的机制——面向对象的程序设计(信息隐蔽与封装)</li>
+</ol>
+<h1 id="最简单的程序">最简单的程序：
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;I&#39;m Great!&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Note</strong></p>
+<ul>
+<li>在main前面加int，函数的最后加<code>return 0;</code></li>
+<li>cout与cin是系统定义的对象名，cin不要用endl;</li>
+<li>有程序输入输出时，必须使用<code>#include &lt;iostream&gt;</code>与<code>using namespace std;</code></li>
+<li>若用C风格的<code>#include &lt;iostream.h&gt;</code>则无需<code>using namespace std</code></li>
+</ul>
+<h1 id="包含两个函数的简单程序">包含两个函数的简单程序：
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="n">namespce</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">else</span> <span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="n">z</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="n">m</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;max=&#34;</span> <span class="o">&lt;&lt;</span><span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Note</strong></p>
+<ol>
+<li>主函数main与一个被调用函数max——函数调用</li>
+<li>输入的a,b要用空格隔开</li>
+<li>若被调用的函数max在主函数main之后，则需在main内对max进行声明：
+<code>int max(int,int);</code>——形参</li>
+<li>函数声明的位置应当放在函数调用<code>m = max(a,b)</code>之前——实参</li>
+</ol>
+<h1 id="简单的面向对象程序">简单的面向对象程序：
+</h1><h2 id="声明一个类---定义类类型的变量对象---在main里对对象进行操作">声明一个类 -&gt; 定义类类型的变量(对象) -&gt; 在main里对对象进行操作
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 声明一个类，类名为Student
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Student</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span> 
+</span></span><span class="line"><span class="cl">      <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">int</span> <span class="n">num</span><span class="p">,</span><span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">void</span> <span class="n">setdata</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span> <span class="o">&gt;&gt;</span> <span class="n">score</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span>
+</span></span><span class="line"><span class="cl">           <span class="kt">void</span> <span class="nf">display</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">           <span class="p">{</span>
+</span></span><span class="line"><span class="cl">               <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;num=&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">num</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">               <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;score=&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">score</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">           <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 定义类类型的变量(对象)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span> <span class="n">stud1</span><span class="p">,</span><span class="n">stud2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 主函数——程序的入口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stud1</span><span class="p">.</span><span class="n">setdata</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stud2</span><span class="p">.</span><span class="n">setdata</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stud1</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stud2</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Note</strong></p>
+<ol>
+<li>声明一个类，包括数据和函数（有权调用这组数据），数据和函数<strong>有公有有私有</strong>——信息隐蔽与封装</li>
+<li>私有的：不能被类以外的语句调用，除了<strong>友元类</strong>成员——链接</li>
+<li>Student是用户自定义的类型。类型不占空间，对象才占空间。</li>
+<li><code>.</code>是成员运算符，左对象、右成员。</li>
+</ol>
+<h1 id="程序的构成">程序的构成
+</h1>$$
+\left\{ \begin{array}{l}
+	\text{程序}\left\{ \begin{array}{l}
+	\text{程序单位}+\text{编译单位（文件）}\left\{ \begin{array}{l}
+	\text{预处理指令\#}include\\
+	\text{全局声明部分}\left\{ \begin{array}{l}
+	\text{自定义的类型声明}\\
+	\text{变量的定义}\\
+	\text{函数的声明}\\
+\end{array} \right.\\
+	\text{函数}\left\{ \begin{array}{l}
+	\text{函数首部}\left\{ \begin{array}{l}
+	\text{函数名与类型}\\
+	\text{形参名与类型}\\
+\end{array} \right.\\
+	\text{函数体}\left\{ \begin{array}{l}
+	\text{局部声明}\\
+	\text{执行}\\
+\end{array} \right.\\
+\end{array} \right.\\
+\end{array} \right.\\
+	\\
+\end{array} \right.\\
+	\\
+\end{array} \right. 
+$$<h1 id="程序的编写与实现">程序的编写与实现
+</h1><h2 id="编译">编译：
+</h2><ol>
+<li>词法检查：拼写</li>
+<li>语法检查</li>
+</ol>
+<p>编译器：把源程序翻译为二进制的目标程序
+C++的源程序是<code>.cpp</code>，Windows的目标程序是<code>.obj</code></p>
+<p>编译结束后显示所有编译出错信息：</p>
+<ol>
+<li>error</li>
+<li>warning</li>
+</ol>
+<p>凡是检查出错误的程序，都不会生成目标程序，必须改正后重新编译</p>
+<h2 id="连接">连接
+</h2><p>通过编译后所有<code>.obj</code>与<code>库文件和其他目标程序</code>连接起来，形成可执行的二进制文件<code>.exe</code></p>
+<h2 id="运行">运行
+</h2><p>运行<code>.exe</code></p>
+<p><img src="/images/1.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Jul 15, 2025 10:19 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
 </article>
-        
-    </section>
-    <nav class='pagination'>
-        
-        
 
-        
-            
-                    <a class='page-link' href='/'>1</a>
-                
-            
-            
-                    <a class='page-link' href='/page/2/'>2</a>
-                
-            
-            
-                <span class='page-link current'>3</span>
-                
-            
-    </nav>
+    
 
-<footer class="site-footer">
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -816,6 +860,85 @@
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>
