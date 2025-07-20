@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cjh520-hjw.github.io/posts/c&#43;&#43;/%E5%9F%BA%E4%BA%8E%E8%BF%87%E7%A8%8B/c&#43;&#43;%E5%88%9D%E6%AD%A5/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/c-%E5%88%9D%E6%AD%A5/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/c&#43;&#43;/%E5%9F%BA%E4%BA%8E%E8%BF%87%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -21,21 +21,21 @@
                 href="https://cjh520-hjw.github.io/categories/"
                 />
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/post/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cjh520-hjw.github.io/en/posts/"
+                href="https://cjh520-hjw.github.io/en/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://cjh520-hjw.github.io/posts/"
+                href="https://cjh520-hjw.github.io/post/"
                 />
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -48,47 +48,47 @@
                 />
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/%E8%AF%8D%E6%B1%87/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/%E8%8B%B1%E8%AF%AD/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/%E8%8B%B1%E8%AF%AD/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%89%87/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%89%87/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/c&#43;&#43;/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/newnewnew/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/newnewnew/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/myfirstblog/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/myfirstblog/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/test-chinese/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/test-chinese/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cjh520-hjw.github.io/en/posts/test-chinese/"
+                href="https://cjh520-hjw.github.io/en/p/test-chinese/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://cjh520-hjw.github.io/posts/test-chinese/"
+                href="https://cjh520-hjw.github.io/p/test-chinese/"
                 />
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -107,46 +107,46 @@
     <lastmod>2025-07-19T20:36:13+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/css/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/html/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/markdown/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/markdown-syntax/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/markdown-syntax-guide/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/syntax/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/themes/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/themes/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/placeholder-text/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/placeholder-text/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/tag-with-whitespaces/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/categories/test-with-whitespaces/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/text/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/math-typesetting/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/math-typesetting/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/tags/emoji/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
-    <loc>https://cjh520-hjw.github.io/posts/emoji-support/</loc>
-    <lastmod>2025-07-20T15:40:27+08:00</lastmod>
+    <loc>https://cjh520-hjw.github.io/p/emoji-support/</loc>
+    <lastmod>2025-07-20T15:48:37+08:00</lastmod>
   </url><url>
     <loc>https://cjh520-hjw.github.io/</loc>
     <lastmod>2025-07-07T14:02:05+08:00</lastmod>
