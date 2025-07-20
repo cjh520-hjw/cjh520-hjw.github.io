@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>学习 on 嬉皮士-Hippie</title>
+        <link>https://cjh520-hjw.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
+        <description>Recent content in 学习 on 嬉皮士-Hippie</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>嬉皮士-Hippie</copyright>
+        <lastBuildDate>Sun, 20 Jul 2025 15:40:27 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>英语词汇学习卡片</title>
+        <link>https://cjh520-hjw.github.io/posts/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%89%87/</link>
+        <pubDate>Sun, 20 Jul 2025 12:00:00 +0800</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/posts/%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%89%87/</guid>
+        <description>&lt;h1 id=&#34;英语词汇学习卡片&#34;&gt;英语词汇学习卡片
+&lt;/h1&gt;&lt;p&gt;欢迎使用交互式卡片学习英语词汇，包含词组、派生、词根和近反义词，所有内容都支持发音功能。&lt;/p&gt;
+
+&lt;!-- 引入Font Awesome --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34;&gt;
+
+&lt;!-- 引入外部CSS文件 --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cjh520-hjw.github.io/css/vocabulary.css&#34;&gt;
+
+&lt;!-- 单词卡片容器 --&gt;
+&lt;div id=&#34;vocab-container&#34;&gt;
+    &lt;!-- 第一个单词: ambulance --&gt;
+    &lt;div class=&#34;vocab-card&#34; data-word=&#34;ambulance&#34;&gt;
+        &lt;div class=&#34;vocab-header&#34;&gt;
+            &lt;div class=&#34;word-pronunciation&#34;&gt;
+                &lt;div&gt;
+                    &lt;h2 class=&#34;word&#34;&gt;ambulance&lt;/h2&gt;
+                    &lt;p class=&#34;pronunciation&#34;&gt;/ˈæmbjələns/&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;ambulance&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;p class=&#34;definition&#34;&gt;A vehicle equipped for taking sick or injured people to and from hospital, especially in emergencies.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;vocab-actions&#34;&gt;
+            &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;ambulance&#39;)&#34;&gt;
+                &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-ambulance&#34;&gt;
+                &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-ambulance&#34;&gt;
+                &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-ambulance&#34;&gt;
+                &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-ambulance&#34;&gt;
+                &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;ambulance&#39;)&#34;&gt;
+                &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;vocab-content&#34;&gt;
+            &lt;!-- 词组区域 --&gt;
+            &lt;div class=&#34;content-section active&#34; id=&#34;phrases-ambulance&#34;&gt;
+                &lt;div class=&#34;example-item&#34;&gt;
+                    &lt;h4 class=&#34;example-phrase&#34;&gt;ambulance service&lt;/h4&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulance service responded quickly to the emergency call.&lt;/p&gt;
+                    &lt;p class=&#34;example-translation&#34;&gt;救护服务对紧急呼叫做出了快速响应。&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulance service responded quickly to the emergency call.&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;example-item&#34;&gt;
+                    &lt;h4 class=&#34;example-phrase&#34;&gt;ambulance crew&lt;/h4&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulance crew stabilized the patient before transporting him.&lt;/p&gt;
+                    &lt;p class=&#34;example-translation&#34;&gt;救护人员在运送病人前先稳定了他的病情。&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulance crew stabilized the patient before transporting him.&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 派生区域 --&gt;
+            &lt;div class=&#34;content-section&#34; id=&#34;derivatives-ambulance&#34;&gt;
+                &lt;div class=&#34;example-item&#34;&gt;
+                    &lt;h4 class=&#34;derivative-word&#34;&gt;ambulanceman &lt;span class=&#34;part-of-speech&#34;&gt;(noun)&lt;/span&gt;&lt;/h4&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulanceman administered first aid at the scene.&lt;/p&gt;
+                    &lt;p class=&#34;example-translation&#34;&gt;救护员在现场进行了急救。&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulanceman administered first aid at the scene.&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 词根区域 --&gt;
+            &lt;div class=&#34;content-section&#34; id=&#34;roots-ambulance&#34;&gt;
+                &lt;div class=&#34;example-item root-item&#34;&gt;
+                    &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;ambul-&lt;/span&gt; - to walk or move&lt;/p&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;例: ambulate (行走), perambulator (婴儿车)&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;ambulate, perambulator&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- 近反义词区域 --&gt;
+            &lt;div class=&#34;content-section&#34; id=&#34;synonyms-ambulance&#34;&gt;
+                &lt;h3&gt;近义词&lt;/h3&gt;
+                &lt;div class=&#34;synonyms-list&#34;&gt;
+                    &lt;div class=&#34;synonym-item&#34;&gt;rescue vehicle&lt;/div&gt;
+                    &lt;div class=&#34;synonym-item&#34;&gt;emergency vehicle&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&#34;example-item&#34;&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;All traffic stopped to let the emergency vehicle pass.&lt;/p&gt;
+                    &lt;p class=&#34;example-translation&#34;&gt;所有车辆都停下来让紧急车辆通过。&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;All traffic stopped to let the emergency vehicle pass.&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 第二个单词: entrepreneur --&gt;
+    &lt;div class=&#34;vocab-card&#34; data-word=&#34;entrepreneur&#34; style=&#34;display: none;&#34;&gt;
+        &lt;div class=&#34;vocab-header&#34;&gt;
+            &lt;div class=&#34;word-pronunciation&#34;&gt;
+                &lt;div&gt;
+                    &lt;h2 class=&#34;word&#34;&gt;entrepreneur&lt;/h2&gt;
+                    &lt;p class=&#34;pronunciation&#34;&gt;/ˌɒntrəprəˈnɜː(r)/&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;entrepreneur&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;p class=&#34;definition&#34;&gt;A person who sets up a business or businesses, taking on financial risks in the hope of profit.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;vocab-actions&#34;&gt;
+            &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;entrepreneur&#39;)&#34;&gt;
+                &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-entrepreneur&#34;&gt;
+                &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-entrepreneur&#34;&gt;
+                &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-entrepreneur&#34;&gt;
+                &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-entrepreneur&#34;&gt;
+                &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+            &lt;/button&gt;
+            &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;entrepreneur&#39;)&#34;&gt;
+                &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&#34;vocab-content&#34;&gt;
+            &lt;!-- 词组区域 --&gt;
+            &lt;div class=&#34;content-section active&#34; id=&#34;phrases-entrepreneur&#34;&gt;
+                &lt;div class=&#34;example-item&#34;&gt;
+                    &lt;h4 class=&#34;example-phrase&#34;&gt;social entrepreneur&lt;/h4&gt;
+                    &lt;p class=&#34;example-sentence&#34;&gt;She is a social entrepreneur who founded a nonprofit organization to help homeless people.&lt;/p&gt;
+                    &lt;p class=&#34;example-translation&#34;&gt;她是一位社会企业家，创立了一个非营利组织来帮助无家可归者。&lt;/p&gt;
+                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;She is a social entrepreneur who founded a nonprofit organization to help homeless people.&#39;, this)&#34;&gt;
+                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 引入外部JavaScript文件 --&gt;
+&lt;script src=&#34;https://cjh520-hjw.github.io/js/vocabulary.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

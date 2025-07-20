@@ -1,0 +1,244 @@
+/* 莫兰迪色系定义 - 主色为EFAE8E */
+:root {
+  --primary-color: #EFAE8E;
+  --primary-dark: #D49A7A;
+  --primary-light: #F5D6C6;
+  --text-color: #6B5A4A;
+  --bg-light: #F9F2ED;
+  --shadow-color: rgba(239, 174, 142, 0.2);
+}
+
+/* 单词卡片容器样式 */
+.vocab-card {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.vocab-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 单词头部样式 - 莫兰迪色系 */
+.vocab-header {
+  background: linear-gradient(135deg, #F9F2ED 0%, var(--primary-color) 100%);
+  color: var(--text-color);
+  padding: 2rem;
+  position: relative;
+}
+
+.word-pronunciation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.word {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.pronunciation {
+  color: var(--text-color);
+  font-style: italic;
+  margin-left: 1rem;
+  opacity: 0.8;
+}
+
+.audio-btn {
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+}
+
+.definition {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* 功能按钮区域 */
+.vocab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 1rem 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6B5A4A;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.action-btn:hover {
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+.action-btn.active {
+  border-bottom-color: var(--primary-dark);
+  color: var(--text-color);
+}
+
+/* 内容展示区域 */
+.vocab-content {
+  padding: 1.5rem 2rem;
+}
+
+.content-section {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* 例句样式 */
+.example-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.example-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.example-sentence {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.example-translation {
+  color: #6b7280;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.example-audio {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-color);
+  background: var(--bg-light);
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.example-audio:hover {
+  background: var(--primary-light);
+}
+
+/* 近义词反义词样式 */
+.synonyms-list, .antonyms-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.synonym-item, .antonym-item {
+  background-color: var(--bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.synonym-item:hover, .antonym-item:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* 词根词缀样式 */
+.root-item {
+  margin-bottom: 1.2rem;
+}
+
+.root-part {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-right: 0.5rem;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 加载指示器 */
+.loading-indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(212, 154, 122, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-dark);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+  .vocab-header {
+    padding: 1.5rem;
+  }
+
+  .word {
+    font-size: 2rem;
+  }
+
+  .vocab-content {
+    padding: 1rem 1.5rem;
+  }
+
+  .action-btn {
+    font-size: 0.85rem;
+    padding: 0.8rem 0.3rem;
+  }
+}
+
