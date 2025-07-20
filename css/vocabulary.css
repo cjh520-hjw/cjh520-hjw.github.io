@@ -11,10 +11,10 @@
 /* 单词卡片容器样式 */
 .vocab-card {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 800px;
+  max-width: 666px;
   margin: 2rem auto;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 36px;
   box-shadow: 0 10px 30px var(--shadow-color);
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -40,13 +40,13 @@
 }
 
 .word {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
 }
 
 .pronunciation {
   color: var(--text-color);
-  font-style: italic;
+  font-style: normal;
   margin-left: 1rem;
   opacity: 0.8;
 }
@@ -71,9 +71,9 @@
 }
 
 .definition {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  opacity: 0.9;
+  font-size: 2rem;
+  line-height: 1.5;
+  opacity: 1;
 }
 
 /* 功能按钮区域 */
@@ -90,8 +90,8 @@
   background: none;
   border: none;
   border-bottom: 3px solid transparent;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 1000;
   color: #6B5A4A;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -113,7 +113,7 @@
 
 /* 内容展示区域 */
 .vocab-content {
-  padding: 1.5rem 2rem;
+  padding: 3rem 2.5rem;
 }
 
 .content-section {
@@ -129,7 +129,7 @@
 .example-item {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 2.5px solid #f0f0f0;
 }
 
 .example-item:last-child {
@@ -139,15 +139,15 @@
 }
 
 .example-sentence {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 
 .example-translation {
   color: #6b7280;
-  font-style: italic;
-  margin-bottom: 0.75rem;
+  font-style: normal;
+  margin-bottom: 3rem;
 }
 
 .example-audio {
@@ -156,9 +156,9 @@
   color: var(--text-color);
   background: var(--bg-light);
   border: none;
-  border-radius: 20px;
-  padding: 0.4rem 1rem;
-  font-size: 0.9rem;
+  border-radius: 16px;
+  padding: 0.6rem 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -171,15 +171,15 @@
 .synonyms-list, .antonyms-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .synonym-item, .antonym-item {
   background-color: var(--bg-light);
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: 1.8rem;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -198,7 +198,7 @@
 .root-part {
   font-weight: 600;
   color: var(--text-color);
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 /* 动画效果 */
