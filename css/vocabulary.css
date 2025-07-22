@@ -225,20 +225,20 @@
 /* 响应式调整 */
 @media (max-width: 690px) {
   .vocab-header {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .word {
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
 
   .vocab-content {
-    padding: 3rem 2.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .action-btn {
-    font-size: 1.5rem;
-    padding: 1rem 0.5rem;
+    font-size: 0.85rem;
+    padding: 0.8rem 0.3rem;
   }
 }
 
