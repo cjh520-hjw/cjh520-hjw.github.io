@@ -10,7 +10,7 @@
 <meta property='og:description' content="交互式英语词汇学习卡片，包含词组、派生、词根和近反义词">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/%E8%8B%B1%E8%AF%AD%E5%8D%A1%E7%89%87%E5%BC%8F%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='卡片式学习' /><meta property='article:published_time' content='2025-07-20T12:00:00&#43;08:00'/><meta property='article:modified_time' content='2025-07-20T19:48:20&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='卡片式学习' /><meta property='article:published_time' content='2025-07-20T12:00:00&#43;08:00'/><meta property='article:modified_time' content='2025-07-22T11:41:49&#43;08:00'/>
 <meta name="twitter:title" content="英语卡片式学习">
 <meta name="twitter:description" content="交互式英语词汇学习卡片，包含词组、派生、词根和近反义词">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -1195,14 +1195,239 @@
 
 </div>
 
-
 <!-- 引入外部JavaScript文件 -->
+
 <script src="/js/vocabulary.js"></script>
 
 
 
 <h2 id="第2天">第2天
-</h2><h2 id="第3天">第3天
+</h2>
+<!-- 引入Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- 引入外部CSS文件 -->
+<link rel="stylesheet" href="/css/vocabulary.css">
+
+<!-- 单词卡片容器 -->
+
+<div id="vocab-container">
+<div class="vocab-card" data-word="religious">
+    <div class="vocab-header">
+        <div class="word-pronunciation">
+            <div>
+                <h2 class="word">religious</h2>
+                <p class="pronunciation"></p> <!-- 如 /bəˈnɑːnə/ -->
+            </div>
+            <button class="audio-btn" onclick="speakText('religious', this)">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        <p class="definition">adj.宗教的，虔诚的</p> <!-- 如 A long curved fruit with a yellow skin. -->
+    </div>
+
+
+    <div class="vocab-actions">
+        <button class="action-btn" onclick="showPrevWord('religious')">
+            <i class="fas fa-arrow-left"></i> 上一个
+        </button>
+        <button class="action-btn active" data-section="phrases-religious">
+            <i class="fas fa-language"></i> 词组
+        </button>
+        <button class="action-btn" data-section="derivatives-religious">
+            <i class="fas fa-code-branch"></i> 派生
+        </button>
+        <button class="action-btn" data-section="roots-religious">
+            <i class="fas fa-seedling"></i> 词根
+        </button>
+        <button class="action-btn" data-section="synonyms-religious">
+            <i class="fas fa-exchange-alt"></i> 近反义词
+        </button>
+        <button class="action-btn" onclick="showNextWord('religious')">
+            <i class="fas fa-arrow-right"></i> 下一个
+        </button>
+    </div>
+    
+    <div class="vocab-content">
+        <!-- 词组区域 -->
+        <div class="content-section active" id="phrases-religious">
+            <div class="example-item">
+                <h4 class="example-phrase">religious beliefs   宗教信仰</h4> <!-- 如 banana peel -->
+                <p class="example-sentence"></p> <!-- 如 She slipped on a banana peel. -->
+                <p class="example-translation"></p> <!-- 如 她踩在香蕉皮上滑倒了。 -->
+                
+            </div>
+            <!-- 可复制上面的 .example-item 添加更多词组 -->
+            <div class="example-item">
+                <h4 class="example-phrase">religious freedom 宗教自由</h4> <!-- 如 banana peel -->
+                <p class="example-sentence">We stand for religious freedom.</p> <!-- 如 She slipped on a banana peel. -->
+                <p class="example-translation">我们支持宗教自由。</p> <!-- 如 她踩在香蕉皮上滑倒了。 -->
+                <button class="example-audio" onclick="speakText('We stand for religious freedom.', this)">
+                    <i class="fas fa-volume-up"></i> 听句子
+                </button>
+            </div>
+            <!-- 可复制上面的 .example-item 添加更多词组 -->
+            <div class="example-item">
+                <h4 class="example-phrase">religious people 虔诚的人</h4> <!-- 如 banana peel -->
+                <p class="example-sentence">Religious people are less likely to commit suicide.</p> <!-- 如 She slipped on a banana peel. -->
+                <p class="example-translation">有信仰的人自杀的可能性更低</p> <!-- 如 她踩在香蕉皮上滑倒了。 -->
+                <button class="example-audio" onclick="speakText('Religious people are less likely to commit suicide.', this)">
+                    <i class="fas fa-volume-up"></i> 听句子
+                </button>                
+            </div>
+            <!-- 可复制上面的 .example-item 添加更多词组 -->
+        </div>
+    
+        <!-- 派生区域 -->
+        <div class="content-section" id="derivatives-religious">
+            <div class="example-item">
+                <h4 class="derivative-word">religion <span class="part-of-speech">n.宗教，宗教信仰</span></h4> <!-- 如 bananalike (adj.) -->
+                <p class="example-sentence"></p> <!-- 如 The fruit has a bananalike shape. -->
+                <p class="example-translation"></p> <!-- 如 这种水果有类似香蕉的形状。 -->
+                
+            </div>
+            <!-- 无派生词可删除此区域 -->
+            <div class="example-item">
+                <h4 class="derivative-word">religiously <span class="part-of-speech">adv.与宗教相关地</span></h4> <!-- 如 bananalike (adj.) -->
+                <p class="example-sentence"></p> <!-- 如 The fruit has a bananalike shape. -->
+                <p class="example-translation"></p> <!-- 如 这种水果有类似香蕉的形状。 -->
+                
+            </div>
+            <!-- 无派生词可删除此区域 -->
+        </div>
+    
+        <!-- 词根区域 -->
+        <div class="content-section" id="roots-religious">
+            <div class="example-item root-item">
+                <p><span class="root-part">-ous</span> =构成形容词：有……特性的</p> <!-- 如 无词根可留空或删除 -->
+                <p class="example-sentence"></p>
+                
+            </div>
+            <!-- 无词根可删除此区域 -->
+        </div>
+    
+        <!-- 近反义词区域 -->
+        <div class="content-section" id="synonyms-religious">
+            <h3>近义词</h3>
+            <div class="synonyms-list">
+                <div class="synonym-item">holy</div> <!-- 如 fruit -->
+                
+            </div>
+    
+            <div class="example-item">
+                <p class="example-sentence"></p> <!-- 如 She ate a piece of fruit. -->
+                <p class="example-translation"></p> <!-- 如 她吃了一块水果。 -->
+                <button class="example-audio" onclick="speakText('holy', this)">
+                    <i class="fas fa-volume-up"></i> 
+                </button>
+            </div>
+            <!-- 无近反义词可删除此区域 -->
+        </div>
+    </div>
+</div>
+<!-- 新增单词模板：将所有 [单词] 替换为实际单词（如 "banana"） -->
+<div class="vocab-card" data-word="wipe" style="display: none;">
+    <div class="vocab-header">
+        <div class="word-pronunciation">
+            <div>
+                <h2 class="word">wipe</h2>
+                <p class="pronunciation">/waɪp/</p>    </div>
+            <button class="audio-btn" onclick="speakText('[单词]', this)">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        <p class="definition">[英文释义]</p> <!-- 如 A long curved fruit with a yellow skin. -->
+    </div>
+
+    <div class="vocab-actions">
+        <button class="action-btn" onclick="showPrevWord('[单词]')">
+            <i class="fas fa-arrow-left"></i> 上一个
+        </button>
+        <button class="action-btn active" data-section="phrases-[单词]">
+            <i class="fas fa-language"></i> 词组
+        </button>
+        <button class="action-btn" data-section="derivatives-[单词]">
+            <i class="fas fa-code-branch"></i> 派生
+        </button>
+        <button class="action-btn" data-section="roots-[单词]">
+            <i class="fas fa-seedling"></i> 词根
+        </button>
+        <button class="action-btn" data-section="synonyms-[单词]">
+            <i class="fas fa-exchange-alt"></i> 近反义词
+        </button>
+        <button class="action-btn" onclick="showNextWord('[单词]')">
+            <i class="fas fa-arrow-right"></i> 下一个
+        </button>
+    </div>
+
+    <div class="vocab-content">
+        <!-- 词组区域 -->
+        <div class="content-section active" id="phrases-[单词]">
+            <div class="example-item">
+                <h4 class="example-phrase">[词组1]</h4> <!-- 如 banana peel -->
+                <p class="example-sentence">[例句1]</p> <!-- 如 She slipped on a banana peel. -->
+                <p class="example-translation">[例句1翻译]</p> <!-- 如 她踩在香蕉皮上滑倒了。 -->
+                <button class="example-audio" onclick="speakText('[例句1]', this)">
+                    <i class="fas fa-volume-up"></i> 听句子
+                </button>
+            </div>
+            <!-- 可复制上面的 .example-item 添加更多词组 -->
+        </div>
+
+        <!-- 派生区域 -->
+        <div class="content-section" id="derivatives-[单词]">
+            <div class="example-item">
+                <h4 class="derivative-word">[派生词] <span class="part-of-speech">(词性)</span></h4> <!-- 如 bananalike (adj.) -->
+                <p class="example-sentence">[派生词例句]</p> <!-- 如 The fruit has a bananalike shape. -->
+                <p class="example-translation">[派生词例句翻译]</p> <!-- 如 这种水果有类似香蕉的形状。 -->
+                <button class="example-audio" onclick="speakText('[派生词例句]', this)">
+                    <i class="fas fa-volume-up"></i> 听句子
+                </button>
+            </div>
+            <!-- 无派生词可删除此区域 -->
+        </div>
+
+        <!-- 词根区域 -->
+        <div class="content-section" id="roots-[单词]">
+            <div class="example-item root-item">
+                <p><span class="root-part">[词根]</span> - [词根含义]</p> <!-- 如 无词根可留空或删除 -->
+                <p class="example-sentence">例: [包含词根的单词]</p>
+                <button class="example-audio" onclick="speakText('[包含词根的单词]', this)">
+                    <i class="fas fa-volume-up"></i> 听例子
+                </button>
+            </div>
+            <!-- 无词根可删除此区域 -->
+        </div>
+
+        <!-- 近反义词区域 -->
+        <div class="content-section" id="synonyms-[单词]">
+            <h3>近义词</h3>
+            <div class="synonyms-list">
+                <div class="synonym-item">[近义词1]</div> <!-- 如 fruit -->
+                <div class="synonym-item">[近义词2]</div>
+            </div>
+
+            <div class="example-item">
+                <p class="example-sentence">[近义词例句]</p> <!-- 如 She ate a piece of fruit. -->
+                <p class="example-translation">[近义词例句翻译]</p> <!-- 如 她吃了一块水果。 -->
+                <button class="example-audio" onclick="speakText('[近义词例句]', this)">
+                    <i class="fas fa-volume-up"></i> 听句子
+                </button>
+            </div>
+            <!-- 无近反义词可删除此区域 -->
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 引入外部JavaScript文件 -->
+
+<script src="/js/vocabulary.js"></script>
+
+
+
+
+<h2 id="第3天">第3天
 </h2><h2 id="第4天">第4天
 </h2><h2 id="第5天">第5天
 </h2><h2 id="第6天">第6天
@@ -1588,7 +1813,7 @@
 
 
         <span>
-            最后更新于 Jul 20, 2025 19:48 &#43;0800
+            最后更新于 Jul 22, 2025 11:41 &#43;0800
         </span>
     </section></footer>
 
