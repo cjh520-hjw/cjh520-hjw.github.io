@@ -147,7 +147,7 @@
 .example-translation {
   color: #6b7280;
   font-style: normal;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem;//例句翻译距离喇叭
 }
 
 .example-audio {
@@ -223,22 +223,22 @@
 }
 
 /* 响应式调整 */
-@media (max-width: 600px) {
+@media (max-width: 690px) {
   .vocab-header {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .word {
-    font-size: 2rem;
+    font-size: 3.5rem;
   }
 
   .vocab-content {
-    padding: 1rem 1.5rem;
+    padding: 3rem 2.5rem;
   }
 
   .action-btn {
-    font-size: 0.85rem;
-    padding: 0.8rem 0.3rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
   }
 }
 
