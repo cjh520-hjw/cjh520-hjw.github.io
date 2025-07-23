@@ -6,6 +6,8 @@
   --text-color: #6B5A4A;
   --bg-light: #F9F2ED;
   --shadow-color: rgba(239, 174, 142, 0.2);
+  --light-text: #6B5A4A; /* 浅色模式通用文本色 */
+  --dark-text: #E8E8E8;  /* 深色模式通用文本色，与背景适配 */
 }
 
 /* 单词卡片容器样式 */
@@ -18,18 +20,28 @@
   box-shadow: 0 10px 30px var(--shadow-color);
   overflow: hidden;
   transition: transform 0.3s ease;
+  color: var(--light-text); /* 浅色模式默认文本色 */
 }
 
 .vocab-card:hover {
   transform: translateY(-5px);
 }
 
+/* 深色模式卡片样式切换 */
+.vocab-card.dark {
+  background: #2D2D3F;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  color: var(--dark-text); /* 深色模式默认文本色 */
+}
+
 /* 单词头部样式 - 莫兰迪色系 */
 .vocab-header {
   background: linear-gradient(135deg, #F9F2ED 0%, var(--primary-color) 100%);
-  color: var(--text-color);
   padding: 2rem;
   position: relative;
+}
+.vocab-card.dark .vocab-header {
+  background: linear-gradient(135deg, #2D2D3F 0%, var(--primary-color) 100%);
 }
 
 .word-pronunciation {
@@ -45,7 +57,6 @@
 }
 
 .pronunciation {
-  color: var(--text-color);
   font-style: Italic;
   margin-left: 1rem;
   opacity: 0.8;
@@ -57,17 +68,24 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  color: var(--text-color);
+  color: var(--light-text);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
 }
+.vocab-card.dark .audio-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--dark-text);
+}
 
 .audio-btn:hover {
   background: rgba(255, 255, 255, 0.6);
   transform: scale(1.1);
+}
+.vocab-card.dark .audio-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .definition {
@@ -82,6 +100,9 @@
   flex-wrap: wrap;
   border-bottom: 1px solid #f0f0f0;
 }
+.vocab-card.dark .vocab-actions {
+  border-bottom-color: #3D3D50;
+}
 
 .action-btn {
   flex: 1;
@@ -92,7 +113,7 @@
   border-bottom: 3px solid transparent;
   font-size: 1.5rem;
   font-weight: 1000;
-  color: #6B5A4A;
+  color: var(--light-text);
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -100,15 +121,24 @@
   justify-content: center;
   gap: 0.5rem;
 }
+.vocab-card.dark .action-btn {
+  color: var(--dark-text);
+}
 
 .action-btn:hover {
   background-color: var(--bg-light);
-  color: var(--text-color);
+  color: var(--light-text);
+}
+.vocab-card.dark .action-btn:hover {
+  background-color: #3A3A52;
 }
 
 .action-btn.active {
   border-bottom-color: var(--primary-dark);
-  color: var(--text-color);
+  color: var(--light-text);
+}
+.vocab-card.dark .action-btn.active {
+  color: var(--dark-text);
 }
 
 /* 内容展示区域 */
@@ -131,6 +161,9 @@
   padding-bottom: 0.5rem;
   border-bottom: 1.5px solid #f0f0f0;
 }
+.vocab-card.dark .example-item {
+  border-bottom-color: #3D3D50;
+}
 
 .example-item:last-child {
   border-bottom: none;
@@ -142,18 +175,25 @@
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   line-height: 1.6;
+  color: var(--light-text); /* 显式继承文本色 */
+}
+.vocab-card.dark .example-sentence {
+  color: var(--dark-text);
 }
 
 .example-translation {
   color: #6b7280;
   font-style: normal;
-  margin-bottom: 1rem;//例句翻译距离喇叭
+  margin-bottom: 1rem; /* 修正注释语法 */
+}
+.vocab-card.dark .example-translation {
+  color: #B0B0C0;
 }
 
 .example-audio {
   display: inline-flex;
   align-items: center;
-  color: var(--text-color);
+  color: var(--light-text);
   background: var(--bg-light);
   border: none;
   border-radius: 16px;
@@ -162,8 +202,15 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
+.vocab-card.dark .example-audio {
+  background: #3A3A52;
+  color: var(--dark-text);
+}
 
 .example-audio:hover {
+  background: var(--primary-light);
+}
+.vocab-card.dark .example-audio:hover {
   background: var(--primary-light);
 }
 
@@ -180,14 +227,23 @@
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 1.8rem;
-  color: var(--text-color);
+  color: var(--light-text);
   cursor: pointer;
   transition: all 0.2s ease;
+}
+.vocab-card.dark .synonym-item,
+.vocab-card.dark .antonym-item {
+  background-color: #3A3A52;
+  color: var(--dark-text);
 }
 
 .synonym-item:hover, .antonym-item:hover {
   background-color: var(--primary-light);
   transform: translateY(-2px);
+}
+.vocab-card.dark .synonym-item:hover,
+.vocab-card.dark .antonym-item:hover {
+  background-color: var(--primary-light);
 }
 
 /* 词根词缀样式 */
@@ -197,8 +253,11 @@
 
 .root-part {
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--light-text);
   margin-right: 1rem;
+}
+.vocab-card.dark .root-part {
+  color: var(--dark-text);
 }
 
 /* 动画效果 */
@@ -241,4 +300,3 @@
     padding: 0.8rem 0.3rem;
   }
 }
-
