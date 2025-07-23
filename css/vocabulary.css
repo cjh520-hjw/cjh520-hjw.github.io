@@ -11,7 +11,7 @@
 /* 单词卡片容器样式 */
 .vocab-card {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 690px;
+  max-width: 666px;
   margin: 2rem auto;
   background: #ffffff;
   border-radius: 36px;
@@ -139,9 +139,9 @@
 }
 
 .example-sentence {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
-  line-height: 1.2;
+  line-height: 1.6;
 }
 
 .example-translation {
@@ -223,7 +223,7 @@
 }
 
 /* 响应式调整 */
-@media (max-width: 690px) {
+@media (max-width: 666px) {
   .vocab-header {
     padding: 1.5rem;
   }
