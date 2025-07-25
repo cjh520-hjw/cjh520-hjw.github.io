@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Tue, 22 Jul 2025 11:41:49 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 25 Jul 2025 11:18:35 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>C&#43;&#43;初步</title>
         <link>https://cjh520-hjw.github.io/p/c-%E5%88%9D%E6%AD%A5/</link>
         <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
@@ -344,6 +344,235 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 &lt;/h4&gt;</description>
         </item>
         <item>
+        <title>手写板||留言板</title>
+        <link>https://cjh520-hjw.github.io/p/%E6%89%8B%E5%86%99%E6%9D%BF%E7%95%99%E8%A8%80%E6%9D%BF/</link>
+        <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/p/%E6%89%8B%E5%86%99%E6%9D%BF%E7%95%99%E8%A8%80%E6%9D%BF/</guid>
+        <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;title&gt;纯静态手写板&lt;/title&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;&gt;
+  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif;
+    }
+&lt;pre&gt;&lt;code&gt;body {
+  background-color: #f5f7fa;
+  padding: 20px;
+}
+
+#notePad {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+#debugInfo {
+  padding: 8px 16px;
+  background-color: #f7f8fa;
+  color: #8a919f;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.top-controls {
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.main-btn {
+  background-color: #36cbcb;
+  color: white;
+}
+
+.main-btn:hover {
+  background-color: #2dbaba;
+}
+
+#drawArea {
+  display: none;
+}
+
+#canvas {
+  width: 100%;
+  height: 400px;
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #f0f2f5;
+  cursor: crosshair;
+}
+
+.draw-controls {
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f2f5;
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.action-btn:hover {
+  background-color: #eef0f3;
+}
+
+#result {
+  min-height: 200px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+#result p {
+  color: #999;
+  font-size: 15px;
+  padding: 40px 0;
+  line-height: 1.6;
+}
+
+#result img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&#34;notePad&#34;&gt;
+    &lt;div id=&#34;debugInfo&#34;&gt;已初始化（独立页面）&lt;/div&gt;
+    &lt;div class=&#34;top-controls&#34;&gt;
+      &lt;button class=&#34;main-btn&#34; onclick=&#34;openDrawArea()&#34;&gt;
+        &lt;i class=&#34;fas fa-pen&#34;&gt;&lt;/i&gt; 打开手写板
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;drawArea&#34;&gt;
+      &lt;canvas id=&#34;canvas&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+      &lt;div class=&#34;draw-controls&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;clearCanvas()&#34;&gt;
+          &lt;i class=&#34;fas fa-eraser&#34;&gt;&lt;/i&gt; 清除
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;saveCanvas()&#34;&gt;
+          &lt;i class=&#34;fas fa-save&#34;&gt;&lt;/i&gt; 保存
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;closeDrawArea()&#34;&gt;
+          &lt;i class=&#34;fas fa-times&#34;&gt;&lt;/i&gt; 关闭
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;result&#34;&gt;
+      &lt;p&gt;手写内容将显示在这里&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    var canvas = document.getElementById(&#39;canvas&#39;);
+    var ctx = canvas.getContext(&#39;2d&#39;);
+    ctx.strokeStyle = &#39;#000&#39;;
+    ctx.lineWidth = 2;
+    ctx.lineCap = &#39;round&#39;;
+
+    let isDrawing = false;
+    canvas.onmousedown = (e) =&gt; {
+      isDrawing = true;
+      let rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    };
+    canvas.onmousemove = (e) =&gt; {
+      if (isDrawing) {
+        let rect = canvas.getBoundingClientRect();
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+        ctx.stroke();
+      }
+    };
+    canvas.onmouseup = () =&gt; { isDrawing = false; };
+    canvas.onmouseout = () =&gt; { isDrawing = false; };
+    
+    function openDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;block&#39;; }
+    function closeDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;none&#39;; }
+    function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    function saveCanvas() { 
+      let imgData = canvas.toDataURL(&#39;image/png&#39;);
+      document.getElementById(&#39;result&#39;).innerHTML = `&lt;img src=&#34;${imgData}&#34; style=&#34;max-width:100%;&#34;&gt;`;
+      closeDrawArea();
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</description>
+        </item>
+        <item>
+        <title>谷歌为何要退出中国</title>
+        <link>https://cjh520-hjw.github.io/p/%E8%B0%B7%E6%AD%8C%E4%B8%BA%E4%BD%95%E8%A6%81%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD/</link>
+        <pubDate>Wed, 23 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/p/%E8%B0%B7%E6%AD%8C%E4%B8%BA%E4%BD%95%E8%A6%81%E9%80%80%E5%87%BA%E4%B8%AD%E5%9B%BD/</guid>
+        <description>&lt;p&gt;谷歌退出中国市场的核心原因是多重因素交织的结果，主要可归结为以下几个方面：&lt;/p&gt;
+&lt;h2 id=&#34;一审查政策冲突价值观与商业现实的碰撞&#34;&gt;一、审查政策冲突：价值观与商业现实的碰撞
+&lt;/h2&gt;&lt;p&gt;谷歌自 2006 年进入中国时承诺遵守本地法律，对搜索结果进行过滤（如显示 “据当地法律法规和政策，部分搜索结果未予显示”）（&lt;a class=&#34;link&#34; href=&#34;https://m.baike.com/wiki/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba/23488335?baike_source=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;抖音百科&lt;/a&gt;）。但这种妥协逐渐引发内部争议。2010 年，谷歌公开表示 “不愿再审查&lt;a class=&#34;link&#34; href=&#34;https://Google.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google.cn&lt;/a&gt;上的搜索结果”，并要求在中国法律框架内运营未过滤的搜索引擎，这一诉求与中国互联网审查制度直接冲突（&lt;a class=&#34;link&#34; href=&#34;https://wiki.mbalib.com/zh-tw/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MBA 智库&lt;/a&gt;）。其联合创始人 Sergey Brin 尤其反对审查，认为这违背了谷歌 “不作恶” 的原则，而 CEO 施密特虽曾试图妥协，但最终未能扭转决策（&lt;a class=&#34;link&#34; href=&#34;https://m.baike.com/wiki/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba/23488335?baike_source=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;抖音百科&lt;/a&gt;）。这种价值观冲突成为退出的核心动因。&lt;/p&gt;
+&lt;h2 id=&#34;二黑客攻击事件信任危机的导火索&#34;&gt;二、黑客攻击事件：信任危机的导火索
+&lt;/h2&gt;&lt;p&gt;2010 年 1 月，谷歌披露其系统遭受来自中国的 “高度复杂且针对性的攻击”，目标是获取人权活动人士的 Gmail 账户信息（&lt;a class=&#34;link&#34; href=&#34;https://news.sina.cn/sa/2010-03-23/detail-ikmyaawa2724465.d.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;新浪网&lt;/a&gt;）。尽管中国政府否认参与，但该事件被谷歌视为 “压垮骆驼的最后一根稻草”。谷歌在声明中强调，攻击不仅威胁技术安全，更暴露了 “对用户隐私和言论自由的系统性侵犯”（&lt;a class=&#34;link&#34; href=&#34;https://wiki.mbalib.com/zh-tw/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MBA 智库&lt;/a&gt;）。这一事件成为谷歌与中国政府谈判破裂的直接导火索，加速了退出进程。&lt;/p&gt;
+&lt;h2 id=&#34;三市场竞争压力本土化困境与商业回报失衡&#34;&gt;三、市场竞争压力：本土化困境与商业回报失衡
+&lt;/h2&gt;&lt;p&gt;尽管谷歌最初在中国市场占据约 30% 的份额，但其中 99% 来自未被审查的&lt;a class=&#34;link&#34; href=&#34;https://Google.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google.com&lt;/a&gt;，而本土化的&lt;a class=&#34;link&#34; href=&#34;https://Google.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google.cn&lt;/a&gt;因搜索结果受限，用户体验较差，仅吸引 1% 的用户（&lt;a class=&#34;link&#34; href=&#34;https://wiki.mbalib.com/zh-tw/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MBA 智库&lt;/a&gt;）。与此同时，百度凭借更贴近本地需求的服务（如竞价排名、贴吧等）占据 70% 以上市场份额（&lt;a class=&#34;link&#34; href=&#34;https://www.huxiu.com/article/139139.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;虎嗅&lt;/a&gt;）。谷歌投入大量资源却难以突破瓶颈，2009 年其大中华区总裁李开复离职更凸显战略困境（&lt;a class=&#34;link&#34; href=&#34;https://m.baike.com/wiki/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba/23488335?baike_source=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;抖音百科&lt;/a&gt;）。商业回报与投入的严重失衡，使得谷歌逐渐失去继续深耕中国市场的动力。&lt;/p&gt;
+&lt;h2 id=&#34;四法律监管环境合规成本与政策不确定性&#34;&gt;四、法律监管环境：合规成本与政策不确定性
+&lt;/h2&gt;&lt;p&gt;中国互联网法规要求外国公司配合内容审查，而谷歌希望以 “法院判决书形式” 替代行政指令式过滤，这种诉求未获中国政府认可（&lt;a class=&#34;link&#34; href=&#34;https://m.baike.com/wiki/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba/23488335?baike_source=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;抖音百科&lt;/a&gt;）。此外，数据本地化、用户隐私保护等政策的逐步收紧（如 2017 年《网络安全法》）进一步增加了运营成本（&lt;a class=&#34;link&#34; href=&#34;http://m.toutiao.com/group/7529875726183531054/?upstream_biz=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小瓜摸娱&lt;/a&gt;）。谷歌曾尝试通过香港服务器提供未审查搜索服务，但中国防火墙导致访问不稳定，用户流量大幅下降（&lt;a class=&#34;link&#34; href=&#34;https://m.baike.com/wiki/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba/23488335?baike_source=doubao&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;抖音百科&lt;/a&gt;）。法律环境的不确定性与合规压力，使得谷歌难以在华维持可持续运营。&lt;/p&gt;
+&lt;h2 id=&#34;五政治博弈中美关系的缩影&#34;&gt;五、政治博弈：中美关系的缩影
+&lt;/h2&gt;&lt;p&gt;事件背后隐含着中美在科技领域的战略博弈。美国政府公开支持谷歌，希拉里・克林顿发表声明称 “鼓励美国公司拒绝审查”，并呼吁中国调查黑客攻击（&lt;a class=&#34;link&#34; href=&#34;https://wiki.mbalib.com/zh-tw/%e8%b0%b7%e6%ad%8c%e9%80%80%e5%87%ba%e4%b8%ad%e5%9b%bd%e5%b8%82%e5%9c%ba&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MBA 智库&lt;/a&gt;）。而中国外交部强调 “外国公司应遵守中国法律”，反对将商业问题政治化（&lt;a class=&#34;link&#34; href=&#34;https://news.sina.cn/sa/2010-03-23/detail-ikmyaawa2724465.d.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;新浪网&lt;/a&gt;）。这种外交层面的对立，使得谷歌退出事件超越了商业范畴，成为中美网络空间话语权争夺的标志性事件。&lt;/p&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语
+&lt;/h2&gt;&lt;p&gt;谷歌退出中国是商业利益、价值观冲突、政治博弈与法律环境共同作用的结果。其核心矛盾在于：一家以 “信息自由” 为使命的跨国企业，难以在强调社会稳定与国家安全的中国监管框架内找到平衡点。这一事件不仅改变了中国搜索引擎市场格局（百度进一步巩固地位），也为其他外企在华运营提供了警示 —— 本土化需以尊重法律为前提，而全球化企业的价值观输出必然面临主权国家的制度约束。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>英语卡片式学习</title>
         <link>https://cjh520-hjw.github.io/p/%E8%8B%B1%E8%AF%AD%E5%8D%A1%E7%89%87%E5%BC%8F%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Sun, 20 Jul 2025 12:00:00 +0800</pubDate>
@@ -357,284 +586,16 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 
 &lt;!-- 引入外部CSS文件 --&gt;
 &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cjh520-hjw.github.io/css/vocabulary.css&#34;&gt;
-
 &lt;!-- 单词卡片容器 --&gt;
-
 &lt;div id=&#34;vocab-container&#34;&gt;
-    &lt;!-- 第一个单词: ambulance --&gt;
-    &lt;div class=&#34;vocab-card&#34; data-word=&#34;ambulance&#34;&gt;
-        &lt;div class=&#34;vocab-header&#34;&gt;
-            &lt;div class=&#34;word-pronunciation&#34;&gt;
-                &lt;div&gt;
-                    &lt;h2 class=&#34;word&#34;&gt;ambulance&lt;/h2&gt;
-                    &lt;p class=&#34;pronunciation&#34;&gt;/ˈæmbjələns/&lt;/p&gt;
-                &lt;/div&gt;
-                &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;ambulance&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;p class=&#34;definition&#34;&gt;A vehicle equipped for taking sick or injured people to and from hospital, especially in emergencies.&lt;/p&gt;
-        &lt;/div&gt;
 
-
-        &lt;div class=&#34;vocab-actions&#34;&gt;
-            &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;ambulance&#39;)&#34;&gt;
-                &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-ambulance&#34;&gt;
-                &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-ambulance&#34;&gt;
-                &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-ambulance&#34;&gt;
-                &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-ambulance&#34;&gt;
-                &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;ambulance&#39;)&#34;&gt;
-                &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
-            &lt;/button&gt;
-        &lt;/div&gt;
-    
-        &lt;div class=&#34;vocab-content&#34;&gt;
-            &lt;!-- 词组区域 --&gt;
-            &lt;div class=&#34;content-section active&#34; id=&#34;phrases-ambulance&#34;&gt;
-                &lt;div class=&#34;example-item&#34;&gt;
-                    &lt;h4 class=&#34;example-phrase&#34;&gt;ambulance service&lt;/h4&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulance service responded quickly to the emergency call.&lt;/p&gt;
-                    &lt;p class=&#34;example-translation&#34;&gt;救护服务对紧急呼叫做出了快速响应。&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulance service responded quickly to the emergency call.&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;example-item&#34;&gt;
-                    &lt;h4 class=&#34;example-phrase&#34;&gt;ambulance crew&lt;/h4&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulance crew stabilized the patient before transporting him.&lt;/p&gt;
-                    &lt;p class=&#34;example-translation&#34;&gt;救护人员在运送病人前先稳定了他的病情。&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulance crew stabilized the patient before transporting him.&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-    
-            &lt;!-- 派生区域 --&gt;
-            &lt;div class=&#34;content-section&#34; id=&#34;derivatives-ambulance&#34;&gt;
-                &lt;div class=&#34;example-item&#34;&gt;
-                    &lt;h4 class=&#34;derivative-word&#34;&gt;ambulanceman &lt;span class=&#34;part-of-speech&#34;&gt;(noun)&lt;/span&gt;&lt;/h4&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;The ambulanceman administered first aid at the scene.&lt;/p&gt;
-                    &lt;p class=&#34;example-translation&#34;&gt;救护员在现场进行了急救。&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The ambulanceman administered first aid at the scene.&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-    
-            &lt;!-- 词根区域 --&gt;
-            &lt;div class=&#34;content-section&#34; id=&#34;roots-ambulance&#34;&gt;
-                &lt;div class=&#34;example-item root-item&#34;&gt;
-                    &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;ambul-&lt;/span&gt; - to walk or move&lt;/p&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;例: ambulate (行走), perambulator (婴儿车)&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;ambulate, perambulator&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-    
-            &lt;!-- 近反义词区域 --&gt;
-            &lt;div class=&#34;content-section&#34; id=&#34;synonyms-ambulance&#34;&gt;
-                &lt;h3&gt;近义词&lt;/h3&gt;
-                &lt;div class=&#34;synonyms-list&#34;&gt;
-                    &lt;div class=&#34;synonym-item&#34;&gt;rescue vehicle&lt;/div&gt;
-                    &lt;div class=&#34;synonym-item&#34;&gt;emergency vehicle&lt;/div&gt;
-                &lt;/div&gt;
-    
-                &lt;div class=&#34;example-item&#34;&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;All traffic stopped to let the emergency vehicle pass.&lt;/p&gt;
-                    &lt;p class=&#34;example-translation&#34;&gt;所有车辆都停下来让紧急车辆通过。&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;All traffic stopped to let the emergency vehicle pass.&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    
-    &lt;!-- 第二个单词: entrepreneur --&gt;
-    &lt;div class=&#34;vocab-card&#34; data-word=&#34;entrepreneur&#34; style=&#34;display: none;&#34;&gt;
-        &lt;div class=&#34;vocab-header&#34;&gt;
-            &lt;div class=&#34;word-pronunciation&#34;&gt;
-                &lt;div&gt;
-                    &lt;h2 class=&#34;word&#34;&gt;entrepreneur&lt;/h2&gt;
-                    &lt;p class=&#34;pronunciation&#34;&gt;/ˌɒntrəprəˈnɜː(r)/&lt;/p&gt;
-                &lt;/div&gt;
-                &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;entrepreneur&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;p class=&#34;definition&#34;&gt;A person who sets up a business or businesses, taking on financial risks in the hope of profit.&lt;/p&gt;
-        &lt;/div&gt;
-    
-        &lt;div class=&#34;vocab-actions&#34;&gt;
-            &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;entrepreneur&#39;)&#34;&gt;
-                &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-entrepreneur&#34;&gt;
-                &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-entrepreneur&#34;&gt;
-                &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-entrepreneur&#34;&gt;
-                &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-entrepreneur&#34;&gt;
-                &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
-            &lt;/button&gt;
-            &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;entrepreneur&#39;)&#34;&gt;
-                &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
-            &lt;/button&gt;
-        &lt;/div&gt;
-    
-        &lt;div class=&#34;vocab-content&#34;&gt;
-            &lt;!-- 词组区域 --&gt;
-            &lt;div class=&#34;content-section active&#34; id=&#34;phrases-entrepreneur&#34;&gt;
-                &lt;div class=&#34;example-item&#34;&gt;
-                    &lt;h4 class=&#34;example-phrase&#34;&gt;social entrepreneur&lt;/h4&gt;
-                    &lt;p class=&#34;example-sentence&#34;&gt;She is a social entrepreneur who founded a nonprofit organization to help homeless people.&lt;/p&gt;
-                    &lt;p class=&#34;example-translation&#34;&gt;她是一位社会企业家，创立了一个非营利组织来帮助无家可归者。&lt;/p&gt;
-                    &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;She is a social entrepreneur who founded a nonprofit organization to help homeless people.&#39;, this)&#34;&gt;
-                        &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                    &lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-
-&lt;!-- 新增单词模板：将所有 [单词] 替换为实际单词（如 &#34;banana&#34;） --&gt;
-&lt;div class=&#34;vocab-card&#34; data-word=&#34;banana&#34; style=&#34;display: none;&#34;&gt;
-    &lt;div class=&#34;vocab-header&#34;&gt;
-        &lt;div class=&#34;word-pronunciation&#34;&gt;
-            &lt;div&gt;
-                &lt;h2 class=&#34;word&#34;&gt;banana&lt;/h2&gt;
-                &lt;p class=&#34;pronunciation&#34;&gt;[音标]&lt;/p&gt; &lt;!-- 如 /bəˈnɑːnə/ --&gt;
-            &lt;/div&gt;
-            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;banana&#39;, this)&#34;&gt;
-                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
-            &lt;/button&gt;
-        &lt;/div&gt;
-        &lt;p class=&#34;definition&#34;&gt;[英文释义]&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&#34;vocab-actions&#34;&gt;
-        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;banana&#39;)&#34;&gt;
-            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
-        &lt;/button&gt;
-        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-banana&#34;&gt;
-            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
-        &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-banana&#34;&gt;
-            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
-        &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-banana&#34;&gt;
-            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
-        &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-banana&#34;&gt;
-            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
-        &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;banana&#39;)&#34;&gt;
-            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
-        &lt;/button&gt;
-    &lt;/div&gt;
-    
-    &lt;div class=&#34;vocab-content&#34;&gt;
-        &lt;!-- 词组区域 --&gt;
-        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-banana&#34;&gt;
-            &lt;div class=&#34;example-item&#34;&gt;
-                &lt;h4 class=&#34;example-phrase&#34;&gt;[词组1]&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
-                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
-                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
-                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
-        &lt;/div&gt;
-    
-        &lt;!-- 派生区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-banana&#34;&gt;
-            &lt;div class=&#34;example-item&#34;&gt;
-                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
-                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
-                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
-                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;!-- 无派生词可删除此区域 --&gt;
-        &lt;/div&gt;
-    
-        &lt;!-- 词根区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;roots-banana&#34;&gt;
-            &lt;div class=&#34;example-item root-item&#34;&gt;
-                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
-                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
-                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;!-- 无词根可删除此区域 --&gt;
-        &lt;/div&gt;
-    
-        &lt;!-- 近反义词区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-banana&#34;&gt;
-            &lt;h3&gt;近义词&lt;/h3&gt;
-            &lt;div class=&#34;synonyms-list&#34;&gt;
-                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
-                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
-            &lt;/div&gt;
-    
-            &lt;div class=&#34;example-item&#34;&gt;
-                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
-                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
-                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
-                &lt;/button&gt;
-            &lt;/div&gt;
-            &lt;!-- 无近反义词可删除此区域 --&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-    
-
-&lt;/div&gt;
-
-&lt;!-- 引入外部JavaScript文件 --&gt;
-
-&lt;script src=&#34;https://cjh520-hjw.github.io/js/vocabulary.js&#34;&gt;&lt;/script&gt;
-
-
-
-&lt;h2 id=&#34;第2天&#34;&gt;第2天
-&lt;/h2&gt;
-&lt;!-- 引入Font Awesome --&gt;
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34;&gt;
-
-&lt;!-- 引入外部CSS文件 --&gt;
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cjh520-hjw.github.io/css/vocabulary.css&#34;&gt;
-
-&lt;!-- 单词卡片容器 --&gt;
-
-&lt;div id=&#34;vocab-container&#34;&gt;
+&lt;!-- 新增单词模板：将所有 religious 替换为实际单词（如 &#34;banana&#34;） --&gt;
 &lt;div class=&#34;vocab-card&#34; data-word=&#34;religious&#34;&gt;
     &lt;div class=&#34;vocab-header&#34;&gt;
         &lt;div class=&#34;word-pronunciation&#34;&gt;
             &lt;div&gt;
                 &lt;h2 class=&#34;word&#34;&gt;religious&lt;/h2&gt;
-                &lt;p class=&#34;pronunciation&#34;&gt;&lt;/p&gt; &lt;!-- 如 /bəˈnɑːnə/ --&gt;
-            &lt;/div&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/rɪˈlɪdʒəs/&lt;/p&gt;    &lt;/div&gt;
             &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;religious&#39;, this)&#34;&gt;
                 &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
             &lt;/button&gt;
@@ -741,57 +702,153 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-&lt;!-- 新增单词模板：将所有 [单词] 替换为实际单词（如 &#34;banana&#34;） --&gt;
+
+
+&lt;!-- 新增单词模板：将所有 wipe 替换为实际单词（如 &#34;banana&#34;） --&gt;
 &lt;div class=&#34;vocab-card&#34; data-word=&#34;wipe&#34; style=&#34;display: none;&#34;&gt;
     &lt;div class=&#34;vocab-header&#34;&gt;
         &lt;div class=&#34;word-pronunciation&#34;&gt;
             &lt;div&gt;
                 &lt;h2 class=&#34;word&#34;&gt;wipe&lt;/h2&gt;
                 &lt;p class=&#34;pronunciation&#34;&gt;/waɪp/&lt;/p&gt;    &lt;/div&gt;
-            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;[单词]&#39;, this)&#34;&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;wipe&#39;, this)&#34;&gt;
                 &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
             &lt;/button&gt;
         &lt;/div&gt;
-        &lt;p class=&#34;definition&#34;&gt;[英文释义]&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.擦；抹去，消除&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt; n.擦；（湿）纸巾&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
     &lt;/div&gt;
 
     &lt;div class=&#34;vocab-actions&#34;&gt;
-        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;[单词]&#39;)&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;wipe&#39;)&#34;&gt;
             &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
         &lt;/button&gt;
-        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-[单词]&#34;&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-wipe&#34;&gt;
             &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
         &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-[单词]&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-wipe&#34;&gt;
             &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
         &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-[单词]&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-wipe&#34;&gt;
             &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
         &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-[单词]&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-wipe&#34;&gt;
             &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
         &lt;/button&gt;
-        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;[单词]&#39;)&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;wipe&#39;)&#34;&gt;
             &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
         &lt;/button&gt;
     &lt;/div&gt;
 
     &lt;div class=&#34;vocab-content&#34;&gt;
         &lt;!-- 词组区域 --&gt;
-        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-[单词]&#34;&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-wipe&#34;&gt;
             &lt;div class=&#34;example-item&#34;&gt;
-                &lt;h4 class=&#34;example-phrase&#34;&gt;[词组1]&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
-                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
-                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
-                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
-                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;h4 class=&#34;example-phrase&#34;&gt;wipe out 彻底消灭，全部摧毁&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;wipe out&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 
                 &lt;/button&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;wipe the sweat&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;wipe the data 清除数据&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;wipe your memory 抹去记忆&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+                
             &lt;/div&gt;
             &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
         &lt;/div&gt;
 
         &lt;!-- 派生区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-[单词]&#34;&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-wipe&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;wiper &lt;span class=&#34;part-of-speech&#34;&gt;n.雨刷&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-wipe&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;erase&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;We can&#39;t erase every trace of evil from the world.&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;我们不能抹去世界上所有的邪恶。&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;We can\&#39;t erase every trace of evil from the world.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 trace 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;trace&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;trace&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/treɪs/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;trace&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.追踪；追溯&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.痕迹；踪迹；微量，少许；追踪&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;trace&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-trace&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-trace&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-trace&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-trace&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;trace&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-trace&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;trace sth to sth 追溯到、追查到&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;I traced the IP address to Homs.&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;我通过追踪IP地址找到了霍姆斯。&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;I traced the IP address to Homs.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;He says most purebred dog breeds trace their origins to the 1800s.&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;他表示，大多数纯种狗的品种的起源可以追溯到19世纪。&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;He says most purebred dog breeds trace their origins to the 1800s.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;trace your phone 追踪电话&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;disappear without a trace 消失得无影无踪&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a trace of struggle 打斗的痕迹&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-trace&#34;&gt;
             &lt;div class=&#34;example-item&#34;&gt;
                 &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
                 &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
@@ -804,7 +861,7 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
         &lt;/div&gt;
 
         &lt;!-- 词根区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;roots-[单词]&#34;&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-trace&#34;&gt;
             &lt;div class=&#34;example-item root-item&#34;&gt;
                 &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
                 &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
@@ -816,7 +873,7 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
         &lt;/div&gt;
 
         &lt;!-- 近反义词区域 --&gt;
-        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-[单词]&#34;&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-trace&#34;&gt;
             &lt;h3&gt;近义词&lt;/h3&gt;
             &lt;div class=&#34;synonyms-list&#34;&gt;
                 &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
@@ -834,16 +891,1660 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 request 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;request&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;request&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/rɪˈkwest/&lt;/p&gt; &lt;!-- 如 /rɪˈkwest/ --&gt;
+            &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;request&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.请求；要求；点播的歌曲&lt;/p&gt; &lt;!-- 如 An act of asking politely or formally for something. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.请求；要求&lt;/p&gt; &lt;!-- 如 An act of asking politely or formally for something. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;request&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-request&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-request&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-request&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-request&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;request&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-request&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;request sb to do 要求某人做&lt;/h4&gt; &lt;!-- 如 request for leave --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;at your request 应你的要求&lt;/h4&gt; &lt;!-- 如 request for leave --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a request for help 请求帮助&lt;/h4&gt; &lt;!-- 如 request for leave --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;I have made no requests for your help.&lt;/p&gt; &lt;!-- 如 She submitted a request for leave. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;我没求你们帮忙。&lt;/p&gt; &lt;!-- 如 她提交了请假申请。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;I have made no requests for your help.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a friend request 好友请求&lt;/h4&gt; &lt;!-- 如 request for leave --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;request a meeting 要求会面&lt;/h4&gt; &lt;!-- 如 request for leave --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-request&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 requester (n.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The requester must provide identification. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 申请人必须提供身份证明。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-request&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;re-&lt;/span&gt;=再；回，向后；加强语气&lt;/p&gt; &lt;!-- 如 quest-: to seek, to ask --&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;quest&lt;/span&gt;-要求，探寻&lt;/p&gt; &lt;!-- 如 quest-: to seek, to ask --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-request&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;demand&lt;/div&gt; &lt;!-- 如 demand --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 He made a demand for more information. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 他提出了更多信息的要求。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 demand 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;demand&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;demand&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/dɪˈmɑːnd/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;demand&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.要求；需求&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.要求；需要&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;demand&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-demand&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-demand&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-demand&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-demand&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;demand&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-demand&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a demand for 对……的坚决要求&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;in demand 很受欢迎，需求量大&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;meet your demands 满足要求&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;demand a apology 要求一个道歉&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-demand&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-demand&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-demand&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 conceal 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;conceal&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;conceal&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/kənˈsiːl/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;conceal&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.掩盖，隐藏&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;conceal&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-conceal&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-conceal&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-conceal&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-conceal&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;conceal&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-conceal&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;conceal sth from sb 瞒着某人某事&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;conceal a fact 掩盖事实&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;conceal a weapon 藏匿武器&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;conceal your identity 隐藏身份&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-conceal&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;concealed &lt;span class=&#34;part-of-speech&#34;&gt;adj.隐蔽的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-conceal&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;con-(com-)&lt;/span&gt;=一起；全；加强语气&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;ceal&lt;/span&gt;=隐藏&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-conceal&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;hide&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 claim 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;claim&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;claim&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/kleɪm/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;claim&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.声称；认领，要求拥有；获得；夺去（生命）&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.vi.索要，索取&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.声称；所有权；要求，索赔&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;claim&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-claim&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-claim&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-claim&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-claim&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;claim&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-claim&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;claim to do 声称要做&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a claim on sth 对……的所有权&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;Your son has no claim to the throne he sits.&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;你儿子无权继承王位。&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;Your son has no claim to the throne he sits.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;claim your baggage 行李认领&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;make a claim 提出索赔&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;claim compensation 索赔&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;deny a claim 否认说法&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-claim&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;claimant &lt;span class=&#34;part-of-speech&#34;&gt;n.索要者&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;claimant&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;claimant&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 
+                &lt;/button&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;reclaim &lt;span class=&#34;part-of-speech&#34;&gt;v.取回，收回；开垦&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;The victor moves off to reclaim his territory.&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;胜利者昂首离去，夺回自己的领地。&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;The victor moves off to reclaim his territory.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-claim&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-claim&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;contend&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                
+                &lt;p class=&#34;example-sentence&#34;&gt;You contend you never knew who the boy&#39;s father was.&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;你声称自己不知道那个男孩的父亲是谁。&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;You contend you never knew who the boy\&#39;s father was.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;    
+                &lt;p class=&#34;example-sentence&#34;&gt;Many thinkers contend that melancholy is necessary in gaining wisdom.&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;许多思想家反映，忧郁是获得智慧的必要条件之一&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;Many thinkers contend that melancholy is necessary in gaining wisdom.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 identity 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;identity&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;identity&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/aɪˈdentəti/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;identity&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.身份，本体；特性，个性；相同&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;identity&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-identity&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-identity&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-identity&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-identity&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;identity&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-identity&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an identity card 身份证&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;national identity 民族特征&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a sense of identity 认同感&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;identity between A and B A和B的一致性&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-identity&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-identity&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-identity&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 install 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;install&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;install&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ɪnˈstɔːl/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;install&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.安装；把……装到计算机上；任命&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;install&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-install&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-install&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-install&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-install&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;install&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-install&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;install a camera 安装摄像头&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;install a browser 装浏览器&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;install an update 安装一个更新&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;install a software 安装一个软件&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;Did you get some interesting things installed in your cell phone?&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;你的手机上安装了什么有趣的东西吗？&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;Did you get some interesting things installed in your cell phone?&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;He was installed as president yesterday.&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;他昨天被任命为校长。&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;He was installed as president yesterday.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-install&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;installation &lt;span class=&#34;part-of-speech&#34;&gt;n.安装&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;installment &lt;span class=&#34;part-of-speech&#34;&gt;n.一期付款；一节&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-install&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;in-&lt;/span&gt;=表否定；在里面&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;stal-&lt;/span&gt;=放置；位置&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-install&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 effective 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;effective&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;effective&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ɪˈfektɪv/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;effective&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;adj.有效的，生效的，实际的&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;effective&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-effective&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-effective&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-effective&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-effective&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;effective&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-effective&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an effective method 有效的方法&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;become effective 开始生效&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;effective immediately 立即生效&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;effective
+                power 实权&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an effective leader 实际上的领导&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-effective&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                
+                &lt;h4 class=&#34;derivative-word&#34;&gt;effect &lt;span class=&#34;part-of-speech&#34;&gt;n.影响；效果v.使发生&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;effect ively&lt;span class=&#34;part-of-speech&#34;&gt;adv.有效地，实际上&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;So,using your day effectively is important.&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;因此，有效利用每一天尤为重要。&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;So,using your day effectively is important.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-effective&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;ef-(ex-)&lt;/span&gt;=向外；没有；加强语气&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;-ive&lt;/span&gt;=构成形容词或名词&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-effective&#34;&gt;
+            &lt;h3&gt;反义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;ineffective&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[反义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[反义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[反义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 fantastic 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;fantastic&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;fantastic&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/fænˈtæstɪk/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;fantastic&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;adj.极好的；极大的；奇异的，荒诞的；不切实际的，异想天开的&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;fantastic&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-fantastic&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-fantastic&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-fantastic&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-fantastic&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;fantastic&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-fantastic&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a fantastic view 美丽的风景&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a fantastic achievement 了不起的成就&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;fantastic monsters 奇异的怪物&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+            
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-fantastic&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;fantasy &lt;span class=&#34;part-of-speech&#34;&gt;n.幻想&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;fantasise &lt;span class=&#34;part-of-speech&#34;&gt;v.幻想&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-fantastic&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;fan&lt;/span&gt;=出现&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;-ic&lt;/span&gt;=构成形容词&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-fantastic&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;amazing&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 inform 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;inform&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;inform&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ɪnˈfɔːm/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;inform&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.告知，通知；了解；影响&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;inform&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-inform&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-inform&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-inform&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-inform&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;inform&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-inform&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;inform sb of sth 通知，告知某人某事&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-inform&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;information &lt;span class=&#34;part-of-speech&#34;&gt;n.信息&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;informed &lt;span class=&#34;part-of-speech&#34;&gt;adj.见多识广的；了解情况的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;well informed 见多识广的&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;make an informed decision 做出有根据的决定&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;keep you informed 随时通知你&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-inform&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-inform&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;notify&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;notify sb of sth 通知某人某事&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 passport 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;passport&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;passport&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ˈpɑːspɔːt/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;passport&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.护照；手段，途径&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;passport&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-passport&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-passport&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-passport&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-passport&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;passport&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-passport&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a valid passport 有效的护照&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a passport to freedom 自由的通行证&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;This is going to be my passport to wealth,independence and freedom.&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;这很快会成为我获取富贵及独立自主的通行证。&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;This is going to be my passport to wealth,independence and freedom.&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-passport&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;port &lt;span class=&#34;part-of-speech&#34;&gt;n.港口；港口城市&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-passport&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-passport&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 forum 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;forum&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;forum&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ˈfɔːrəm/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;forum&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.论坛，讨论会&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;forum&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-forum&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-forum&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-forum&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-forum&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;forum&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-forum&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an open forum 公开讨论会&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;the World Economic Forum 世界经济论坛&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a forum on women&#39;s health 关于女性健康的论坛&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-forum&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-forum&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-forum&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 tone 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;tone&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;tone&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/təʊn/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;tone&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.语气，音色，风格，色调&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.健壮度&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.使更健壮，使更结实&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;tone&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-tone&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-tone&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-tone&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-tone&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;tone&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-tone&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;tone down 缓和……的语气&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;tone up 使（皮肤，肌肉等）更强健&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a tone of voice 语气&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a friendly tone 友好的语气&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a brown tone 棕色调&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-tone&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;tonic &lt;span class=&#34;part-of-speech&#34;&gt;n.补药，奎宁水&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-tone&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;ton&lt;/span&gt; =音色，声色&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-tone&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;shade&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;the lighter shade of red 浅红色&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 range 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;range&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;range&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/reɪndʒ/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;range&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.一系列；范围；射程；山脉&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vi.（在一定范围内）变化；包括&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.（按一定顺序）排列&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;vi.vt.漫步，徘徊&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;range&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-range&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-range&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-range&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-range&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;range&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-range&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a range of sth 一系列的&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;range from A to B （在从A到B的范围内）变化，包括（从A到B的）各类事物&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a new range 新的产品系列&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;age range 年龄段&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;at short range 近距离地&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;range the bottles from small to large 把瓶子按从小到大排列&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;range around 徘徊，漫步&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-range&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;wide-ranging &lt;span class=&#34;part-of-speech&#34;&gt;adj.范围大的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;long-ranging &lt;span class=&#34;part-of-speech&#34;&gt;adj.远程的；长期的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-range&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-range&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;series&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 bonus 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;bonus&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;bonus&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ˈbəʊnəs/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;bonus&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.奖金，红利；额外的好处&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;bonus&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-bonus&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-bonus&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-bonus&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-bonus&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;bonus&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-bonus&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a $20 bonus 20美元奖金&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an annual bonus 年终奖&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;an added bonus 意外的收获&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-bonus&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;[派生词] &lt;span class=&#34;part-of-speech&#34;&gt;(词性)&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-bonus&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;bon&lt;/span&gt;=好的，善的&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-bonus&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 waste 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;waste&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;waste&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/weɪst/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;waste&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.浪费，滥用&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.浪费；废料，垃圾；粪便；荒原&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;adj.荒芜的，废弃的&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;waste&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-waste&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-waste&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-waste&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-waste&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;waste&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-waste&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste sth (in) doing sth&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste sth on sth&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste your time&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste disposal 废物处理。垃圾处理&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;household waste 生活垃圾&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;frozen wastes 冰天雪地的荒野&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;the waste of Canada 加拿大的荒野&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste land 荒置地域&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;waste products 废料&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-waste&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;wasted &lt;span class=&#34;part-of-speech&#34;&gt;adj.徒劳的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;wasteful &lt;span class=&#34;part-of-speech&#34;&gt;adj.浪费的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-waste&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-waste&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词1]&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 capture 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;capture&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;capture&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/ˈkæptʃə(r)/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;capture&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;vt.抓住，俘虏，捕捉；攻占，攻取&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+        &lt;p class=&#34;definition&#34;&gt;n.捕获，攻占，攻取&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;capture&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-capture&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-capture&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-capture&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-capture&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;capture&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-capture&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;capture one&#39;s attention 引起某人的注意&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;capture a soldier 俘虏士兵&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;capture your breauty 捕捉你的美&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;capture the capital 攻占首都&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;capture market share 夺取市场份额&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-capture&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;captive &lt;span class=&#34;part-of-speech&#34;&gt;adj.被关押的；非自愿的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;a captive animal 圈养动物&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;hold sb captive 关押某人，囚禁某人&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;recapture &lt;span class=&#34;part-of-speech&#34;&gt;v.夺回，收复；重新抓获&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-capture&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-capture&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;arrest&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 新增单词模板：将所有 skilled 替换为实际单词（如 &#34;banana&#34;） --&gt;
+&lt;div class=&#34;vocab-card&#34; data-word=&#34;skilled&#34; style=&#34;display: none;&#34;&gt;
+    &lt;div class=&#34;vocab-header&#34;&gt;
+        &lt;div class=&#34;word-pronunciation&#34;&gt;
+            &lt;div&gt;
+                &lt;h2 class=&#34;word&#34;&gt;skilled&lt;/h2&gt;
+                &lt;p class=&#34;pronunciation&#34;&gt;/skɪld/&lt;/p&gt;    &lt;/div&gt;
+            &lt;button class=&#34;audio-btn&#34; onclick=&#34;speakText(&#39;skilled&#39;, this)&#34;&gt;
+                &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;p class=&#34;definition&#34;&gt;adj.有技术的，需要特殊技能的&lt;/p&gt; &lt;!-- 如 A long curved fruit with a yellow skin. --&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-actions&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showPrevWord(&#39;skilled&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-left&#34;&gt;&lt;/i&gt; 上一个
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn active&#34; data-section=&#34;phrases-skilled&#34;&gt;
+            &lt;i class=&#34;fas fa-language&#34;&gt;&lt;/i&gt; 词组
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;derivatives-skilled&#34;&gt;
+            &lt;i class=&#34;fas fa-code-branch&#34;&gt;&lt;/i&gt; 派生
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;roots-skilled&#34;&gt;
+            &lt;i class=&#34;fas fa-seedling&#34;&gt;&lt;/i&gt; 词根
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; data-section=&#34;synonyms-skilled&#34;&gt;
+            &lt;i class=&#34;fas fa-exchange-alt&#34;&gt;&lt;/i&gt; 近反义词
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;showNextWord(&#39;skilled&#39;)&#34;&gt;
+            &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt; 下一个
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;vocab-content&#34;&gt;
+        &lt;!-- 词组区域 --&gt;
+        &lt;div class=&#34;content-section active&#34; id=&#34;phrases-skilled&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;be skilled in/at sth 善于……的，对……熟练地&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;skilled labor 技术工人&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;h4 class=&#34;example-phrase&#34;&gt;a skilled job 技术性的工作&lt;/h4&gt; &lt;!-- 如 banana peel --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[例句1]&lt;/p&gt; &lt;!-- 如 She slipped on a banana peel. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[例句1翻译]&lt;/p&gt; &lt;!-- 如 她踩在香蕉皮上滑倒了。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[例句1]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 可复制上面的 .example-item 添加更多词组 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 派生区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;derivatives-skilled&#34;&gt;
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;h4 class=&#34;derivative-word&#34;&gt;unskilled &lt;span class=&#34;part-of-speech&#34;&gt;adj.未经专业训练的&lt;/span&gt;&lt;/h4&gt; &lt;!-- 如 bananalike (adj.) --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[派生词例句]&lt;/p&gt; &lt;!-- 如 The fruit has a bananalike shape. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[派生词例句翻译]&lt;/p&gt; &lt;!-- 如 这种水果有类似香蕉的形状。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[派生词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无派生词可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 词根区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;roots-skilled&#34;&gt;
+            &lt;div class=&#34;example-item root-item&#34;&gt;
+                &lt;p&gt;&lt;span class=&#34;root-part&#34;&gt;[词根]&lt;/span&gt; - [词根含义]&lt;/p&gt; &lt;!-- 如 无词根可留空或删除 --&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;例: [包含词根的单词]&lt;/p&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[包含词根的单词]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听例子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无词根可删除此区域 --&gt;
+        &lt;/div&gt;
+
+        &lt;!-- 近反义词区域 --&gt;
+        &lt;div class=&#34;content-section&#34; id=&#34;synonyms-skilled&#34;&gt;
+            &lt;h3&gt;近义词&lt;/h3&gt;
+            &lt;div class=&#34;synonyms-list&#34;&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;skillful&lt;/div&gt; &lt;!-- 如 fruit --&gt;
+                &lt;div class=&#34;synonym-item&#34;&gt;[近义词2]&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;example-item&#34;&gt;
+                &lt;p class=&#34;example-sentence&#34;&gt;[近义词例句]&lt;/p&gt; &lt;!-- 如 She ate a piece of fruit. --&gt;
+                &lt;p class=&#34;example-translation&#34;&gt;[近义词例句翻译]&lt;/p&gt; &lt;!-- 如 她吃了一块水果。 --&gt;
+                &lt;button class=&#34;example-audio&#34; onclick=&#34;speakText(&#39;[近义词例句]&#39;, this)&#34;&gt;
+                    &lt;i class=&#34;fas fa-volume-up&#34;&gt;&lt;/i&gt; 听句子
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;!-- 无近反义词可删除此区域 --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;!-- 引入外部JavaScript文件 --&gt;
-
 &lt;script src=&#34;https://cjh520-hjw.github.io/js/vocabulary.js&#34;&gt;&lt;/script&gt;
 
 
 
-
-&lt;h2 id=&#34;第3天&#34;&gt;第3天
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/English/%e7%ac%ac1%e5%a4%a9.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第2天&#34;&gt;第2天
+&lt;/h2&gt;&lt;h2 id=&#34;第3天&#34;&gt;第3天
 &lt;/h2&gt;&lt;h2 id=&#34;第4天&#34;&gt;第4天
 &lt;/h2&gt;&lt;h2 id=&#34;第5天&#34;&gt;第5天
 &lt;/h2&gt;&lt;h2 id=&#34;第6天&#34;&gt;第6天

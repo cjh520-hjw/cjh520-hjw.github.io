@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>手写式 on 嬉皮士-Hippie</title>
+        <link>https://cjh520-hjw.github.io/categories/%E6%89%8B%E5%86%99%E5%BC%8F/</link>
+        <description>Recent content in 手写式 on 嬉皮士-Hippie</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>嬉皮士-Hippie</copyright>
+        <lastBuildDate>Fri, 25 Jul 2025 11:18:35 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E6%89%8B%E5%86%99%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>手写板||留言板</title>
+        <link>https://cjh520-hjw.github.io/p/%E6%89%8B%E5%86%99%E6%9D%BF%E7%95%99%E8%A8%80%E6%9D%BF/</link>
+        <pubDate>Thu, 24 Jul 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/p/%E6%89%8B%E5%86%99%E6%9D%BF%E7%95%99%E8%A8%80%E6%9D%BF/</guid>
+        <description>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&#34;UTF-8&#34;&gt;
+  &lt;title&gt;纯静态手写板&lt;/title&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;&gt;
+  &lt;style&gt;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif;
+    }
+&lt;pre&gt;&lt;code&gt;body {
+  background-color: #f5f7fa;
+  padding: 20px;
+}
+
+#notePad {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+#debugInfo {
+  padding: 8px 16px;
+  background-color: #f7f8fa;
+  color: #8a919f;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.top-controls {
+  padding: 14px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.main-btn {
+  background-color: #36cbcb;
+  color: white;
+}
+
+.main-btn:hover {
+  background-color: #2dbaba;
+}
+
+#drawArea {
+  display: none;
+}
+
+#canvas {
+  width: 100%;
+  height: 400px;
+  background-color: #fbfbfb;
+  border-bottom: 1px solid #f0f2f5;
+  cursor: crosshair;
+}
+
+.draw-controls {
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f2f5;
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+.action-btn:hover {
+  background-color: #eef0f3;
+}
+
+#result {
+  min-height: 200px;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+#result p {
+  color: #999;
+  font-size: 15px;
+  padding: 40px 0;
+  line-height: 1.6;
+}
+
+#result img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/style&gt;&lt;/p&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&#34;notePad&#34;&gt;
+    &lt;div id=&#34;debugInfo&#34;&gt;已初始化（独立页面）&lt;/div&gt;
+    &lt;div class=&#34;top-controls&#34;&gt;
+      &lt;button class=&#34;main-btn&#34; onclick=&#34;openDrawArea()&#34;&gt;
+        &lt;i class=&#34;fas fa-pen&#34;&gt;&lt;/i&gt; 打开手写板
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;drawArea&#34;&gt;
+      &lt;canvas id=&#34;canvas&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
+      &lt;div class=&#34;draw-controls&#34;&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;clearCanvas()&#34;&gt;
+          &lt;i class=&#34;fas fa-eraser&#34;&gt;&lt;/i&gt; 清除
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;saveCanvas()&#34;&gt;
+          &lt;i class=&#34;fas fa-save&#34;&gt;&lt;/i&gt; 保存
+        &lt;/button&gt;
+        &lt;button class=&#34;action-btn&#34; onclick=&#34;closeDrawArea()&#34;&gt;
+          &lt;i class=&#34;fas fa-times&#34;&gt;&lt;/i&gt; 关闭
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;result&#34;&gt;
+      &lt;p&gt;手写内容将显示在这里&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    var canvas = document.getElementById(&#39;canvas&#39;);
+    var ctx = canvas.getContext(&#39;2d&#39;);
+    ctx.strokeStyle = &#39;#000&#39;;
+    ctx.lineWidth = 2;
+    ctx.lineCap = &#39;round&#39;;
+
+    let isDrawing = false;
+    canvas.onmousedown = (e) =&gt; {
+      isDrawing = true;
+      let rect = canvas.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    };
+    canvas.onmousemove = (e) =&gt; {
+      if (isDrawing) {
+        let rect = canvas.getBoundingClientRect();
+        ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+        ctx.stroke();
+      }
+    };
+    canvas.onmouseup = () =&gt; { isDrawing = false; };
+    canvas.onmouseout = () =&gt; { isDrawing = false; };
+    
+    function openDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;block&#39;; }
+    function closeDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;none&#39;; }
+    function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    function saveCanvas() { 
+      let imgData = canvas.toDataURL(&#39;image/png&#39;);
+      document.getElementById(&#39;result&#39;).innerHTML = `&lt;img src=&#34;${imgData}&#34; style=&#34;max-width:100%;&#34;&gt;`;
+      closeDrawArea();
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
