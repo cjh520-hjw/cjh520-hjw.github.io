@@ -10,9 +10,10 @@
 <meta property='og:description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-20T15:48:37&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-27T15:22:22&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
 <meta name="twitter:title" content="数据存储、表示形式、基本运算">
-<meta name="twitter:description" content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n">
+<meta name="twitter:description" content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <div class="loading">
      
@@ -503,8 +504,47 @@
             <li><a href="#字符串常量">字符串常量</a></li>
           </ol>
         </li>
+        <li><a href="#符号常量">符号常量</a>
+          <ol>
+            <li><a href="#好处">好处</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
+    <li><a href="#变量">变量</a>
+      <ol>
+        <li><a href="#变量名">变量名</a>
+          <ol>
+            <li><a href="#匈牙利变量命名法">匈牙利变量命名法</a></li>
+            <li><a href="#驼峰表示法">驼峰表示法</a></li>
+          </ol>
+        </li>
+        <li><a href="#定义变量">定义变量</a></li>
+        <li><a href="#对变量初始化">对变量初始化</a></li>
+        <li><a href="#常变量只读变量">常变量/只读变量</a>
+          <ol>
+            <li><a href="#应用的需要">应用的需要</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#c的运算符">C++的运算符</a></li>
+    <li><a href="#算术运算符与算术表达式">算术运算符与算术表达式</a>
+      <ol>
+        <li><a href="#运算符的优先级与结合性">运算符的优先级与结合性</a></li>
+        <li><a href="#各类型数据间的混合运算隐式转换">各类型数据间的混合运算（隐式转换）</a></li>
+        <li><a href="#自增自减运算符">自增自减运算符</a></li>
+        <li><a href="#强转运算符显式转换">强转运算符（显式转换）</a></li>
+      </ol>
+    </li>
+    <li><a href="#赋值运算符与赋值表达式">赋值运算符与赋值表达式</a>
+      <ol>
+        <li><a href="#赋值中的类型转换">赋值中的类型转换</a></li>
+        <li><a href="#复合赋值运算符">复合赋值运算符</a></li>
+        <li><a href="#赋值表达式">赋值表达式</a></li>
+      </ol>
+    </li>
+    <li><a href="#逗号运算符和逗号表达式">逗号运算符和逗号表达式</a></li>
   </ol>
 </nav>
         </div>
@@ -516,8 +556,16 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/">
+                
+                    <img src="/images/C&#43;&#43;/0.png" loading="lazy" alt="Featured image of post 数据存储、表示形式、基本运算" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -585,7 +633,7 @@
     
     
     <h2 id="数据类型">数据类型
-</h2><p><img src="/images/4.jpg"
+</h2><p><img src="/images/C&#43;&#43;/4.jpg"
 	
 	
 	
@@ -598,7 +646,7 @@
 <li>指针和结构体-&gt;表、树、栈</li>
 </ol>
 <h2 id="数值范围">数值范围
-</h2><p><img src="/images/5.jpg"
+</h2><p><img src="/images/C&#43;&#43;/5.jpg"
 	
 	
 	
@@ -630,7 +678,7 @@
 <p>&lsquo;ab&rsquo;  ×</p>
 <h4 id="转义字符常量">转义字符常量
 </h4><p>&lsquo;\n&rsquo;  √    <strong>反斜杠往右撇</strong></p>
-<p><img src="/images/6.jpg"
+<p><img src="/images/C&#43;&#43;/6.jpg"
 	
 	
 	
@@ -638,7 +686,7 @@
 	
 	
 ></p>
-<p><img src="/images/7.jpg"
+<p><img src="/images/C&#43;&#43;/7.jpg"
 	
 	
 	
@@ -646,6 +694,129 @@
 	
 	
 ></p>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  八进制、退格符
+</summary
+<p>题目：下面代码的运行结果是什么</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">c1</span><span class="o">=</span><span class="sc">&#39;a&#39;</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="sc">&#39;b&#39;</span><span class="p">,</span> <span class="n">c3</span><span class="o">=</span><span class="sc">&#39;c&#39;</span><span class="p">,</span> <span class="n">c4</span><span class="o">=</span><span class="sc">&#39;\101&#39;</span><span class="p">,</span> <span class="n">c5</span><span class="o">=</span><span class="sc">&#39;\116&#39;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c1</span> <span class="o">&lt;&lt;</span> <span class="n">c2</span> <span class="o">&lt;&lt;</span> <span class="n">c3</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\t\b</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c4</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\t&#39;</span> <span class="o">&lt;&lt;</span> <span class="n">c5</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">abc  
+</span></span><span class="line"><span class="cl">       A       N  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分析：</p>
+<ol>
+<li>字符变量解码</li>
+</ol>
+<ul>
+<li>
+<p><code>c1='a'</code>、<code>c2='b'</code>、<code>c3='c'</code>：直接对应 <strong>ASCII 字符</strong> <code>a</code>、<code>b</code>、<code>c</code>。</p>
+</li>
+<li>
+<p><code>c4='\101'</code>：八进制转义符转 <strong>ASCII 字符</strong> 。<br>
+先八进制数 <code>101</code> 转十进制： 按位权展开， \(1×8^2 + 0×8^1 + 1×8^0 = 64 + 0 + 1 = 65\) 。<br>
+再对应 ASCII 字符 <code>A</code>（ASCII 表中十进制 65 代表 <code>A</code> ）。</p>
+</li>
+<li>
+<p><code>c5='\116'</code>：<strong>八进制转义符转 ASCII 字符</strong> 。<br>
+先八进制数 <code>116</code> 转十进制： 按位权展开，\(1×8^2 + 1×8^1 + 6×8^0 = 64 + 8 + 6 = 78\) 。<br>
+再对应 ASCII 字符 <code>N</code>（ASCII 表中十进制 78 代表 <code>N</code> ）。</p>
+</li>
+</ul>
+<ol start="2">
+<li>第二行输出</li>
+</ol>
+<ul>
+<li><code>&quot;\t\b&quot;</code>：
+<ul>
+<li><code>\t</code>：制表符，使光标跳转到<strong>第 8 列</strong></li>
+<li><code>\b</code>：退格符，使光标回退到<strong>第 7 列</strong>。</li>
+<li><strong><code>&lt;&lt; c4</code></strong>：在第 7 列输出 <code>A</code>（字符 <code>c4</code>）。</li>
+<li><strong><code>&lt;&lt; '\t'</code></strong>：光标从第 8 列（输出 <code>A</code> 后自动移到第 8 列）跳转到下一个制表位 <strong>第 16 列</strong>。</li>
+<li><strong><code>&lt;&lt; c5</code></strong>：在第 16 列输出 <code>N</code>（字符 <code>c5</code>）。</li>
+<li>最终效果：第 7 列显示 <code>A</code>，第 16 列显示 <code>N</code>，中间填充 8 个空格（制表位特性，自己画图试一下）。</li>
+</ul>
+</li>
+</ul>
+</details> 
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  制表符
+</summary
+<p>关键是画图（8后一次，8后一次）</p>
+<p>题目：下面代码的运行结果是什么</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">c1</span><span class="o">=</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="n">c2</span><span class="o">=</span><span class="sc">&#39;+&#39;</span><span class="p">,</span><span class="n">c3</span><span class="o">=</span><span class="sc">&#39;+&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;12345678123&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;4567812345678&#34;</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;He says: </span><span class="se">\&#34;</span><span class="s">C++ is very interesting!</span><span class="se">\&#34;</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;I say: </span><span class="se">\&#34;</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">c1</span> <span class="o">&lt;&lt;</span> <span class="n">c2</span> <span class="o">&lt;&lt;</span> <span class="n">c3</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\&#34;</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\t\t</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;He says: </span><span class="se">\&#34;</span><span class="s">C++ is very interesting!</span><span class="se">\&#34;</span><span class="s">&#34;</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">123456781234567812345678He says: &#34;C++ is very interesting!&#34;
+</span></span><span class="line"><span class="cl">I say: &#34;C++&#34;            He says: &#34;C++ is very interesting!&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details> 
 <p><strong>Note</strong></p>
 <ol>
 <li>转义字符只代表一个字符，在内存中占一个字节</li>
@@ -658,7 +829,169 @@
 <p>字符型数据和整型数据是可以通用的。但是应注意字符数据只占一个字节，它只能存放 0~255 范围内的整数。</p>
 <p>一个字节有8位，每位可以是0或1，所以能表示的不同值的总数是256个（从0计数到255）。</p>
 <h4 id="字符串常量">字符串常量
-</h4>
+</h4><ul>
+<li>
+<p>系统会在末尾加上<code>\0</code>作为字符串结束的标志。</p>
+<p>所以&quot;abc&quot;在内存中占<code>3+1=4</code>个字节</p>
+<p><code>'a'</code>占1个字节，<code>&quot;a&quot;</code>占2个字节</p>
+<p><code>&quot;abc\n&quot;</code>包含4个字符，5个字节</p>
+<p><code>&quot;abc\\n&quot;</code>中的<code>\\</code>是合法的转义字符，所以有5个字符（<code>a</code>、<code>b</code>、<code>c</code>、<code>\</code>、<code>n</code>），<strong><code>\\</code>代表<code>\</code></strong></p>
+</li>
+<li>
+<p>字符串常量要用字符数组来存放。</p>
+</li>
+</ul>
+<h3 id="符号常量">符号常量
+</h3><p>就是用符号代表常量，如<code>PRICE</code>代表<code>30</code></p>
+<p><code>#define PRICE 30</code>不是语句，末尾不加分号</p>
+<p>在预编译处理时，所有的<code>PRICE</code>被置换为<code>30</code></p>
+<p>符号常量在C中用比较多，在C++中常用<code>常变量</code></p>
+<p>没有类型，内存中没有命名存储单元</p>
+<h4 id="好处">好处
+</h4><ul>
+<li>见名知意，不提倡使用很多的直接变量</li>
+<li>在需要改变一个常量的时候，能够”一改全改“，如商品单价</li>
+</ul>
+<h2 id="变量">变量
+</h2><p>就是值可以改变的量</p>
+<p>因为是通过<code>变量名</code>找到变量值，所以变量名等同地址</p>
+<h3 id="变量名">变量名
+</h3><ul>
+<li>只有字母、数字、下划线，第一个字符必须为字母或下划线</li>
+<li>一般变量名用小写字母，常量用大写字母</li>
+<li>变量名不能与关键字、系统函数名、类名相同</li>
+</ul>
+<h4 id="匈牙利变量命名法">匈牙利变量命名法
+</h4><p>变量前加一个代表<code>类型</code>的字母，如<code>iCount</code>、<code>cSex</code></p>
+<h4 id="驼峰表示法">驼峰表示法
+</h4><p>如<code>studentName</code>、<code>teacherName</code></p>
+<h3 id="定义变量">定义变量
+</h3><p>在第一次使用该变量前定义即可</p>
+<blockquote class="alert alert-error">
+    <p>Error：变量……未经声明</p></blockquote>
+<p>整型变量与实型变量</p>
+<h3 id="对变量初始化">对变量初始化
+</h3><p>可以是常量，也可以是有确定值的表达式</p>
+<p><code>float a,b=2.5*sin(2.0);</code>中a没有被初始化</p>
+<p>初始化是在程序运行时完成的，不是在编译时完成的</p>
+<p>若未赋初值，则初值不可预测</p>
+<h3 id="常变量只读变量">常变量/只读变量
+</h3><p>值不能改变的变量</p>
+<p>可以用表达式初始化</p>
+<p>有类型，内存中有命名的存储单元，可以用<code>size of</code>测出长度</p>
+<h4 id="应用的需要">应用的需要
+</h4><ul>
+<li>有时要求函数的参数不允许改变</li>
+</ul>
+<h2 id="c的运算符">C++的运算符
+</h2><p>把<code>=</code>也作为运算符处理，这样<code>a=b=c=4</code>也是合法的表达式</p>
+<ol>
+<li>
+<p>算术运算符</p>
+<p>+、-、*（乘）、/（除）、%（整除求余）、++（自加）、&ndash;（自减）</p>
+</li>
+<li>
+<p>关系运算符</p>
+<p>&gt;、&lt;、==（等于）、&gt;=、&lt;=、!=（不等于）</p>
+</li>
+<li>
+<p>逻辑运算符</p>
+<p>&amp;&amp;（逻辑与）、||（逻辑或）、！(逻辑非)</p>
+</li>
+<li>
+<p>位运算符</p>
+<p>&amp;（按位与）、|（按位或）、^（按位异或）、~（按位取反）、&laquo;（按位左移）、&raquo;（按位右移）</p>
+</li>
+<li>
+<p>赋值运算符及其扩展赋值运算符</p>
+<p>=（赋值）、+=、-=、*=（乘等于）、/=（除等于）、%=（模等于）、
+&amp;=（按位与等于）、|=（按位或等于）、^=（按位异或等于）、&laquo;=（左移等于）、&raquo;=（右移等于）</p>
+</li>
+<li>
+<p>条件运算符</p>
+<p>? :（条件运算符）</p>
+</li>
+<li>
+<p>逗号运算符</p>
+<p>,（逗号运算符）</p>
+</li>
+<li>
+<p>sizeof运算符</p>
+<p>sizeof（类型名）或sizeof（变量名）</p>
+</li>
+<li>
+<p>指针运算符</p>
+<p>*（指针解引用）、&amp;（取地址）</p>
+</li>
+<li>
+<p>引用运算符</p>
+<p>&amp;（引用）、&amp;&amp;（右值引用）</p>
+</li>
+<li>
+<p>成员访问运算符</p>
+<p>.（<strong>成员</strong>访问）、-&gt;（<strong>指针成员</strong>访问）</p>
+</li>
+<li>
+<p>类型转换运算符</p>
+<p>（类型）或类型（）
+static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达式)、const_cast&lt;类型名&gt;(表达式)、reinterpret_cast&lt;类型名&gt;(表达式)</p>
+</li>
+<li>
+<p>new和delete运算符</p>
+<p>new（动态内存分配）、delete（动态内存释放）</p>
+</li>
+<li>
+<p>下标运算符</p>
+<p>[]（数组下标访问）</p>
+</li>
+<li>
+<p>其他运算符</p>
+<p>函数调用运算符()</p>
+</li>
+</ol>
+<h2 id="算术运算符与算术表达式">算术运算符与算术表达式
+</h2><ul>
+<li>%（模运算符/求余运算符）两边均为<strong>整型</strong>数据</li>
+<li>相除若有一个操作数是负数，则向零取整（取整是向零靠拢的）</li>
+<li>加减乘除中若有一个操作数是float型，则运算结果是double型</li>
+</ul>
+<h3 id="运算符的优先级与结合性">运算符的优先级与结合性
+</h3><p>算术运算符的结合性是<code>左结合性</code></p>
+<h3 id="各类型数据间的混合运算隐式转换">各类型数据间的混合运算（隐式转换）
+</h3><p>char,short -&gt; int</p>
+<p>float -&gt; double</p>
+<p>int -&gt; long</p>
+<p>int -&gt; double</p>
+<p>表达式 <code>10 + 'a' + i * f - d / e</code> 的运算次序如下：</p>
+<ol>
+<li>执行 <code>10 + 'a'</code> ：先把字符 <code>'a'</code> 转换为整数 97，二者相加是 107 。</li>
+<li><u>执行 <code>i * f</code>：把 <code>i</code> 和 <code>f</code> 都转换成 <code>double</code> 类型，结果为 <code>double</code> 型 。</u></li>
+<li>执行整数 107 与 <code>i * f</code> 结果相加：把整数 107 转成双精度数（形式为 107.000…00 ），再和 <code>i * f</code> 的结果相加，结果是 <code>double</code> 型 。</li>
+<li>执行 <code>d / e</code> ：把变量 <code>e</code> 转换成 <code>double</code> 型，相除后为 <code>double</code> 型 。</li>
+<li>执行前面相加结果与 <code>d / e</code> 结果相减：用 <code>10 + 'a' + i * f</code> 的结果减去 <code>d / e</code> 的结果，最终结果为 <code>double</code> 型 。</li>
+</ol>
+<h3 id="自增自减运算符">自增自减运算符
+</h3><ul>
+<li>常用于循环语句的循环变量中</li>
+<li>常用于使指针指向下一个地址</li>
+</ul>
+<h3 id="强转运算符显式转换">强转运算符（显式转换）
+</h3><p>类型名（表达式）</p>
+<p>得到的是一个所需类型的中间数据，原变量类型不会改变</p>
+<h2 id="赋值运算符与赋值表达式">赋值运算符与赋值表达式
+</h2><h3 id="赋值中的类型转换">赋值中的类型转换
+</h3><p>不同类型的整型数据间的赋值：按存储单元中的存储形式直接传送</p>
+<h3 id="复合赋值运算符">复合赋值运算符
+</h3><p>凡是二元运算符都可以与<code>=</code>结合</p>
+<h3 id="赋值表达式">赋值表达式
+</h3><p>表达式与常变量不可以作<code>左值</code></p>
+<p>右结合：<code>a=(b=10)/(c=2)</code>的值是5</p>
+<p>赋值表达式中的“表达式”又可以是一个赋值表达式如<code>a=(b=5)</code>,<code>b=5</code>这个赋值表达式的值是5，所以<code>a=5</code>，所以整个赋值表达式的值是5</p>
+<h2 id="逗号运算符和逗号表达式">逗号运算符和逗号表达式
+</h2><p>顺序求值</p>
+<p>逗号优先级<strong>低于</strong>赋值</p>
+<p>常用于循环for语句</p>
+
 </section>
 
 
@@ -675,7 +1008,7 @@
 
 
         <span>
-            最后更新于 Jul 20, 2025 15:48 &#43;0800
+            最后更新于 Jul 27, 2025 15:22 &#43;0800
         </span>
     </section></footer>
 
@@ -719,9 +1052,15 @@
         <div class="flex article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/p/c-%E5%88%9D%E6%AD%A5/">
         
+        
+            <div class="article-image">
+                
+                    <img src="/images/C&#43;&#43;/0.png" loading="lazy" data-key="" data-hash="/images/C&#43;&#43;/0.png"/>
+                
+            </div>
         
 
         <div class="article-details">
