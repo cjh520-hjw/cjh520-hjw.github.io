@@ -1090,7 +1090,7 @@ static_cast&amp;lt;类型名&amp;gt;(表达式)、dynamic_cast&amp;lt;类型名&
 &lt;p&gt;右结合：&lt;code&gt;a=(b=10)/(c=2)&lt;/code&gt;的值是5&lt;/p&gt;
 &lt;p&gt;赋值表达式中的“表达式”又可以是一个赋值表达式如&lt;code&gt;a=(b=5)&lt;/code&gt;,&lt;code&gt;b=5&lt;/code&gt;这个赋值表达式的值是5，所以&lt;code&gt;a=5&lt;/code&gt;，所以整个赋值表达式的值是5&lt;/p&gt;
 &lt;h2 id=&#34;逗号运算符和逗号表达式&#34;&gt;逗号运算符和逗号表达式
-&lt;/h2&gt;&lt;p&gt;顺序求值实型&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;顺序求值&lt;/p&gt;
 &lt;p&gt;逗号优先级&lt;strong&gt;低于&lt;/strong&gt;赋值&lt;/p&gt;
 &lt;p&gt;常用于循环for语句&lt;/p&gt;
 </description>
