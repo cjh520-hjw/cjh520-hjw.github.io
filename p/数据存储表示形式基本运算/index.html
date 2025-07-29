@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。（补充：n位可以表示的最大无符号整数是\\(2^n\\)-1） 4个字节就是 4×8=32 位。 数据存放 计算机底层用二进制，内存以字节为单位组织的\n">
 <title>数据存储、表示形式、基本运算</title>
 
 <link rel='canonical' href='https://cjh520-hjw.github.io/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/'>
 
-<link rel="stylesheet" href="/scss/style.min.fc0971b300a5adbfaf66716db1ae31ade44d6d43999db7572fd6ef582f828d30.css"><meta property='og:title' content="数据存储、表示形式、基本运算">
-<meta property='og:description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n">
+<link rel="stylesheet" href="/scss/style.min.ed84ee93d8a8941e827a014f3b3bcdc856d89ca2258fa084391c08d32f76c5f3.css"><meta property='og:title' content="数据存储、表示形式、基本运算">
+<meta property='og:description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。（补充：n位可以表示的最大无符号整数是\\(2^n\\)-1） 4个字节就是 4×8=32 位。 数据存放 计算机底层用二进制，内存以字节为单位组织的\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-27T15:22:22&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-29T11:01:40&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
 <meta name="twitter:title" content="数据存储、表示形式、基本运算">
-<meta name="twitter:description" content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。 4个字节就是 4×8=32 位。 常量 数值常量 整型常量 十进制整数：long int 型在后面加上L 八进制整数：开头加上数字0 十六进制整数：开头加上0x 浮点数 十进制小数：单精度末尾加上f，长双精度末尾加上L 指数：e12表示 \\(10^{12}\\) 字符常量 普通的字符常量 &lsquo;a&rsquo; √\n"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。（补充：n位可以表示的最大无符号整数是\\(2^n\\)-1） 4个字节就是 4×8=32 位。 数据存放 计算机底层用二进制，内存以字节为单位组织的\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <div class="loading">
@@ -488,6 +488,35 @@
   <ol>
     <li><a href="#数据类型">数据类型</a></li>
     <li><a href="#数值范围">数值范围</a></li>
+    <li><a href="#数据存放">数据存放</a>
+      <ol>
+        <li><a href="#原码与补码">原码与补码</a></li>
+        <li><a href="#sizeof">sizeof</a></li>
+        <li><a href="#bitset">bitset</a></li>
+        <li><a href="#补充可不看">补充（可不看）</a>
+          <ol>
+            <li><a href="#一机器数与补码存储基础">一、机器数与补码存储基础</a></li>
+            <li><a href="#二原码反码补码的设计逻辑">二、原码、反码、补码的设计逻辑</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#进制介绍">进制介绍</a>
+      <ol>
+        <li><a href="#十进制整数">十进制整数</a></li>
+        <li><a href="#八进制整数">八进制整数</a></li>
+        <li><a href="#十六进制整数">十六进制整数</a></li>
+        <li><a href="#二进制整数">二进制整数</a></li>
+        <li><a href="#十进制转二进制">十进制转二进制</a></li>
+        <li><a href="#八进制与二进制互转">八进制与二进制互转</a></li>
+        <li><a href="#十六进制与二进制互转">十六进制与二进制互转</a></li>
+      </ol>
+    </li>
+    <li><a href="#关键字介绍">关键字介绍</a>
+      <ol>
+        <li><a href="#ascii码介绍">ASCII码介绍</a></li>
+      </ol>
+    </li>
     <li><a href="#常量">常量</a>
       <ol>
         <li><a href="#数值常量">数值常量</a>
@@ -528,6 +557,7 @@
         </li>
       </ol>
     </li>
+    <li><a href="#运算符与结合性介绍">运算符与结合性介绍</a></li>
     <li><a href="#c的运算符">C++的运算符</a></li>
     <li><a href="#算术运算符与算术表达式">算术运算符与算术表达式</a>
       <ol>
@@ -617,7 +647,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -656,14 +686,430 @@
 ></p>
 <p>总结来说，4个字节占32位的原因是：</p>
 <ul>
-<li>一个字节定义为8位。</li>
+<li>一个<strong>字节</strong>定义为8<strong>位</strong>。（补充：n<strong>位</strong>可以表示的最大无符号整数是\(2^n\)-1）</li>
 <li>4个字节就是 4×8=32 位。</li>
 </ul>
+<h2 id="数据存放">数据存放
+</h2><p>计算机底层用二进制，内存以<strong>字节</strong>为单位组织的</p>
+<h3 id="原码与补码">原码与补码
+</h3><p>所有数据在内存中以补码形式存放，而不是原码</p>
+<p>正数的补码与原码相同，负数不同：</p>
+<p>1、原码就是 “符号位 + 数的绝对值”，即用最高 bit 位表示 “符号”，其余位表示 “数值”。</p>
+<p>2、反码的表示方法是：</p>
+<ul>
+<li>正数的反码是其本身；</li>
+<li>负数的反码是在其原码的基础上，符号位不变，其余各位 “按位取反” 。</li>
+</ul>
+<p>3、补码的表示方法是：</p>
+<ul>
+<li>正数的补码是其本身；</li>
+<li>负数的补码是在其原码的基础上，符号位不变，其余各位 “按位取反 <strong>+ 1</strong>” 。即：<strong>在反码的基础上 + 1</strong></li>
+</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">十进制数</th>
+          <th>原码（8位）</th>
+          <th>反码（8位）</th>
+          <th>补码（8位）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">85</td>
+          <td><code>0101 0101</code></td>
+          <td><code>0101 0101</code></td>
+          <td><code>0101 0101</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-85</td>
+          <td><code>1101 0101</code></td>
+          <td><code>1010 1010</code></td>
+          <td><code>1010 1011</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">9</td>
+          <td><code>0000 1001</code></td>
+          <td><code>0000 1001</code></td>
+          <td><code>0000 1001</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-9</td>
+          <td><code>1000 1001</code></td>
+          <td><code>1111 0110</code></td>
+          <td><code>1111 0111</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>注意：表中的二进制数只写了 8 位，实际内存不止 8 位。若有 int a=-85; 则对应 32 位存储。</p>
+<h3 id="sizeof">sizeof
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cout &lt;&lt; sizeof(int) &lt;&lt; &#39;,&#39; &lt;&lt; sizeof(short) &lt;&lt; endl;//输出4,2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看int与short分别在此系统中占几个字节，若int占4个字节，则是<code>4*8=32</code>位，决定用bitset&lt;32&gt;(x)</p>
+<h3 id="bitset">bitset
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bitset&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a的二进制: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">bitset</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;b的二进制: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">bitset</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>这里的 <code>bitset&lt;32&gt;(x)</code> 会将变量 <code>x</code>转换为一个 32 位的二进制位序列，并以字符串形式输出（例如 <code>01111111111111111111111111111111</code>）</li>
+<li><code>bitset&lt;32&gt;</code> 相当于一个 “二进制查看工具”，强制将整数按 32 位二进制格式展示</li>
+</ul>
+<h3 id="补充可不看">补充（可不看）
+</h3><h4 id="一机器数与补码存储基础">一、机器数与补码存储基础
+</h4><ol>
+<li><strong>存储方式</strong>：数值在计算机中以补码形式存储。</li>
+<li><strong>机器数</strong>：数在计算机中的二进制表示形式，带符号，最高位存符号（正数为 0，负数为 1 ），但其形式值不等于真正数值，如补码<code>10000010</code>，最高位 1 表负，真实值是 -126 。</li>
+<li><strong>真值</strong>：带符号位机器数对应的真正数值。</li>
+</ol>
+<h4 id="二原码反码补码的设计逻辑">二、原码、反码、补码的设计逻辑
+</h4><ol>
+<li><strong>问题根源</strong>：计算机为简化电路设计，只有加法无减法，靠符号位实现加减法转换（如<code>1 - 1 = 1 + (-1)</code> ），符号位参与运算催生反码。</li>
+<li><strong>反码局限</strong>：仅用反码计算会使 0 有<code>0000 0000</code>和<code>1000 0000</code>两个编码，0 带符号无意义，需改进。</li>
+<li><strong>补码解决</strong>：负数补码为反码 + 1，正数补码是自身；解决 0 的符号与编码问题，<code>0000 0000</code>表 0，<code>1000 0000</code>表 -128 ，让运算和存储更合理 。</li>
+</ol>
+<p>简言之，先讲计算机以补码存数，介绍机器数、真值概念；再解释因计算机运算设计，从原码到反码再到补码的演进，补码解决反码存 0 的弊端，让数值存储和运算更适配计算机体系 。</p>
+<h2 id="进制介绍">进制介绍
+</h2><h3 id="十进制整数">十进制整数
+</h3><p>2468=2×10³+4×10²+6×10¹+8×10⁰</p>
+<p>因为这种数字表示法是基于10的幂，所以将它称作基数为10的表示法或十进制表示法。</p>
+<p>可以用任何数作基数，如C++允许使用基数8（八进制）和基数16（十六进制）来书写整数。</p>
+<p>注意，10⁰为1，任何非零数的0次幂都为1</p>
+<h3 id="八进制整数">八进制整数
+</h3><p>八进制数是基数为8的，用数字0-7来书写数字。</p>
+<p>C++ 用前缀0来表示八进制表示法，如0177 是一个八进制值。</p>
+<p><img src="/images/C&#43;&#43;/1.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>UNIX操作系统常使用八进制来表示值</p>
+<h3 id="十六进制整数">十六进制整数
+</h3><p>十六进制数是基数为16的，这意味着十六进制的 10 表示 16 + 0，即 16</p>
+<p>为表示 10 - 15 ，需要字母 a - f。C++ 接受这些字符的大写和小写版本</p>
+<p>C++ 使用 0x 或 0X 来指示十六进制表示法，如 0x2B3 是一个十六进制值</p>
+<p><img src="/images/C&#43;&#43;/4.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/C&#43;&#43;/5.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>硬件文档常使用十六进制来表示诸如内存单元和端口号等值</p>
+<h3 id="二进制整数">二进制整数
+</h3><p>不管是使用十进制、八进制，还是十六进制表示法来书写整数，计算机都将它存储为二进制值</p>
+<p>二进制表示法只使用两个数字 ——0 和 1，每个单元（位）都可以设置成开或关。只是将关表示为 0，将开表示为 1。</p>
+<p>但 C++ 没有提供二进制表示法来书写数字的方式。</p>
+<p><img src="/images/C&#43;&#43;/6.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>C++ 字节并非一定是 8 位，但此处采用常见的做法，用字节表示八位组。</p>
+<p>如图 表示一个 2 字节的整数。</p>
+<p><img src="/images/C&#43;&#43;/7.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="十进制转二进制">十进制转二进制
+</h3><p><img src="/images/C&#43;&#43;/8.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="八进制与二进制互转">八进制与二进制互转
+</h3><p>八进制表示法常用于在处理二进制数据（如某些底层数据的简化展示场景 ）时，提供更简洁的视图。</p>
+<p>方法：先将八进制每位拆分为 3 位二进制，再拼接</p>
+<p>八进制值转换为二进制：八进制 <code>057</code> 对应于二进制数 <code>101111</code></p>
+<p>二进制值转换为八进制：二进制值 <code>110101</code> 将被转换为 <code>065</code></p>
+<h3 id="十六进制与二进制互转">十六进制与二进制互转
+</h3><p>十六进制表示法常用于提供更为方便的二进制数据（如内存地址或存储位标记设置的整数）视图。</p>
+<p>方法：先将八进制每位拆分为 4 位二进制，拼接</p>
+<p>十六进制值转换为二进制：十六进制 0xA4 对应于二进制数 10100100</p>
+<p>二进制值转换为十六进制：二进制值 10010101 将被转换为 0x95</p>
+<p><img src="/images/C&#43;&#43;/9.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="关键字介绍">关键字介绍
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关键字</th>
+          <th>用途</th>
+          <th>关键字</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>int</code></td>
+          <td>声明整数类型变量</td>
+          <td><code>if</code></td>
+          <td>条件判断语句</td>
+      </tr>
+      <tr>
+          <td><code>for</code></td>
+          <td>循环控制结构</td>
+          <td><code>while</code></td>
+          <td>循环控制结构</td>
+      </tr>
+      <tr>
+          <td><code>return</code></td>
+          <td>从函数返回值</td>
+          <td><code>void</code></td>
+          <td>表示无类型或空返回值</td>
+      </tr>
+      <tr>
+          <td><code>class</code></td>
+          <td>定义类</td>
+          <td><code>public</code></td>
+          <td>类成员的访问修饰符（公开）</td>
+      </tr>
+      <tr>
+          <td><code>private</code></td>
+          <td>类成员的访问修饰符（私有）</td>
+          <td><code>protected</code></td>
+          <td>类成员的访问修饰符（受保护）</td>
+      </tr>
+      <tr>
+          <td><code>const</code></td>
+          <td>定义常量或不可修改的变量</td>
+          <td><code>static</code></td>
+          <td>静态变量或函数</td>
+      </tr>
+      <tr>
+          <td><code>new</code></td>
+          <td>动态分配内存</td>
+          <td><code>delete</code></td>
+          <td>释放动态分配的内存</td>
+      </tr>
+      <tr>
+          <td><code>true</code></td>
+          <td>布尔值真</td>
+          <td><code>false</code></td>
+          <td>布尔值假</td>
+      </tr>
+      <tr>
+          <td><code>bool</code></td>
+          <td>声明布尔类型变量</td>
+          <td><code>char</code></td>
+          <td>声明字符类型变量</td>
+      </tr>
+      <tr>
+          <td><code>double</code></td>
+          <td>声明双精度浮点数类型变量</td>
+          <td><code>float</code></td>
+          <td>声明单精度浮点数类型变量</td>
+      </tr>
+      <tr>
+          <td><code>auto</code></td>
+          <td>自动类型推导</td>
+          <td><code>break</code></td>
+          <td>跳出循环或switch语句</td>
+      </tr>
+      <tr>
+          <td><code>continue</code></td>
+          <td>跳过当前循环的剩余部分</td>
+          <td><code>switch</code></td>
+          <td>多分支选择语句</td>
+      </tr>
+      <tr>
+          <td><code>case</code></td>
+          <td>switch语句中的分支标签</td>
+          <td><code>default</code></td>
+          <td>switch语句中的默认分支</td>
+      </tr>
+      <tr>
+          <td><code>try</code></td>
+          <td>异常处理块起始</td>
+          <td><code>catch</code></td>
+          <td>捕获异常</td>
+      </tr>
+      <tr>
+          <td><code>throw</code></td>
+          <td>抛出异常</td>
+          <td><code>namespace</code></td>
+          <td>定义命名空间</td>
+      </tr>
+      <tr>
+          <td><code>using</code></td>
+          <td>引入命名空间或别名</td>
+          <td><code>template</code></td>
+          <td>定义模板</td>
+      </tr>
+      <tr>
+          <td><code>typename</code></td>
+          <td>指定模板中的类型参数</td>
+          <td><code>struct</code></td>
+          <td>定义结构体</td>
+      </tr>
+      <tr>
+          <td><code>operator</code></td>
+          <td>重载操作符</td>
+          <td><code>this</code></td>
+          <td>指向当前对象的指针</td>
+      </tr>
+      <tr>
+          <td><code>virtual</code></td>
+          <td>声明虚函数</td>
+          <td><code>override</code></td>
+          <td>显式标记重写虚函数</td>
+      </tr>
+      <tr>
+          <td><code>final</code></td>
+          <td>禁止派生类重写或继承</td>
+          <td><code>enum</code></td>
+          <td>定义枚举类型</td>
+      </tr>
+      <tr>
+          <td><code>extern</code></td>
+          <td>声明外部链接的变量或函数</td>
+          <td><code>inline</code></td>
+          <td>建议编译器内联函数</td>
+      </tr>
+      <tr>
+          <td><code>constexpr</code></td>
+          <td>声明常量表达式</td>
+          <td><code>decltype</code></td>
+          <td>获取表达式的类型</td>
+      </tr>
+      <tr>
+          <td><code>sizeof</code></td>
+          <td>获取类型或对象的大小</td>
+          <td><code>typedef</code></td>
+          <td>定义类型别名</td>
+      </tr>
+      <tr>
+          <td><code>union</code></td>
+          <td>定义联合体</td>
+          <td><code>volatile</code></td>
+          <td>防止编译器优化变量</td>
+      </tr>
+      <tr>
+          <td><code>mutable</code></td>
+          <td>允许const成员函数修改成员变量</td>
+          <td><code>explicit</code></td>
+          <td>禁止隐式构造函数转换</td>
+      </tr>
+      <tr>
+          <td><code>friend</code></td>
+          <td>允许非成员函数访问类的私有成员</td>
+          <td><code>dynamic_cast</code></td>
+          <td>运行时类型检查的转换</td>
+      </tr>
+      <tr>
+          <td><code>static_cast</code></td>
+          <td>静态类型转换</td>
+          <td><code>reinterpret_cast</code></td>
+          <td>低级别类型转换</td>
+      </tr>
+      <tr>
+          <td><code>const_cast</code></td>
+          <td>移除const属性</td>
+          <td><code>noexcept</code></td>
+          <td>指定函数不抛出异常</td>
+      </tr>
+      <tr>
+          <td><code>thread_local</code></td>
+          <td>线程局部存储</td>
+          <td><code>alignas</code></td>
+          <td>指定变量或类型的对齐方式</td>
+      </tr>
+      <tr>
+          <td><code>alignof</code></td>
+          <td>获取类型的对齐要求</td>
+          <td><code>asm</code></td>
+          <td>内联汇编语句</td>
+      </tr>
+      <tr>
+          <td><code>export</code></td>
+          <td>导出模板（已弃用）</td>
+          <td><code>goto</code></td>
+          <td>无条件跳转语句</td>
+      </tr>
+      <tr>
+          <td><code>register</code></td>
+          <td>建议编译器将变量存储在寄存器中（已弃用）</td>
+          <td><code>wchar_t</code></td>
+          <td>宽字符类型</td>
+      </tr>
+      <tr>
+          <td><code>char16_t</code></td>
+          <td>UTF-16字符类型</td>
+          <td><code>char32_t</code></td>
+          <td>UTF-32字符类型</td>
+      </tr>
+      <tr>
+          <td><code>nullptr</code></td>
+          <td>空指针常量</td>
+          <td><code>typeid</code></td>
+          <td>获取类型信息</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="ascii码介绍">ASCII码介绍
+</h3><p><img src="/images/C&#43;&#43;/10.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="/images/C&#43;&#43;/11.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 <h2 id="常量">常量
 </h2><h3 id="数值常量">数值常量
 </h3><h4 id="整型常量">整型常量
 </h4><ol>
-<li>十进制整数：long int 型在后面加上<code>L</code></li>
+<li>十进制整数：如果是long int 型，则要在后面加上<code>L</code></li>
 <li>八进制整数：开头加上<code>数字0</code></li>
 <li>十六进制整数：开头加上<code>0x</code></li>
 </ol>
@@ -767,9 +1213,9 @@
 <li><strong><code>&lt;&lt; c5</code></strong>：在第 16 列输出 <code>N</code>（字符 <code>c5</code>）。</li>
 <li>最终效果：第 7 列显示 <code>A</code>，第 16 列显示 <code>N</code>，中间填充 8 个空格（制表位特性，自己画图试一下）。</li>
 </ul>
+</details> 
 </li>
 </ul>
-</details> 
 <details>
   <summary style="list-style-type: none; cursor: pointer;">
   <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
@@ -870,6 +1316,11 @@
 <blockquote class="alert alert-error">
     <p>Error：变量……未经声明</p></blockquote>
 <p>整型变量与实型变量</p>
+<ul>
+<li>本质上，<strong>实型 = 浮点型</strong>，二者均指计算机中表示带小数的数值类型。</li>
+<li>差异仅在于：实型是从 “表示实数” 的逻辑角度命名，浮点型是从 “小数点浮动的存储方式” 角度命名。</li>
+<li>在实际编程中，两者可视为同义词，具体使用哪一术语取决于语境（理论描述用实型，技术细节用浮点型）。</li>
+</ul>
 <h3 id="对变量初始化">对变量初始化
 </h3><p>可以是常量，也可以是有确定值的表达式</p>
 <p><code>float a,b=2.5*sin(2.0);</code>中a没有被初始化</p>
@@ -883,6 +1334,39 @@
 </h4><ul>
 <li>有时要求函数的参数不允许改变</li>
 </ul>
+<h2 id="运算符与结合性介绍">运算符与结合性介绍
+</h2><p><img src="/images/C&#43;&#43;/2.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ol>
+<li>
+<p>同一优先级的运算符，运算次序由结合方向决定。</p>
+<p>例如，“*” 与 “/” 具有相同的优先级别，其结合方向为自左至右，因此 3 * 5/4 的运算次序是先乘后除。</p>
+<p>例如，负号运算符 “-” 和前置自增运算符 “++” 为同一优先级，结合方向为自右至左，因此 - ++i 相当于 -(++i)。</p>
+</li>
+<li>
+<p>不同的运算符要求有不同的运算对象个数。</p>
+<p>例如，加法运算符 “+” 和减法运算符 “-” 为双目运算符，要求在运算符两侧各有一个运算对象（如 3 + 5、8 - 3 等）。</p>
+<p>例如，自增运算符 “++” 和负号运算符 “-” 是一目运算符，只能在运算符的一侧出现一个运算对象（如 - a, i++, &ndash;i, (float) i, sizeof (int), *p 等）。</p>
+<p>条件运算符是 C++ 中唯一的一个三目运算符，如 x? a: b。</p>
+</li>
+<li>
+<p>从上述表中可以大致归纳出各类运算符的优先级：</p>
+<p><img src="/images/C&#43;&#43;/12.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+</ol>
 <h2 id="c的运算符">C++的运算符
 </h2><p>把<code>=</code>也作为运算符处理，这样<code>a=b=c=4</code>也是合法的表达式</p>
 <ol>
@@ -955,6 +1439,20 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
 <li>相除若有一个操作数是负数，则向零取整（取整是向零靠拢的）</li>
 <li>加减乘除中若有一个操作数是float型，则运算结果是double型</li>
 </ul>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  浮点数与除法
+</summary
+<p>关键点：另一个操作数也要转换</p>
+<p>题目：<br>
+<code>(float)(a+b)/2+(int)x%(int)y，设a=2，b=3，x=3.5，y=2.5</code><br>
+答案：<br>
+3.5</p>
+<p>分析：<br>
+根据类型转换规则：
+当浮点型（double）与整型（int）进行运算时，整型会自动转换为浮点型，因此实际运算相当于5.0 / 2.0，结果为2.5（double类型）。</p>
+</details> 
 <h3 id="运算符的优先级与结合性">运算符的优先级与结合性
 </h3><p>算术运算符的结合性是<code>左结合性</code></p>
 <h3 id="各类型数据间的混合运算隐式转换">各类型数据间的混合运算（隐式转换）
@@ -988,7 +1486,7 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
 <p>右结合：<code>a=(b=10)/(c=2)</code>的值是5</p>
 <p>赋值表达式中的“表达式”又可以是一个赋值表达式如<code>a=(b=5)</code>,<code>b=5</code>这个赋值表达式的值是5，所以<code>a=5</code>，所以整个赋值表达式的值是5</p>
 <h2 id="逗号运算符和逗号表达式">逗号运算符和逗号表达式
-</h2><p>顺序求值</p>
+</h2><p>顺序求值实型</p>
 <p>逗号优先级<strong>低于</strong>赋值</p>
 <p>常用于循环for语句</p>
 
@@ -1008,7 +1506,7 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
 
 
         <span>
-            最后更新于 Jul 27, 2025 15:22 &#43;0800
+            最后更新于 Jul 29, 2025 11:01 &#43;0800
         </span>
     </section></footer>
 

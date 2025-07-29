@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Sun, 27 Jul 2025 15:22:22 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 29 Jul 2025 11:01:40 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>C&#43;&#43;初步</title>
         <link>https://cjh520-hjw.github.io/p/c-%E5%88%9D%E6%AD%A5/</link>
         <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
@@ -291,14 +291,430 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 &gt;&lt;/p&gt;
 &lt;p&gt;总结来说，4个字节占32位的原因是：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;一个字节定义为8位。&lt;/li&gt;
+&lt;li&gt;一个&lt;strong&gt;字节&lt;/strong&gt;定义为8&lt;strong&gt;位&lt;/strong&gt;。（补充：n&lt;strong&gt;位&lt;/strong&gt;可以表示的最大无符号整数是\(2^n\)-1）&lt;/li&gt;
 &lt;li&gt;4个字节就是 4×8=32 位。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;数据存放&#34;&gt;数据存放
+&lt;/h2&gt;&lt;p&gt;计算机底层用二进制，内存以&lt;strong&gt;字节&lt;/strong&gt;为单位组织的&lt;/p&gt;
+&lt;h3 id=&#34;原码与补码&#34;&gt;原码与补码
+&lt;/h3&gt;&lt;p&gt;所有数据在内存中以补码形式存放，而不是原码&lt;/p&gt;
+&lt;p&gt;正数的补码与原码相同，负数不同：&lt;/p&gt;
+&lt;p&gt;1、原码就是 “符号位 + 数的绝对值”，即用最高 bit 位表示 “符号”，其余位表示 “数值”。&lt;/p&gt;
+&lt;p&gt;2、反码的表示方法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;正数的反码是其本身；&lt;/li&gt;
+&lt;li&gt;负数的反码是在其原码的基础上，符号位不变，其余各位 “按位取反” 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3、补码的表示方法是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;正数的补码是其本身；&lt;/li&gt;
+&lt;li&gt;负数的补码是在其原码的基础上，符号位不变，其余各位 “按位取反 &lt;strong&gt;+ 1&lt;/strong&gt;” 。即：&lt;strong&gt;在反码的基础上 + 1&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;十进制数&lt;/th&gt;
+          &lt;th&gt;原码（8位）&lt;/th&gt;
+          &lt;th&gt;反码（8位）&lt;/th&gt;
+          &lt;th&gt;补码（8位）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;85&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0101 0101&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0101 0101&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0101 0101&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;-85&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1101 0101&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1010 1010&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1010 1011&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;9&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0000 1001&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0000 1001&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;0000 1001&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;-9&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1000 1001&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1111 0110&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;1111 0111&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;注意：表中的二进制数只写了 8 位，实际内存不止 8 位。若有 int a=-85; 则对应 32 位存储。&lt;/p&gt;
+&lt;h3 id=&#34;sizeof&#34;&gt;sizeof
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cout &amp;lt;&amp;lt; sizeof(int) &amp;lt;&amp;lt; &amp;#39;,&amp;#39; &amp;lt;&amp;lt; sizeof(short) &amp;lt;&amp;lt; endl;//输出4,2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;查看int与short分别在此系统中占几个字节，若int占4个字节，则是&lt;code&gt;4*8=32&lt;/code&gt;位，决定用bitset&amp;lt;32&amp;gt;(x)&lt;/p&gt;
+&lt;h3 id=&#34;bitset&#34;&gt;bitset
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;bitset&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;a的二进制: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bitset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;b的二进制: &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bitset&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;这里的 &lt;code&gt;bitset&amp;lt;32&amp;gt;(x)&lt;/code&gt; 会将变量 &lt;code&gt;x&lt;/code&gt;转换为一个 32 位的二进制位序列，并以字符串形式输出（例如 &lt;code&gt;01111111111111111111111111111111&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bitset&amp;lt;32&amp;gt;&lt;/code&gt; 相当于一个 “二进制查看工具”，强制将整数按 32 位二进制格式展示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;补充可不看&#34;&gt;补充（可不看）
+&lt;/h3&gt;&lt;h4 id=&#34;一机器数与补码存储基础&#34;&gt;一、机器数与补码存储基础
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;存储方式&lt;/strong&gt;：数值在计算机中以补码形式存储。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器数&lt;/strong&gt;：数在计算机中的二进制表示形式，带符号，最高位存符号（正数为 0，负数为 1 ），但其形式值不等于真正数值，如补码&lt;code&gt;10000010&lt;/code&gt;，最高位 1 表负，真实值是 -126 。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真值&lt;/strong&gt;：带符号位机器数对应的真正数值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;二原码反码补码的设计逻辑&#34;&gt;二、原码、反码、补码的设计逻辑
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;问题根源&lt;/strong&gt;：计算机为简化电路设计，只有加法无减法，靠符号位实现加减法转换（如&lt;code&gt;1 - 1 = 1 + (-1)&lt;/code&gt; ），符号位参与运算催生反码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反码局限&lt;/strong&gt;：仅用反码计算会使 0 有&lt;code&gt;0000 0000&lt;/code&gt;和&lt;code&gt;1000 0000&lt;/code&gt;两个编码，0 带符号无意义，需改进。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;补码解决&lt;/strong&gt;：负数补码为反码 + 1，正数补码是自身；解决 0 的符号与编码问题，&lt;code&gt;0000 0000&lt;/code&gt;表 0，&lt;code&gt;1000 0000&lt;/code&gt;表 -128 ，让运算和存储更合理 。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简言之，先讲计算机以补码存数，介绍机器数、真值概念；再解释因计算机运算设计，从原码到反码再到补码的演进，补码解决反码存 0 的弊端，让数值存储和运算更适配计算机体系 。&lt;/p&gt;
+&lt;h2 id=&#34;进制介绍&#34;&gt;进制介绍
+&lt;/h2&gt;&lt;h3 id=&#34;十进制整数&#34;&gt;十进制整数
+&lt;/h3&gt;&lt;p&gt;2468=2×10³+4×10²+6×10¹+8×10⁰&lt;/p&gt;
+&lt;p&gt;因为这种数字表示法是基于10的幂，所以将它称作基数为10的表示法或十进制表示法。&lt;/p&gt;
+&lt;p&gt;可以用任何数作基数，如C++允许使用基数8（八进制）和基数16（十六进制）来书写整数。&lt;/p&gt;
+&lt;p&gt;注意，10⁰为1，任何非零数的0次幂都为1&lt;/p&gt;
+&lt;h3 id=&#34;八进制整数&#34;&gt;八进制整数
+&lt;/h3&gt;&lt;p&gt;八进制数是基数为8的，用数字0-7来书写数字。&lt;/p&gt;
+&lt;p&gt;C++ 用前缀0来表示八进制表示法，如0177 是一个八进制值。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;UNIX操作系统常使用八进制来表示值&lt;/p&gt;
+&lt;h3 id=&#34;十六进制整数&#34;&gt;十六进制整数
+&lt;/h3&gt;&lt;p&gt;十六进制数是基数为16的，这意味着十六进制的 10 表示 16 + 0，即 16&lt;/p&gt;
+&lt;p&gt;为表示 10 - 15 ，需要字母 a - f。C++ 接受这些字符的大写和小写版本&lt;/p&gt;
+&lt;p&gt;C++ 使用 0x 或 0X 来指示十六进制表示法，如 0x2B3 是一个十六进制值&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;硬件文档常使用十六进制来表示诸如内存单元和端口号等值&lt;/p&gt;
+&lt;h3 id=&#34;二进制整数&#34;&gt;二进制整数
+&lt;/h3&gt;&lt;p&gt;不管是使用十进制、八进制，还是十六进制表示法来书写整数，计算机都将它存储为二进制值&lt;/p&gt;
+&lt;p&gt;二进制表示法只使用两个数字 ——0 和 1，每个单元（位）都可以设置成开或关。只是将关表示为 0，将开表示为 1。&lt;/p&gt;
+&lt;p&gt;但 C++ 没有提供二进制表示法来书写数字的方式。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/6.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;C++ 字节并非一定是 8 位，但此处采用常见的做法，用字节表示八位组。&lt;/p&gt;
+&lt;p&gt;如图 表示一个 2 字节的整数。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/7.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;十进制转二进制&#34;&gt;十进制转二进制
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/8.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;八进制与二进制互转&#34;&gt;八进制与二进制互转
+&lt;/h3&gt;&lt;p&gt;八进制表示法常用于在处理二进制数据（如某些底层数据的简化展示场景 ）时，提供更简洁的视图。&lt;/p&gt;
+&lt;p&gt;方法：先将八进制每位拆分为 3 位二进制，再拼接&lt;/p&gt;
+&lt;p&gt;八进制值转换为二进制：八进制 &lt;code&gt;057&lt;/code&gt; 对应于二进制数 &lt;code&gt;101111&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;二进制值转换为八进制：二进制值 &lt;code&gt;110101&lt;/code&gt; 将被转换为 &lt;code&gt;065&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;十六进制与二进制互转&#34;&gt;十六进制与二进制互转
+&lt;/h3&gt;&lt;p&gt;十六进制表示法常用于提供更为方便的二进制数据（如内存地址或存储位标记设置的整数）视图。&lt;/p&gt;
+&lt;p&gt;方法：先将八进制每位拆分为 4 位二进制，拼接&lt;/p&gt;
+&lt;p&gt;十六进制值转换为二进制：十六进制 0xA4 对应于二进制数 10100100&lt;/p&gt;
+&lt;p&gt;二进制值转换为十六进制：二进制值 10010101 将被转换为 0x95&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/9.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;关键字介绍&#34;&gt;关键字介绍
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;关键字&lt;/th&gt;
+          &lt;th&gt;用途&lt;/th&gt;
+          &lt;th&gt;关键字&lt;/th&gt;
+          &lt;th&gt;用途&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;int&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明整数类型变量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;if&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;条件判断语句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;for&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;循环控制结构&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;while&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;循环控制结构&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;return&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;从函数返回值&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;void&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;表示无类型或空返回值&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;class&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义类&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;public&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;类成员的访问修饰符（公开）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;private&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;类成员的访问修饰符（私有）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;protected&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;类成员的访问修饰符（受保护）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;const&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义常量或不可修改的变量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;static&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;静态变量或函数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;new&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;动态分配内存&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;delete&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;释放动态分配的内存&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;布尔值真&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;布尔值假&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bool&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明布尔类型变量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;char&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明字符类型变量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;double&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明双精度浮点数类型变量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明单精度浮点数类型变量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;auto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;自动类型推导&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;break&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;跳出循环或switch语句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;continue&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;跳过当前循环的剩余部分&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;switch&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;多分支选择语句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;case&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;switch语句中的分支标签&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;default&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;switch语句中的默认分支&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;try&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;异常处理块起始&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;catch&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;捕获异常&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;throw&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;抛出异常&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;namespace&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义命名空间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;using&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;引入命名空间或别名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;template&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义模板&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;typename&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指定模板中的类型参数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;struct&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义结构体&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;operator&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;重载操作符&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;this&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指向当前对象的指针&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;virtual&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明虚函数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;override&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;显式标记重写虚函数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;final&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;禁止派生类重写或继承&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;enum&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义枚举类型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;extern&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明外部链接的变量或函数&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;inline&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;建议编译器内联函数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;constexpr&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;声明常量表达式&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;decltype&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;获取表达式的类型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;sizeof&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;获取类型或对象的大小&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;typedef&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义类型别名&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;union&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;定义联合体&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;volatile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;防止编译器优化变量&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;mutable&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;允许const成员函数修改成员变量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;explicit&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;禁止隐式构造函数转换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;friend&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;允许非成员函数访问类的私有成员&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;dynamic_cast&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;运行时类型检查的转换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;static_cast&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;静态类型转换&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;reinterpret_cast&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;低级别类型转换&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;const_cast&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;移除const属性&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;noexcept&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指定函数不抛出异常&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;thread_local&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;线程局部存储&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;alignas&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;指定变量或类型的对齐方式&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;alignof&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;获取类型的对齐要求&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;asm&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;内联汇编语句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;export&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;导出模板（已弃用）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;goto&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;无条件跳转语句&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;register&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;建议编译器将变量存储在寄存器中（已弃用）&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;wchar_t&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;宽字符类型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;char16_t&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;UTF-16字符类型&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;char32_t&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;UTF-32字符类型&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;nullptr&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;空指针常量&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;typeid&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;获取类型信息&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;ascii码介绍&#34;&gt;ASCII码介绍
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/10.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/11.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;h2 id=&#34;常量&#34;&gt;常量
 &lt;/h2&gt;&lt;h3 id=&#34;数值常量&#34;&gt;数值常量
 &lt;/h3&gt;&lt;h4 id=&#34;整型常量&#34;&gt;整型常量
 &lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;十进制整数：long int 型在后面加上&lt;code&gt;L&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;十进制整数：如果是long int 型，则要在后面加上&lt;code&gt;L&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;八进制整数：开头加上&lt;code&gt;数字0&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;十六进制整数：开头加上&lt;code&gt;0x&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -402,9 +818,9 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;&amp;lt;&amp;lt; c5&lt;/code&gt;&lt;/strong&gt;：在第 16 列输出 &lt;code&gt;N&lt;/code&gt;（字符 &lt;code&gt;c5&lt;/code&gt;）。&lt;/li&gt;
 &lt;li&gt;最终效果：第 7 列显示 &lt;code&gt;A&lt;/code&gt;，第 16 列显示 &lt;code&gt;N&lt;/code&gt;，中间填充 8 个空格（制表位特性，自己画图试一下）。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/details&gt; 
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/details&gt; 
 &lt;details&gt;
   &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt;
   &lt;span style=&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;🫣&lt;/span&gt;
@@ -505,6 +921,11 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 &lt;blockquote class=&#34;alert alert-error&#34;&gt;
     &lt;p&gt;Error：变量……未经声明&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;整型变量与实型变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;本质上，&lt;strong&gt;实型 = 浮点型&lt;/strong&gt;，二者均指计算机中表示带小数的数值类型。&lt;/li&gt;
+&lt;li&gt;差异仅在于：实型是从 “表示实数” 的逻辑角度命名，浮点型是从 “小数点浮动的存储方式” 角度命名。&lt;/li&gt;
+&lt;li&gt;在实际编程中，两者可视为同义词，具体使用哪一术语取决于语境（理论描述用实型，技术细节用浮点型）。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;对变量初始化&#34;&gt;对变量初始化
 &lt;/h3&gt;&lt;p&gt;可以是常量，也可以是有确定值的表达式&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;float a,b=2.5*sin(2.0);&lt;/code&gt;中a没有被初始化&lt;/p&gt;
@@ -518,6 +939,39 @@ C++的源程序是&lt;code&gt;.cpp&lt;/code&gt;，Windows的目标程序是&lt;c
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;有时要求函数的参数不允许改变&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;运算符与结合性介绍&#34;&gt;运算符与结合性介绍
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/2.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;同一优先级的运算符，运算次序由结合方向决定。&lt;/p&gt;
+&lt;p&gt;例如，“*” 与 “/” 具有相同的优先级别，其结合方向为自左至右，因此 3 * 5/4 的运算次序是先乘后除。&lt;/p&gt;
+&lt;p&gt;例如，负号运算符 “-” 和前置自增运算符 “++” 为同一优先级，结合方向为自右至左，因此 - ++i 相当于 -(++i)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不同的运算符要求有不同的运算对象个数。&lt;/p&gt;
+&lt;p&gt;例如，加法运算符 “+” 和减法运算符 “-” 为双目运算符，要求在运算符两侧各有一个运算对象（如 3 + 5、8 - 3 等）。&lt;/p&gt;
+&lt;p&gt;例如，自增运算符 “++” 和负号运算符 “-” 是一目运算符，只能在运算符的一侧出现一个运算对象（如 - a, i++, &amp;ndash;i, (float) i, sizeof (int), *p 等）。&lt;/p&gt;
+&lt;p&gt;条件运算符是 C++ 中唯一的一个三目运算符，如 x? a: b。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从上述表中可以大致归纳出各类运算符的优先级：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/12.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&#34;c的运算符&#34;&gt;C++的运算符
 &lt;/h2&gt;&lt;p&gt;把&lt;code&gt;=&lt;/code&gt;也作为运算符处理，这样&lt;code&gt;a=b=c=4&lt;/code&gt;也是合法的表达式&lt;/p&gt;
 &lt;ol&gt;
@@ -590,6 +1044,20 @@ static_cast&amp;lt;类型名&amp;gt;(表达式)、dynamic_cast&amp;lt;类型名&
 &lt;li&gt;相除若有一个操作数是负数，则向零取整（取整是向零靠拢的）&lt;/li&gt;
 &lt;li&gt;加减乘除中若有一个操作数是float型，则运算结果是double型&lt;/li&gt;
 &lt;/ul&gt;
+&lt;details&gt;
+  &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt;
+  &lt;span style=&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;🫣&lt;/span&gt;
+  浮点数与除法
+&lt;/summary
+&lt;p&gt;关键点：另一个操作数也要转换&lt;/p&gt;
+&lt;p&gt;题目：&lt;br&gt;
+&lt;code&gt;(float)(a+b)/2+(int)x%(int)y，设a=2，b=3，x=3.5，y=2.5&lt;/code&gt;&lt;br&gt;
+答案：&lt;br&gt;
+3.5&lt;/p&gt;
+&lt;p&gt;分析：&lt;br&gt;
+根据类型转换规则：
+当浮点型（double）与整型（int）进行运算时，整型会自动转换为浮点型，因此实际运算相当于5.0 / 2.0，结果为2.5（double类型）。&lt;/p&gt;
+&lt;/details&gt; 
 &lt;h3 id=&#34;运算符的优先级与结合性&#34;&gt;运算符的优先级与结合性
 &lt;/h3&gt;&lt;p&gt;算术运算符的结合性是&lt;code&gt;左结合性&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;各类型数据间的混合运算隐式转换&#34;&gt;各类型数据间的混合运算（隐式转换）
@@ -623,7 +1091,7 @@ static_cast&amp;lt;类型名&amp;gt;(表达式)、dynamic_cast&amp;lt;类型名&
 &lt;p&gt;右结合：&lt;code&gt;a=(b=10)/(c=2)&lt;/code&gt;的值是5&lt;/p&gt;
 &lt;p&gt;赋值表达式中的“表达式”又可以是一个赋值表达式如&lt;code&gt;a=(b=5)&lt;/code&gt;,&lt;code&gt;b=5&lt;/code&gt;这个赋值表达式的值是5，所以&lt;code&gt;a=5&lt;/code&gt;，所以整个赋值表达式的值是5&lt;/p&gt;
 &lt;h2 id=&#34;逗号运算符和逗号表达式&#34;&gt;逗号运算符和逗号表达式
-&lt;/h2&gt;&lt;p&gt;顺序求值&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;顺序求值实型&lt;/p&gt;
 &lt;p&gt;逗号优先级&lt;strong&gt;低于&lt;/strong&gt;赋值&lt;/p&gt;
 &lt;p&gt;常用于循环for语句&lt;/p&gt;
 </description>
