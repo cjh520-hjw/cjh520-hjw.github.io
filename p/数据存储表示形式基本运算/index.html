@@ -10,105 +10,143 @@
 <meta property='og:description' content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。（补充：n位可以表示的最大无符号整数是\\(2^n\\)-1） 4个字节就是 4×8=32 位。 数据存放 计算机底层用二进制，内存以字节为单位组织的\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-29T12:00:33&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-11T20:45:34&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
 <meta name="twitter:title" content="数据存储、表示形式、基本运算">
 <meta name="twitter:description" content="数据类型 还可以构成更复杂的结构：\n指针和结构体-&gt;表、树、栈 数值范围 总结来说，4个字节占32位的原因是：\n一个字节定义为8位。（补充：n位可以表示的最大无符号整数是\\(2^n\\)-1） 4个字节就是 4×8=32 位。 数据存放 计算机底层用二进制，内存以字节为单位组织的\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/C&#43;&#43;/0.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <div class="loading">
+    
      
-<svg viewBox="0 0 128 128" height="128" width="128" class="star">
-  <defs>
-    <filter id="star-glow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"></feGaussianBlur>
-      <feMerge>
-        <feMergeNode in="coloredBlur"></feMergeNode>
-        <feMergeNode in="SourceGraphic"></feMergeNode>
-      </feMerge>
-    </filter>
-    <linearGradient y2="1" x2="0" y1="0" x1="0" id="star-grad">
-      <stop stop-color="#000" offset="0%"></stop>
-      <stop stop-color="#fff" offset="100%"></stop>
-    </linearGradient>
-    <mask id="star-mask">
-      <rect fill="url(#star-grad)" height="128" width="128" y="0" x="0"></rect>
-    </mask>
-  </defs>
-  <g
-    stroke-width="2"
-    stroke-linejoin="round"
-    stroke-linecap="round"
-    fill="none"
-  >
-    <g stroke="hsla(223,90%,50%,0.2)">
-      <polygon
-        points="64 49 66.322 58.992 71.071 56.929 69.008 61.678 79 64 69.008 66.322 71.071 71.071 66.322 69.008 64 79 61.678 69.008 56.929 71.071 58.992 66.322 49 64 58.992 61.678 56.929 56.929 61.678 58.992 64 49"
-      ></polygon>
-      <polygon
-        points="64 34 68.644 53.983 78.142 49.858 74.017 59.356 94 64 74.017 68.644 78.142 78.142 68.644 74.017 64 94 59.356 74.017 49.858 78.142 53.983 68.644 34 64 53.983 59.356 49.858 49.858 59.356 53.983 64 34"
-      ></polygon>
-      <polygon
-        points="64 19 70.966 48.975 85.213 42.787 79.025 57.034 109 64 79.025 70.966 85.213 85.213 70.966 79.025 64 109 57.034 79.025 42.787 85.213 48.975 70.966 19 64 48.975 57.034 42.787 42.787 57.034 48.975 64 19"
-      ></polygon>
-      <polygon
-        points="64 4 73.287 43.966 92.284 35.716 84.034 54.713 124 64 84.034 73.287 92.284 92.284 73.287 84.034 64 124 54.713 84.034 35.716 92.284 43.966 73.287 4 64 43.966 54.713 35.716 35.716 54.713 43.966 64 4"
-      ></polygon>
-    </g>
-    <g filter="url(#star-glow)">
-      <g stroke="hsl(223,90%,50%)">
-        <polygon
-          points="64 49 66.322 58.992 71.071 56.929 69.008 61.678 79 64 69.008 66.322 71.071 71.071 66.322 69.008 64 79 61.678 69.008 56.929 71.071 58.992 66.322 49 64 58.992 61.678 56.929 56.929 61.678 58.992 64 49"
-          stroke-dasharray="31 93"
-          class="star__stroke"
-        ></polygon>
-        <polygon
-          points="64 34 68.644 53.983 78.142 49.858 74.017 59.356 94 64 74.017 68.644 78.142 78.142 68.644 74.017 64 94 59.356 74.017 49.858 78.142 53.983 68.644 34 64 53.983 59.356 49.858 49.858 59.356 53.983 64 34"
-          stroke-dasharray="62 186"
-          class="star__stroke star__stroke--2"
-        ></polygon>
-        <polygon
-          points="64 19 70.966 48.975 85.213 42.787 79.025 57.034 109 64 79.025 70.966 85.213 85.213 70.966 79.025 64 109 57.034 79.025 42.787 85.213 48.975 70.966 19 64 48.975 57.034 42.787 42.787 57.034 48.975 64 19"
-          stroke-dasharray="93 279"
-          class="star__stroke star__stroke--3"
-        ></polygon>
-        <polygon
-          points="64 4 73.287 43.966 92.284 35.716 84.034 54.713 124 64 84.034 73.287 92.284 92.284 73.287 84.034 64 124 54.713 84.034 35.716 92.284 43.966 73.287 4 64 43.966 54.713 35.716 35.716 54.713 43.966 64 4"
-          stroke-dasharray="124 372"
-          class="star__stroke star__stroke--4"
-        ></polygon>
-      </g>
-      <g mask="url(#star-mask)" stroke="hsl(283,90%,50%)">
-        <polygon
-          points="64 49 66.322 58.992 71.071 56.929 69.008 61.678 79 64 69.008 66.322 71.071 71.071 66.322 69.008 64 79 61.678 69.008 56.929 71.071 58.992 66.322 49 64 58.992 61.678 56.929 56.929 61.678 58.992 64 49"
-          stroke-dasharray="31 93"
-          class="star__stroke"
-        ></polygon>
-        <polygon
-          points="64 34 68.644 53.983 78.142 49.858 74.017 59.356 94 64 74.017 68.644 78.142 78.142 68.644 74.017 64 94 59.356 74.017 49.858 78.142 53.983 68.644 34 64 53.983 59.356 49.858 49.858 59.356 53.983 64 34"
-          stroke-dasharray="62 186"
-          class="star__stroke star__stroke--2"
-        ></polygon>
-        <polygon
-          points="64 19 70.966 48.975 85.213 42.787 79.025 57.034 109 64 79.025 70.966 85.213 85.213 70.966 79.025 64 109 57.034 79.025 42.787 85.213 48.975 70.966 19 64 48.975 57.034 42.787 42.787 57.034 48.975 64 19"
-          stroke-dasharray="93 279"
-          class="star__stroke star__stroke--3"
-        ></polygon>
-        <polygon
-          points="64 4 73.287 43.966 92.284 35.716 84.034 54.713 124 64 84.034 73.287 92.284 92.284 73.287 84.034 64 124 54.713 84.034 35.716 92.284 43.966 73.287 4 64 43.966 54.713 35.716 35.716 54.713 43.966 64 4"
-          stroke-dasharray="124 372"
-          class="star__stroke star__stroke--4"
-        ></polygon>
-      </g>
-    </g>
-  </g>
-</svg>
+<div class="nebula"></div>
+<div class="grid-plane"></div>
+<div class="stars-container">
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+</div>
+
+<div class="loader-container">
+  <div class="hologram-platform"></div>
+  <div class="platform-rings">
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+  </div>
+
+  <div class="projection-beams">
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+  </div>
+
+  <div class="holo-container">
+    <div class="holo-sphere">
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+
+      <div class="holo-particles">
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+      </div>
+    </div>
+    
+    <div class="glitch-effect"></div>
+    <div class="lightning"></div>
+  </div>
+
+  <div class="code-lines">
+    <div class="code-line">
+      01001001 01001110 01001001 01010100 01001001 01000001 01001100 01001001
+      01011010 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      function initHolographicMatrix() { connectNodes(); renderQuantumState(); }
+    </div>
+    <div class="code-line">
+      01010011 01011001 01010011 01010100 01000101 01001101 00100000 01001100
+      01001111 01000001 01000100 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      class QuantumProcessor { constructor() { this.entanglement = new Map(); }}
+    </div>
+    <div class="code-line">
+      01010010 01000101 01001110 01000100 01000101 01010010 01001001 01001110
+      01000111 00100000 01001000 01001111 01001100 01001111
+    </div>
+    <div class="code-line">
+      const matrix = [1.2, 0.8, 3.1, 2.7, 5.9, 4.3, 7.2, 9.0];
+    </div>
+    <div class="code-line">
+      01010000 01010010 01001111 01000011 01000101 01010011 01010011 01001001
+      01001110 01000111 00100000 01000100 01000001 01010100 01000001
+    </div>
+    <div class="code-line">
+      async function loadHolographicData() { await fetch('/api/quantum'); }
+    </div>
+  </div>
+
+  <div class="holo-numbers">
+    <div class="number" style="top: 40%; left: 30%; animation-delay: 0.5s;">
+      0xFF
+    </div>
+    <div class="number" style="top: 50%; left: 60%; animation-delay: 1.5s;">
+      0x0A
+    </div>
+    <div class="number" style="top: 60%; left: 40%; animation-delay: 2.5s;">
+      0xB4
+    </div>
+    <div class="number" style="top: 30%; left: 50%; animation-delay: 3.5s;">
+      0x3D
+    </div>
+    <div class="number" style="top: 70%; left: 20%; animation-delay: 4.5s;">
+      0xC2
+    </div>
+    <div class="number" style="top: 20%; left: 70%; animation-delay: 5.5s;">
+      0x19
+    </div>
+  </div>
+
+  <div class="radial-indicators">
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+  </div>
+
+  <div class="corner-decorations">
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+  </div>
+
+  <div class="loading-text">SYSTEM IITIALIZATION</div>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</div>
 
 </div>
 
 <style>
     .loading {
         position: fixed;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
         top: 0;
@@ -116,85 +154,1431 @@
         width: 100%;
         height: 100%;
         z-index: 99;
-        background-color: #f5f5fa;
+        background-color: #212121;
+        opacity: 1;  
+        transform: scale(1);  
+         
+        transition: opacity 1s ease, transform 1s ease;
     }
-	
+
+     
       
-.star {
-  margin: auto;
-  width: 16em;
-  height: 16em;
-}
-.star__stroke {
-  --dur: 2s;
-  animation: stroke1 var(--dur) linear infinite;
-}
-.star__stroke--2 {
-  animation-name: stroke2;
-  animation-delay: calc(var(--dur) / -2);
-}
-.star__stroke--3 {
-  animation-name: stroke3;
-  animation-direction: reverse;
-}
-.star__stroke--4 {
-  animation-name: stroke4;
-  animation-delay: calc(var(--dur) / -2);
-  animation-direction: reverse;
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 500px;
+  transform-style: preserve-3d;
 }
 
-@keyframes stroke1 {
-  from {
-    stroke-dashoffset: 0;
+.star-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.star-layer:nth-child(1) {
+  transform: translateZ(-50px);
+  animation: star-drift 150s linear infinite;
+}
+
+.star-layer:nth-child(2) {
+  transform: translateZ(-100px);
+  animation: star-drift 200s linear infinite reverse;
+  opacity: 0.6;
+}
+
+.star-layer:nth-child(3) {
+  transform: translateZ(-200px);
+  animation: star-drift 250s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translateZ(-50px) translateY(0);
   }
-  to {
-    stroke-dashoffset: 124;
+  100% {
+    transform: translateZ(-50px) translateY(100%);
   }
 }
-@keyframes stroke2 {
-  from {
-    stroke-dashoffset: 0;
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.nebula {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+      ellipse at 30% 30%,
+      rgba(63, 0, 113, 0.3) 0%,
+      rgba(63, 0, 113, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 70% 60%,
+      rgba(0, 113, 167, 0.3) 0%,
+      rgba(0, 113, 167, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(167, 0, 157, 0.2) 0%,
+      rgba(167, 0, 157, 0) 70%
+    );
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: nebula-shift 30s infinite alternate ease-in-out;
+}
+
+@keyframes nebula-shift {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
   }
-  to {
-    stroke-dashoffset: 248;
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 0.4;
   }
 }
-@keyframes stroke3 {
-  from {
-    stroke-dashoffset: 0;
+
+.grid-plane {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: linear-gradient(
+      rgba(0, 162, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 162, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center;
+  animation: grid-move 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
   }
-  to {
-    stroke-dashoffset: 372;
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
   }
 }
-@keyframes stroke4 {
-  from {
-    stroke-dashoffset: 0;
+
+.loader-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.hologram-platform {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 221, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+  transform: rotateX(60deg);
+  filter: blur(8px);
+  animation: platform-glow 4s infinite alternate;
+}
+
+.platform-rings {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  transform: rotateX(60deg);
+}
+
+.platform-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  opacity: 0.4;
+  animation: platform-ring-pulse 4s infinite alternate;
+}
+
+.platform-ring:nth-child(1) {
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -1s;
+}
+
+.platform-ring:nth-child(2) {
+  width: 85%;
+  height: 85%;
+  top: 7.5%;
+  left: 7.5%;
+  border-color: rgba(255, 0, 255, 0.4);
+  animation-delay: -2s;
+}
+
+.platform-ring:nth-child(3) {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -3s;
+}
+
+@keyframes platform-ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
   }
-  to {
-    stroke-dashoffset: 496;
+  100% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes platform-glow {
+  0% {
+    box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+    background: radial-gradient(
+      ellipse,
+      rgba(0, 221, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.6);
+    background: radial-gradient(
+      ellipse,
+      rgba(255, 0, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+}
+
+.holo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: float-container 6s infinite ease-in-out;
+}
+
+@keyframes float-container {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.holo-sphere {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  left: 15px;
+  top: 15px;
+  transform-style: preserve-3d;
+  animation: rotate 15s infinite linear;
+}
+
+.holo-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 20px rgba(255, 0, 222, 0.5),
+    0 0 20px rgba(0, 221, 255, 0.5);
+  filter: blur(1px);
+  animation: pulse 3s infinite ease-in-out alternate;
+  transform-style: preserve-3d;
+}
+
+.holo-ring:nth-child(1) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -0.5s;
+}
+
+.holo-ring:nth-child(2) {
+  border-top-color: #00ddff;
+  border-bottom-color: #ff00de;
+  animation-delay: -1s;
+  transform: rotateX(60deg);
+}
+
+.holo-ring:nth-child(3) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -1.5s;
+  transform: rotateY(60deg);
+}
+
+.holo-ring:nth-child(4) {
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  border-left-color: #00ff77;
+  border-right-color: #ff5500;
+  animation-delay: -2s;
+  transform: rotateZ(45deg);
+}
+
+.holo-ring:nth-child(5) {
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  border-left-color: #ff00b3;
+  border-right-color: #3300ff;
+  animation-delay: -2.5s;
+  transform: rotateX(30deg) rotateY(30deg);
+}
+
+.energy-ring {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.5;
+  transform-style: preserve-3d;
+  animation: energy-rotation 10s infinite linear;
+}
+
+.energy-ring::before,
+.energy-ring::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(0, 221, 255, 0.8) 20deg,
+    transparent 40deg,
+    transparent 140deg,
+    rgba(255, 0, 222, 0.8) 160deg,
+    transparent 180deg,
+    transparent 280deg,
+    rgba(0, 221, 255, 0.8) 300deg,
+    transparent 320deg
+  );
+  filter: blur(2px);
+  animation: energy-pulse 6s infinite alternate;
+}
+
+.energy-ring::after {
+  transform: rotate(60deg);
+  animation-delay: -3s;
+}
+
+@keyframes energy-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes energy-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.holo-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.holo-particle {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: particle-float 4s infinite ease-in-out;
+}
+
+.holo-particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0.1s;
+}
+
+.holo-particle:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  top: 70%;
+  left: 60%;
+  animation-delay: 0.7s;
+}
+
+.holo-particle:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  top: 40%;
+  left: 80%;
+  animation-delay: 1.3s;
+}
+
+.holo-particle:nth-child(4) {
+  width: 5px;
+  height: 5px;
+  top: 80%;
+  left: 25%;
+  animation-delay: 1.9s;
+}
+
+.holo-particle:nth-child(5) {
+  width: 7px;
+  height: 7px;
+  top: 30%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
+.holo-particle:nth-child(6) {
+  width: 9px;
+  height: 9px;
+  top: 60%;
+  left: 40%;
+  animation-delay: 3.1s;
+}
+
+.holo-particle:nth-child(7) {
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  left: 75%;
+  animation-delay: 3.7s;
+}
+
+.holo-particle:nth-child(8) {
+  width: 8px;
+  height: 8px;
+  top: 25%;
+  left: 85%;
+  animation-delay: 4.3s;
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateZ(0) translateX(0) translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+  50% {
+    transform: translateZ(60px) translateX(20px) translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.4;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+}
+
+.core {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: core-pulse 1.5s infinite ease-in-out alternate;
+  z-index: 5;
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(0, 221, 255, 0.6),
+    0 0 60px rgba(255, 0, 222, 0.4);
+}
+
+.core::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.6);
+  animation: core-rotate 3s infinite linear;
+}
+
+.core::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: core-rotate 5s infinite linear reverse;
+}
+
+@keyframes core-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes core-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+    filter: blur(5px);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    filter: blur(7px);
+  }
+}
+
+.scan-line-horizontal {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-horizontal 3s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.scan-line-vertical {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-vertical 3.5s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes scan-horizontal {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes scan-vertical {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.scan-data {
+  position: absolute;
+  font-size: 8px;
+  color: rgba(0, 221, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: scan-data 3s infinite linear;
+  z-index: 10;
+  transform-style: preserve-3d;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.5);
+}
+
+.scan-data:nth-child(1) {
+  top: 30%;
+  left: 65%;
+  animation-delay: -0.5s;
+}
+
+.scan-data:nth-child(2) {
+  top: 65%;
+  left: 35%;
+  animation-delay: -1.5s;
+}
+
+.scan-data:nth-child(3) {
+  top: 20%;
+  left: 40%;
+  animation-delay: -2.5s;
+}
+
+@keyframes scan-data {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  10%,
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.hex-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background-image: linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    );
+  background-size: 20px 35px;
+  background-position:
+    0 0,
+    0 0,
+    10px 17.5px,
+    10px 17.5px,
+    0 0,
+    10px 17.5px;
+  animation: hex-pulse 4s infinite alternate;
+  filter: drop-shadow(0 0 2px rgba(0, 221, 255, 0.5));
+}
+
+@keyframes hex-pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+.lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(1px);
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: lightning 5s infinite;
+  z-index: 11;
+}
+
+@keyframes lightning {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.8;
+    filter: brightness(3);
+  }
+}
+
+.lightning::before,
+.lightning::after {
+  content: "";
+  position: absolute;
+  background: white;
+  filter: blur(1px);
+  box-shadow:
+    0 0 10px #00ddff,
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.lightning::before {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotateY(90deg);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.lightning::after {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%) rotateX(90deg);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.glitch-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: glitch 7s infinite;
+  pointer-events: none;
+  z-index: 12;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 222, 0.3) 0%,
+    transparent 20%,
+    rgba(0, 221, 255, 0.3) 40%,
+    transparent 60%,
+    rgba(255, 0, 222, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  94%,
+  96% {
+    opacity: 0;
+  }
+  94.5% {
+    opacity: 0.8;
+    transform: translate(5px, -5px) skew(-5deg, 5deg);
+  }
+  95% {
+    opacity: 0.8;
+    transform: translate(-5px, 5px) skew(5deg, -5deg);
+  }
+  95.5% {
+    opacity: 0.8;
+    transform: translate(5px, 0) skew(-5deg, 0);
+  }
+}
+
+.data-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 221, 255, 0.2);
+  opacity: 0.7;
+  transform-style: preserve-3d;
+}
+
+.data-circle::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 221, 255, 0.7);
+  filter: blur(2px);
+  animation: data-blip 5s infinite linear;
+}
+
+@keyframes data-blip {
+  0% {
+    transform: rotate(0deg) translateX(100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.code-lines {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  z-index: 8;
+}
+
+.code-line {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.7);
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.3);
+  animation: code-scroll 15s infinite linear;
+  opacity: 0;
+}
+
+.code-line:nth-child(1) {
+  top: 10%;
+  animation-duration: 14s;
+  color: #00ddff;
+}
+
+.code-line:nth-child(2) {
+  top: 20%;
+  animation-duration: 15s;
+  animation-delay: -1s;
+}
+
+.code-line:nth-child(3) {
+  top: 30%;
+  animation-duration: 16s;
+  animation-delay: -2s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(4) {
+  top: 40%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(5) {
+  top: 50%;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(6) {
+  top: 60%;
+  animation-duration: 13s;
+  animation-delay: -7s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(7) {
+  top: 70%;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+
+.code-line:nth-child(8) {
+  top: 80%;
+  animation-duration: 16s;
+  animation-delay: -9s;
+  color: #ff00de;
+}
+
+@keyframes code-scroll {
+  0% {
+    transform: translateX(200px) rotateY(20deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-500px) rotateY(20deg);
+    opacity: 0;
+  }
+}
+
+.loading-text {
+  position: absolute;
+  bottom: -85px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: text-flicker 2s infinite;
+}
+
+@keyframes text-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8%,
+  10% {
+    opacity: 0.6;
+  }
+  9% {
+    opacity: 0.9;
+  }
+  52%,
+  54% {
+    opacity: 0.6;
+  }
+  53% {
+    opacity: 0.9;
+  }
+}
+
+.progress-container {
+  position: absolute;
+  bottom: -110px;
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00ddff, #ff00de);
+  box-shadow: 0 0 10px rgba(0, 221, 255, 0.7);
+  animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 20%;
+  }
+  40% {
+    width: 38%;
+  }
+  50% {
+    width: 52%;
+  }
+  60% {
+    width: 65%;
+  }
+  75% {
+    width: 82%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.corner-decorations {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 221, 255, 0.5);
+  animation: corner-pulse 3s infinite alternate;
+}
+
+.corner:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes corner-pulse {
+  0% {
+    border-color: rgba(0, 221, 255, 0.5);
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    border-color: rgba(255, 0, 222, 0.5);
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.projection-beams {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -80px;
+  transform-style: preserve-3d;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.beam {
+  position: absolute;
+  width: 1px;
+  height: 250px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 221, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  bottom: 0;
+  transform-origin: bottom;
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+.beam:nth-child(1) {
+  left: 30%;
+  transform: rotateY(10deg) rotateX(-30deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.5s;
+}
+
+.beam:nth-child(2) {
+  left: 45%;
+  transform: rotateY(-5deg) rotateX(-25deg);
+  animation: beam-flicker 3s infinite alternate;
+  animation-delay: 1.5s;
+}
+
+.beam:nth-child(3) {
+  left: 55%;
+  transform: rotateY(5deg) rotateX(-25deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.7s;
+}
+
+.beam:nth-child(4) {
+  left: 70%;
+  transform: rotateY(-10deg) rotateX(-30deg);
+  animation: beam-flicker 3.5s infinite alternate;
+  animation-delay: 2s;
+}
+
+@keyframes beam-flicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.holo-ui {
+  position: absolute;
+  top: -150px;
+  left: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(30deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.ui-element {
+  position: absolute;
+  background: rgba(0, 221, 255, 0.2);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  border-radius: 4px;
+  animation: ui-fade 3s infinite alternate;
+}
+
+.ui-element:nth-child(1) {
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 20px;
+  animation-delay: 0.2s;
+}
+
+.ui-element:nth-child(2) {
+  top: 50px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  animation-delay: 0.4s;
+}
+
+.ui-element:nth-child(3) {
+  top: 160px;
+  left: 20px;
+  width: 120px;
+  height: 30px;
+  animation-delay: 0.6s;
+}
+
+.ui-element:nth-child(4) {
+  top: 200px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0.8s;
+}
+
+@keyframes ui-fade {
+  0% {
+    opacity: 0.5;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    opacity: 0.8;
+    border-color: rgba(255, 0, 222, 0.5);
+  }
+}
+
+.holo-ui-right {
+  position: absolute;
+  top: -150px;
+  right: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(-30deg) scaleX(-1);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.holo-numbers {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  pointer-events: none;
+}
+
+.number {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.6);
+  animation: float-number 8s infinite linear;
+  opacity: 0;
+}
+
+@keyframes float-number {
+  0% {
+    opacity: 0;
+    transform: translateZ(100px) translateY(0);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-100px) translateY(-50px);
+  }
+}
+
+.data-cube {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-style: preserve-3d;
+  animation: cube-rotate 10s infinite linear;
+  top: -100px;
+  right: -100px;
+}
+
+.cube-face {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 221, 255, 0.1);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+}
+
+.cube-face:nth-child(1) {
+  transform: translateZ(20px);
+}
+.cube-face:nth-child(2) {
+  transform: rotateY(180deg) translateZ(20px);
+}
+.cube-face:nth-child(3) {
+  transform: rotateY(90deg) translateZ(20px);
+}
+.cube-face:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(20px);
+}
+.cube-face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(20px);
+}
+.cube-face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(20px);
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.radial-indicators {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.radial-indicator {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 221, 255, 0.5);
+  opacity: 0.3;
+  animation: radial-pulse 4s infinite alternate;
+}
+
+.radial-indicator:nth-child(1) {
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  animation-delay: 0.5s;
+}
+
+.radial-indicator:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  animation-delay: 1s;
+}
+
+.radial-indicator:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  animation-delay: 1.5s;
+}
+
+.radial-indicator:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  animation-delay: 2s;
+}
+
+@keyframes radial-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.5;
+    border-color: rgba(255, 0, 222, 0.5);
   }
 }
 
 </style>
 
-<script>
+<script>    
     function initLoading() {
-        const isFirstVisit = !sessionStorage.getItem('visited');
-        if (isFirstVisit) {
-            let loading = document.querySelector(".loading");
-            loading.style.display = "flex";
-            document.addEventListener('DOMContentLoaded', function() {
-                
-                loadFinish();
-                
-                setTimeout(() => {
-                    loading.style.display = "none";
-                }, 1500)
-                sessionStorage.setItem('visited', 'true');
-            });
-        }
-    }
+    let loading = document.querySelector(".loading");
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            
+            loading.style.opacity = "0";
+            loading.style.transform = "scale(15)";
+
+            
+            setTimeout(() => {
+                loading.style.display = "none";
+            }, 500); 
+        }, 500); 
+    });
+}
+
+    initLoading();
 </script>
 
     </head>
@@ -542,6 +1926,15 @@
     </li>
     <li><a href="#变量">变量</a>
       <ol>
+        <li><a href="#一常见的构造类型及构造型变量">一、常见的构造类型及构造型变量</a>
+          <ol>
+            <li><a href="#1-结构体struct与构造型变量">1. 结构体（<code>struct</code>）与构造型变量</a></li>
+            <li><a href="#2-类class与构造型变量">2. 类（<code>class</code>）与构造型变量</a></li>
+            <li><a href="#3-联合体union与构造型变量">3. 联合体（<code>union</code>）与构造型变量</a></li>
+          </ol>
+        </li>
+        <li><a href="#二构造型变量的特点">二、构造型变量的特点</a></li>
+        <li><a href="#三总结">三、总结</a></li>
         <li><a href="#变量名">变量名</a>
           <ol>
             <li><a href="#匈牙利变量命名法">匈牙利变量命名法</a></li>
@@ -647,7 +2040,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 10 分钟
                 </time>
             </div>
         
@@ -1114,10 +2507,250 @@
 <li>十六进制整数：开头加上<code>0x</code></li>
 </ol>
 <h4 id="浮点数">浮点数
-</h4><ol>
-<li>十进制小数：单精度末尾加上<code>f</code>，长双精度末尾加上<code>L</code></li>
-<li>指数：<code>e12</code>表示 \(10^{12}\)</li>
+</h4><p>实型变量分单精度 float 和双精度 double 两种形式：</p>
+<ul>
+<li>float: 占四个字节，提供 6~7 位有效数字。</li>
+<li>double: 占八个字节，提供 15~16 位有效数字。</li>
+</ul>
+<blockquote class="alert alert-note">
+    <p>C++ 默认实型常量为 double 型。</p>
+<p>C++默认的流输出数值有效位是6位，不管float或是double。</p>
+<p>一个实型常量可以赋给一个 float 型或 double 型变量，系统会根据变量类型自行截取实型常量中相应的有效位数字。</p>
+<p>精度导致误差的存在，因此，浮点数最好不要直接比较大小，更不要进行“==”和“!=”的比较。</p></blockquote>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  浮点数的精度与输出
+</summary>
+<p>这里是第一行内容（会自动换行）</p>
+<p>题目</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="c1">//代码里用到fixed，要挂iomanip头文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">12345.678</span><span class="p">;</span><span class="c1">//vs会报warning C4305 : truncation from&#39;const double&#39; to &#39;float&#39;，发生截断 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//6~7位有效数字，默认输出6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> <span class="c1">//小数点后保留6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a = %.3f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span><span class="c1">//小数点后保留3位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">12345.678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//共有15~16位有效数位，默认输出6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;b = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;b = %.3f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span> <span class="o">&lt;&lt;</span><span class="s">&#34;b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//设置定点输出格式，默认输出小数点后6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">//上一条cout语句中fixed设置过一次，fixed将对后面的cout一直有效，直到再次修改输出格式 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//若将a与b都修改为123456.489（整数位有6位），输出结果见代码注释补充场景 
+</span></span></span><span class="line"><span class="cl"><span class="c1">//通过该例可以观察到：“四舍五入”以及“7位”的有效数位。 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">```</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a = 12345.7
+</span></span><span class="line"><span class="cl">a = 12345.677734
+</span></span><span class="line"><span class="cl">a = 12345.678
+</span></span><span class="line"><span class="cl">b = 12345.7
+</span></span><span class="line"><span class="cl">b = 12345.678000
+</span></span><span class="line"><span class="cl">b = 12345.678
+</span></span><span class="line"><span class="cl">b = 12345.678000
+</span></span><span class="line"><span class="cl">a = 12345.677734
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>题目</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="c1">//代码里用到fixed，要挂iomanip头文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">123456.489</span><span class="p">;</span><span class="c1">//vs会报warning C4305 : truncation from&#39;const double&#39; to &#39;float&#39;，发生截断 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//6~7位有效数字，默认输出6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span> <span class="c1">//小数点后保留6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a = %.3f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span><span class="c1">//小数点后保留3位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">123456.489</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//共有15~16位有效数位，默认输出6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;b = %f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;b = %.3f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fixed</span> <span class="o">&lt;&lt;</span><span class="s">&#34;b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">//设置定点输出格式，默认输出小数点后6位 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">//上一条cout语句中fixed设置过一次，fixed将对后面的cout一直有效，直到再次修改输出格式 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a = 123456
+</span></span><span class="line"><span class="cl">a = 123456.492188
+</span></span><span class="line"><span class="cl">a = 123456.492
+</span></span><span class="line"><span class="cl">b = 123456
+</span></span><span class="line"><span class="cl">b = 123456.489000
+</span></span><span class="line"><span class="cl">b = 123456.489
+</span></span><span class="line"><span class="cl">b = 123456.489000
+</span></span><span class="line"><span class="cl">a = 123456.492188
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>分析：</p>
+<ol>
+<li>
+<p>C++ 浮点型输出规则</p>
+<p><code>cout</code> 默认对 <code>float</code> 、<code>double</code> 均输出 <strong>6 位有效数字</strong> ，不区分类型；<code>printf</code> 用 <code>%f</code> 格式默认 <strong>小数点后 6 位</strong> ，可通过 <code>%.nf</code> 控制小数位数。</p>
+<p><code>fixed</code> 是输出格式标记（需 <code>&lt;iomanip&gt;</code> 头文件），开启后 <code>cout</code> 切换为 <strong>定点表示法</strong> ，默认显示小数点后 6 位，常用来精确控制小数输出位数。</p>
+</li>
+<li>
+<p><code>float</code>与<code>double</code>精度差异</p>
+<p><code>float</code> 通常是 <strong>单精度（32 位）</strong> ，有效数字约 6 - 7 位；<code>double</code> 是 <strong>双精度（64 位）</strong> ，有效数字约 15 - 16 位 。赋值、输出时，<code>float</code> 因存储位数少易出现截断，<code>double</code> 能保留更多有效位。</p>
+</li>
+<li>
+<p><strong>四舍五入与有效位现象</strong></p>
+<p>当数值有效位接近类型精度上限（如 <code>float</code> 存 7 位有效数时），输出会触发四舍五入；修改整数位长度后，可直观对比 <code>float</code> 因有效位不足导致的截断与 <code>double</code> 精准存储的区别，体现两类浮点型在精度、输出表现上的特性。</p>
+</li>
 </ol>
+</details> 
+<p>实数在 C++ 语句中又称为浮点数，有两种表示方式：</p>
+<ol>
+<li>十进制小数：</li>
+</ol>
+<ul>
+<li>十进制形式由数字和小数点组成（必须有小数点）。</li>
+<li>单精度末尾加上<code>f</code>，长双精度末尾加上<code>L</code></li>
+</ul>
+<ol start="2">
+<li>指数：</li>
+</ol>
+<ul>
+<li>1<code>e12</code>表示 1*\(10^{12}\)</li>
+<li>指数形式 e (或 E) 前必须有数字，且 e 后面必须是整数</li>
+</ul>
+<p>在程序中不论浮点数表示为小数形式还是指数形式，内存中都是以 <strong>科学计数法</strong> 存储的（二进制）：</p>
+<p>通用表达式：\(N = S×R^J\)</p>
+<p>如：\(490000000000 = 4.9×10^{11}\)、</p>
+<p>\(-0.0000000026 = -2.6×10^{-9}\) 数符 + 尾数为 -2.6，阶符 + 阶码 -9</p>
+<p>数有正有负，所以设置<strong>数符</strong>；阶码亦有正负，所以设置<strong>阶符</strong>；</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">\(J_t\)（阶符）</th>
+          <th style="text-align: center">J（阶码）</th>
+          <th style="text-align: center">\(S_f\)（数符）</th>
+          <th style="text-align: center">S（尾数）</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table></div>
+<ul>
+<li><strong>尾数（S）</strong>：决定有效数字，体现数值精度（如 \(4.9×10^{11}\) 里的 \(4.9\) ）。</li>
+<li><strong>阶码（J）</strong>：指数部分，控制数值范围（如 \(10^{11}\) 里的 11 ）。</li>
+<li><strong>基数（R）</strong>：可选 2、8、16 等（计算机中常为 2 ，一旦确定机器内固定）。</li>
+<li><strong>数符</strong>：标记尾数正负（如 \(-2.6×10^{-9}\) 里的负号 ）。</li>
+<li><strong>阶符</strong>：标记阶码正负（如 \(10^{-9}\) 里的负号 ）。</li>
+</ul>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  int 和 float 同占 4 字节（32 位），但float取值范围差异大的原因
+</summary>
+<p>本质差异：存储格式不同<br>
+一句话总结：同是 4 字节，int 直接存数值，范围受位数限制；float 用 “符号 + 指数 + 尾数” 的浮点结构，靠指数位大幅扩展了取值范围（但牺牲了整数精度 ）。</p>
+<ol>
+<li>int 是直接存整数的二进制值，用全部 32 位表示数值大小与符号</li>
+<li>float 是按 “科学计数法（浮点形式）” 存储，32 位拆成三部分:</li>
+</ol>
+<ul>
+<li>1 位符号位（第 31 位）：标记正负</li>
+<li>8 位指数位（第 30 - 23 位）：控制数值范围</li>
+<li>23 位尾数位（第 22 - 0 位）：决定精度（有效数字）</li>
+</ul>
+<p>int 用 32 位表示整数，范围是 \(-2^{31}\) ~ \(2^{31} - 1\)（即十进制 -2147483648 ~ 2147483647 ）<br>
+指数位实际能表示的指数范围是 \(-2^7\) ~ \(+2^7 - 1\)（即十进制 -128 ~ 127 ）。结合基数（二进制下基数为 2 ），float 取值范围可达到 \(-2^{128}\) ~ \(2^{127}\) ，换算成十进制约 \(\boldsymbol{\pm 3.4×10^{38}}\) 。</p>
+</details> 
+<p>规范化的指数形式（科学计数法）：</p>
+<ul>
+<li>小数点左边应当只有一位非 0 的数字</li>
+<li>一个实数以指数形式输出时，是按照规范化的指数形式输出的。</li>
+</ul>
 <h3 id="字符常量">字符常量
 </h3><h4 id="普通的字符常量">普通的字符常量
 </h4><p>&lsquo;a&rsquo;  √</p>
@@ -1140,6 +2773,26 @@
 	
 	
 ></p>
+<ul>
+<li>八进制转义字符：以<code>\</code>开头，后跟 1 - 3 位八进制数（0 - 7 组成 ）。</li>
+<li>十六进制转义字符：以<code>\x</code>开头，后跟 1 个或多个十六进制数（0 - 9，a - f，A - F 组成 ）。</li>
+</ul>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  八进制与十六进制转义字符
+</summary>
+<p>下列转义字符正确的是：</p>
+<p>A &lsquo;\32&rsquo;　　　B &lsquo;\291&rsquo;　　　C &lsquo;\xgf&rsquo;　　　D &lsquo;Xff&rsquo;</p>
+<p>答案：A</p>
+<p>分析：</p>
+<ul>
+<li>选项 A：<code>\32</code>，是八进制转义字符（3 和 2 都是八进制有效数字 ），正确。</li>
+<li>选项 B：<code>\291</code>，八进制数中不能出现 9，错误。</li>
+<li>选项 C：<code>\xgf</code>，十六进制转义字符中<code>g</code>不是十六进制有效字符（十六进制有效字符是 0 - 9，a - f，A - F ），错误。</li>
+<li>选项 D：<code>\Xff</code>，十六进制转义字符应以<code>\x</code>开头（小写 x ），这里<code>X</code>大写，错误。</li>
+</ul>
+</details> 
 <details>
   <summary style="list-style-type: none; cursor: pointer;">
   <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
@@ -1274,6 +2927,84 @@
 <p>&lsquo;A&rsquo;——65</p>
 <p>字符型数据和整型数据是可以通用的。但是应注意字符数据只占一个字节，它只能存放 0~255 范围内的整数。</p>
 <p>一个字节有8位，每位可以是0或1，所以能表示的不同值的总数是256个（从0计数到255）。</p>
+<blockquote class="alert alert-note">
+    <p><code>cout</code> 遇到整数会按<strong>数值形式</strong>输出</p></blockquote>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  字符输出
+</summary>
+<p>题目 1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int main()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    char c1, c2;
+</span></span><span class="line"><span class="cl">    c1 = &#39;a&#39;;  // 字符数据与整型数据可以相互赋值
+</span></span><span class="line"><span class="cl">    c2 = &#39;b&#39;;  
+</span></span><span class="line"><span class="cl">    c1 = c1 - 32;  
+</span></span><span class="line"><span class="cl">    c2 = c2 - 32;  // 允许字符数据与整数直接进行算术运算
+</span></span><span class="line"><span class="cl">    cout &lt;&lt; c1 &lt;&lt; c2;  
+</span></span><span class="line"><span class="cl">    return 0;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">AB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>题目 2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int main()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    char c1, c2;
+</span></span><span class="line"><span class="cl">    c1 = &#39;a&#39;;  // 字符数据与整型数据可以相互赋值
+</span></span><span class="line"><span class="cl">    c2 = &#39;b&#39;;  
+</span></span><span class="line"><span class="cl">    // 直接输出算术运算结果，而非赋值后输出字符
+</span></span><span class="line"><span class="cl">    cout &lt;&lt; c1 - 32 &lt;&lt; c2 - 32;  
+</span></span><span class="line"><span class="cl">    return 0;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">6566
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details> 
 <h4 id="字符串常量">字符串常量
 </h4><ul>
 <li>
@@ -1293,6 +3024,136 @@
 <p>在预编译处理时，所有的<code>PRICE</code>被置换为<code>30</code></p>
 <p>符号常量在C中用比较多，在C++中常用<code>常变量</code></p>
 <p>没有类型，内存中没有命名存储单元</p>
+<details>
+  <summary style="list-style-type: none; cursor: pointer;">
+  <span style="color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;">🫣</span>
+  符号常量的纯文本替换
+</summary>
+<p>题目：宏定义 <code>#define f(z) z*z</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define f(z) z*z  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案：28</p>
+<p>分析：<code>k = 4+4*4+4 / 2+2*2+2</code></p>
+<p>题目：<code>#define f(z) (z)*(z)</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define f(z) (z)*(z)  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案·：64</p>
+<p>分析：<code>k= (4+4)*(4+4)/(2+2)*(2+2)</code></p>
+<p>题目：宏定义 <code>#define f(z) ((z)*(z))</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#define f(z) ((z)*(z))  
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">k</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>答案：4</p>
+<p>分析：<code>k = ((4+4)*(4+4)) / ((2+2)*(2+2))  </code></p>
+<p>对比理解：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">宏定义写法</th>
+          <th style="text-align: center">替换后式子（简化）</th>
+          <th style="text-align: center">运算结果</th>
+          <th style="text-align: center">关键原因</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>#define f(z) z*z</code></td>
+          <td style="text-align: center"><code>4+4*4+4/2+2*2+2</code>（无括号干扰）</td>
+          <td style="text-align: center"><code>28</code></td>
+          <td style="text-align: center">运算符优先级改变，宏不处理括号</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>#define f(z) (z)*(z)</code></td>
+          <td style="text-align: center"><code>(4+4)*(4+4)/(2+2)*(2+2)</code>（部分括号）</td>
+          <td style="text-align: center"><code>64</code></td>
+          <td style="text-align: center">括号改变局部优先级，但整体仍受运算符顺序影响</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>#define f(z) ((z)*(z))</code></td>
+          <td style="text-align: center"><code>((4+4)*(4+4)) / ((2+2)*(2+2))</code>（完全括号）</td>
+          <td style="text-align: center"><code>4</code></td>
+          <td style="text-align: center">双重括号强制保证 <code>z*z</code> 优先计算，结果正确</td>
+      </tr>
+  </tbody>
+</table></div>
+</details> 
 <h4 id="好处">好处
 </h4><ul>
 <li>见名知意，不提倡使用很多的直接变量</li>
@@ -1300,7 +3161,121 @@
 </ul>
 <h2 id="变量">变量
 </h2><p>就是值可以改变的量</p>
+<p>任一变量都有一个<strong>连续的</strong>内存单元</p>
 <p>因为是通过<code>变量名</code>找到变量值，所以变量名等同地址</p>
+<blockquote class="alert alert-tip">
+    <h3 id="一常见的构造类型及构造型变量">一、常见的构造类型及构造型变量
+</h3><p>C++ 中主要的构造类型包括 <code>struct</code>（结构体）、<code>class</code>（类）、<code>union</code>（联合体），基于这些类型声明的变量均为构造型变量。</p>
+<h4 id="1-结构体struct与构造型变量">1. 结构体（<code>struct</code>）与构造型变量
+</h4><p>结构体是最基础的构造类型，用于组合不同类型的数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 定义结构体（构造类型）
+</span></span><span class="line"><span class="cl">struct Person {
+</span></span><span class="line"><span class="cl">    string name;  // 姓名（string类型）
+</span></span><span class="line"><span class="cl">    int age;      // 年龄（int类型）
+</span></span><span class="line"><span class="cl">    float height; // 身高（float类型）
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 声明构造型变量（基于Person类型）
+</span></span><span class="line"><span class="cl">Person p1;  // p1是构造型变量，包含name、age、height三个成员
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2-类class与构造型变量">2. 类（<code>class</code>）与构造型变量
+</h4><p>类是 C++ 面向对象的核心，除了数据成员，还可包含成员函数，基于类声明的对象也是构造型变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 定义类（构造类型）
+</span></span><span class="line"><span class="cl">class Student {
+</span></span><span class="line"><span class="cl">public:
+</span></span><span class="line"><span class="cl">    int id;       // 学号
+</span></span><span class="line"><span class="cl">    string major; // 专业
+</span></span><span class="line"><span class="cl">    void show() { // 成员函数
+</span></span><span class="line"><span class="cl">        cout &lt;&lt; &#34;ID: &#34; &lt;&lt; id &lt;&lt; &#34;, Major: &#34; &lt;&lt; major &lt;&lt; endl;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 声明构造型变量（对象）
+</span></span><span class="line"><span class="cl">Student s1;  // s1是构造型变量，包含id、major成员和show()函数
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3-联合体union与构造型变量">3. 联合体（<code>union</code>）与构造型变量
+</h4><p>联合体中所有成员共享同一块内存，用于节省空间，其变量也是构造型变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 定义联合体（构造类型）
+</span></span><span class="line"><span class="cl">union Data {
+</span></span><span class="line"><span class="cl">    int num;    // 整数
+</span></span><span class="line"><span class="cl">    float f;    // 浮点数
+</span></span><span class="line"><span class="cl">    char c;     // 字符
+</span></span><span class="line"><span class="cl">};
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 声明构造型变量
+</span></span><span class="line"><span class="cl">Data d1;  // d1是构造型变量，num、f、c共享同一块内存
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="二构造型变量的特点">二、构造型变量的特点
+</h3><ol>
+<li>
+<p><strong>复合性</strong>：由多个成员（数据或函数）组成，成员可是基本类型（<code>int</code>、<code>float</code>等）或其他构造类型。</p>
+</li>
+<li>
+<p><strong>整体性</strong>：变量作为一个整体存在，可通过成员访问符（<code>.</code> 或 <code>-&gt;</code>）操作内部成员。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">p1.name = &#34;Alice&#34;;  // 访问结构体成员
+</span></span><span class="line"><span class="cl">s1.id = 1001;       // 访问类成员
+</span></span><span class="line"><span class="cl">d1.num = 10;        // 访问联合体成员
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>自定义性</strong>：构造类型需先定义（如 <code>struct Person</code>），再声明变量，类型定义决定了变量的结构。</p>
+</li>
+</ol>
+<h3 id="三总结">三、总结
+</h3><p>C++ 的构造型变量本质是<strong>基于自定义构造类型的复合变量</strong>，通过 <code>struct</code>、<code>class</code>、<code>union</code> 等类型将相关数据 / 操作组织起来，使代码更贴合现实逻辑（如用 <code>Student</code> 类型描述学生信息），是实现数据结构化和面向对象编程的基础。</p></blockquote>
 <h3 id="变量名">变量名
 </h3><ul>
 <li>只有字母、数字、下划线，第一个字符必须为字母或下划线</li>
@@ -1327,7 +3302,8 @@
 <p>初始化是在程序运行时完成的，不是在编译时完成的</p>
 <p>若未赋初值，则初值不可预测</p>
 <h3 id="常变量只读变量">常变量/只读变量
-</h3><p>值不能改变的变量</p>
+</h3><p>const</p>
+<p>值不能改变的变量</p>
 <p>可以用表达式初始化</p>
 <p>有类型，内存中有命名的存储单元，可以用<code>size of</code>测出长度</p>
 <h4 id="应用的需要">应用的需要
@@ -1506,7 +3482,7 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
 
 
         <span>
-            最后更新于 Jul 29, 2025 12:00 &#43;0800
+            最后更新于 Aug 11, 2025 20:45 &#43;0800
         </span>
     </section></footer>
 
@@ -1548,6 +3524,44 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/C&#43;&#43;/jiangsu.jpg" loading="lazy" data-key="" data-hash="/images/C&#43;&#43;/jiangsu.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C&#43;&#43;基础入门</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/c-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/images/C&#43;&#43;/shanghai.jpg" loading="lazy" data-key="" data-hash="/images/C&#43;&#43;/shanghai.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C&#43;&#43;课程安排</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -1669,6 +3683,7 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
                 href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
+
             </main>
         </div>
         <script 
@@ -1689,16 +3704,15 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
 </script>
 <style>
   @font-face {
-    font-family: 'ziti';
-    src: url(https://cjh520-hjw.github.io/font/ziti.ttf) format('truetype');
+    font-family: 'ThePeakFontPlus_V1_001';
+    src: url(https://cjh520-hjw.github.io/font/ThePeakFontPlus_V1_001.ttf) format('truetype');
   }
 
   :root {
-    --base-font-family: 'ziti';
-    --code-font-family: 'ziti';
+    --base-font-family: 'ThePeakFontPlus_V1_001';
+    --code-font-family: 'ThePeakFontPlus_V1_001';
   }
 </style>
-
 <style>
     #TableOfContents > ul, ol {
         ul, ol {
@@ -1872,6 +3886,7 @@ static_cast&lt;类型名&gt;(表达式)、dynamic_cast&lt;类型名&gt;(表达�
   
   initCodeMoreBox();
 </script>
+
 
 
     </body>

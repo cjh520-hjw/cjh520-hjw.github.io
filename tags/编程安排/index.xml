@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>编程安排 on 嬉皮士-Hippie</title>
+        <link>https://cjh520-hjw.github.io/tags/%E7%BC%96%E7%A8%8B%E5%AE%89%E6%8E%92/</link>
+        <description>Recent content in 编程安排 on 嬉皮士-Hippie</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>嬉皮士-Hippie</copyright>
+        <lastBuildDate>Mon, 11 Aug 2025 20:45:34 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/tags/%E7%BC%96%E7%A8%8B%E5%AE%89%E6%8E%92/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C&#43;&#43;课程安排</title>
+        <link>https://cjh520-hjw.github.io/p/c-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</link>
+        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/p/c-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</guid>
+        <description>&lt;img src="https://cjh520-hjw.github.io/images/C&#43;&#43;/shanghai.jpg" alt="Featured image of post C&#43;&#43;课程安排" /&gt;&lt;ul&gt;
+&lt;li&gt;明确C++课程学习阶段以及课程内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;阶段&lt;/th&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+          &lt;th&gt;目标&lt;/th&gt;
+          &lt;th&gt;案例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第一阶段&lt;/td&gt;
+          &lt;td&gt;C++基础语法入门&lt;/td&gt;
+          &lt;td&gt;对C++有初步了解，能够有基础编程能力&lt;/td&gt;
+          &lt;td&gt;通讯录管理系统&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第二阶段&lt;/td&gt;
+          &lt;td&gt;C++核心编程&lt;/td&gt;
+          &lt;td&gt;介绍C++面向对象编程，为大型项目做铺垫&lt;/td&gt;
+          &lt;td&gt;职工管理系统&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;第三阶段&lt;/td&gt;
+          &lt;td&gt;C++提高编程&lt;/td&gt;
+          &lt;td&gt;介绍C++泛型编程思想，以及STL的基本使用&lt;/td&gt;
+          &lt;td&gt;演讲比赛系统&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;综合大案例：机房预约系统&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
