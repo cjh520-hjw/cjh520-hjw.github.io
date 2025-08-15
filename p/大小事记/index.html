@@ -1,0 +1,3793 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="typora searching：ctrl+f 编程习惯 //*4.显示等级 星号表示关键步骤 代码写一行运行一下写一行运行一下 不易错，或全部写完再调试 想要隔开：空格可以换成table 快捷 光标跳行头行尾：fn+箭头 光标左右一个词一个词地跳：ctrl+箭头 windows自带的记事本 字体放大：ctrl+加号；缩小同理 B站 某类视频的观看路线：up主的自动回复、视频简介、置顶评论 狂神：https://www.bilibili.com/opus/380287124630431385?spm_id_from=333.1387.0.0 B站的“稍后再看” 有些up会有电子笔记/讲义/课件/资料，最好是.md，可以自己添加与修改 黑马程序员 Axmath 独立公式（单独成行）：使用 \\[...\\] 包裹，公式将居中显示，\\[ (-2^{15} \\sim 2^{15} - 1) \\] 如何快速方便地在博客中插入自己手绘的图片？ 平板与电脑粘贴板共享：使用“微信输入法” 平板上： 进行手绘：平板打开https://excalidraw.com/ 左上角三条杠-导出图片-选择背景透明 选择复制图像 电脑上： 文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开 typora中打入 会自动跳出选择本机文件 粘贴板共享粘贴图片-选择图片 typora里删/images前面的东西 在typora的图片格式上 右键还可以调整图片大小 如何快速方便地在博客中插入截屏的图片？ 点击右下黑框-选另存为 个人的集大成有哪些？ 手绘 ：用excalidraw 日历 ：用Notion calendar 思维导图：用手绘 艾宾浩斯：用Notein，然后每天找一个复习时间插入日历 英语学习 “不背单词”的平板端可以复制 剑桥词典可以复制，剑桥词典引申义比较全 高中一本图书打印版与高中单词笔记 星火英语里面有小本本 英语单词积累的样式 样式一 religious\u3000/rɪˈlɪdʒəs/\u3000adj.宗教的，虔诚的 常用句型：\nto do doing of 词组：\nreligious beliefs\u3000宗教信仰 religious freedom\u3000宗教自由\nWe stand for religious freedom.\u3000我们支持宗教自由。 religious people\u3000虔诚的人\nReligious people are less likely to commit suicide.\u3000有信仰的人自杀的可能性更低 派生：\nreligion\u3000n.宗教，宗教信仰 religiously\u3000adv.与宗教相关地 前缀与词根：\n-ous=构成形容词：有……特性的 近义反义：\nholy\u3000adj.虔诚的 熟词生义：\nreligious beliefs\u3000宗教信仰 religious 样式二 abandon /əˈbændən/🔊（可###）\n🥳基本句型：\n📖常用词组\nabandon oneself to 沉溺于\nabandon hope 放弃希望\n🌲派生\nabandonment n. 放弃 abandoned adj. 被遗弃的 💡例句\nThey had to abandon their car in the snow.\n他们不得不把车丢在雪地里。\nNever abandon hope.\n永远不要放弃希望。\n🤔近义词、反义词、熟词生义\n1\n2\n3\n空格问题 多个空格不显示 切换全角模式：“微信输入法”是shift+空格 注意打制表符无效，打空格才有效 手写板||留言板 读者可编辑的手写板.html\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;纯静态手写板&lt;/title&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;&gt; &lt;style&gt; * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif; } body { background-color: #f5f7fa; padding: 20px; } #notePad { max-width: 800px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); overflow: hidden; } #debugInfo { padding: 8px 16px; background-color: #f7f8fa; color: #8a919f; font-size: 13px; border-bottom: 1px solid #f0f2f5; } button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 14px; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; } button:hover { opacity: 0.9; transform: translateY(-1px); } button:active { transform: translateY(0); } .top-controls { padding: 14px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; } .main-btn { background-color: #36cbcb; color: white; } .main-btn:hover { background-color: #2dbaba; } #drawArea { display: none; } #canvas { width: 100%; height: 400px; background-color: #fbfbfb; border-bottom: 1px solid #f0f2f5; cursor: crosshair; } .draw-controls { padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; display: flex; gap: 10px; } .action-btn { background-color: #f5f7fa; color: #333; } .action-btn:hover { background-color: #eef0f3; } #result { min-height: 200px; padding: 20px; text-align: center; background-color: #ffffff; } #result p { color: #999; font-size: 15px; padding: 40px 0; line-height: 1.6; } #result img { max-width: 100%; border-radius: 8px; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;notePad&#34;&gt; &lt;div id=&#34;debugInfo&#34;&gt;已初始化（独立页面）&lt;/div&gt; &lt;div class=&#34;top-controls&#34;&gt; &lt;button class=&#34;main-btn&#34; onclick=&#34;openDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-pen&#34;&gt;&lt;/i&gt; 打开手写板 &lt;/button&gt; &lt;/div&gt; &lt;div id=&#34;drawArea&#34;&gt; &lt;canvas id=&#34;canvas&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt; &lt;div class=&#34;draw-controls&#34;&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;clearCanvas()&#34;&gt; &lt;i class=&#34;fas fa-eraser&#34;&gt;&lt;/i&gt; 清除 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;saveCanvas()&#34;&gt; &lt;i class=&#34;fas fa-save&#34;&gt;&lt;/i&gt; 保存 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;closeDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-times&#34;&gt;&lt;/i&gt; 关闭 &lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=&#34;result&#34;&gt; &lt;p&gt;手写内容将显示在这里&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;script&gt; var canvas = document.getElementById(&#39;canvas&#39;); var ctx = canvas.getContext(&#39;2d&#39;); ctx.strokeStyle = &#39;#000&#39;; ctx.lineWidth = 2; ctx.lineCap = &#39;round&#39;; let isDrawing = false; canvas.onmousedown = (e) =&gt; { isDrawing = true; let rect = canvas.getBoundingClientRect(); ctx.beginPath(); ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top); }; canvas.onmousemove = (e) =&gt; { if (isDrawing) { let rect = canvas.getBoundingClientRect(); ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top); ctx.stroke(); } }; canvas.onmouseup = () =&gt; { isDrawing = false; }; canvas.onmouseout = () =&gt; { isDrawing = false; }; function openDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;block&#39;; } function closeDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;none&#39;; } function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); } function saveCanvas() { let imgData = canvas.toDataURL(&#39;image/png&#39;); document.getElementById(&#39;result&#39;).innerHTML = `&lt;img src=&#34;${imgData}&#34; style=&#34;max-width:100%;&#34;&gt;`; closeDrawArea(); } &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 可开发 先自动把用户的手写内容转化为编码，再把这个编码复制到.md文件中，再然后布博客的时候就可以显示用户的手写内容而不是编码…… 平板的用途 方便携带 课堂用Notein记，课后用博客添加进已预习的内容的.md 复习也是一种内卷：床 大屏显示 批注与圈点勾画：电子书（教材与读物）、导入的PDF 充当手写板：电脑平板共享粘贴板 无限刷题：有胶布，有图层 可以做画画博主 搜学习、工作与生活内容可以去哪里找灵感？ 小红书、B站\n财务管理 钱的计算与规划 家教、卖二手、一手赚差价、卖资料（电子）、勤工、志愿者 copilot 编辑器里可以 右键选中替换 所有与选中内容相同的 内容\n可以内联聊天\n博客的后续改进？ 要不要把PDF嵌入博客 有没有那种搜索关键词，点击之后对应文章后，文章内所有关键词变高亮。甚至还可以上下查找功能的 各类代码问题解决的方面 转义 发音的地方&rsquo;要用\\转义 路径 代码之折叠功能 第一种：默认黑三角 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;details&gt; &lt;summary&gt;点击展开更多内容&lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第二种：改颜色与符号 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;▶&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第三种：新增改大小 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;🫣&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 字体 适合博客的字体 中文是游趣体\n博客图片路径 学习的待办 primer的附录还没有看完 解决博客搜索功能对有折叠功能的HTML的隐藏 原来代码的备份 search.json文件\n位置：C:\\Users\\Lenovo\\Desktop\\test\\hugo_extended_0.147.9_windows-amd64\\dev\\themes\\hugo-theme-stack\\layouts\\page\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Plain) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 修改后的代码 search.json文件\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Content) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 博客速记 元数据 1 2 3 4 5 6 7 8 9 10 11 12 13 --- title: Chinese Test description: 这是一个副标题 date: 2020-09-09 image: helena-hertz-wWZzXlDpMog-unsplash.jpg categories: - Test - 测试 tags: [&#34;基础概念&#34;, &#34;细胞&#34;] # 细分标签，方便跨子目录检索 weight: 1 # 控制在子目录中的显示顺序（如在“基础概念”中排第1） math: true draft: false --- 引言 1 2 3 4 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme. 链接 1 In this example we will be using [KaTeX](https://katex.org/) 1 [The Van de Graaf Canon](https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon) 文件名、变量名、命令 1 `/layouts/partials/math.html` 把路径 /layouts/partials/math.html 标记为代码片段 粗体 1 **Note:** Use the online reference of [Supported TeX Functions]粗体 段落 空行\n">
+<title>大小事记</title>
+
+<link rel='canonical' href='https://cjh520-hjw.github.io/p/%E5%A4%A7%E5%B0%8F%E4%BA%8B%E8%AE%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.ed84ee93d8a8941e827a014f3b3bcdc856d89ca2258fa084391c08d32f76c5f3.css"><meta property='og:title' content="大小事记">
+<meta property='og:description' content="typora searching：ctrl+f 编程习惯 //*4.显示等级 星号表示关键步骤 代码写一行运行一下写一行运行一下 不易错，或全部写完再调试 想要隔开：空格可以换成table 快捷 光标跳行头行尾：fn+箭头 光标左右一个词一个词地跳：ctrl+箭头 windows自带的记事本 字体放大：ctrl+加号；缩小同理 B站 某类视频的观看路线：up主的自动回复、视频简介、置顶评论 狂神：https://www.bilibili.com/opus/380287124630431385?spm_id_from=333.1387.0.0 B站的“稍后再看” 有些up会有电子笔记/讲义/课件/资料，最好是.md，可以自己添加与修改 黑马程序员 Axmath 独立公式（单独成行）：使用 \\[...\\] 包裹，公式将居中显示，\\[ (-2^{15} \\sim 2^{15} - 1) \\] 如何快速方便地在博客中插入自己手绘的图片？ 平板与电脑粘贴板共享：使用“微信输入法” 平板上： 进行手绘：平板打开https://excalidraw.com/ 左上角三条杠-导出图片-选择背景透明 选择复制图像 电脑上： 文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开 typora中打入 会自动跳出选择本机文件 粘贴板共享粘贴图片-选择图片 typora里删/images前面的东西 在typora的图片格式上 右键还可以调整图片大小 如何快速方便地在博客中插入截屏的图片？ 点击右下黑框-选另存为 个人的集大成有哪些？ 手绘 ：用excalidraw 日历 ：用Notion calendar 思维导图：用手绘 艾宾浩斯：用Notein，然后每天找一个复习时间插入日历 英语学习 “不背单词”的平板端可以复制 剑桥词典可以复制，剑桥词典引申义比较全 高中一本图书打印版与高中单词笔记 星火英语里面有小本本 英语单词积累的样式 样式一 religious\u3000/rɪˈlɪdʒəs/\u3000adj.宗教的，虔诚的 常用句型：\nto do doing of 词组：\nreligious beliefs\u3000宗教信仰 religious freedom\u3000宗教自由\nWe stand for religious freedom.\u3000我们支持宗教自由。 religious people\u3000虔诚的人\nReligious people are less likely to commit suicide.\u3000有信仰的人自杀的可能性更低 派生：\nreligion\u3000n.宗教，宗教信仰 religiously\u3000adv.与宗教相关地 前缀与词根：\n-ous=构成形容词：有……特性的 近义反义：\nholy\u3000adj.虔诚的 熟词生义：\nreligious beliefs\u3000宗教信仰 religious 样式二 abandon /əˈbændən/🔊（可###）\n🥳基本句型：\n📖常用词组\nabandon oneself to 沉溺于\nabandon hope 放弃希望\n🌲派生\nabandonment n. 放弃 abandoned adj. 被遗弃的 💡例句\nThey had to abandon their car in the snow.\n他们不得不把车丢在雪地里。\nNever abandon hope.\n永远不要放弃希望。\n🤔近义词、反义词、熟词生义\n1\n2\n3\n空格问题 多个空格不显示 切换全角模式：“微信输入法”是shift+空格 注意打制表符无效，打空格才有效 手写板||留言板 读者可编辑的手写板.html\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;纯静态手写板&lt;/title&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;&gt; &lt;style&gt; * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif; } body { background-color: #f5f7fa; padding: 20px; } #notePad { max-width: 800px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); overflow: hidden; } #debugInfo { padding: 8px 16px; background-color: #f7f8fa; color: #8a919f; font-size: 13px; border-bottom: 1px solid #f0f2f5; } button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 14px; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; } button:hover { opacity: 0.9; transform: translateY(-1px); } button:active { transform: translateY(0); } .top-controls { padding: 14px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; } .main-btn { background-color: #36cbcb; color: white; } .main-btn:hover { background-color: #2dbaba; } #drawArea { display: none; } #canvas { width: 100%; height: 400px; background-color: #fbfbfb; border-bottom: 1px solid #f0f2f5; cursor: crosshair; } .draw-controls { padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; display: flex; gap: 10px; } .action-btn { background-color: #f5f7fa; color: #333; } .action-btn:hover { background-color: #eef0f3; } #result { min-height: 200px; padding: 20px; text-align: center; background-color: #ffffff; } #result p { color: #999; font-size: 15px; padding: 40px 0; line-height: 1.6; } #result img { max-width: 100%; border-radius: 8px; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;notePad&#34;&gt; &lt;div id=&#34;debugInfo&#34;&gt;已初始化（独立页面）&lt;/div&gt; &lt;div class=&#34;top-controls&#34;&gt; &lt;button class=&#34;main-btn&#34; onclick=&#34;openDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-pen&#34;&gt;&lt;/i&gt; 打开手写板 &lt;/button&gt; &lt;/div&gt; &lt;div id=&#34;drawArea&#34;&gt; &lt;canvas id=&#34;canvas&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt; &lt;div class=&#34;draw-controls&#34;&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;clearCanvas()&#34;&gt; &lt;i class=&#34;fas fa-eraser&#34;&gt;&lt;/i&gt; 清除 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;saveCanvas()&#34;&gt; &lt;i class=&#34;fas fa-save&#34;&gt;&lt;/i&gt; 保存 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;closeDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-times&#34;&gt;&lt;/i&gt; 关闭 &lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=&#34;result&#34;&gt; &lt;p&gt;手写内容将显示在这里&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;script&gt; var canvas = document.getElementById(&#39;canvas&#39;); var ctx = canvas.getContext(&#39;2d&#39;); ctx.strokeStyle = &#39;#000&#39;; ctx.lineWidth = 2; ctx.lineCap = &#39;round&#39;; let isDrawing = false; canvas.onmousedown = (e) =&gt; { isDrawing = true; let rect = canvas.getBoundingClientRect(); ctx.beginPath(); ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top); }; canvas.onmousemove = (e) =&gt; { if (isDrawing) { let rect = canvas.getBoundingClientRect(); ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top); ctx.stroke(); } }; canvas.onmouseup = () =&gt; { isDrawing = false; }; canvas.onmouseout = () =&gt; { isDrawing = false; }; function openDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;block&#39;; } function closeDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;none&#39;; } function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); } function saveCanvas() { let imgData = canvas.toDataURL(&#39;image/png&#39;); document.getElementById(&#39;result&#39;).innerHTML = `&lt;img src=&#34;${imgData}&#34; style=&#34;max-width:100%;&#34;&gt;`; closeDrawArea(); } &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 可开发 先自动把用户的手写内容转化为编码，再把这个编码复制到.md文件中，再然后布博客的时候就可以显示用户的手写内容而不是编码…… 平板的用途 方便携带 课堂用Notein记，课后用博客添加进已预习的内容的.md 复习也是一种内卷：床 大屏显示 批注与圈点勾画：电子书（教材与读物）、导入的PDF 充当手写板：电脑平板共享粘贴板 无限刷题：有胶布，有图层 可以做画画博主 搜学习、工作与生活内容可以去哪里找灵感？ 小红书、B站\n财务管理 钱的计算与规划 家教、卖二手、一手赚差价、卖资料（电子）、勤工、志愿者 copilot 编辑器里可以 右键选中替换 所有与选中内容相同的 内容\n可以内联聊天\n博客的后续改进？ 要不要把PDF嵌入博客 有没有那种搜索关键词，点击之后对应文章后，文章内所有关键词变高亮。甚至还可以上下查找功能的 各类代码问题解决的方面 转义 发音的地方&rsquo;要用\\转义 路径 代码之折叠功能 第一种：默认黑三角 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;details&gt; &lt;summary&gt;点击展开更多内容&lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第二种：改颜色与符号 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;▶&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第三种：新增改大小 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;🫣&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 字体 适合博客的字体 中文是游趣体\n博客图片路径 学习的待办 primer的附录还没有看完 解决博客搜索功能对有折叠功能的HTML的隐藏 原来代码的备份 search.json文件\n位置：C:\\Users\\Lenovo\\Desktop\\test\\hugo_extended_0.147.9_windows-amd64\\dev\\themes\\hugo-theme-stack\\layouts\\page\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Plain) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 修改后的代码 search.json文件\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Content) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 博客速记 元数据 1 2 3 4 5 6 7 8 9 10 11 12 13 --- title: Chinese Test description: 这是一个副标题 date: 2020-09-09 image: helena-hertz-wWZzXlDpMog-unsplash.jpg categories: - Test - 测试 tags: [&#34;基础概念&#34;, &#34;细胞&#34;] # 细分标签，方便跨子目录检索 weight: 1 # 控制在子目录中的显示顺序（如在“基础概念”中排第1） math: true draft: false --- 引言 1 2 3 4 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme. 链接 1 In this example we will be using [KaTeX](https://katex.org/) 1 [The Van de Graaf Canon](https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon) 文件名、变量名、命令 1 `/layouts/partials/math.html` 把路径 /layouts/partials/math.html 标记为代码片段 粗体 1 **Note:** Use the online reference of [Supported TeX Functions]粗体 段落 空行\n">
+<meta property='og:url' content='https://cjh520-hjw.github.io/p/%E5%A4%A7%E5%B0%8F%E4%BA%8B%E8%AE%B0/'>
+<meta property='og:site_name' content='嬉皮士-Hippie'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-15T10:58:51&#43;08:00'/>
+<meta name="twitter:title" content="大小事记">
+<meta name="twitter:description" content="typora searching：ctrl+f 编程习惯 //*4.显示等级 星号表示关键步骤 代码写一行运行一下写一行运行一下 不易错，或全部写完再调试 想要隔开：空格可以换成table 快捷 光标跳行头行尾：fn+箭头 光标左右一个词一个词地跳：ctrl+箭头 windows自带的记事本 字体放大：ctrl+加号；缩小同理 B站 某类视频的观看路线：up主的自动回复、视频简介、置顶评论 狂神：https://www.bilibili.com/opus/380287124630431385?spm_id_from=333.1387.0.0 B站的“稍后再看” 有些up会有电子笔记/讲义/课件/资料，最好是.md，可以自己添加与修改 黑马程序员 Axmath 独立公式（单独成行）：使用 \\[...\\] 包裹，公式将居中显示，\\[ (-2^{15} \\sim 2^{15} - 1) \\] 如何快速方便地在博客中插入自己手绘的图片？ 平板与电脑粘贴板共享：使用“微信输入法” 平板上： 进行手绘：平板打开https://excalidraw.com/ 左上角三条杠-导出图片-选择背景透明 选择复制图像 电脑上： 文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开 typora中打入 会自动跳出选择本机文件 粘贴板共享粘贴图片-选择图片 typora里删/images前面的东西 在typora的图片格式上 右键还可以调整图片大小 如何快速方便地在博客中插入截屏的图片？ 点击右下黑框-选另存为 个人的集大成有哪些？ 手绘 ：用excalidraw 日历 ：用Notion calendar 思维导图：用手绘 艾宾浩斯：用Notein，然后每天找一个复习时间插入日历 英语学习 “不背单词”的平板端可以复制 剑桥词典可以复制，剑桥词典引申义比较全 高中一本图书打印版与高中单词笔记 星火英语里面有小本本 英语单词积累的样式 样式一 religious\u3000/rɪˈlɪdʒəs/\u3000adj.宗教的，虔诚的 常用句型：\nto do doing of 词组：\nreligious beliefs\u3000宗教信仰 religious freedom\u3000宗教自由\nWe stand for religious freedom.\u3000我们支持宗教自由。 religious people\u3000虔诚的人\nReligious people are less likely to commit suicide.\u3000有信仰的人自杀的可能性更低 派生：\nreligion\u3000n.宗教，宗教信仰 religiously\u3000adv.与宗教相关地 前缀与词根：\n-ous=构成形容词：有……特性的 近义反义：\nholy\u3000adj.虔诚的 熟词生义：\nreligious beliefs\u3000宗教信仰 religious 样式二 abandon /əˈbændən/🔊（可###）\n🥳基本句型：\n📖常用词组\nabandon oneself to 沉溺于\nabandon hope 放弃希望\n🌲派生\nabandonment n. 放弃 abandoned adj. 被遗弃的 💡例句\nThey had to abandon their car in the snow.\n他们不得不把车丢在雪地里。\nNever abandon hope.\n永远不要放弃希望。\n🤔近义词、反义词、熟词生义\n1\n2\n3\n空格问题 多个空格不显示 切换全角模式：“微信输入法”是shift+空格 注意打制表符无效，打空格才有效 手写板||留言板 读者可编辑的手写板.html\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta charset=&#34;UTF-8&#34;&gt; &lt;title&gt;纯静态手写板&lt;/title&gt; &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;&gt; &lt;style&gt; * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, Roboto, Helvetica, Arial, sans-serif; } body { background-color: #f5f7fa; padding: 20px; } #notePad { max-width: 800px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); overflow: hidden; } #debugInfo { padding: 8px 16px; background-color: #f7f8fa; color: #8a919f; font-size: 13px; border-bottom: 1px solid #f0f2f5; } button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 14px; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; } button:hover { opacity: 0.9; transform: translateY(-1px); } button:active { transform: translateY(0); } .top-controls { padding: 14px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; } .main-btn { background-color: #36cbcb; color: white; } .main-btn:hover { background-color: #2dbaba; } #drawArea { display: none; } #canvas { width: 100%; height: 400px; background-color: #fbfbfb; border-bottom: 1px solid #f0f2f5; cursor: crosshair; } .draw-controls { padding: 12px 16px; background-color: #ffffff; border-bottom: 1px solid #f0f2f5; display: flex; gap: 10px; } .action-btn { background-color: #f5f7fa; color: #333; } .action-btn:hover { background-color: #eef0f3; } #result { min-height: 200px; padding: 20px; text-align: center; background-color: #ffffff; } #result p { color: #999; font-size: 15px; padding: 40px 0; line-height: 1.6; } #result img { max-width: 100%; border-radius: 8px; box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div id=&#34;notePad&#34;&gt; &lt;div id=&#34;debugInfo&#34;&gt;已初始化（独立页面）&lt;/div&gt; &lt;div class=&#34;top-controls&#34;&gt; &lt;button class=&#34;main-btn&#34; onclick=&#34;openDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-pen&#34;&gt;&lt;/i&gt; 打开手写板 &lt;/button&gt; &lt;/div&gt; &lt;div id=&#34;drawArea&#34;&gt; &lt;canvas id=&#34;canvas&#34; width=&#34;800&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt; &lt;div class=&#34;draw-controls&#34;&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;clearCanvas()&#34;&gt; &lt;i class=&#34;fas fa-eraser&#34;&gt;&lt;/i&gt; 清除 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;saveCanvas()&#34;&gt; &lt;i class=&#34;fas fa-save&#34;&gt;&lt;/i&gt; 保存 &lt;/button&gt; &lt;button class=&#34;action-btn&#34; onclick=&#34;closeDrawArea()&#34;&gt; &lt;i class=&#34;fas fa-times&#34;&gt;&lt;/i&gt; 关闭 &lt;/button&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=&#34;result&#34;&gt; &lt;p&gt;手写内容将显示在这里&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;script&gt; var canvas = document.getElementById(&#39;canvas&#39;); var ctx = canvas.getContext(&#39;2d&#39;); ctx.strokeStyle = &#39;#000&#39;; ctx.lineWidth = 2; ctx.lineCap = &#39;round&#39;; let isDrawing = false; canvas.onmousedown = (e) =&gt; { isDrawing = true; let rect = canvas.getBoundingClientRect(); ctx.beginPath(); ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top); }; canvas.onmousemove = (e) =&gt; { if (isDrawing) { let rect = canvas.getBoundingClientRect(); ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top); ctx.stroke(); } }; canvas.onmouseup = () =&gt; { isDrawing = false; }; canvas.onmouseout = () =&gt; { isDrawing = false; }; function openDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;block&#39;; } function closeDrawArea() { document.getElementById(&#39;drawArea&#39;).style.display = &#39;none&#39;; } function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); } function saveCanvas() { let imgData = canvas.toDataURL(&#39;image/png&#39;); document.getElementById(&#39;result&#39;).innerHTML = `&lt;img src=&#34;${imgData}&#34; style=&#34;max-width:100%;&#34;&gt;`; closeDrawArea(); } &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; 可开发 先自动把用户的手写内容转化为编码，再把这个编码复制到.md文件中，再然后布博客的时候就可以显示用户的手写内容而不是编码…… 平板的用途 方便携带 课堂用Notein记，课后用博客添加进已预习的内容的.md 复习也是一种内卷：床 大屏显示 批注与圈点勾画：电子书（教材与读物）、导入的PDF 充当手写板：电脑平板共享粘贴板 无限刷题：有胶布，有图层 可以做画画博主 搜学习、工作与生活内容可以去哪里找灵感？ 小红书、B站\n财务管理 钱的计算与规划 家教、卖二手、一手赚差价、卖资料（电子）、勤工、志愿者 copilot 编辑器里可以 右键选中替换 所有与选中内容相同的 内容\n可以内联聊天\n博客的后续改进？ 要不要把PDF嵌入博客 有没有那种搜索关键词，点击之后对应文章后，文章内所有关键词变高亮。甚至还可以上下查找功能的 各类代码问题解决的方面 转义 发音的地方&rsquo;要用\\转义 路径 代码之折叠功能 第一种：默认黑三角 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 &lt;details&gt; &lt;summary&gt;点击展开更多内容&lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第二种：改颜色与符号 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;▶&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 第三种：新增改大小 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;details&gt; &lt;summary style=&#34;list-style-type: none; cursor: pointer;&#34;&gt; &lt;span style=&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;&gt;🫣&lt;/span&gt; 点击展开更多内容 &lt;/summary&gt; 这里是第一行内容（会自动换行） 这里是第二行内容（与上一行有空行，会形成段落分隔） 这是同一段落的 强制换行（使用Markdown的双空格或`&lt;br&gt;`） - 列表项1 - 列表项2 ```python print(&#34;代码块也可以正常显示&#34;) ``` &lt;/details&gt; 字体 适合博客的字体 中文是游趣体\n博客图片路径 学习的待办 primer的附录还没有看完 解决博客搜索功能对有折叠功能的HTML的隐藏 原来代码的备份 search.json文件\n位置：C:\\Users\\Lenovo\\Desktop\\test\\hugo_extended_0.147.9_windows-amd64\\dev\\themes\\hugo-theme-stack\\layouts\\page\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Plain) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 修改后的代码 search.json文件\n内容\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 {{- $pages := where .Site.RegularPages &#34;Type&#34; &#34;in&#34; .Site.Params.mainSections -}} {{- $notHidden := where .Site.RegularPages &#34;Params.hidden&#34; &#34;!=&#34; true -}} {{- $filtered := ($pages | intersect $notHidden) -}} {{- $result := slice -}} {{- range $filtered -}} {{- $data := dict &#34;title&#34; .Title &#34;date&#34; .Date &#34;permalink&#34; .Permalink &#34;content&#34; (.Content) -}} {{- $image := partialCached &#34;helper/image&#34; (dict &#34;Context&#34; . &#34;Type&#34; &#34;articleList&#34;) .RelPermalink &#34;articleList&#34; -}} {{- if $image.exists -}} {{- $imagePermalink := &#34;&#34; -}} {{- if and $image.resource (default true .Page.Site.Params.imageProcessing.cover.enabled) -}} {{- $thumbnail := $image.resource.Fill &#34;120x120&#34; -}} {{- $imagePermalink = (absURL $thumbnail.Permalink) -}} {{- else -}} {{- $imagePermalink = $image.permalink -}} {{- end -}} {{- $data = merge $data (dict &#34;image&#34; (absURL $imagePermalink)) -}} {{- end -}} {{- $result = $result | append $data -}} {{- end -}} {{ jsonify $result }} 博客速记 元数据 1 2 3 4 5 6 7 8 9 10 11 12 13 --- title: Chinese Test description: 这是一个副标题 date: 2020-09-09 image: helena-hertz-wWZzXlDpMog-unsplash.jpg categories: - Test - 测试 tags: [&#34;基础概念&#34;, &#34;细胞&#34;] # 细分标签，方便跨子目录检索 weight: 1 # 控制在子目录中的显示顺序（如在“基础概念”中排第1） math: true draft: false --- 引言 1 2 3 4 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme. 链接 1 In this example we will be using [KaTeX](https://katex.org/) 1 [The Van de Graaf Canon](https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon) 文件名、变量名、命令 1 `/layouts/partials/math.html` 把路径 /layouts/partials/math.html 标记为代码片段 粗体 1 **Note:** Use the online reference of [Supported TeX Functions]粗体 段落 空行\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<div class="loading">
+    
+     
+<div class="nebula"></div>
+<div class="grid-plane"></div>
+<div class="stars-container">
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+</div>
+
+<div class="loader-container">
+  <div class="hologram-platform"></div>
+  <div class="platform-rings">
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+  </div>
+
+  <div class="projection-beams">
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+  </div>
+
+  <div class="holo-container">
+    <div class="holo-sphere">
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+
+      <div class="holo-particles">
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+      </div>
+    </div>
+    
+    <div class="glitch-effect"></div>
+    <div class="lightning"></div>
+  </div>
+
+  <div class="code-lines">
+    <div class="code-line">
+      01001001 01001110 01001001 01010100 01001001 01000001 01001100 01001001
+      01011010 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      function initHolographicMatrix() { connectNodes(); renderQuantumState(); }
+    </div>
+    <div class="code-line">
+      01010011 01011001 01010011 01010100 01000101 01001101 00100000 01001100
+      01001111 01000001 01000100 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      class QuantumProcessor { constructor() { this.entanglement = new Map(); }}
+    </div>
+    <div class="code-line">
+      01010010 01000101 01001110 01000100 01000101 01010010 01001001 01001110
+      01000111 00100000 01001000 01001111 01001100 01001111
+    </div>
+    <div class="code-line">
+      const matrix = [1.2, 0.8, 3.1, 2.7, 5.9, 4.3, 7.2, 9.0];
+    </div>
+    <div class="code-line">
+      01010000 01010010 01001111 01000011 01000101 01010011 01010011 01001001
+      01001110 01000111 00100000 01000100 01000001 01010100 01000001
+    </div>
+    <div class="code-line">
+      async function loadHolographicData() { await fetch('/api/quantum'); }
+    </div>
+  </div>
+
+  <div class="holo-numbers">
+    <div class="number" style="top: 40%; left: 30%; animation-delay: 0.5s;">
+      0xFF
+    </div>
+    <div class="number" style="top: 50%; left: 60%; animation-delay: 1.5s;">
+      0x0A
+    </div>
+    <div class="number" style="top: 60%; left: 40%; animation-delay: 2.5s;">
+      0xB4
+    </div>
+    <div class="number" style="top: 30%; left: 50%; animation-delay: 3.5s;">
+      0x3D
+    </div>
+    <div class="number" style="top: 70%; left: 20%; animation-delay: 4.5s;">
+      0xC2
+    </div>
+    <div class="number" style="top: 20%; left: 70%; animation-delay: 5.5s;">
+      0x19
+    </div>
+  </div>
+
+  <div class="radial-indicators">
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+  </div>
+
+  <div class="corner-decorations">
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+  </div>
+
+  <div class="loading-text">SYSTEM IITIALIZATION</div>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</div>
+
+</div>
+
+<style>
+    .loading {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background-color: #212121;
+        opacity: 1;  
+        transform: scale(1);  
+         
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+     
+      
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+.star-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.star-layer:nth-child(1) {
+  transform: translateZ(-50px);
+  animation: star-drift 150s linear infinite;
+}
+
+.star-layer:nth-child(2) {
+  transform: translateZ(-100px);
+  animation: star-drift 200s linear infinite reverse;
+  opacity: 0.6;
+}
+
+.star-layer:nth-child(3) {
+  transform: translateZ(-200px);
+  animation: star-drift 250s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translateZ(-50px) translateY(0);
+  }
+  100% {
+    transform: translateZ(-50px) translateY(100%);
+  }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.nebula {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+      ellipse at 30% 30%,
+      rgba(63, 0, 113, 0.3) 0%,
+      rgba(63, 0, 113, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 70% 60%,
+      rgba(0, 113, 167, 0.3) 0%,
+      rgba(0, 113, 167, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(167, 0, 157, 0.2) 0%,
+      rgba(167, 0, 157, 0) 70%
+    );
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: nebula-shift 30s infinite alternate ease-in-out;
+}
+
+@keyframes nebula-shift {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 0.4;
+  }
+}
+
+.grid-plane {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: linear-gradient(
+      rgba(0, 162, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 162, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center;
+  animation: grid-move 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
+  }
+}
+
+.loader-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.hologram-platform {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 221, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+  transform: rotateX(60deg);
+  filter: blur(8px);
+  animation: platform-glow 4s infinite alternate;
+}
+
+.platform-rings {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  transform: rotateX(60deg);
+}
+
+.platform-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  opacity: 0.4;
+  animation: platform-ring-pulse 4s infinite alternate;
+}
+
+.platform-ring:nth-child(1) {
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -1s;
+}
+
+.platform-ring:nth-child(2) {
+  width: 85%;
+  height: 85%;
+  top: 7.5%;
+  left: 7.5%;
+  border-color: rgba(255, 0, 255, 0.4);
+  animation-delay: -2s;
+}
+
+.platform-ring:nth-child(3) {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -3s;
+}
+
+@keyframes platform-ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes platform-glow {
+  0% {
+    box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+    background: radial-gradient(
+      ellipse,
+      rgba(0, 221, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.6);
+    background: radial-gradient(
+      ellipse,
+      rgba(255, 0, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+}
+
+.holo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: float-container 6s infinite ease-in-out;
+}
+
+@keyframes float-container {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.holo-sphere {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  left: 15px;
+  top: 15px;
+  transform-style: preserve-3d;
+  animation: rotate 15s infinite linear;
+}
+
+.holo-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 20px rgba(255, 0, 222, 0.5),
+    0 0 20px rgba(0, 221, 255, 0.5);
+  filter: blur(1px);
+  animation: pulse 3s infinite ease-in-out alternate;
+  transform-style: preserve-3d;
+}
+
+.holo-ring:nth-child(1) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -0.5s;
+}
+
+.holo-ring:nth-child(2) {
+  border-top-color: #00ddff;
+  border-bottom-color: #ff00de;
+  animation-delay: -1s;
+  transform: rotateX(60deg);
+}
+
+.holo-ring:nth-child(3) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -1.5s;
+  transform: rotateY(60deg);
+}
+
+.holo-ring:nth-child(4) {
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  border-left-color: #00ff77;
+  border-right-color: #ff5500;
+  animation-delay: -2s;
+  transform: rotateZ(45deg);
+}
+
+.holo-ring:nth-child(5) {
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  border-left-color: #ff00b3;
+  border-right-color: #3300ff;
+  animation-delay: -2.5s;
+  transform: rotateX(30deg) rotateY(30deg);
+}
+
+.energy-ring {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.5;
+  transform-style: preserve-3d;
+  animation: energy-rotation 10s infinite linear;
+}
+
+.energy-ring::before,
+.energy-ring::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(0, 221, 255, 0.8) 20deg,
+    transparent 40deg,
+    transparent 140deg,
+    rgba(255, 0, 222, 0.8) 160deg,
+    transparent 180deg,
+    transparent 280deg,
+    rgba(0, 221, 255, 0.8) 300deg,
+    transparent 320deg
+  );
+  filter: blur(2px);
+  animation: energy-pulse 6s infinite alternate;
+}
+
+.energy-ring::after {
+  transform: rotate(60deg);
+  animation-delay: -3s;
+}
+
+@keyframes energy-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes energy-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.holo-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.holo-particle {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: particle-float 4s infinite ease-in-out;
+}
+
+.holo-particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0.1s;
+}
+
+.holo-particle:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  top: 70%;
+  left: 60%;
+  animation-delay: 0.7s;
+}
+
+.holo-particle:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  top: 40%;
+  left: 80%;
+  animation-delay: 1.3s;
+}
+
+.holo-particle:nth-child(4) {
+  width: 5px;
+  height: 5px;
+  top: 80%;
+  left: 25%;
+  animation-delay: 1.9s;
+}
+
+.holo-particle:nth-child(5) {
+  width: 7px;
+  height: 7px;
+  top: 30%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
+.holo-particle:nth-child(6) {
+  width: 9px;
+  height: 9px;
+  top: 60%;
+  left: 40%;
+  animation-delay: 3.1s;
+}
+
+.holo-particle:nth-child(7) {
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  left: 75%;
+  animation-delay: 3.7s;
+}
+
+.holo-particle:nth-child(8) {
+  width: 8px;
+  height: 8px;
+  top: 25%;
+  left: 85%;
+  animation-delay: 4.3s;
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateZ(0) translateX(0) translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+  50% {
+    transform: translateZ(60px) translateX(20px) translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.4;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+}
+
+.core {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: core-pulse 1.5s infinite ease-in-out alternate;
+  z-index: 5;
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(0, 221, 255, 0.6),
+    0 0 60px rgba(255, 0, 222, 0.4);
+}
+
+.core::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.6);
+  animation: core-rotate 3s infinite linear;
+}
+
+.core::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: core-rotate 5s infinite linear reverse;
+}
+
+@keyframes core-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes core-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+    filter: blur(5px);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    filter: blur(7px);
+  }
+}
+
+.scan-line-horizontal {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-horizontal 3s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.scan-line-vertical {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-vertical 3.5s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes scan-horizontal {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes scan-vertical {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.scan-data {
+  position: absolute;
+  font-size: 8px;
+  color: rgba(0, 221, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: scan-data 3s infinite linear;
+  z-index: 10;
+  transform-style: preserve-3d;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.5);
+}
+
+.scan-data:nth-child(1) {
+  top: 30%;
+  left: 65%;
+  animation-delay: -0.5s;
+}
+
+.scan-data:nth-child(2) {
+  top: 65%;
+  left: 35%;
+  animation-delay: -1.5s;
+}
+
+.scan-data:nth-child(3) {
+  top: 20%;
+  left: 40%;
+  animation-delay: -2.5s;
+}
+
+@keyframes scan-data {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  10%,
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.hex-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background-image: linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    );
+  background-size: 20px 35px;
+  background-position:
+    0 0,
+    0 0,
+    10px 17.5px,
+    10px 17.5px,
+    0 0,
+    10px 17.5px;
+  animation: hex-pulse 4s infinite alternate;
+  filter: drop-shadow(0 0 2px rgba(0, 221, 255, 0.5));
+}
+
+@keyframes hex-pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+.lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(1px);
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: lightning 5s infinite;
+  z-index: 11;
+}
+
+@keyframes lightning {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.8;
+    filter: brightness(3);
+  }
+}
+
+.lightning::before,
+.lightning::after {
+  content: "";
+  position: absolute;
+  background: white;
+  filter: blur(1px);
+  box-shadow:
+    0 0 10px #00ddff,
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.lightning::before {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotateY(90deg);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.lightning::after {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%) rotateX(90deg);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.glitch-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: glitch 7s infinite;
+  pointer-events: none;
+  z-index: 12;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 222, 0.3) 0%,
+    transparent 20%,
+    rgba(0, 221, 255, 0.3) 40%,
+    transparent 60%,
+    rgba(255, 0, 222, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  94%,
+  96% {
+    opacity: 0;
+  }
+  94.5% {
+    opacity: 0.8;
+    transform: translate(5px, -5px) skew(-5deg, 5deg);
+  }
+  95% {
+    opacity: 0.8;
+    transform: translate(-5px, 5px) skew(5deg, -5deg);
+  }
+  95.5% {
+    opacity: 0.8;
+    transform: translate(5px, 0) skew(-5deg, 0);
+  }
+}
+
+.data-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 221, 255, 0.2);
+  opacity: 0.7;
+  transform-style: preserve-3d;
+}
+
+.data-circle::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 221, 255, 0.7);
+  filter: blur(2px);
+  animation: data-blip 5s infinite linear;
+}
+
+@keyframes data-blip {
+  0% {
+    transform: rotate(0deg) translateX(100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.code-lines {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  z-index: 8;
+}
+
+.code-line {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.7);
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.3);
+  animation: code-scroll 15s infinite linear;
+  opacity: 0;
+}
+
+.code-line:nth-child(1) {
+  top: 10%;
+  animation-duration: 14s;
+  color: #00ddff;
+}
+
+.code-line:nth-child(2) {
+  top: 20%;
+  animation-duration: 15s;
+  animation-delay: -1s;
+}
+
+.code-line:nth-child(3) {
+  top: 30%;
+  animation-duration: 16s;
+  animation-delay: -2s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(4) {
+  top: 40%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(5) {
+  top: 50%;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(6) {
+  top: 60%;
+  animation-duration: 13s;
+  animation-delay: -7s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(7) {
+  top: 70%;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+
+.code-line:nth-child(8) {
+  top: 80%;
+  animation-duration: 16s;
+  animation-delay: -9s;
+  color: #ff00de;
+}
+
+@keyframes code-scroll {
+  0% {
+    transform: translateX(200px) rotateY(20deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-500px) rotateY(20deg);
+    opacity: 0;
+  }
+}
+
+.loading-text {
+  position: absolute;
+  bottom: -85px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: text-flicker 2s infinite;
+}
+
+@keyframes text-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8%,
+  10% {
+    opacity: 0.6;
+  }
+  9% {
+    opacity: 0.9;
+  }
+  52%,
+  54% {
+    opacity: 0.6;
+  }
+  53% {
+    opacity: 0.9;
+  }
+}
+
+.progress-container {
+  position: absolute;
+  bottom: -110px;
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00ddff, #ff00de);
+  box-shadow: 0 0 10px rgba(0, 221, 255, 0.7);
+  animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 20%;
+  }
+  40% {
+    width: 38%;
+  }
+  50% {
+    width: 52%;
+  }
+  60% {
+    width: 65%;
+  }
+  75% {
+    width: 82%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.corner-decorations {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 221, 255, 0.5);
+  animation: corner-pulse 3s infinite alternate;
+}
+
+.corner:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes corner-pulse {
+  0% {
+    border-color: rgba(0, 221, 255, 0.5);
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    border-color: rgba(255, 0, 222, 0.5);
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.projection-beams {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -80px;
+  transform-style: preserve-3d;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.beam {
+  position: absolute;
+  width: 1px;
+  height: 250px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 221, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  bottom: 0;
+  transform-origin: bottom;
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+.beam:nth-child(1) {
+  left: 30%;
+  transform: rotateY(10deg) rotateX(-30deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.5s;
+}
+
+.beam:nth-child(2) {
+  left: 45%;
+  transform: rotateY(-5deg) rotateX(-25deg);
+  animation: beam-flicker 3s infinite alternate;
+  animation-delay: 1.5s;
+}
+
+.beam:nth-child(3) {
+  left: 55%;
+  transform: rotateY(5deg) rotateX(-25deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.7s;
+}
+
+.beam:nth-child(4) {
+  left: 70%;
+  transform: rotateY(-10deg) rotateX(-30deg);
+  animation: beam-flicker 3.5s infinite alternate;
+  animation-delay: 2s;
+}
+
+@keyframes beam-flicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.holo-ui {
+  position: absolute;
+  top: -150px;
+  left: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(30deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.ui-element {
+  position: absolute;
+  background: rgba(0, 221, 255, 0.2);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  border-radius: 4px;
+  animation: ui-fade 3s infinite alternate;
+}
+
+.ui-element:nth-child(1) {
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 20px;
+  animation-delay: 0.2s;
+}
+
+.ui-element:nth-child(2) {
+  top: 50px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  animation-delay: 0.4s;
+}
+
+.ui-element:nth-child(3) {
+  top: 160px;
+  left: 20px;
+  width: 120px;
+  height: 30px;
+  animation-delay: 0.6s;
+}
+
+.ui-element:nth-child(4) {
+  top: 200px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0.8s;
+}
+
+@keyframes ui-fade {
+  0% {
+    opacity: 0.5;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    opacity: 0.8;
+    border-color: rgba(255, 0, 222, 0.5);
+  }
+}
+
+.holo-ui-right {
+  position: absolute;
+  top: -150px;
+  right: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(-30deg) scaleX(-1);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.holo-numbers {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  pointer-events: none;
+}
+
+.number {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.6);
+  animation: float-number 8s infinite linear;
+  opacity: 0;
+}
+
+@keyframes float-number {
+  0% {
+    opacity: 0;
+    transform: translateZ(100px) translateY(0);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-100px) translateY(-50px);
+  }
+}
+
+.data-cube {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-style: preserve-3d;
+  animation: cube-rotate 10s infinite linear;
+  top: -100px;
+  right: -100px;
+}
+
+.cube-face {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 221, 255, 0.1);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+}
+
+.cube-face:nth-child(1) {
+  transform: translateZ(20px);
+}
+.cube-face:nth-child(2) {
+  transform: rotateY(180deg) translateZ(20px);
+}
+.cube-face:nth-child(3) {
+  transform: rotateY(90deg) translateZ(20px);
+}
+.cube-face:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(20px);
+}
+.cube-face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(20px);
+}
+.cube-face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(20px);
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.radial-indicators {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.radial-indicator {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 221, 255, 0.5);
+  opacity: 0.3;
+  animation: radial-pulse 4s infinite alternate;
+}
+
+.radial-indicator:nth-child(1) {
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  animation-delay: 0.5s;
+}
+
+.radial-indicator:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  animation-delay: 1s;
+}
+
+.radial-indicator:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  animation-delay: 1.5s;
+}
+
+.radial-indicator:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  animation-delay: 2s;
+}
+
+@keyframes radial-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.5;
+    border-color: rgba(255, 0, 222, 0.5);
+  }
+}
+
+</style>
+
+<script>    
+    function initLoading() {
+    let loading = document.querySelector(".loading");
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            
+            loading.style.opacity = "0";
+            loading.style.transform = "scale(15)";
+
+            
+            setTimeout(() => {
+                loading.style.display = "none";
+            }, 500); 
+        }, 500); 
+    });
+}
+
+    initLoading();
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_275091e6d6580c04.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">嬉皮士-Hippie</a></h1>
+            <h2 class="site-description">To make sense out of change is to plunge into it, move with it, and join the dance.</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1855962663'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://cjh520-hjw.github.io/en/" >English</option>
+                                
+                                    <option value="https://cjh520-hjw.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#typora">typora</a></li>
+    <li><a href="#编程习惯">编程习惯</a></li>
+    <li><a href="#快捷">快捷</a></li>
+    <li><a href="#windows自带的记事本">windows自带的记事本</a></li>
+    <li><a href="#b站">B站</a></li>
+    <li><a href="#axmath">Axmath</a></li>
+    <li><a href="#如何快速方便地在博客中插入自己手绘的图片">如何快速方便地在博客中插入自己手绘的图片？</a></li>
+    <li><a href="#如何快速方便地在博客中插入截屏的图片">如何快速方便地在博客中插入截屏的图片？</a></li>
+    <li><a href="#个人的集大成有哪些">个人的集大成有哪些？</a></li>
+    <li><a href="#英语学习">英语学习</a>
+      <ol>
+        <li><a href="#英语单词积累的样式">英语单词积累的样式</a>
+          <ol>
+            <li><a href="#样式一">样式一</a></li>
+            <li><a href="#样式二">样式二</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#空格问题">空格问题</a>
+      <ol>
+        <li><a href="#多个空格不显示">多个空格不显示</a></li>
+      </ol>
+    </li>
+    <li><a href="#手写板留言板">手写板||留言板</a></li>
+    <li><a href="#可开发">可开发</a></li>
+    <li><a href="#平板的用途">平板的用途</a></li>
+    <li><a href="#搜学习工作与生活内容可以去哪里找灵感">搜学习、工作与生活内容可以去哪里找灵感？</a></li>
+    <li><a href="#财务管理">财务管理</a></li>
+    <li><a href="#copilot">copilot</a></li>
+    <li><a href="#博客的后续改进">博客的后续改进？</a></li>
+    <li><a href="#各类代码问题解决的方面">各类代码问题解决的方面</a></li>
+    <li><a href="#代码之折叠功能">代码之折叠功能</a>
+      <ol>
+        <li><a href="#第一种默认黑三角">第一种：默认黑三角</a></li>
+        <li><a href="#第二种改颜色与符号">第二种：改颜色与符号</a></li>
+        <li><a href="#第三种新增改大小">第三种：新增改大小</a></li>
+      </ol>
+    </li>
+    <li><a href="#字体">字体</a>
+      <ol>
+        <li><a href="#适合博客的字体">适合博客的字体</a></li>
+      </ol>
+    </li>
+    <li><a href="#博客图片路径">博客图片路径</a></li>
+    <li><a href="#学习的待办">学习的待办</a></li>
+    <li><a href="#解决博客搜索功能对有折叠功能的html的隐藏">解决博客搜索功能对有折叠功能的HTML的隐藏</a>
+      <ol>
+        <li><a href="#原来代码的备份">原来代码的备份</a></li>
+        <li><a href="#修改后的代码">修改后的代码</a></li>
+      </ol>
+    </li>
+    <li><a href="#博客速记">博客速记</a>
+      <ol>
+        <li><a href="#元数据">元数据</a></li>
+        <li><a href="#引言">引言</a></li>
+        <li><a href="#链接">链接</a></li>
+        <li><a href="#文件名变量名命令">文件名、变量名、命令</a>
+          <ol>
+            <li><a href="#粗体">粗体</a></li>
+            <li><a href="#段落">段落</a></li>
+            <li><a href="#引用">引用</a></li>
+            <li><a href="#图片">图片</a></li>
+            <li><a href="#表格">表格</a></li>
+            <li><a href="#高亮">高亮</a></li>
+            <li><a href="#脚注">脚注</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#编辑器的使用">编辑器的使用</a></li>
+    <li><a href="#单文件cpp">单文件.cpp</a></li>
+    <li><a href="#多文件cpph">多文件.cpp.h</a>
+      <ol>
+        <li><a href="#tasksjson里">tasks.json里</a></li>
+        <li><a href="#launchjson里">launch.json里</a></li>
+      </ol>
+    </li>
+    <li><a href="#多项目管理">多项目管理</a></li>
+    <li><a href="#卸载方法">卸载方法</a>
+      <ol>
+        <li><a href="#一删应用程序">一、删应用程序</a></li>
+        <li><a href="#二删插件">二、删插件</a></li>
+        <li><a href="#三删配置信息">三、删配置信息</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%A4%87%E5%BF%98/" >
+                备忘
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%A4%A7%E5%B0%8F%E4%BA%8B%E8%AE%B0/">大小事记</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-08-14</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 10 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="typora">typora
+</h2><ul>
+<li>searching：ctrl+f</li>
+</ul>
+<h2 id="编程习惯">编程习惯
+</h2><ul>
+<li>//*4.显示等级 星号表示关键步骤</li>
+<li>代码写一行运行一下写一行运行一下 不易错，或全部写完再调试</li>
+<li>想要隔开：空格可以换成table</li>
+</ul>
+<h2 id="快捷">快捷
+</h2><ul>
+<li>光标跳行头行尾：fn+箭头</li>
+<li>光标左右一个词一个词地跳：ctrl+箭头</li>
+</ul>
+<h2 id="windows自带的记事本">windows自带的记事本
+</h2><ul>
+<li>字体放大：ctrl+加号；缩小同理</li>
+</ul>
+<h2 id="b站">B站
+</h2><ul>
+<li>某类视频的观看路线：up主的自动回复、视频简介、置顶评论
+<ul>
+<li>狂神：https://www.bilibili.com/opus/380287124630431385?spm_id_from=333.1387.0.0</li>
+</ul>
+</li>
+<li>B站的“稍后再看”</li>
+<li>有些up会有电子笔记/讲义/课件/资料，最好是.md，可以自己添加与修改
+<ul>
+<li>黑马程序员</li>
+</ul>
+</li>
+</ul>
+<h2 id="axmath">Axmath
+</h2><ul>
+<li>独立公式（单独成行）：使用 \[...\] 包裹，公式将居中显示，\[ (-2^{15} \sim 2^{15} - 1) \]</li>
+</ul>
+<h2 id="如何快速方便地在博客中插入自己手绘的图片">如何快速方便地在博客中插入自己手绘的图片？
+</h2><ol>
+<li>平板与电脑粘贴板共享：使用“微信输入法”</li>
+<li>平板上：
+<ul>
+<li>进行手绘：平板打开https://excalidraw.com/</li>
+<li>左上角三条杠-导出图片-选择背景<strong>透明</strong></li>
+<li>选择<strong>复制图像</strong></li>
+</ul>
+</li>
+<li>电脑上：
+<ul>
+<li>文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开</li>
+<li>typora中打入<img src="/"
+	
+	
+	
+	loading="lazy"
+	
+	
+>    会自动跳出选择本机文件</li>
+<li>粘贴板共享粘贴图片-选择图片</li>
+<li>typora里删<code>/images</code>前面的东西</li>
+<li>在typora的图片格式上     右键还可以调整图片大小</li>
+</ul>
+</li>
+</ol>
+<h2 id="如何快速方便地在博客中插入截屏的图片">如何快速方便地在博客中插入截屏的图片？
+</h2><ul>
+<li>点击右下黑框-选另存为</li>
+</ul>
+<h2 id="个人的集大成有哪些">个人的集大成有哪些？
+</h2><ul>
+<li>手绘 ：用excalidraw</li>
+<li>日历 ：用Notion calendar</li>
+<li>思维导图：用手绘</li>
+<li>艾宾浩斯：用Notein，然后每天找一个复习时间插入日历</li>
+</ul>
+<h2 id="英语学习">英语学习
+</h2><ul>
+<li>“不背单词”的平板端可以复制</li>
+<li>剑桥词典可以复制，剑桥词典引申义比较全</li>
+<li>高中一本图书打印版与高中单词笔记</li>
+<li>星火英语里面有小本本</li>
+</ul>
+<h3 id="英语单词积累的样式">英语单词积累的样式
+</h3><h4 id="样式一">样式一
+</h4><blockquote class="alert alert-note">
+    <details>
+<summary>religious　　/rɪˈlɪdʒəs/　　adj.宗教的，虔诚的</summary>
+<p>常用句型：</p>
+<ul>
+<li>to do</li>
+<li>doing</li>
+<li>of</li>
+</ul>
+<p>词组：</p>
+<ul>
+<li>religious beliefs　宗教信仰</li>
+<li>religious freedom　宗教自由<br>
+We stand for religious freedom.　我们支持宗教自由。</li>
+<li>religious people　虔诚的人<br>
+Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低</li>
+</ul>
+<p>派生：</p>
+<ul>
+<li>religion　n.宗教，宗教信仰</li>
+<li>religiously　adv.与宗教相关地</li>
+</ul>
+<p>前缀与词根：</p>
+<ul>
+<li>-ous=构成形容词：有……特性的</li>
+</ul>
+<p>近义反义：</p>
+<ul>
+<li>holy　adj.虔诚的</li>
+</ul>
+<p>熟词生义：</p>
+<ul>
+<li>religious beliefs　宗教信仰</li>
+<li>religious</li>
+</ul>
+</details></blockquote>
+<h4 id="样式二">样式二
+</h4><p>abandon  /əˈbændən/🔊（可###）</p>
+<p>🥳基本句型：</p>
+<ul>
+<li></li>
+<li></li>
+</ul>
+<blockquote class="alert alert-note">
+    <p>📖常用词组</p>
+<ul>
+<li>
+<p>abandon oneself to 沉溺于</p>
+</li>
+<li>
+<p>abandon hope 放弃希望</p>
+</li>
+</ul></blockquote>
+<blockquote class="alert alert-tip">
+    <p>🌲派生</p>
+<ul>
+<li>abandonment n. 放弃</li>
+<li>abandoned adj. 被遗弃的</li>
+</ul></blockquote>
+<blockquote class="alert alert-warn">
+    <p>💡例句</p>
+<ul>
+<li>
+<p>They had to abandon their car in the snow.</p>
+<p>他们不得不把车丢在雪地里。</p>
+</li>
+<li>
+<p>Never abandon hope.</p>
+<p>永远不要放弃希望。</p>
+</li>
+</ul></blockquote>
+<blockquote>
+<p>🤔近义词、反义词、熟词生义</p>
+<p>1</p>
+<p>2</p>
+<p>3</p></blockquote>
+<h2 id="空格问题">空格问题
+</h2><h3 id="多个空格不显示">多个空格不显示
+</h3><ul>
+<li>切换全角模式：“微信输入法”是shift+空格</li>
+<li>注意打制表符无效，打空格才有效</li>
+</ul>
+<h2 id="手写板留言板">手写板||留言板
+</h2><p>读者可编辑的手写板.html</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>纯静态手写板<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">box-sizing</span><span class="p">:</span> <span class="kc">border-box</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="n">Roboto</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f5f7fa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">notePad</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">max-width</span><span class="p">:</span> <span class="mi">800</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ffffff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-radius</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">2</span><span class="kt">px</span> <span class="mi">12</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">debugInfo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f7f8fa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">color</span><span class="p">:</span> <span class="mh">#8a919f</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">font-size</span><span class="p">:</span> <span class="mi">13</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#f0f2f5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-radius</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">cursor</span><span class="p">:</span> <span class="kc">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">0.2</span><span class="kt">s</span> <span class="kc">ease</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">display</span><span class="p">:</span> <span class="kc">inline-flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">gap</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">button</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">transform</span><span class="p">:</span> <span class="nb">translateY</span><span class="p">(</span><span class="mi">-1</span><span class="kt">px</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nt">button</span><span class="p">:</span><span class="nd">active</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">transform</span><span class="p">:</span> <span class="nb">translateY</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">top-controls</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ffffff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#f0f2f5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">main-btn</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#36cbcb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">main-btn</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#2dbaba</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">drawArea</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">canvas</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">height</span><span class="p">:</span> <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fbfbfb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#f0f2f5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">cursor</span><span class="p">:</span> <span class="kc">crosshair</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">draw-controls</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ffffff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#f0f2f5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">gap</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">action-btn</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f5f7fa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">action-btn</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#eef0f3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">result</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">min-height</span><span class="p">:</span> <span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ffffff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">result</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">color</span><span class="p">:</span> <span class="mh">#999</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">font-size</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">padding</span><span class="p">:</span> <span class="mi">40</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="p">#</span><span class="nn">result</span> <span class="nt">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">border-radius</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">8</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">0.3</span><span class="kt">s</span> <span class="kc">ease</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;notePad&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;debugInfo&#34;</span><span class="p">&gt;</span>已初始化（独立页面）<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;top-controls&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;main-btn&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;openDrawArea()&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fas fa-pen&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span> 打开手写板
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;drawArea&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;400&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;draw-controls&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action-btn&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;clearCanvas()&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fas fa-eraser&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span> 清除
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action-btn&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;saveCanvas()&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fas fa-save&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span> 保存
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;action-btn&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;closeDrawArea()&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;fas fa-times&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span> 关闭
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;result&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>手写内容将显示在这里<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s1">&#39;#000&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineCap</span> <span class="o">=</span> <span class="s1">&#39;round&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">isDrawing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">canvas</span><span class="p">.</span><span class="nx">onmousedown</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isDrawing</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">-</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">top</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">canvas</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="nx">isDrawing</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">e</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">-</span> <span class="nx">rect</span><span class="p">.</span><span class="nx">top</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">canvas</span><span class="p">.</span><span class="nx">onmouseup</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">isDrawing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">canvas</span><span class="p">.</span><span class="nx">onmouseout</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">isDrawing</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">openDrawArea</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;drawArea&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">closeDrawArea</span><span class="p">()</span> <span class="p">{</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;drawArea&#39;</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">clearCanvas</span><span class="p">()</span> <span class="p">{</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">saveCanvas</span><span class="p">()</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">imgData</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/png&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;result&#39;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="sb">`&lt;img src=&#34;</span><span class="si">${</span><span class="nx">imgData</span><span class="si">}</span><span class="sb">&#34; style=&#34;max-width:100%;&#34;&gt;`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">closeDrawArea</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="可开发">可开发
+</h2><ul>
+<li>先自动把用户的手写内容转化为编码，再把这个编码复制到.md文件中，再然后布博客的时候就可以显示用户的手写内容而不是编码……</li>
+</ul>
+<h2 id="平板的用途">平板的用途
+</h2><ul>
+<li>方便携带
+<ul>
+<li>课堂用Notein记，课后用博客添加进已预习的内容的.md</li>
+<li>复习也是一种内卷：床</li>
+</ul>
+</li>
+<li>大屏显示
+<ul>
+<li>批注与圈点勾画：电子书（教材与读物）、导入的PDF</li>
+</ul>
+</li>
+<li>充当手写板：电脑平板共享粘贴板</li>
+<li>无限刷题：有胶布，有图层</li>
+<li>可以做画画博主</li>
+</ul>
+<h2 id="搜学习工作与生活内容可以去哪里找灵感">搜学习、工作与生活内容可以去哪里找灵感？
+</h2><p>小红书、B站</p>
+<h2 id="财务管理">财务管理
+</h2><ul>
+<li>钱的计算与规划</li>
+<li>家教、卖二手、一手赚差价、卖资料（电子）、勤工、志愿者</li>
+</ul>
+<h2 id="copilot">copilot
+</h2><p>编辑器里可以    右键选中替换    所有与选中内容相同的   内容</p>
+<p>可以内联聊天</p>
+<h2 id="博客的后续改进">博客的后续改进？
+</h2><ul>
+<li>要不要把PDF嵌入博客</li>
+<li>有没有那种搜索关键词，点击之后对应文章后，文章内所有关键词变高亮。甚至还可以上下查找功能的</li>
+</ul>
+<h2 id="各类代码问题解决的方面">各类代码问题解决的方面
+</h2><ul>
+<li>转义
+<ul>
+<li>发音的地方&rsquo;要用\转义</li>
+<li>路径</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码之折叠功能">代码之折叠功能
+</h2><h3 id="第一种默认黑三角">第一种：默认黑三角
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">details</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">summary</span><span class="p">&gt;</span>点击展开更多内容<span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第一行内容（会自动换行）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第二行内容（与上一行有空行，会形成段落分隔）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这是同一段落的  
+</span></span><span class="line"><span class="cl">强制换行（使用Markdown的双空格或`<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>`）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- 列表项1
+</span></span><span class="line"><span class="cl">- 列表项2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">print(&#34;代码块也可以正常显示&#34;)
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="第二种改颜色与符号">第二种：改颜色与符号
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">details</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">summary</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;list-style-type: none; cursor: pointer;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color: #EFAE8E; display: inline-block; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;</span><span class="p">&gt;</span>▶<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  点击展开更多内容
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第一行内容（会自动换行）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第二行内容（与上一行有空行，会形成段落分隔）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这是同一段落的  
+</span></span><span class="line"><span class="cl">强制换行（使用Markdown的双空格或`<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>`）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- 列表项1
+</span></span><span class="line"><span class="cl">- 列表项2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">print(&#34;代码块也可以正常显示&#34;)
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="第三种新增改大小">第三种：新增改大小
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">details</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">summary</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;list-style-type: none; cursor: pointer;&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color: #EFAE8E; display: inline-block; font-size: 30px; transform: rotate(0deg); transition: transform 0.2s; margin-right: 6px;&#34;</span><span class="p">&gt;</span>🫣<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  点击展开更多内容
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第一行内容（会自动换行）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这里是第二行内容（与上一行有空行，会形成段落分隔）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这是同一段落的  
+</span></span><span class="line"><span class="cl">强制换行（使用Markdown的双空格或`<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>`）
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- 列表项1
+</span></span><span class="line"><span class="cl">- 列表项2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">```python
+</span></span><span class="line"><span class="cl">print(&#34;代码块也可以正常显示&#34;)
+</span></span><span class="line"><span class="cl">```
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="字体">字体
+</h2><h3 id="适合博客的字体">适合博客的字体
+</h3><p>中文是游趣体</p>
+<h2 id="博客图片路径">博客图片路径
+</h2><p><img src="/images/C&#43;&#43;/5.jpg"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="学习的待办">学习的待办
+</h2><ul>
+<li><input disabled="" type="checkbox"> primer的附录还没有看完</li>
+</ul>
+<h2 id="解决博客搜索功能对有折叠功能的html的隐藏">解决博客搜索功能对有折叠功能的HTML的隐藏
+</h2><h3 id="原来代码的备份">原来代码的备份
+</h3><ol>
+<li>
+<p>search.json文件</p>
+<ul>
+<li>
+<p>位置：C:\Users\Lenovo\Desktop\test\hugo_extended_0.147.9_windows-amd64\dev\themes\hugo-theme-stack\layouts\page</p>
+</li>
+<li>
+<p>内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$pages</span> <span class="err">:=</span> <span class="err">where</span> <span class="err">.Site.RegularPages</span> <span class="nt">&#34;Type&#34;</span> <span class="s2">&#34;in&#34;</span> <span class="err">.Site.Params.mainSections</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$notHidden</span> <span class="err">:=</span> <span class="err">where</span> <span class="err">.Site.RegularPages</span> <span class="nt">&#34;Params.hidden&#34;</span> <span class="s2">&#34;!=&#34;</span> <span class="kc">true</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$filtered</span> <span class="err">:=</span> <span class="err">($pages</span> <span class="err">|</span> <span class="err">intersect</span> <span class="err">$notHidden)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$result</span> <span class="err">:=</span> <span class="err">slice</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">range</span> <span class="err">$filtered</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$data</span> <span class="err">:=</span> <span class="err">dict</span> <span class="nt">&#34;title&#34;</span> <span class="err">.Title</span> <span class="s2">&#34;date&#34;</span> <span class="err">.Date</span> <span class="s2">&#34;permalink&#34;</span> <span class="err">.Permalink</span> <span class="s2">&#34;content&#34;</span> <span class="err">(.Plain)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$image</span> <span class="err">:=</span> <span class="err">partialCached</span> <span class="nt">&#34;helper/image&#34;</span> <span class="err">(dict</span> <span class="s2">&#34;Context&#34;</span> <span class="err">.</span> <span class="s2">&#34;Type&#34;</span> <span class="s2">&#34;articleList&#34;</span><span class="err">)</span> <span class="err">.RelPermalink</span> <span class="s2">&#34;articleList&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">if</span> <span class="err">$image.exists</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">:=</span> <span class="nt">&#34;&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">if</span> <span class="err">and</span> <span class="err">$image.resource</span> <span class="err">(default</span> <span class="err">true</span> <span class="err">.Page.Site.Params.imageProcessing.cover.enabled)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$thumbnail</span> <span class="err">:=</span> <span class="err">$image.resource.Fill</span> <span class="nt">&#34;120x120&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">=</span> <span class="err">(absURL</span> <span class="err">$thumbnail.Permalink)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">else</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">=</span> <span class="err">$image.permalink</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">$data</span> <span class="err">=</span> <span class="err">merge</span> <span class="err">$data</span> <span class="err">(dict</span> <span class="nt">&#34;image&#34;</span> <span class="err">(absURL</span> <span class="err">$imagePermalink))</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$result</span> <span class="err">=</span> <span class="err">$result</span> <span class="err">|</span> <span class="err">append</span> <span class="err">$data</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{</span> <span class="err">jsonify</span> <span class="err">$result</span> <span class="p">}</span><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
+<h3 id="修改后的代码">修改后的代码
+</h3><ol>
+<li>
+<p>search.json文件</p>
+<ul>
+<li>
+<p>内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$pages</span> <span class="err">:=</span> <span class="err">where</span> <span class="err">.Site.RegularPages</span> <span class="nt">&#34;Type&#34;</span> <span class="s2">&#34;in&#34;</span> <span class="err">.Site.Params.mainSections</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$notHidden</span> <span class="err">:=</span> <span class="err">where</span> <span class="err">.Site.RegularPages</span> <span class="nt">&#34;Params.hidden&#34;</span> <span class="s2">&#34;!=&#34;</span> <span class="kc">true</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$filtered</span> <span class="err">:=</span> <span class="err">($pages</span> <span class="err">|</span> <span class="err">intersect</span> <span class="err">$notHidden)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">$result</span> <span class="err">:=</span> <span class="err">slice</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">range</span> <span class="err">$filtered</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$data</span> <span class="err">:=</span> <span class="err">dict</span> <span class="nt">&#34;title&#34;</span> <span class="err">.Title</span> <span class="s2">&#34;date&#34;</span> <span class="err">.Date</span> <span class="s2">&#34;permalink&#34;</span> <span class="err">.Permalink</span> <span class="s2">&#34;content&#34;</span> <span class="err">(.Content)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$image</span> <span class="err">:=</span> <span class="err">partialCached</span> <span class="nt">&#34;helper/image&#34;</span> <span class="err">(dict</span> <span class="s2">&#34;Context&#34;</span> <span class="err">.</span> <span class="s2">&#34;Type&#34;</span> <span class="s2">&#34;articleList&#34;</span><span class="err">)</span> <span class="err">.RelPermalink</span> <span class="s2">&#34;articleList&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">if</span> <span class="err">$image.exists</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">:=</span> <span class="nt">&#34;&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">if</span> <span class="err">and</span> <span class="err">$image.resource</span> <span class="err">(default</span> <span class="err">true</span> <span class="err">.Page.Site.Params.imageProcessing.cover.enabled)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$thumbnail</span> <span class="err">:=</span> <span class="err">$image.resource.Fill</span> <span class="nt">&#34;120x120&#34;</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">=</span> <span class="err">(absURL</span> <span class="err">$thumbnail.Permalink)</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">else</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="err">{-</span> <span class="err">$imagePermalink</span> <span class="err">=</span> <span class="err">$image.permalink</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="err">{-</span> <span class="err">$data</span> <span class="err">=</span> <span class="err">merge</span> <span class="err">$data</span> <span class="err">(dict</span> <span class="nt">&#34;image&#34;</span> <span class="err">(absURL</span> <span class="err">$imagePermalink))</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="err">{-</span> <span class="err">$result</span> <span class="err">=</span> <span class="err">$result</span> <span class="err">|</span> <span class="err">append</span> <span class="err">$data</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{-</span> <span class="err">end</span> <span class="err">-</span><span class="p">}</span><span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="err">{</span> <span class="err">jsonify</span> <span class="err">$result</span> <span class="p">}</span><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
+<h2 id="博客速记">博客速记
+</h2><h3 id="元数据">元数据
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: Chinese Test
+</span></span><span class="line"><span class="cl">description: 这是一个副标题
+</span></span><span class="line"><span class="cl">date: 2020-09-09
+</span></span><span class="line"><span class="cl">image: helena-hertz-wWZzXlDpMog-unsplash.jpg
+</span></span><span class="line"><span class="cl">categories:
+</span></span><span class="line"><span class="cl">    - Test
+</span></span><span class="line"><span class="cl">    - 测试
+</span></span><span class="line"><span class="cl">tags: [&#34;基础概念&#34;, &#34;细胞&#34;]  # 细分标签，方便跨子目录检索
+</span></span><span class="line"><span class="cl">weight: 1  # 控制在子目录中的显示顺序（如在“基础概念”中排第1）
+</span></span><span class="line"><span class="cl">math: true
+</span></span><span class="line"><span class="cl">draft: false
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="引言">引言
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="链接">链接
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">In this example we will be using [KaTeX](https://katex.org/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">The</span> <span class="n">Van</span> <span class="n">de</span> <span class="n">Graaf</span> <span class="n">Canon</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Canons_of_page_construction</span><span class="c1">#Van_de_Graaf_canon)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文件名变量名命令">文件名、变量名、命令
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> `/layouts/partials/math.html`  把路径 /layouts/partials/math.html 标记为代码片段
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="粗体">粗体
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">**Note:** Use the online reference of [Supported TeX Functions]粗体
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="段落">段落
+</h4><p>空行</p>
+<h4 id="引用">引用
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; 思念是最暖的忧伤像一双翅膀  
+</span></span><span class="line"><span class="cl">&gt; 让我停不了飞不远在过往游荡  
+</span></span><span class="line"><span class="cl">&gt; 不告而别的你 就算为了我着想  
+</span></span><span class="line"><span class="cl">&gt; 这么沉痛的呵护 我怎么能翱翔  
+</span></span><span class="line"><span class="cl">&gt; 
+</span></span><span class="line"><span class="cl">&gt; *[最暖的憂傷 - 田馥甄](https://www.youtube.com/watch?v=3aypp_YlBzI)*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="图片">图片
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg)  ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="表格">表格
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="o">|</span><span class="w"> </span><span class="n">Italics</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Bold</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">Code</span><span class="w">   </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">|</span><span class="w"> </span><span class="o">------</span><span class="c1">--  | -------- | ------ |
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">|</span><span class="w"> </span><span class="o">*</span><span class="n">italics</span><span class="o">*</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">**</span><span class="n">bold</span><span class="o">**</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">`</span><span class="n">code</span><span class="o">`</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="高亮">高亮
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;mark&gt;高亮&lt;/mark&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="脚注">脚注
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; Don&#39;t communicate by sharing memory, share memory by communicating.&lt;br&gt;
+</span></span><span class="line"><span class="cl">&gt; — &lt;cite&gt;Rob Pike[^1]&lt;/cite&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[^1]: The above quote is excerpted from Rob Pike&#39;s [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编辑器的使用">编辑器的使用
+</h2><h2 id="单文件cpp">单文件.cpp
+</h2><ol>
+<li>
+<p>选择文件夹：</p>
+<p>编辑器左上打开文件夹-&gt;D盘code里的C++文件夹</p>
+</li>
+<li>
+<p>文件夹里新建.cpp:</p>
+<p>如图文件夹右边有新建</p>
+</li>
+</ol>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721152506244.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721152506244"
+	
+	
+></p>
+<p>新建文件，命名后缀为.cpp</p>
+<ol start="3">
+<li>
+<p>写c++代码</p>
+</li>
+<li>
+<p>运行：</p>
+<p>中页面右上角有三角形按钮，点击run</p>
+</li>
+<li>
+<p>查看运行结果：</p>
+<ul>
+<li>中页面下方点击终端查看</li>
+<li>如果出现中文乱码，在全页面下面一行看编码是不是UTF-8，不是则修改</li>
+<li>只看运行结果的时候，把红点点再点一下就可以取消掉调试的断点，然后再点击运行</li>
+<li>保存代码可以在所有任务都完成后再保存也没关系的</li>
+</ul>
+</li>
+<li>
+<p>如何调试？</p>
+<ul>
+<li>
+<p>点红点点如图<img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721153850900.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721153850900"
+	
+	
+></p>
+</li>
+<li>
+<p>点运行旁边的调试选择g++，点如图齿轮也可以跳出选择g++</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721164851216.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721164851216"
+	
+	
+></p>
+</li>
+<li>
+<p>调试的六个按钮说明</p>
+<p>![704993a1ba7db6d413e868c2d7e5899c](C:\Users\Lenovo\Documents\Tencent Files\3880179352\nt_qq\nt_data\Pic\2025-07\Ori\704993a1ba7db6d413e868c2d7e5899c.jpg)</p>
+<ol>
+<li>
+<p>继续：</p>
+<p>继续执行程序直至下一个断点或程序结束</p>
+</li>
+<li>
+<p>单步跳过：</p>
+<p>执行当前行代码，若有函数调用不会进入，而是执行完该函数就跳到下一行</p>
+</li>
+<li>
+<p>单步调试：</p>
+<p>执行当前行代码，若有函数调用，则进入函数内部</p>
+</li>
+<li>
+<p>单步跳出：</p>
+<p>能执行完当前函数的代码剩余，后跳回到函数调用处</p>
+</li>
+<li>
+<p>重启:</p>
+<p>修改代码后若需要重新调试，可以重启程序从头执行</p>
+</li>
+<li>
+<p>停止：</p>
+<p>调试完成或者需要中断时，关闭调试进程</p>
+</li>
+</ol>
+</li>
+<li>
+<p>调试完一定要停掉，点最后一个红框框</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="多文件cpph">多文件.cpp.h
+</h2><h3 id="tasksjson里">tasks.json里
+</h3><ol>
+<li>
+<p>先注释掉，再粘贴到下面一行</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721171521743.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721171521743"
+	
+	
+></p>
+</li>
+<li>
+<p>修改如图</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721171712378.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721171712378"
+	
+	
+></p>
+</li>
+<li>
+<p>同理</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721171910137.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721171910137"
+	
+	
+></p>
+</li>
+<li>
+<p>记得保存</p>
+</li>
+<li>
+<p>可以删这个</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721172028662.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721172028662"
+	
+	
+></p>
+</li>
+</ol>
+<h3 id="launchjson里">launch.json里
+</h3><ol>
+<li>
+<p>点蓝色</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721170502818.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721170502818"
+	
+	
+></p>
+</li>
+<li>
+<p>选gdb</p>
+</li>
+<li>
+<p>选中页面右下的添加配置，点gdb启动</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721170711132.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721170711132"
+	
+	
+></p>
+</li>
+<li>
+<p>先注释这两行</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721170858649.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721170858649"
+	
+	
+></p>
+</li>
+<li>
+<p>再复制一下代码内容（包括尾部的逗号），粘贴在对应注释的后面</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721171008810.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721171008810"
+	
+	
+></p>
+</li>
+<li>
+<p>去tasks.json里复制这个</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721172825461.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721172825461"
+	
+	
+></p>
+</li>
+<li>
+<p>粘贴到launch.json的这里去</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721172949819.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721172949819"
+	
+	
+></p>
+</li>
+<li>
+<p>复制粘贴mingw的bin路径，加反斜杠与gdb.exe</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721173344432.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721173344432"
+	
+	
+></p>
+</li>
+<li>
+<p>记得保存</p>
+</li>
+<li>
+<p>最后在有main函数的.cpp里运行与调试</p>
+</li>
+<li>
+<p>调试的时候：</p>
+<ul>
+<li>点进入函数，会跳转到其他.cpp</li>
+</ul>
+</li>
+<li>
+<p>设置在页面左下，字体大小设置<img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721152759372.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721152759372"
+	
+	
+></p>
+<p>设置完后要ctrl+s保存</p>
+</li>
+<li>
+<p>文件夹是可以拖里拖外的</p>
+<p>![38acef65f38f8f9e9c0ad7685f1acce3](C:\Users\Lenovo\Documents\Tencent Files\3880179352\nt_qq\nt_data\Pic\2025-07\Ori\38acef65f38f8f9e9c0ad7685f1acce3.jpg)</p>
+</li>
+<li>
+<p>如图添加到工作区就是将C++文件夹添加到编辑器中，C++文件夹就可以与C文件夹都同时存在于编辑器中了</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721164434965.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721164434965"
+	
+	
+></p>
+</li>
+<li>
+<p>将如图的打开编辑器旁边的箭头合上更方便</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721164535690.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721164535690"
+	
+	
+></p>
+</li>
+<li>
+<p>如图，.vscode下只有两个文件，新增文件时别弄错了</p>
+</li>
+</ol>
+<h2 id="多项目管理">多项目管理
+</h2><p>方法：通过不同的文件夹管理不同的项目即可，所有文件夹都应该在C++文件夹目录下（直接在编辑器里新建即可）</p>
+<h2 id="卸载方法">卸载方法
+</h2><h3 id="一删应用程序">一、删应用程序
+</h3><p>点开始<img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721165233074.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721165233074"
+	
+	
+></p>
+<p>点全部-&gt;找到软件</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721165308349.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721165308349"
+	
+	
+></p>
+<p>单击右键选卸载</p>
+<p><img src="C:%5cUsers%5cLenovo%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20250721165348069.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20250721165348069"
+	
+	
+></p>
+<p>如果找不到软件，先随便右击一个软件点卸载，就会跳出控制面板的界面，找到软件，再单击右键点卸载</p>
+<h3 id="二删插件">二、删插件
+</h3><p>.vscode文件夹在C:\User(或中文字用户)\用户名目录下有一个.vscode文件，将它删除</p>
+<p>有些文件是隐藏文件，页面上方点击查看，选显示，选隐藏项目</p>
+<h3 id="三删配置信息">三、删配置信息
+</h3><p>![d149548582f577bd8e83494b37e59302](C:\Users\Lenovo\Documents\Tencent Files\3880179352\nt_qq\nt_data\Pic\2025-07\Ori\d149548582f577bd8e83494b37e59302.jpg)</p>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Aug 15, 2025 10:58 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 嬉皮士-Hippie
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+  @font-face {
+    font-family: 'AaManYuShouXie';
+    src: url(https://cjh520-hjw.github.io/font/AaManYuShouXie.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'AaManYuShouXie';
+    --code-font-family: 'AaManYuShouXie';
+  }
+</style>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+<style>
+    #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url(https://cjh520-hjw.github.io/icons/backTop.svg);
+    }
+</style>
+
+<script>
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+</script>
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://cjh520-hjw.github.io/icons/codeMore.png"
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  initCodeMoreBox();
+</script>
+
+
+
+    </body>
+</html>

@@ -10,7 +10,7 @@
 <meta property='og:description' content="1 C++初识 1.1 第一个C++程序 编写一个C++程序总共分为4个步骤\n创建项目 创建文件 编写代码 运行程序 1.1.1 创建项目 \u200b\tVisual Studio是我们用来编写C++程序的主要工具，我们先将它打开\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;基础语法入门' /><meta property='article:published_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-11T20:45:34&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;基础语法入门' /><meta property='article:published_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-15T10:58:51&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg' />
 <meta name="twitter:title" content="C++基础入门">
 <meta name="twitter:description" content="1 C++初识 1.1 第一个C++程序 编写一个C++程序总共分为4个步骤\n创建项目 创建文件 编写代码 运行程序 1.1.1 创建项目 \u200b\tVisual Studio是我们用来编写C++程序的主要工具，我们先将它打开\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg' />
@@ -2064,7 +2064,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 38 分钟
+                    阅读时长: 39 分钟
                 </time>
             </div>
         
@@ -3107,14 +3107,14 @@
       </tr>
   </tbody>
 </table></div>
-<p>ASCII 码大致由以下<strong>两部分组</strong>成：</p>
+<p>ASCII 码大致由以下<strong>两部分</strong>组成：</p>
 <ul>
 <li>ASCII 非打印控制字符： ASCII 表上的数字 <strong>0-31</strong> 分配给了控制字符，用于控制像打印机等一些外围设备。</li>
 <li>ASCII 打印字符：数字 <strong>32-126</strong> 分配给了能在键盘上找到的字符，当查看或打印文档时就会出现。</li>
 </ul>
 <h3 id="25-转义字符">2.5 转义字符
-</h3><p>**作用：**用于表示一些==不能显示出来的ASCII字符==</p>
-<p>现阶段我们常用的转义字符有：<code> \n  \\  \t</code></p>
+</h3><p><strong>作用</strong>：用于表示一些<mark>不能显示出来的ASCII字符</mark></p>
+<p>现阶段我们常用的转义字符有：<code> \n 、 \\ 、 \t</code></p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -3161,7 +3161,7 @@
       </tr>
       <tr>
           <td><strong>\\</strong></td>
-          <td><strong>代表一个反斜线字符&quot;&quot;</strong></td>
+          <td><strong>代表一个反斜线字符&quot;\&quot;</strong></td>
           <td><strong>092</strong></td>
       </tr>
       <tr>
@@ -3191,7 +3191,7 @@
       </tr>
       <tr>
           <td>\xhh</td>
-          <td>16进制转义字符，h范围0<del>9，a</del>f，A~F</td>
+          <td>16进制转义字符，h范围0~9、a~f、A~F</td>
           <td>3位16进制</td>
       </tr>
   </tbody>
@@ -3291,15 +3291,15 @@
 </div></li>
 </ol>
 <blockquote>
-<p>注意：C++风格字符串，需要加入头文件==#include&lt;string&gt;==</p></blockquote>
+<p>注意：C++风格字符串，需要加入头文件<mark>#include&lt;string&gt;</mark></p></blockquote>
 <h3 id="27-布尔类型-bool">2.7 布尔类型 bool
-</h3><p>**作用：**布尔数据类型代表真或假的值</p>
+</h3><p><strong>作用</strong>：布尔数据类型代表真或假的值</p>
 <p>bool类型只有两个值：</p>
 <ul>
 <li>true  &mdash; 真（本质是1）</li>
 <li>false &mdash; 假（本质是0）</li>
 </ul>
-<p><strong>bool类型占==1个字节==大小</strong></p>
+<p><strong>bool类型占<mark>1个字节</mark>大小</strong></p>
 <p>示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -3337,7 +3337,7 @@
 </div>
 </div><h3 id="28-数据的输入">2.8 数据的输入
 </h3><p><strong>作用：用于从键盘获取数据</strong></p>
-<p>**关键字：**cin</p>
+<p><strong>关键字</strong>：cin</p>
 <p><strong>语法：</strong> <code>cin &gt;&gt; 变量 </code></p>
 <p>示例：</p>
 <div class="highlight"><div class="chroma">
@@ -3415,7 +3415,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-运算符">3 运算符
-</h2><p>**作用：**用于执行代码的运算</p>
+</h2><p><strong>作用</strong>：用于执行代码的运算</p>
 <p>本章我们主要讲解以下几类运算符：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -3722,7 +3722,7 @@
 </div><blockquote>
 <p>总结：前置递增先对变量进行++，再计算表达式，后置递增相反</p></blockquote>
 <h3 id="32-赋值运算符">3.2 赋值运算符
-</h3><p>**作用：**用于将表达式的值赋给变量</p>
+</h3><p><strong>作用</strong>：用于将表达式的值赋给变量</p>
 <p>赋值运算符包括以下几个符号：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -3856,7 +3856,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="33-比较运算符">3.3 比较运算符
-</h3><p>**作用：**用于表达式的比较，==并返回一个真值或假值==</p>
+</h3><p><strong>作用</strong>：用于表达式的比较，<mark>并返回一个真值或假值</mark></p>
 <p>比较运算符有以下符号：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -3956,9 +3956,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>注意：C和C++ 语言的比较运算中， ==“真”用数字“1”来表示， “假”用数字“0”来表示。==</p></blockquote>
+<p>注意：C和C++ 语言的比较运算中， <mark>“真”用数字“1”来表示， “假”用数字“0”来表示。</mark></p></blockquote>
 <h3 id="34-逻辑运算符">3.4 逻辑运算符
-</h3><p>**作用：**用于根据表达式的值返回真值或假值</p>
+</h3><p><strong>作用</strong>：用于根据表达式的值返回真值或假值</p>
 <p>逻辑运算符有以下符号：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -3990,7 +3990,7 @@
       </tr>
   </tbody>
 </table></div>
-<p>**示例1：**逻辑非</p>
+<p><strong>示例1</strong>：逻辑非</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -4025,7 +4025,7 @@
 </div>
 </div><blockquote>
 <p>总结： 真变假，假变真</p></blockquote>
-<p>**示例2：**逻辑与</p>
+<p><strong>示例2</strong>：逻辑与</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -4077,8 +4077,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：逻辑==与==运算符总结： ==同真为真，其余为假==</p></blockquote>
-<p>**示例3：**逻辑或</p>
+<p>总结：逻辑<mark>与</mark>运算符总结： <mark>同真为真，其余为假</mark></p></blockquote>
+<p><strong>示例3</strong>：逻辑或</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -4130,9 +4130,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>逻辑==或==运算符总结： ==同假为假，其余为真==</p></blockquote>
+<p>逻辑<mark>或</mark>运算符总结： <mark>同假为假，其余为真</mark></p></blockquote>
 <h2 id="4-程序流程结构">4 程序流程结构
-</h2><p>C/C++支持最基本的三种程序运行结构：==顺序结构、选择结构、循环结构==</p>
+</h2><p>C/C++支持最基本的三种程序运行结构：<mark>顺序结构、选择结构、循环结构</mark></p>
 <ul>
 <li>顺序结构：程序按顺序执行，不发生跳转</li>
 <li>选择结构：依据条件是否满足，有选择的执行相应功能</li>
@@ -4140,7 +4140,7 @@
 </ul>
 <h3 id="41-选择结构">4.1 选择结构
 </h3><h4 id="411-if语句">4.1.1 if语句
-</h4><p>**作用：**执行满足条件的语句</p>
+</h4><p><strong>作用</strong>：执行满足条件的语句</p>
 <p>if语句的三种形式</p>
 <ul>
 <li>
@@ -4638,7 +4638,7 @@
 </div><blockquote>
 <p>总结：和if语句比较，三目运算符优点是短小整洁，缺点是如果用嵌套，结构不清晰</p></blockquote>
 <h4 id="413-switch语句">4.1.3 switch语句
-</h4><p>**作用：**执行多条件分支语句</p>
+</h4><p><strong>作用</strong>：执行多条件分支语句</p>
 <p><strong>语法：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -4765,9 +4765,9 @@
 <p>优点：结构清晰，<strong>效率比if高</strong></p></blockquote>
 <h3 id="42-循环结构">4.2 循环结构
 </h3><h4 id="421-while循环语句">4.2.1 while循环语句
-</h4><p>**作用：**满足循环条件，执行循环语句</p>
+</h4><p><strong>作用</strong>：满足循环条件，执行循环语句</p>
 <p><strong>语法：</strong><code> while(循环条件){ 循环语句 }</code></p>
-<p><strong>解释：</strong>==只要循环条件的结果为真，就执行循环语句==</p>
+<p><strong>解释：</strong><mark>只要循环条件的结果为真，就执行循环语句</mark></p>
 <p><img src="/images/C&#43;&#43;/assets/clip_image002-1541668640382.png"
 	
 	
@@ -4813,7 +4813,7 @@
 </div>
 </div><blockquote>
 <p>注意：在执行循环语句时候，程序必须提供跳出循环的出口，否则出现死循环</p></blockquote>
-<p><strong>while循环练习案例：</strong>==猜数字==</p>
+<p><strong>while循环练习案例</strong>：<mark>猜数字</mark></p>
 <p>**案例描述：**系统随机生成一个1到100之间的数字，玩家进行猜测，如果猜错，提示玩家数字过大或过小，如果猜对恭喜玩家胜利，并且退出游戏。</p>
 <p><img src="/images/C&#43;&#43;/assets/%e7%8c%9c%e6%95%b0%e5%ad%97.jpg"
 	
@@ -4909,7 +4909,7 @@
 <h4 id="422-dowhile循环语句">4.2.2 do&hellip;while循环语句
 </h4><p><strong>作用：</strong> 满足循环条件，执行循环语句</p>
 <p><strong>语法：</strong> <code>do{ 循环语句 } while(循环条件);</code></p>
-<p>**注意：**与while的区别在于==do&hellip;while会先执行一次循环语句==，再判断循环条件</p>
+<p><strong>注意</strong>：与while的区别在于<mark>do&hellip;while会先执行一次循环语句</mark>，再判断循环条件</p>
 <p><img src="/images/C&#43;&#43;/assets/clip_image002-1541671163478.png"
 	
 	
@@ -4962,10 +4962,106 @@
 </div><blockquote>
 <p>总结：与while循环区别在于，do&hellip;while先执行一次循环语句，再判断循环条件</p></blockquote>
 <p><strong>练习案例：水仙花数</strong></p>
-<p>**案例描述：**水仙花数是指一个 3 位数，它的每个位上的数字的 3次幂之和等于它本身</p>
+<p><strong>案例描述</strong>：水仙花数是指一个 3 位数，它的每个位上的数字的 3次幂之和等于它本身</p>
 <p>例如：1^3 + 5^3+ 3^3 = 153</p>
 <p>请利用do&hellip;while语句，求出所有3位数中的水仙花数</p>
-<h4 id="423-for循环语句">4.2.3 for循环语句
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">1.所有三位数
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">2.在所有三位数中找水仙花数
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    水仙花数  153
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    获取个位  153%10 = 3  对数字取模于10 可以获取个位
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    获取十位  153/10 = 15  15%10 = 5 先整除于10，得到两位数，再取模于10  
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    获取百位  153/100 = 1     直接整除于100，获取百位
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    判断  个位^3+十位^3+百位^3=本身
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//1.所有三位数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span><span class="c1">//最小的三位数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//2.在所有三位数中找水仙花数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//个位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//十位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//百位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="o">=</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//获取个位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//获取十位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">c</span> <span class="o">=</span> <span class="n">num</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">//获取百位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">c</span> <span class="o">==</span> <span class="n">num</span><span class="p">)</span> <span class="c1">//如果是水仙花数才打印
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="423-for循环语句">4.2.3 for循环语句
 </h4><p><strong>作用：</strong> 满足循环条件，执行循环语句</p>
 <p><strong>语法：</strong><code> for(起始表达式;条件表达式;末尾循环体) { 循环语句; }</code></p>
 <p><strong>示例：</strong></p>
@@ -5024,7 +5120,87 @@
 	
 	
 ></p>
-<h4 id="424-嵌套循环">4.2.4 嵌套循环
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">1.先输出1~100 这些数字
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">2.在100个数中找特殊数，改为“敲桌子”
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    特殊数  
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    7的倍数  （7 14 21 28……）%7 = 0  
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    个位有7  (7 17 27 37……)%10 = 7  
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    十位有7  （70 71 72 73……）/10 = 7    
+</span></span></span><span class="line"><span class="cl"><span class="cm">
+</span></span></span><span class="line"><span class="cl"><span class="cm">    判断  
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//1.先输出1~100 这些数字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//2.在100个数中找特殊数，改为“敲桌子”
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">7</span> <span class="o">||</span> <span class="n">i</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;敲桌子&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="424-嵌套循环">4.2.4 嵌套循环
 </h4><p><strong>作用：</strong> 在循环体中再嵌套一层循环，解决一些实际问题</p>
 <p>例如我们想在屏幕中打印如下图片，就需要利用嵌套循环</p>
 <p><img src="/images/C&#43;&#43;/assets/1541676003486.png"
@@ -5061,10 +5237,10 @@
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//外层循环执行1次，内层循环执行1轮
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">		<span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//几行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="c1">//一行几列
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span>
 </span></span><span class="line"><span class="cl">			<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*&#34;</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -5076,7 +5252,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>**练习案例：**乘法口诀表</p>
+</div><p><strong>练习案例</strong>：乘法口诀表</p>
 <p>案例描述：利用嵌套循环，实现九九乘法表</p>
 <p><img src="/images/C&#43;&#43;/assets/0006018857256120_b.jpg"
 	
@@ -5088,14 +5264,64 @@
 	
 	
 ></p>
-<h3 id="43-跳转语句">4.3 跳转语句
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*列数*行数 = 计算结果
+</span></span></span><span class="line"><span class="cl"><span class="cm">列数 &lt;= 行数
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//几行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//列数 &lt;= 行数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;=&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">*</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\t</span><span class="s">&#34;</span><span class="p">;</span><span class="c1">//制表符用于对齐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//一行完成
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="43-跳转语句">4.3 跳转语句
 </h3><h4 id="431-break语句">4.3.1 break语句
-</h4><p><strong>作用:</strong> 用于跳出==选择结构==或者==循环结构==</p>
+</h4><p><strong>作用:</strong> 用于跳出<mark>选择结构</mark>或者<mark>循环结构</mark></p>
 <p>break使用的时机：</p>
 <ul>
 <li>出现在switch条件语句中，作用是终止case并跳出switch</li>
 <li>出现在循环语句中，作用是跳出当前的循环语句</li>
-<li>出现在嵌套循环中，跳出最近的内层循环语句</li>
+<li>出现在嵌套循环中，跳出<strong>最近的</strong>内层循环语句</li>
 </ul>
 <p><strong>示例1：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -5137,11 +5363,11 @@
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;2、中等&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;3、困难&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">select</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">switch</span> <span class="p">(</span><span class="n">select</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;您选择的是普通难度&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -5243,7 +5469,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="432-continue语句">4.3.2 continue语句
-</h4><p>**作用：**在==循环语句==中，跳过本次循环中余下尚未执行的语句，继续执行下一次循环</p>
+</h4><p><strong>作用</strong>：在<mark>循环语句</mark>中，跳过本次循环中余下尚未执行的语句，继续执行下一次循环</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -5284,9 +5510,9 @@
 </div><blockquote>
 <p>注意：continue并没有使整个循环终止，而break会跳出循环</p></blockquote>
 <h4 id="433-goto语句">4.3.3 goto语句
-</h4><p>**作用：**可以无条件跳转语句</p>
+</h4><p><strong>作用</strong>：可以无条件跳转语句</p>
 <p><strong>语法：</strong> <code>goto 标记;</code></p>
-<p>**解释：**如果标记的名称存在，执行到goto语句时，会跳转到标记的位置</p>
+<p><strong>解释</strong>：如果标记的名称存在，执行到goto语句时，会跳转到标记的位置</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -5312,18 +5538,18 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="k">goto</span> <span class="n">FLAG</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;1&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span><span class="c1">//输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="k">goto</span> <span class="n">FLAG</span><span class="p">;</span><span class="c1">//跳转到第11行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;2&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;3&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;4&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nl">FLAG</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;5&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nl">FLAG</span><span class="p">:</span><span class="c1">//跳转到此
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;5&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span><span class="c1">//输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	
 </span></span><span class="line"><span class="cl">	<span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -5334,9 +5560,9 @@
 <p>注意：在程序中不建议使用goto语句，以免造成程序流程混乱</p></blockquote>
 <h2 id="5-数组">5 数组
 </h2><h3 id="51-概述">5.1 概述
-</h3><p>所谓数组，就是一个集合，里面存放了相同类型的数据元素</p>
-<p>**特点1：**数组中的每个==数据元素都是相同的数据类型==</p>
-<p>**特点2：**数组是由==连续的内存==位置组成的</p>
+</h3><p>所谓数组，就是一个<strong>集合</strong>，里面存放了相同类型的数据元素</p>
+<p><strong>特点1</strong>：数组中的每个<mark>数据元素都是相同的数据类型</mark></p>
+<p><strong>特点2</strong>：数组是由<mark>连续的内存</mark>位置组成的</p>
 <p><img src="/images/C&#43;&#43;/assets/1541748375356.png"
 	
 	
@@ -5500,8 +5726,8 @@
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组的元素个数为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//2、可以通过数组名获取到数组首地址
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组首地址为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组中第一个元素地址为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组首地址为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span><span class="c1">//这里把原来的十六进制的地址转为十进制的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组中第一个元素地址为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组中第二个元素地址为： &#34;</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//arr = 100; 错误，数组名是常量，因此不可以赋值
@@ -5520,6 +5746,14 @@
 <blockquote>
 <p>总结2：对数组名进行sizeof，可以获取整个数组占内存空间的大小</p></blockquote>
 <p><strong>练习案例1</strong>：五只小猪称体重</p>
+<blockquote class="alert alert-note">
+    </blockquote>
+<blockquote class="alert alert-tip">
+    </blockquote>
+<blockquote class="alert alert-warn">
+    </blockquote>
+<blockquote class="alert alert-error">
+    </blockquote>
 <p><strong>案例描述：</strong></p>
 <p>在一个数组中记录了五只小猪的体重，如：int arr[5] = {300,350,200,400,250};</p>
 <p>找出并打印最重的小猪体重。</p>
@@ -7515,7 +7749,7 @@
 
 
         <span>
-            最后更新于 Aug 11, 2025 20:45 &#43;0800
+            最后更新于 Aug 15, 2025 10:58 &#43;0800
         </span>
     </section></footer>
 
@@ -7737,15 +7971,16 @@
 </script>
 <style>
   @font-face {
-    font-family: 'ThePeakFontPlus_V1_001';
-    src: url(https://cjh520-hjw.github.io/font/ThePeakFontPlus_V1_001.ttf) format('truetype');
+    font-family: 'AaManYuShouXie';
+    src: url(https://cjh520-hjw.github.io/font/AaManYuShouXie.ttf) format('truetype');
   }
 
   :root {
-    --base-font-family: 'ThePeakFontPlus_V1_001';
-    --code-font-family: 'ThePeakFontPlus_V1_001';
+    --base-font-family: 'AaManYuShouXie';
+    --code-font-family: 'AaManYuShouXie';
   }
 </style>
+
 <style>
     #TableOfContents > ul, ol {
         ul, ol {
