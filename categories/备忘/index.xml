@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Fri, 15 Aug 2025 10:58:51 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E5%A4%87%E5%BF%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 09 Oct 2025 16:06:50 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E5%A4%87%E5%BF%98/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>大小事记</title>
         <link>https://cjh520-hjw.github.io/p/%E5%A4%A7%E5%B0%8F%E4%BA%8B%E8%AE%B0/</link>
         <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
@@ -48,33 +48,34 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;axmath&#34;&gt;Axmath
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;独立公式（单独成行）：使用 \[...\] 包裹，公式将居中显示，\[ (-2^{15} \sim 2^{15} - 1) \]&lt;/li&gt;
+&lt;li&gt;行内公式（嵌入文本）：&lt;code&gt;这是一个行内公式 $E=mc^2$，它会和文字在同一行显示&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;独立公式（单独成行）：&lt;code&gt;$$E=mc^2$$&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;如何快速方便地在博客中插入自己手绘的图片&#34;&gt;如何快速方便地在博客中插入自己手绘的图片？
 &lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;平板与电脑粘贴板共享：使用“微信输入法”&lt;/li&gt;
-&lt;li&gt;平板上：
-&lt;ul&gt;
-&lt;li&gt;进行手绘：平板打开https://excalidraw.com/&lt;/li&gt;
-&lt;li&gt;左上角三条杠-导出图片-选择背景&lt;strong&gt;透明&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;选择&lt;strong&gt;复制图像&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;平板与电脑粘贴板共享：使用“微信输入法”&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;电脑上：
-&lt;ul&gt;
-&lt;li&gt;文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开&lt;/li&gt;
-&lt;li&gt;typora中打入&lt;img src=&#34;https://cjh520-hjw.github.io/&#34;
+&lt;li&gt;
+&lt;p&gt;平板上：&lt;/p&gt;
+&lt;p&gt;进行手绘：平板打开https://excalidraw.com/&lt;/p&gt;
+&lt;p&gt;左上角三条杠-导出图片-选择背景&lt;strong&gt;透明&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;选择&lt;strong&gt;复制图像&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电脑上：&lt;/p&gt;
+&lt;p&gt;文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开&lt;/p&gt;
+&lt;p&gt;typora中打入&lt;img src=&#34;https://cjh520-hjw.github.io/&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;    会自动跳出选择本机文件&lt;/li&gt;
-&lt;li&gt;粘贴板共享粘贴图片-选择图片&lt;/li&gt;
-&lt;li&gt;typora里删&lt;code&gt;/images&lt;/code&gt;前面的东西&lt;/li&gt;
-&lt;li&gt;在typora的图片格式上     右键还可以调整图片大小&lt;/li&gt;
-&lt;/ul&gt;
+&gt;    会自动跳出选择本机文件&lt;/p&gt;
+&lt;p&gt;粘贴板共享粘贴图片-选择图片&lt;/p&gt;
+&lt;p&gt;typora里删&lt;code&gt;/images&lt;/code&gt;前面的东西&lt;/p&gt;
+&lt;p&gt;在typora的图片格式上     右键还可以调整图片大小&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;如何快速方便地在博客中插入截屏的图片&#34;&gt;如何快速方便地在博客中插入截屏的图片？
@@ -133,7 +134,77 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;li&gt;religious&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/details&gt;&lt;/blockquote&gt;
-&lt;h4 id=&#34;样式二&#34;&gt;样式二
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; [!note]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;summary&amp;gt;religious　　/rɪˈlɪdʒəs/　　adj.宗教的，虔诚的&amp;lt;/summary&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 常用句型：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - to do
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - doing
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - of
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 词组：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious beliefs　宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious freedom　宗教自由  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; We stand for religious freedom.　我们支持宗教自由。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious people　虔诚的人  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 派生：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religion　n.宗教，宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religiously　adv.与宗教相关地
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 前缀与词根：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - -ous=构成形容词：有……特性的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 近义反义：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - holy　adj.虔诚的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 熟词生义：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious beliefs　宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;/details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;样式二&#34;&gt;样式二
 &lt;/h4&gt;&lt;p&gt;abandon  /əˈbændən/🔊（可###）&lt;/p&gt;
 &lt;p&gt;🥳基本句型：&lt;/p&gt;
 &lt;ul&gt;
@@ -740,16 +811,9 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;字体&#34;&gt;字体
 &lt;/h2&gt;&lt;h3 id=&#34;适合博客的字体&#34;&gt;适合博客的字体
-&lt;/h3&gt;&lt;p&gt;中文是游趣体&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;中文是游趣体，中英文是Aa漫语手写体，英文是Lato，编程字体是&lt;strong&gt;Consolas&lt;/strong&gt;或者Momo&lt;/p&gt;
 &lt;h2 id=&#34;博客图片路径&#34;&gt;博客图片路径
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/5.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;![](/images/C++/5.jpg)&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;学习的待办&#34;&gt;学习的待办
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; primer的附录还没有看完&lt;/li&gt;
@@ -945,41 +1009,13 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;链接&#34;&gt;链接
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;In this example we will be using [KaTeX](https://katex.org/)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Van&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;de&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Graaf&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Canon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;](&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;en&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wikipedia&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wiki&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Canons_of_page_construction&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Van_de_Graaf_canon)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;文件名变量名命令&#34;&gt;文件名、变量名、命令
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; `/layouts/partials/math.html`  把路径 /layouts/partials/math.html 标记为代码片段
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;粗体&#34;&gt;粗体
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Note:** Use the online reference of [Supported TeX Functions]粗体
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;段落&#34;&gt;段落
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;In this example we will be using [KaTeX](https://katex.org/)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[The Van de Graaf Canon](https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;文件名变量名命令&#34;&gt;文件名、变量名、命令
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt; &lt;/code&gt;/layouts/partials/math.html&lt;code&gt;  把路径 /layouts/partials/math.html 标记为代码片段&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;粗体&#34;&gt;粗体
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;**Note:** Use the online reference of [Supported TeX Functions]粗体&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;段落&#34;&gt;段落
 &lt;/h4&gt;&lt;p&gt;空行&lt;/p&gt;
 &lt;h4 id=&#34;引用&#34;&gt;引用
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1001,19 +1037,8 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;图片&#34;&gt;图片
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg)  ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;表格&#34;&gt;表格
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg) &lt;/code&gt; &lt;code&gt;![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) &lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;表格&#34;&gt;表格
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -1027,15 +1052,8 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;高亮&#34;&gt;高亮
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;mark&amp;gt;高亮&amp;lt;/mark&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;脚注&#34;&gt;脚注
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;&amp;lt;mark&amp;gt;高亮&amp;lt;/mark&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;脚注&#34;&gt;脚注
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1

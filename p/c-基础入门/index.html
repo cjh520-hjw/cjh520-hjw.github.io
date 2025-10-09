@@ -6,14 +6,14 @@
 
 <link rel='canonical' href='https://cjh520-hjw.github.io/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/'>
 
-<link rel="stylesheet" href="/scss/style.min.ed84ee93d8a8941e827a014f3b3bcdc856d89ca2258fa084391c08d32f76c5f3.css"><meta property='og:title' content="C++基础入门">
+<link rel="stylesheet" href="/scss/style.min.06958d0419de64482e1a82af47bb23792f0b14615ec64e9baee135dc0d8ebd97.css"><meta property='og:title' content="C++基础入门">
 <meta property='og:description' content="1 C++初识 1.1 第一个C++程序 编写一个C++程序总共分为4个步骤\n创建项目 创建文件 编写代码 运行程序 1.1.1 创建项目 \u200b\tVisual Studio是我们用来编写C++程序的主要工具，我们先将它打开\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;基础语法入门' /><meta property='article:published_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-15T10:58:51&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;基础语法入门' /><meta property='article:published_time' content='2025-08-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-09T16:06:50&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/jiangsu.jpg' />
 <meta name="twitter:title" content="C++基础入门">
 <meta name="twitter:description" content="1 C++初识 1.1 第一个C++程序 编写一个C++程序总共分为4个步骤\n创建项目 创建文件 编写代码 运行程序 1.1.1 创建项目 \u200b\tVisual Studio是我们用来编写C++程序的主要工具，我们先将它打开\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg' />
+    <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/jiangsu.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <div class="loading">
     
@@ -2008,7 +2008,7 @@
         <div class="article-image">
             <a href="/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
                 
-                    <img src="/images/C&#43;&#43;/jiangsu.jpg" loading="lazy" alt="Featured image of post C&#43;&#43;基础入门" />
+                    <img src="/images/%e5%9f%8e%e5%b8%82/jiangsu.jpg" loading="lazy" alt="Featured image of post C&#43;&#43;基础入门" />
                 
             </a>
         </div>
@@ -2064,7 +2064,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 39 分钟
+                    阅读时长: 41 分钟
                 </time>
             </div>
         
@@ -5746,26 +5746,172 @@
 <blockquote>
 <p>总结2：对数组名进行sizeof，可以获取整个数组占内存空间的大小</p></blockquote>
 <p><strong>练习案例1</strong>：五只小猪称体重</p>
-<blockquote class="alert alert-note">
-    </blockquote>
-<blockquote class="alert alert-tip">
-    </blockquote>
-<blockquote class="alert alert-warn">
-    </blockquote>
-<blockquote class="alert alert-error">
-    </blockquote>
 <p><strong>案例描述：</strong></p>
 <p>在一个数组中记录了五只小猪的体重，如：int arr[5] = {300,350,200,400,250};</p>
 <p>找出并打印最重的小猪体重。</p>
-<p>**练习案例2：**数组元素逆置</p>
-<p>**案例描述：**请声明一个5个元素的数组，并且将元素逆置.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//五只小猪称体重
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//1.创建5只小猪的体重
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">250</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//2.从数组中找到最大值。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//先认定一个最大值为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//cout &lt;&lt; arr[i] &lt;&lt;endl;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//如果访问的数组中的元素比我认定的最大值要大，更新最大值。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//3.打印最大值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;最重的小猪体重为：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">max</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>练习案例2</strong>：数组元素逆置</p>
+<p><strong>案例描述</strong>：请声明一个5个元素的数组，并且将元素逆置.</p>
 <p>(如原数组元素为：1,3,2,5,4;逆置后输出结果为:4,5,2,3,1);</p>
-<h4 id="523-冒泡排序">5.2.3 冒泡排序
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">//元素逆置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//实现数组元素逆置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//1.创建数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组逆置前：&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//2.实现逆置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//2.1记录起始下标的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//2.2记录结束下标的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//2.3起始下标与结束下标的元素进行互换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//2.4起始位置++  结束位置--
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//2.5循环执行2.1操作，直到起始位置 &gt;= 结束位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//起始元素下标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//末尾元素下标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//如果start &lt; end，执行互换
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span><span class="p">(</span><span class="n">start</span> <span class="o">&lt;</span><span class="n">end</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arr</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arr</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">start</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">end</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">//3.打印逆置后的数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;数组逆置后：&#34;</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="523-冒泡排序">5.2.3 冒泡排序
 </h4><p><strong>作用：</strong> 最常用的排序算法，对数组内元素进行排序</p>
 <ol>
-<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
-<li>对每一对相邻元素做同样的工作，执行完毕后，找到第一个最大值。</li>
-<li>重复以上的步骤，每次比较次数-1，直到不需要比较</li>
+<li>比较<strong>相邻</strong>的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素做同样的工作，执行完毕后，<strong>找到第一个最大值</strong>。</li>
+<li>重复以上的步骤，<strong>每次比较次数-1，直到不需要比较</strong></li>
 </ol>
 <p><img src="/images/C&#43;&#43;/assets/1541905327273.png"
 	
@@ -5857,7 +6003,7 @@
 <li><code> 数据类型  数组名[  ][ 列数 ] = { 数据1，数据2，数据3，数据4};</code></li>
 </ol>
 <blockquote>
-<p>建议：以上4种定义方式，利用==第二种更加直观，提高代码的可读性==</p></blockquote>
+<p>建议：以上4种定义方式，利用<mark>第二种更加直观，提高代码的可读性</mark></p></blockquote>
 <p>示例：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -5948,7 +6094,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：在定义二维数组时，如果初始化了数据，可以省略行数</p></blockquote>
+<p>总结：在定义二维数组时，如果<strong>初始化了数据，可以省略行数</strong></p></blockquote>
 <h4 id="532-二维数组数组名">5.3.2 二维数组数组名
 </h4><ul>
 <li>查看二维数组所占内存空间</li>
@@ -6113,7 +6259,7 @@
 </div>
 </div><h2 id="6-函数">6 函数
 </h2><h3 id="61-概述">6.1 概述
-</h3><p>**作用：**将一段经常使用的代码封装起来，减少重复代码</p>
+</h3><p><strong>作用</strong>：将一段经常使用的代码封装起来，减少重复代码</p>
 <p>一个较大的程序，一般分为若干个程序块，每个模块实现特定的功能。</p>
 <h3 id="62-函数的定义">6.2 函数的定义
 </h3><p>函数的定义一般主要有5个步骤：</p>
@@ -6172,9 +6318,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="63-函数的调用">6.3 函数的调用
-</h3><p>**功能：**使用定义好的函数</p>
+</h3><p><strong>功能</strong>：使用定义好的函数</p>
 <p><strong>语法：</strong><code> 函数名（参数）</code></p>
-<p><strong>示例：</strong></p>
+<p><strong>示例</strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -6232,11 +6378,11 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：函数定义里小括号内称为形参，函数调用时传入的参数称为实参</p></blockquote>
+<p>总结：函数定义里小括号内称为<strong>形参</strong>，函数调用时传入的参数称为<strong>实参</strong></p></blockquote>
 <h3 id="64-值传递">6.4 值传递
 </h3><ul>
-<li>所谓值传递，就是函数调用时实参将数值传入给形参</li>
-<li>值传递时，==如果形参发生，并不会影响实参==</li>
+<li>所谓值传递，就是函数调用时<strong>实参将数值</strong>传入给形参</li>
+<li>值传递时，<mark>如果形参发生，并不会影响实参</mark></li>
 </ul>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -6274,8 +6420,8 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="p">)</span><span class="c1">//如果不需要返回值，声明时可以写void
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;交换前：&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;num1 = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;num2 = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
@@ -6288,7 +6434,7 @@
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;num1 = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;num2 = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">//return ; 当函数声明时候，不需要返回值，可以不写return
+</span></span><span class="line"><span class="cl">	<span class="c1">//return ; 当函数声明时候，如果不需要返回值，可以不写return
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -6296,8 +6442,8 @@
 </span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span><span class="c1">//做值传递时，形参发生任何改变，不影响实参
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mian中的 a = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;mian中的 b = &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -6385,7 +6531,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="66-函数的声明">6.6 函数的声明
-</h3><p><strong>作用：</strong> 告诉编译器函数名称及如何调用函数。函数的实际主体可以单独定义。</p>
+</h3><p><strong>作用：</strong> 告诉<strong>编译器</strong>函数名称及如何调用函数。函数的实际主体可以单独定义。</p>
 <ul>
 <li>函数的<strong>声明可以多次</strong>，但是函数的<strong>定义只能有一次</strong></li>
 </ul>
@@ -6413,17 +6559,14 @@
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">//声明可以多次，定义只能一次
 </span></span></span><span class="line"><span class="cl"><span class="c1">//声明
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//定义
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
@@ -6436,16 +6579,23 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//声明可以多次，定义只能一次
+</span></span></span><span class="line"><span class="cl"><span class="c1">//定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="67-函数的分文件编写">6.7 函数的分文件编写
-</h3><p>**作用：**让代码结构更加清晰</p>
+</h3><p><strong>作用</strong>：让代码结构更加清晰</p>
 <p>函数分文件编写一般有4个步骤</p>
 <ol>
-<li>创建后缀名为.h的头文件</li>
-<li>创建后缀名为.cpp的源文件</li>
-<li>在头文件中写函数的声明</li>
-<li>在源文件中写函数的定义</li>
+<li>创建后缀名为**.h的头**文件</li>
+<li>创建后缀名为**.cpp的源**文件</li>
+<li>在<strong>头文件中写函数的声明</strong></li>
+<li>在<strong>源文件中写函数的定义</strong></li>
 </ol>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -6459,8 +6609,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="c1">//swap.h文件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include&lt;iostream&gt;
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include&lt;iostream&gt;</span><span class="c1">//cout与cin的头文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//实现两个数字交换的函数声明
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
@@ -6528,7 +6678,7 @@
 </div>
 </div><h2 id="7-指针">7 指针
 </h2><h3 id="71-指针的基本概念">7.1 指针的基本概念
-</h3><p><strong>指针的作用：</strong> 可以通过指针间接访问内存</p>
+</h3><p><strong>指针的作用：</strong> 可以通过指针间接访问<strong>内存</strong>，<strong>解引用</strong></p>
 <ul>
 <li>内存编号是从0开始记录的，一般用十六进制数字表示</li>
 <li>可以利用指针变量保存地址</li>
@@ -6586,15 +6736,15 @@
 </div>
 </div><p>指针变量和普通变量的区别</p>
 <ul>
-<li>普通变量存放的是数据,指针变量存放的是地址</li>
-<li>指针变量可以通过&quot; * &ldquo;操作符，操作指针变量指向的内存空间，这个过程称为解引用</li>
+<li>普通变量存放的是<strong>数据</strong>,指针变量存放的是<strong>地址</strong></li>
+<li>指针变量可以通过&quot; * &ldquo;操作符，操作指针变量指向的内存空间，这个过程称为<strong>解引用</strong></li>
 </ul>
 <blockquote>
 <p>总结1： 我们可以通过 &amp; 符号 获取变量的地址</p></blockquote>
 <blockquote>
-<p>总结2：利用指针可以记录地址</p></blockquote>
+<p>总结2：利用指针可以<strong>记录地址</strong></p></blockquote>
 <blockquote>
-<p>总结3：对指针变量解引用，可以操作指针指向的内存</p></blockquote>
+<p>总结3：对指针变量<strong>解引用</strong>，可以操作指针指向的<strong>内存</strong></p></blockquote>
 <h3 id="73-指针所占内存空间">7.3 指针所占内存空间
 </h3><p>提问：指针也是种数据类型，那么这种数据类型占用多少内存空间？</p>
 <p><strong>示例：</strong></p>
@@ -6617,6 +6767,7 @@
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -6625,10 +6776,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span> <span class="c1">//指针指向数据a的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//可以直接int * p = &amp;a;
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//* 解引用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span><span class="c1">//就是sizeof(int *)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span> <span class="o">*</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span> <span class="o">*</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -6639,11 +6791,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：所有指针类型在32位操作系统下是4个字节</p></blockquote>
+<p>总结：</p>
+<p><strong>所有</strong>指针类型在32位操作系统(x86)下是4个字节</p>
+<p><strong>所有</strong>指针类型在64位操作系统(x64)下是8个字节</p>
+<p>注意区分偏移量，偏移量与指向的数据类型有关</p></blockquote>
 <h3 id="74-空指针和野指针">7.4 空指针和野指针
-</h3><p><strong>空指针</strong>：指针变量指向内存中编号为0的空间</p>
-<p>**用途：**初始化指针变量</p>
-<p>**注意：**空指针指向的内存是不可以访问的</p>
+</h3><p><strong>空指针</strong>：指针变量指向内存中<strong>编号为0</strong>的空间</p>
+<p><strong>用途</strong>：<strong>初始化</strong>指针变量</p>
+<p><strong>注意</strong>：空指针指向的内存是<strong>不可以访问</strong>的(编号0~255是系统占用的)</p>
 <p><strong>示例1：空指针</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -6677,7 +6832,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>野指针</strong>：指针变量指向非法的内存空间</p>
+</div><p><strong>野指针</strong>：指针变量指向<strong>非法的</strong>内存空间</p>
 <p><strong>示例2：野指针</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -6698,8 +6853,8 @@
 <pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//指针变量p指向内存地址编号为0x1100的空间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="mh">0x1100</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="mh">0x1100</span><span class="p">;</span><span class="c1">//0x1100只是一个一个十六进制数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="c1">//访问野指针报错 
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
@@ -6710,7 +6865,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：空指针和野指针都不是我们申请的空间，因此不要访问。</p></blockquote>
+<p>总结：<strong>空指针和野指针都不是</strong>我们申请的空间，因此不要访问。</p></blockquote>
 <h3 id="75-const修饰指针">7.5 const修饰指针
 </h3><p>const修饰指针有三种情况</p>
 <ol>
@@ -6776,9 +6931,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>技巧：看const右侧紧跟着的是指针还是常量, 是指针就是常量指针，是常量就是指针常量</p></blockquote>
+<p>技巧：看const<strong>右侧紧跟着的</strong>是指针还是常量, 是指针就是常量指针，是常量就是指针常量</p></blockquote>
 <h3 id="76-指针和数组">7.6 指针和数组
-</h3><p>**作用：**利用指针访问数组中元素</p>
+</h3><p><strong>作用</strong>：利用指针访问数组中元素</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -6827,7 +6982,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="77-指针和函数">7.7 指针和函数
-</h3><p>**作用：**利用指针作函数参数，可以修改实参的值</p>
+</h3><p><strong>作用</strong>：利用指针作函数参数，可以修改实参的值</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -6898,9 +7053,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：如果不想修改实参，就用值传递，如果想修改实参，就用地址传递</p></blockquote>
+<p>总结：如果不想修改实参，就用值传递，如果<strong>想修改实参</strong>，就用<strong>地址传递</strong></p></blockquote>
 <h3 id="78-指针数组函数">7.8 指针、数组、函数
-</h3><p>**案例描述：**封装一个函数，利用冒泡排序，实现对整型数组的升序排序</p>
+</h3><p><strong>案例描述</strong>：封装一个函数，利用冒泡排序，实现对整型数组的升序排序</p>
 <p>例如数组：int arr[10] = { 4,3,6,9,1,2,10,8,7,5 };</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -6988,10 +7143,11 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：当数组名传入到函数作为参数时，被退化为指向首元素的指针</p></blockquote>
+<p>总结：当数组名传入到函数作为参数时，被退化为指向首元素的指针</p>
+<p>数组长度</p></blockquote>
 <h2 id="8-结构体">8 结构体
 </h2><h3 id="81-结构体基本概念">8.1 结构体基本概念
-</h3><p>结构体属于用户==自定义的数据类型==，允许用户存储不同的数据类型</p>
+</h3><p>结构体属于用户<mark>自定义的数据类型</mark>，允许用户存储不同的数据类型</p>
 <h3 id="82-结构体定义和使用">8.2 结构体定义和使用
 </h3><p><strong>语法：</strong><code>struct 结构体名 { 结构体成员列表 }；</code></p>
 <p>通过结构体创建变量的方式有三种：</p>
@@ -7084,13 +7240,14 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结1：定义结构体时的关键字是struct，不可省略</p></blockquote>
+<p>总结1：<strong>定义</strong>结构体时的关键字是struct，<strong>不可省略</strong></p></blockquote>
 <blockquote>
-<p>总结2：创建结构体变量时，关键字struct可以省略</p></blockquote>
+<p>总结2：<strong>创建</strong>结构体变量时，关键字struct<strong>可以省略</strong></p></blockquote>
 <blockquote>
-<p>总结3：结构体变量利用操作符 &lsquo;&rsquo;.&rsquo;&rsquo;  访问成员</p></blockquote>
+<p>总结3：结构体变量利用操作符 '&rsquo;.'&rsquo;  访问成员</p>
+<p>string记得加头文件 &lt;string&gt;</p></blockquote>
 <h3 id="83-结构体数组">8.3 结构体数组
-</h3><p>**作用：**将自定义的结构体放入到数组中方便维护</p>
+</h3><p><strong>作用</strong>：将自定义的结构体放入到数组中方便维护</p>
 <p><strong>语法：</strong><code> struct  结构体名 数组名[元素个数] = {  {} , {} , ... {} }</code></p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
@@ -7156,7 +7313,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="84-结构体指针">8.4 结构体指针
-</h3><p>**作用：**通过指针访问结构体中的成员</p>
+</h3><p><strong>作用</strong>：通过指针访问结构体中的成员</p>
 <ul>
 <li>利用操作符 <code>-&gt; </code>可以通过结构体指针访问结构体属性</li>
 </ul>
@@ -7216,10 +7373,11 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>总结：结构体指针可以通过 -&gt; 操作符 来访问结构体中的成员</p></blockquote>
+<p>总结：结构体指针可以通过 -&gt; 操作符 来访问结构体中的成员</p>
+<p>注意指针类型是自定义的类型</p></blockquote>
 <h3 id="85-结构体嵌套结构体">8.5 结构体嵌套结构体
 </h3><p><strong>作用：</strong> 结构体中的成员可以是另一个结构体</p>
-<p>**例如：**每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体</p>
+<p><strong>例如</strong>：每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -7305,7 +7463,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>**总结：**在结构体中可以定义另一个结构体作为成员，用来解决实际问题</p>
+</div><p><strong>总结</strong>：在结构体中可以定义另一个结构体作为成员，用来解决实际问题</p>
+<p>注意学生类型定义在老师前面</p>
 <h3 id="86-结构体做函数参数">8.6 结构体做函数参数
 </h3><p>**作用：**将结构体作为参数向函数中传递</p>
 <p>传递方式有两种：</p>
@@ -7403,7 +7562,7 @@
 </div><blockquote>
 <p>总结：如果不想修改主函数中的数据，用值传递，反之用地址传递</p></blockquote>
 <h3 id="87-结构体中-const使用场景">8.7 结构体中 const使用场景
-</h3><p>**作用：**用const来防止误操作</p>
+</h3><p><strong>作用</strong>：用const来防止误操作</p>
 <p><strong>示例：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -7556,8 +7715,8 @@
 </span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">		<span class="p">{</span>
 </span></span><span class="line"><span class="cl">			<span class="n">tArray</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sArray</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">name</span> <span class="o">=</span> <span class="n">sName</span> <span class="o">+</span> <span class="n">nameSeed</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">			<span class="n">tArray</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sArray</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">score</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">61</span> <span class="o">+</span> <span class="mi">40</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="n">tArray</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">sArray</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">score</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">61</span> <span class="o">+</span> <span class="mi">40</span><span class="p">;</span><span class="c1">//0+40~60+40
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
@@ -7715,7 +7874,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">hero</span><span class="p">);</span> <span class="c1">//获取数组元素个数
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="n">bubbleSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span> <span class="c1">//排序
+</span></span><span class="line"><span class="cl">	<span class="n">bubbleSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span> <span class="c1">//排序//arr是名字就是传地址了
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl">	<span class="n">printHeros</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span> <span class="c1">//打印
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
@@ -7749,7 +7908,7 @@
 
 
         <span>
-            最后更新于 Aug 15, 2025 10:58 &#43;0800
+            最后更新于 Oct 09, 2025 16:06 &#43;0800
         </span>
     </section></footer>
 
@@ -7799,7 +7958,7 @@
         
             <div class="article-image">
                 
-                    <img src="/images/C&#43;&#43;/shanghai.jpg" loading="lazy" data-key="" data-hash="/images/C&#43;&#43;/shanghai.jpg"/>
+                    <img src="/images/%e5%9f%8e%e5%b8%82/shanghai.jpg" loading="lazy" data-key="" data-hash="/images/城市/shanghai.jpg"/>
                 
             </div>
         

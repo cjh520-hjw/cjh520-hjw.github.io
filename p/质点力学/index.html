@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="质点位置的确定方法 研究对象：质点\n一个有质量的几何点。忽略其大小、形状及内部结构的影响，在空间只占据一个点的位置。 实际研究对象的简化，属于理想模型 研究内容：质点位置随时间变化的规律\n">
+<title>质点力学</title>
+
+<link rel='canonical' href='https://cjh520-hjw.github.io/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/'>
+
+<link rel="stylesheet" href="/scss/style.min.06958d0419de64482e1a82af47bb23792f0b14615ec64e9baee135dc0d8ebd97.css"><meta property='og:title' content="质点力学">
+<meta property='og:description' content="质点位置的确定方法 研究对象：质点\n一个有质量的几何点。忽略其大小、形状及内部结构的影响，在空间只占据一个点的位置。 实际研究对象的简化，属于理想模型 研究内容：质点位置随时间变化的规律\n">
+<meta property='og:url' content='https://cjh520-hjw.github.io/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/'>
+<meta property='og:site_name' content='嬉皮士-Hippie'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='质点力学' /><meta property='article:published_time' content='2025-08-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-09T16:06:50&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg' />
+<meta name="twitter:title" content="质点力学">
+<meta name="twitter:description" content="质点位置的确定方法 研究对象：质点\n一个有质量的几何点。忽略其大小、形状及内部结构的影响，在空间只占据一个点的位置。 实际研究对象的简化，属于理想模型 研究内容：质点位置随时间变化的规律\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+<div class="loading">
+    
+     
+<div class="nebula"></div>
+<div class="grid-plane"></div>
+<div class="stars-container">
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+  <div class="star-layer"></div>
+</div>
+
+<div class="loader-container">
+  <div class="hologram-platform"></div>
+  <div class="platform-rings">
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+    <div class="platform-ring"></div>
+  </div>
+
+  <div class="projection-beams">
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+    <div class="beam"></div>
+  </div>
+
+  <div class="holo-container">
+    <div class="holo-sphere">
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+      <div class="holo-ring"></div>
+
+      <div class="holo-particles">
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+        <div class="holo-particle"></div>
+      </div>
+    </div>
+    
+    <div class="glitch-effect"></div>
+    <div class="lightning"></div>
+  </div>
+
+  <div class="code-lines">
+    <div class="code-line">
+      01001001 01001110 01001001 01010100 01001001 01000001 01001100 01001001
+      01011010 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      function initHolographicMatrix() { connectNodes(); renderQuantumState(); }
+    </div>
+    <div class="code-line">
+      01010011 01011001 01010011 01010100 01000101 01001101 00100000 01001100
+      01001111 01000001 01000100 01001001 01001110 01000111
+    </div>
+    <div class="code-line">
+      class QuantumProcessor { constructor() { this.entanglement = new Map(); }}
+    </div>
+    <div class="code-line">
+      01010010 01000101 01001110 01000100 01000101 01010010 01001001 01001110
+      01000111 00100000 01001000 01001111 01001100 01001111
+    </div>
+    <div class="code-line">
+      const matrix = [1.2, 0.8, 3.1, 2.7, 5.9, 4.3, 7.2, 9.0];
+    </div>
+    <div class="code-line">
+      01010000 01010010 01001111 01000011 01000101 01010011 01010011 01001001
+      01001110 01000111 00100000 01000100 01000001 01010100 01000001
+    </div>
+    <div class="code-line">
+      async function loadHolographicData() { await fetch('/api/quantum'); }
+    </div>
+  </div>
+
+  <div class="holo-numbers">
+    <div class="number" style="top: 40%; left: 30%; animation-delay: 0.5s;">
+      0xFF
+    </div>
+    <div class="number" style="top: 50%; left: 60%; animation-delay: 1.5s;">
+      0x0A
+    </div>
+    <div class="number" style="top: 60%; left: 40%; animation-delay: 2.5s;">
+      0xB4
+    </div>
+    <div class="number" style="top: 30%; left: 50%; animation-delay: 3.5s;">
+      0x3D
+    </div>
+    <div class="number" style="top: 70%; left: 20%; animation-delay: 4.5s;">
+      0xC2
+    </div>
+    <div class="number" style="top: 20%; left: 70%; animation-delay: 5.5s;">
+      0x19
+    </div>
+  </div>
+
+  <div class="radial-indicators">
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+    <div class="radial-indicator"></div>
+  </div>
+
+  <div class="corner-decorations">
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+    <div class="corner"></div>
+  </div>
+
+  <div class="loading-text">SYSTEM IITIALIZATION</div>
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+</div>
+
+</div>
+
+<style>
+    .loading {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background-color: #212121;
+        opacity: 1;  
+        transform: scale(1);  
+         
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+     
+      
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+.star-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.star-layer:nth-child(1) {
+  transform: translateZ(-50px);
+  animation: star-drift 150s linear infinite;
+}
+
+.star-layer:nth-child(2) {
+  transform: translateZ(-100px);
+  animation: star-drift 200s linear infinite reverse;
+  opacity: 0.6;
+}
+
+.star-layer:nth-child(3) {
+  transform: translateZ(-200px);
+  animation: star-drift 250s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translateZ(-50px) translateY(0);
+  }
+  100% {
+    transform: translateZ(-50px) translateY(100%);
+  }
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.nebula {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(
+      ellipse at 30% 30%,
+      rgba(63, 0, 113, 0.3) 0%,
+      rgba(63, 0, 113, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 70% 60%,
+      rgba(0, 113, 167, 0.3) 0%,
+      rgba(0, 113, 167, 0) 70%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(167, 0, 157, 0.2) 0%,
+      rgba(167, 0, 157, 0) 70%
+    );
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: nebula-shift 30s infinite alternate ease-in-out;
+}
+
+@keyframes nebula-shift {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 0.4;
+  }
+}
+
+.grid-plane {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: linear-gradient(
+      rgba(0, 162, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 162, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center;
+  animation: grid-move 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
+  }
+}
+
+.loader-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.hologram-platform {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 221, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+  transform: rotateX(60deg);
+  filter: blur(8px);
+  animation: platform-glow 4s infinite alternate;
+}
+
+.platform-rings {
+  position: absolute;
+  width: 300px;
+  height: 60px;
+  bottom: -80px;
+  transform: rotateX(60deg);
+}
+
+.platform-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  opacity: 0.4;
+  animation: platform-ring-pulse 4s infinite alternate;
+}
+
+.platform-ring:nth-child(1) {
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -1s;
+}
+
+.platform-ring:nth-child(2) {
+  width: 85%;
+  height: 85%;
+  top: 7.5%;
+  left: 7.5%;
+  border-color: rgba(255, 0, 255, 0.4);
+  animation-delay: -2s;
+}
+
+.platform-ring:nth-child(3) {
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+  border-color: rgba(0, 221, 255, 0.4);
+  animation-delay: -3s;
+}
+
+@keyframes platform-ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes platform-glow {
+  0% {
+    box-shadow: 0 0 30px rgba(0, 221, 255, 0.4);
+    background: radial-gradient(
+      ellipse,
+      rgba(0, 221, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+  100% {
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.6);
+    background: radial-gradient(
+      ellipse,
+      rgba(255, 0, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+}
+
+.holo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: float-container 6s infinite ease-in-out;
+}
+
+@keyframes float-container {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.holo-sphere {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  left: 15px;
+  top: 15px;
+  transform-style: preserve-3d;
+  animation: rotate 15s infinite linear;
+}
+
+.holo-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 20px rgba(255, 0, 222, 0.5),
+    0 0 20px rgba(0, 221, 255, 0.5);
+  filter: blur(1px);
+  animation: pulse 3s infinite ease-in-out alternate;
+  transform-style: preserve-3d;
+}
+
+.holo-ring:nth-child(1) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -0.5s;
+}
+
+.holo-ring:nth-child(2) {
+  border-top-color: #00ddff;
+  border-bottom-color: #ff00de;
+  animation-delay: -1s;
+  transform: rotateX(60deg);
+}
+
+.holo-ring:nth-child(3) {
+  border-top-color: #ff00de;
+  border-bottom-color: #00ddff;
+  animation-delay: -1.5s;
+  transform: rotateY(60deg);
+}
+
+.holo-ring:nth-child(4) {
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  border-left-color: #00ff77;
+  border-right-color: #ff5500;
+  animation-delay: -2s;
+  transform: rotateZ(45deg);
+}
+
+.holo-ring:nth-child(5) {
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  border-left-color: #ff00b3;
+  border-right-color: #3300ff;
+  animation-delay: -2.5s;
+  transform: rotateX(30deg) rotateY(30deg);
+}
+
+.energy-ring {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.5;
+  transform-style: preserve-3d;
+  animation: energy-rotation 10s infinite linear;
+}
+
+.energy-ring::before,
+.energy-ring::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(0, 221, 255, 0.8) 20deg,
+    transparent 40deg,
+    transparent 140deg,
+    rgba(255, 0, 222, 0.8) 160deg,
+    transparent 180deg,
+    transparent 280deg,
+    rgba(0, 221, 255, 0.8) 300deg,
+    transparent 320deg
+  );
+  filter: blur(2px);
+  animation: energy-pulse 6s infinite alternate;
+}
+
+.energy-ring::after {
+  transform: rotate(60deg);
+  animation-delay: -3s;
+}
+
+@keyframes energy-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes energy-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.holo-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.holo-particle {
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: particle-float 4s infinite ease-in-out;
+}
+
+.holo-particle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0.1s;
+}
+
+.holo-particle:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  top: 70%;
+  left: 60%;
+  animation-delay: 0.7s;
+}
+
+.holo-particle:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  top: 40%;
+  left: 80%;
+  animation-delay: 1.3s;
+}
+
+.holo-particle:nth-child(4) {
+  width: 5px;
+  height: 5px;
+  top: 80%;
+  left: 25%;
+  animation-delay: 1.9s;
+}
+
+.holo-particle:nth-child(5) {
+  width: 7px;
+  height: 7px;
+  top: 30%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
+.holo-particle:nth-child(6) {
+  width: 9px;
+  height: 9px;
+  top: 60%;
+  left: 40%;
+  animation-delay: 3.1s;
+}
+
+.holo-particle:nth-child(7) {
+  width: 4px;
+  height: 4px;
+  top: 50%;
+  left: 75%;
+  animation-delay: 3.7s;
+}
+
+.holo-particle:nth-child(8) {
+  width: 8px;
+  height: 8px;
+  top: 25%;
+  left: 85%;
+  animation-delay: 4.3s;
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateZ(0) translateX(0) translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+  50% {
+    transform: translateZ(60px) translateX(20px) translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.4;
+    transform: translateZ(30px) translateX(10px) translateY(-10px) scale(1);
+  }
+}
+
+.core {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: core-pulse 1.5s infinite ease-in-out alternate;
+  z-index: 5;
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(0, 221, 255, 0.6),
+    0 0 60px rgba(255, 0, 222, 0.4);
+}
+
+.core::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -5px;
+  left: -5px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.6);
+  animation: core-rotate 3s infinite linear;
+}
+
+.core::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: core-rotate 5s infinite linear reverse;
+}
+
+@keyframes core-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes core-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.8;
+    filter: blur(5px);
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    filter: blur(7px);
+  }
+}
+
+.scan-line-horizontal {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-horizontal 3s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.scan-line-vertical {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 0, 222, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 221, 255, 0.8) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  animation: scan-vertical 3.5s infinite linear;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes scan-horizontal {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes scan-vertical {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.scan-data {
+  position: absolute;
+  font-size: 8px;
+  color: rgba(0, 221, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: scan-data 3s infinite linear;
+  z-index: 10;
+  transform-style: preserve-3d;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.5);
+}
+
+.scan-data:nth-child(1) {
+  top: 30%;
+  left: 65%;
+  animation-delay: -0.5s;
+}
+
+.scan-data:nth-child(2) {
+  top: 65%;
+  left: 35%;
+  animation-delay: -1.5s;
+}
+
+.scan-data:nth-child(3) {
+  top: 20%;
+  left: 40%;
+  animation-delay: -2.5s;
+}
+
+@keyframes scan-data {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  10%,
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.hex-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  background-image: linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      30deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(0, 221, 255, 0.5) 12%,
+      transparent 12.5%,
+      transparent 87%,
+      rgba(0, 221, 255, 0.5) 87.5%,
+      rgba(0, 221, 255, 0.5)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(0, 221, 255, 0.2) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(0, 221, 255, 0.2) 75%,
+      rgba(0, 221, 255, 0.2)
+    );
+  background-size: 20px 35px;
+  background-position:
+    0 0,
+    0 0,
+    10px 17.5px,
+    10px 17.5px,
+    0 0,
+    10px 17.5px;
+  animation: hex-pulse 4s infinite alternate;
+  filter: drop-shadow(0 0 2px rgba(0, 221, 255, 0.5));
+}
+
+@keyframes hex-pulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+.lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(1px);
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: lightning 5s infinite;
+  z-index: 11;
+}
+
+@keyframes lightning {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.8;
+    filter: brightness(3);
+  }
+}
+
+.lightning::before,
+.lightning::after {
+  content: "";
+  position: absolute;
+  background: white;
+  filter: blur(1px);
+  box-shadow:
+    0 0 10px #00ddff,
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.lightning::before {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotateY(90deg);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.lightning::after {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%) rotateX(90deg);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 0) 0%,
+    rgba(0, 255, 255, 1) 40%,
+    white 50%,
+    rgba(255, 0, 255, 1) 60%,
+    rgba(255, 0, 255, 0) 100%
+  );
+}
+
+.glitch-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: glitch 7s infinite;
+  pointer-events: none;
+  z-index: 12;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 222, 0.3) 0%,
+    transparent 20%,
+    rgba(0, 221, 255, 0.3) 40%,
+    transparent 60%,
+    rgba(255, 0, 222, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  94%,
+  96% {
+    opacity: 0;
+  }
+  94.5% {
+    opacity: 0.8;
+    transform: translate(5px, -5px) skew(-5deg, 5deg);
+  }
+  95% {
+    opacity: 0.8;
+    transform: translate(-5px, 5px) skew(5deg, -5deg);
+  }
+  95.5% {
+    opacity: 0.8;
+    transform: translate(5px, 0) skew(-5deg, 0);
+  }
+}
+
+.data-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 221, 255, 0.2);
+  opacity: 0.7;
+  transform-style: preserve-3d;
+}
+
+.data-circle::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 221, 255, 0.7);
+  filter: blur(2px);
+  animation: data-blip 5s infinite linear;
+}
+
+@keyframes data-blip {
+  0% {
+    transform: rotate(0deg) translateX(100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.code-lines {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  pointer-events: none;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  z-index: 8;
+}
+
+.code-line {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.7);
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.3);
+  animation: code-scroll 15s infinite linear;
+  opacity: 0;
+}
+
+.code-line:nth-child(1) {
+  top: 10%;
+  animation-duration: 14s;
+  color: #00ddff;
+}
+
+.code-line:nth-child(2) {
+  top: 20%;
+  animation-duration: 15s;
+  animation-delay: -1s;
+}
+
+.code-line:nth-child(3) {
+  top: 30%;
+  animation-duration: 16s;
+  animation-delay: -2s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(4) {
+  top: 40%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(5) {
+  top: 50%;
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+.code-line:nth-child(6) {
+  top: 60%;
+  animation-duration: 13s;
+  animation-delay: -7s;
+  color: #ff00de;
+}
+
+.code-line:nth-child(7) {
+  top: 70%;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+
+.code-line:nth-child(8) {
+  top: 80%;
+  animation-duration: 16s;
+  animation-delay: -9s;
+  color: #ff00de;
+}
+
+@keyframes code-scroll {
+  0% {
+    transform: translateX(200px) rotateY(20deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-500px) rotateY(20deg);
+    opacity: 0;
+  }
+}
+
+.loading-text {
+  position: absolute;
+  bottom: -85px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(0, 221, 255, 0.6);
+  animation: text-flicker 2s infinite;
+}
+
+@keyframes text-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  8%,
+  10% {
+    opacity: 0.6;
+  }
+  9% {
+    opacity: 0.9;
+  }
+  52%,
+  54% {
+    opacity: 0.6;
+  }
+  53% {
+    opacity: 0.9;
+  }
+}
+
+.progress-container {
+  position: absolute;
+  bottom: -110px;
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00ddff, #ff00de);
+  box-shadow: 0 0 10px rgba(0, 221, 255, 0.7);
+  animation: progress 5s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 20%;
+  }
+  40% {
+    width: 38%;
+  }
+  50% {
+    width: 52%;
+  }
+  60% {
+    width: 65%;
+  }
+  75% {
+    width: 82%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.corner-decorations {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0, 221, 255, 0.5);
+  animation: corner-pulse 3s infinite alternate;
+}
+
+.corner:nth-child(1) {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(2) {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner:nth-child(4) {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes corner-pulse {
+  0% {
+    border-color: rgba(0, 221, 255, 0.5);
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    border-color: rgba(255, 0, 222, 0.5);
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.projection-beams {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -80px;
+  transform-style: preserve-3d;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.beam {
+  position: absolute;
+  width: 1px;
+  height: 250px;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 221, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  bottom: 0;
+  transform-origin: bottom;
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+.beam:nth-child(1) {
+  left: 30%;
+  transform: rotateY(10deg) rotateX(-30deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.5s;
+}
+
+.beam:nth-child(2) {
+  left: 45%;
+  transform: rotateY(-5deg) rotateX(-25deg);
+  animation: beam-flicker 3s infinite alternate;
+  animation-delay: 1.5s;
+}
+
+.beam:nth-child(3) {
+  left: 55%;
+  transform: rotateY(5deg) rotateX(-25deg);
+  animation: beam-flicker 4s infinite alternate;
+  animation-delay: 0.7s;
+}
+
+.beam:nth-child(4) {
+  left: 70%;
+  transform: rotateY(-10deg) rotateX(-30deg);
+  animation: beam-flicker 3.5s infinite alternate;
+  animation-delay: 2s;
+}
+
+@keyframes beam-flicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.holo-ui {
+  position: absolute;
+  top: -150px;
+  left: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(30deg);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.ui-element {
+  position: absolute;
+  background: rgba(0, 221, 255, 0.2);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  border-radius: 4px;
+  animation: ui-fade 3s infinite alternate;
+}
+
+.ui-element:nth-child(1) {
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 20px;
+  animation-delay: 0.2s;
+}
+
+.ui-element:nth-child(2) {
+  top: 50px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  animation-delay: 0.4s;
+}
+
+.ui-element:nth-child(3) {
+  top: 160px;
+  left: 20px;
+  width: 120px;
+  height: 30px;
+  animation-delay: 0.6s;
+}
+
+.ui-element:nth-child(4) {
+  top: 200px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0.8s;
+}
+
+@keyframes ui-fade {
+  0% {
+    opacity: 0.5;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    opacity: 0.8;
+    border-color: rgba(255, 0, 222, 0.5);
+  }
+}
+
+.holo-ui-right {
+  position: absolute;
+  top: -150px;
+  right: -350px;
+  width: 200px;
+  height: 300px;
+  transform: rotateY(-30deg) scaleX(-1);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.holo-numbers {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  pointer-events: none;
+}
+
+.number {
+  position: absolute;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+  text-shadow: 0 0 5px rgba(0, 221, 255, 0.6);
+  animation: float-number 8s infinite linear;
+  opacity: 0;
+}
+
+@keyframes float-number {
+  0% {
+    opacity: 0;
+    transform: translateZ(100px) translateY(0);
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-100px) translateY(-50px);
+  }
+}
+
+.data-cube {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-style: preserve-3d;
+  animation: cube-rotate 10s infinite linear;
+  top: -100px;
+  right: -100px;
+}
+
+.cube-face {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 221, 255, 0.1);
+  border: 1px solid rgba(0, 221, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: rgba(0, 221, 255, 0.8);
+}
+
+.cube-face:nth-child(1) {
+  transform: translateZ(20px);
+}
+.cube-face:nth-child(2) {
+  transform: rotateY(180deg) translateZ(20px);
+}
+.cube-face:nth-child(3) {
+  transform: rotateY(90deg) translateZ(20px);
+}
+.cube-face:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(20px);
+}
+.cube-face:nth-child(5) {
+  transform: rotateX(90deg) translateZ(20px);
+}
+.cube-face:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(20px);
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+.radial-indicators {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.radial-indicator {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 221, 255, 0.5);
+  opacity: 0.3;
+  animation: radial-pulse 4s infinite alternate;
+}
+
+.radial-indicator:nth-child(1) {
+  width: 50px;
+  height: 50px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  animation-delay: 0.5s;
+}
+
+.radial-indicator:nth-child(2) {
+  width: 100px;
+  height: 100px;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  animation-delay: 1s;
+}
+
+.radial-indicator:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  animation-delay: 1.5s;
+}
+
+.radial-indicator:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  animation-delay: 2s;
+}
+
+@keyframes radial-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+    border-color: rgba(0, 221, 255, 0.5);
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.5;
+    border-color: rgba(255, 0, 222, 0.5);
+  }
+}
+
+</style>
+
+<script>    
+    function initLoading() {
+    let loading = document.querySelector(".loading");
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            
+            loading.style.opacity = "0";
+            loading.style.transform = "scale(15)";
+
+            
+            setTimeout(() => {
+                loading.style.display = "none";
+            }, 500); 
+        }, 500); 
+    });
+}
+
+    initLoading();
+</script>
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_275091e6d6580c04.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">嬉皮士-Hippie</a></h1>
+            <h2 class="site-description">To make sense out of change is to plunge into it, move with it, and join the dance.</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1855962663'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/CaiJimmy/hugo-theme-stack'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://cjh520-hjw.github.io/en/" >English</option>
+                                
+                                    <option value="https://cjh520-hjw.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#质点位置的确定方法">质点位置的确定方法</a>
+      <ol>
+        <li><a href="#参照系">参照系</a></li>
+        <li><a href="#确定质点位置的常用方法">确定质点位置的常用方法</a></li>
+        <li><a href="#运动学方程">运动学方程</a>
+          <ol>
+            <li><a href="#坐标法直角坐标系">坐标法（直角坐标系）</a></li>
+            <li><a href="#位矢法">位矢法</a></li>
+            <li><a href="#自然法">自然法</a></li>
+            <li><a href="#例子">例子</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#质点的位移速度和加速度">质点的位移、速度和加速度</a>
+      <ol>
+        <li><a href="#位移">位移</a></li>
+        <li><a href="#速度">速度</a></li>
+      </ol>
+    </li>
+    <li><a href="#各运动参量在直角坐标系中的表示">各运动参量在直角坐标系中的表示</a>
+      <ol>
+        <li><a href="#1-基本表达式">1. 基本表达式</a></li>
+        <li><a href="#2vecrvecvveca的关系">2.$\vec{r}、\vec{v}、\vec{a}的关系$</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/">
+                
+                    <img src="/images/%e5%9f%8e%e5%b8%82/hangzhou.jpg" loading="lazy" alt="Featured image of post 质点力学" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" >
+                物理
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/">质点力学</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-08-17</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 11 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="质点位置的确定方法">质点位置的确定方法
+</h2><p>研究对象：质点</p>
+<ul>
+<li>一个有质量的几何点。忽略其大小、形状及内部结构的影响，在空间只占据一个点的位置。</li>
+<li>实际研究对象的简化，属于理想模型</li>
+</ul>
+<p>研究内容：质点位置随时间变化的规律</p>
+<p>（质点何时在何处 ）</p>
+<ul>
+<li>何时：用时间 t 表示（时间参数）</li>
+<li>何处：质点的位置</li>
+</ul>
+<p>示例：以地球为研究对象</p>
+<p>已知：</p>
+<ul>
+<li>地球半径 \( R_{\text{地}} = 6.37 \times 10^3\ \text{km} \)</li>
+<li>日地距离 \( L_{\text{日地}} = 1.5 \times 10^8\ \text{km} \)</li>
+</ul>
+<p>A. 公转</p>
+<p>地球上各点运动状态的差别完全可以忽略不计，<strong>可视作质点</strong></p>
+<p>B. 自转</p>
+<p>地球上各点运动状态不同，<strong>不可视作质点</strong></p>
+<h3 id="参照系">参照系
+</h3><p>用来描述物体运动而选作参考的物体或物体系</p>
+<p>要点</p>
+<ol>
+<li>
+<p><strong>运动学中参照系可任选</strong></p>
+</li>
+<li>
+<p><strong>参照系不同，对运动的描述就不同</strong></p>
+</li>
+<li>
+<p>坐标系</p>
+<p>（固定在参照系上，是参照系上的一个数学抽象 ）</p>
+<ul>
+<li>直角坐标系 \((x,y,z)\)</li>
+<li>球坐标系 \((r,\theta,\varphi)\)</li>
+<li>柱坐标系 \((\rho,\varphi,z)\)</li>
+<li>自然坐标系 \((s)\)</li>
+</ul>
+</li>
+</ol>
+<h3 id="确定质点位置的常用方法">确定质点位置的常用方法
+</h3><ol>
+<li>
+<p><strong>坐标法（如直角坐标 ）</strong></p>
+</li>
+<li>
+<p><strong>位矢法</strong></p>
+<p>质点P某时刻位置由位置矢量\(\vec{r}\)表示：\(\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}\)</p>
+<p>位矢的大小为：\(|\vec{r}| = \sqrt{x^2 + y^2 + z^2}\)</p>
+</li>
+<li>
+<p><strong>自然法</strong></p>
+</li>
+</ol>
+<ul>
+<li>
+<p>O — 自然坐标的原点（可任取 ）</p>
+</li>
+<li>
+<p>s — 自然坐标，s可正可负（P点相对O点沿正方向的轨迹曲线长度 ）</p>
+<p><img src="/images/%e7%89%a9%e7%90%86/1.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+</ul>
+<h3 id="运动学方程">运动学方程
+</h3><p>从数学上确定质点在空间的位置随时间的变化关系</p>
+<h4 id="坐标法直角坐标系">坐标法（直角坐标系）
+</h4><p>\(\begin{cases}  x = f_1(t) \\  y = f_2(t) \\  z = f_3(t)  \end{cases}\) （消去 t 即得轨迹方程 ）</p>
+<h4 id="位矢法">位矢法
+</h4><p>\(\vec{r} = \vec{r}(t) = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}\)</p>
+<h4 id="自然法">自然法
+</h4><p>\(s = f(t)\)</p>
+<p><strong>说明</strong>：质点的运动学方程解决了 “物体何时在何处” 的问题</p>
+<h4 id="例子">例子
+</h4><p><strong>题目</strong>：一质点在平面上作逆时针匀速圆周运动，半径 R，角速度 \(\omega\)，\(t=0\) 时刻，质点在 \(O'\) 处。试写出运动方程。</p>
+<p><img src="/images/%e7%89%a9%e7%90%86/2.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>解：设 t 时刻质点位于圆上某点 P</p>
+<p>（1）坐标法（直角坐标系）</p>
+<p>\(\begin{cases}  x = R\cos\omega t \\  y = R\sin\omega t  \end{cases}\) 消去 t 可得轨迹方程：\(x^2 + y^2 = R^2\)</p>
+<p>（2）位矢法（以 O 点为参考点）</p>
+<p>\(\vec{r} = x(t)\vec{i} + y(t)\vec{j} = R\cos\omega t \cdot \vec{i} + R\sin\omega t \cdot \vec{j}\)</p>
+<p>（3）自然法（以 \(O'\) 点为参考点，逆时针为正）</p>
+<p>\(s = R\omega t \quad (t \text{ 小于一个周期})\)</p>
+<h2 id="质点的位移速度和加速度">质点的位移、速度和加速度
+</h2><h3 id="位移">位移
+</h3><ul>
+<li>
+<p>定义：描述质点位置变化的物理量。</p>
+</li>
+<li>
+<p>几何描述：$\overrightarrow{PQ}$（从初位置P到末位置Q的矢量）。</p>
+</li>
+<li>
+<p>数学描述：$\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)$（位置矢量的增量）。</p>
+</li>
+<li>
+<p>讨论：</p>
+</li>
+</ul>
+<ol>
+<li>矢量（有大小、方向），与路程不同。</li>
+<li>与坐标选取无关。</li>
+<li>由始末位置决定，与中间过程无关。</li>
+<li>区分$|\Delta\vec{r}|$（位移大小）与$\Delta r$（位矢大小的增量）</li>
+</ol>
+<h3 id="速度">速度
+</h3><ul>
+<li>定义：描述质点位置变化快慢的物理量。</li>
+</ul>
+<p>（1）平均速度</p>
+<ul>
+<li>公式：$\overline{\vec{v}}=\frac{\Delta\vec{r}}{\Delta t}$（单位时间内的位移）。</li>
+</ul>
+<p>（2）瞬时速度</p>
+<ul>
+<li>
+<p>公式：$\vec{v}=\lim_{\Delta t\to0}\overline{\vec{v}}=\lim_{\Delta t\to0}\frac{\Delta\vec{r}}{\Delta t}=\frac{d\vec{r}}{dt}$（位矢对时间的一阶导数）。</p>
+</li>
+<li>
+<p>方向：沿轨迹切线方向。</p>
+</li>
+</ul>
+<p>（3）平均速率与瞬时速率</p>
+<ul>
+<li>
+<p>平均速率：$\bar{v}=\frac{\Delta s}{\Delta t}$（$\Delta s$为路程）。</p>
+</li>
+<li>
+<p>瞬时速率：$v=\lim_{\Delta t\to0}\frac{\Delta s}{\Delta t}=\frac{ds}{dt}$。</p>
+</li>
+<li>
+<p>讨论：</p>
+</li>
+<li>
+<p>$|\Delta\vec{r}|\neq\Delta s$，故$|\overline{\vec{v}}|\neq\bar{v}$。</p>
+</li>
+<li>
+<p>$\Delta t\to0$时，$|d\vec{r}|=ds$，故$|\vec{v}|=\frac{ds}{dt}=v$。</p>
+</li>
+</ul>
+<ol start="3">
+<li>加速度</li>
+</ol>
+<ul>
+<li>定义：描述质点速度变化快慢的物理量。</li>
+</ul>
+<p>（1）速度增量</p>
+<ul>
+<li>公式：$\Delta\vec{v}=\vec{v}(t+\Delta t)-\vec{v}(t)$。</li>
+</ul>
+<p>（2）平均加速度</p>
+<ul>
+<li>公式：$\overline{\vec{a}}=\frac{\Delta\vec{v}}{\Delta t}$。</li>
+</ul>
+<p>（3）瞬时加速度</p>
+<ul>
+<li>公式：$\vec{a}=\lim_{\Delta t\to0}\frac{\Delta\vec{v}}{\Delta t}=\frac{d\vec{v}}{dt}=\frac{d^{2}\vec{r}}{dt^{2}}$（速度对时间的一阶导数，位矢对时间的二阶导数）。</li>
+</ul>
+<h2 id="各运动参量在直角坐标系中的表示">各运动参量在直角坐标系中的表示
+</h2><h3 id="1-基本表达式">1. 基本表达式
+</h3><p>（1）位矢</p>
+<ul>
+<li>$\vec{r}=x\vec{i}+y\vec{j}+z\vec{k}$。</li>
+</ul>
+<p>（2）速度</p>
+<ul>
+<li>
+<p>$\vec{v}=v_x\vec{i}+v_y\vec{j}+v_z\vec{k}，其中v_x=\frac{dx}{dt}，v_y=\frac{dy}{dt}，v_z=\frac{dz}{dt}$。</p>
+</li>
+<li>
+<p>大小：$v=\sqrt{v_x^{2}+v_y^{2}+v_z^{2}}$。</p>
+</li>
+</ul>
+<p>（3）加速度</p>
+<ul>
+<li>
+<p>$其中a_x=\frac{dv_x}{dt}=\frac{d^{2}x}{dt^{2}}，a_y=\frac{dv_y}{dt}=\frac{d^{2}y}{dt^{2}}，a_z=\frac{dv_z}{dt}=\frac{d^{2}z}{dt^{2}}$。</p>
+</li>
+<li>
+<p>$大小：a=\sqrt{a_x^{2}+a_y^{2}+a_z^{2}}$。</p>
+</li>
+</ul>
+<h3 id="2vecrvecvveca的关系">2.$\vec{r}、\vec{v}、\vec{a}的关系$
+</h3><p>（1）共同点</p>
+<ul>
+<li>均为矢量（方向性）、时间t的函数（瞬时性）、具有相对性（不同参照系描述不同）。</li>
+</ul>
+<p>（2）数学联系</p>
+<ul>
+<li>
+<p>微分法（运动学第一类问题）：\vec{r}\to\vec{v}\to\vec{a}（求导）。</p>
+</li>
+<li>
+<p>积分法（运动学第二类问题）：\vec{a}\to\vec{v}\to\vec{r}（积分，需结合初始条件）。</p>
+</li>
+</ul>
+<ol start="3">
+<li>例题选摘</li>
+</ol>
+<p>（1）变加速直线运动（a=2t）</p>
+<ul>
+<li>
+<p>已知：t=0时，x_0=0，v_0=0，求t=2s时的速度和位置。</p>
+</li>
+<li>
+<p>解：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>速度：\int_{0}^{v}dv=\int_{0}^{2}2tdt\Rightarrow v=4m/s。</p>
+</li>
+<li>
+<p>位置：\int_{0}^{x}dx=\int_{0}^{2}t^{2}dt\Rightarrow x\approx2.67m。</p>
+</li>
+</ol>
+<p>（2）匀加速直线运动</p>
+<ul>
+<li>
+<p>已知：a为常数，t=0时x=x_0，v=v_0。</p>
+</li>
+<li>
+<p>速度方程：v=v_0+at。</p>
+</li>
+<li>
+<p>运动方程：x=x_0+v_0t+\frac{1}{2}at^{2}。</p>
+</li>
+</ul>
+<p>五、1-4 用自然坐标表示平面曲线运动中的速度和加速度</p>
+<ol>
+<li>自然坐标系</li>
+</ol>
+<ul>
+<li>
+<p>建立：已知轨迹时，选参考点和正方向，运动方程为s=s(t)。</p>
+</li>
+<li>
+<p>单位矢量：</p>
+</li>
+<li>
+<p>单位切向量\vec{\tau}：沿切向指向运动方向。</p>
+</li>
+<li>
+<p>单位法向量\vec{n}：沿法向指向轨迹凹侧。</p>
+</li>
+</ul>
+<ol start="2">
+<li>速度</li>
+</ol>
+<ul>
+<li>
+<p>大小：v=\frac{ds}{dt}。</p>
+</li>
+<li>
+<p>表达式：\vec{v}=v\vec{\tau}=\frac{ds}{dt}\vec{\tau}。</p>
+</li>
+<li>
+<p>方向：沿\vec{\tau}方向。</p>
+</li>
+</ul>
+<ol start="3">
+<li>加速度</li>
+</ol>
+<ul>
+<li>分解：法向加速度（\vec{a}<em>n，反映速度方向变化）+切向加速度（\vec{a}</em>\tau，反映速度大小变化）。</li>
+</ul>
+<p>（1）匀速率圆周运动</p>
+<ul>
+<li>
+<p>特点：速度大小不变，仅法向加速度。</p>
+</li>
+<li>
+<p>公式：\vec{a}_n=\frac{v^{2}}{R}\vec{n}（R为圆半径），\vec{a}=\vec{a}_n。</p>
+</li>
+</ul>
+<p>（2）变速率圆周运动</p>
+<ul>
+<li>公式：\vec{a}=\vec{a}<em>n+\vec{a}</em>\tau，其中\vec{a}<em>n=\frac{v^{2}}{R}\vec{n}，\vec{a}</em>\tau=\frac{dv}{dt}\vec{\tau}。</li>
+</ul>
+<p>（3）一般曲线运动</p>
+<ul>
+<li>
+<p>曲率半径\rho：描述曲线弯曲程度（\rho越小越弯）。</p>
+</li>
+<li>
+<p>公式：\vec{a}<em>n=\frac{v^{2}}{\rho}\vec{n}，\vec{a}</em>\tau=\frac{dv}{dt}\vec{\tau}。</p>
+</li>
+</ul>
+<p>（4）总加速度</p>
+<ul>
+<li>
+<p>大小：a=\sqrt{a_n^{2}+a_\tau^{2}}。</p>
+</li>
+<li>
+<p>方向：\tan\theta=\frac{a_n}{a_\tau}（\theta为\vec{a}与\vec{\tau}的夹角）。</p>
+</li>
+</ul>
+<ol start="4">
+<li>例题：汽车弧形公路行驶</li>
+</ol>
+<ul>
+<li>
+<p>已知：s=20t-0.2t^{2}（SI），R=200m，求t=1s时的速度和加速度。</p>
+</li>
+<li>
+<p>解：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>速度：v=\frac{ds}{dt}=20-0.4t|_{t=1}=19.6m/s。</p>
+</li>
+<li>
+<p>切向加速度：a_\tau=\frac{dv}{dt}=-0.4m/s^{2}。</p>
+</li>
+<li>
+<p>法向加速度：a_n=\frac{v^{2}}{R}\approx1.92m/s^{2}。</p>
+</li>
+<li>
+<p>总加速度：a=\sqrt{a_n^{2}+a_\tau^{2}}\approx1.96m/s^{2}。</p>
+</li>
+</ol>
+<p>六、1-5 圆周运动的角量表示</p>
+<ol>
+<li>平面极坐标系与角量</li>
+</ol>
+<ul>
+<li>
+<p>位置表示：(r,\theta)（极径r，极角\theta）。</p>
+</li>
+<li>
+<p>四个角量：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>角坐标\theta：\theta=\theta(t)（角运动方程）。</p>
+</li>
+<li>
+<p>角位移\Delta\theta：\Delta\theta=\theta(t+\Delta t)-\theta(t)（逆时针为正）。</p>
+</li>
+<li>
+<p>角速度\omega：\bar{\omega}=\frac{\Delta\theta}{\Delta t}（平均），\omega=\frac{d\theta}{dt}（瞬时，单位rad/s）。</p>
+</li>
+<li>
+<p>角加速度\beta：\bar{\beta}=\frac{\Delta\omega}{\Delta t}（平均），\beta=\frac{d\omega}{dt}（瞬时）。</p>
+</li>
+<li>
+<p>角量与线量的关系</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>线速度：v=\omega r。</p>
+</li>
+<li>
+<p>法向加速度：a_n=\frac{v^{2}}{r}=\omega^{2}r。</p>
+</li>
+<li>
+<p>切向加速度：a_\tau=\frac{dv}{dt}=\beta r。</p>
+</li>
+<li>
+<p>矢量关系：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>\vec{\omega}=\omega\vec{k}。</p>
+</li>
+<li>
+<p>\vec{v}=\vec{\omega}\times\vec{r}。</p>
+</li>
+<li>
+<p>\vec{a}=\vec{\beta}\times\vec{r}+\vec{\omega}\times\vec{v}。</p>
+</li>
+<li>
+<p>例题：圆周运动（\theta=-t^{2}+4t）</p>
+</li>
+</ol>
+<ul>
+<li>解：</li>
+</ul>
+<ol>
+<li>
+<p>角速度：\omega=\frac{d\theta}{dt}=-2t+4。</p>
+</li>
+<li>
+<p>角加速度：\beta=\frac{d\omega}{dt}=-2。</p>
+</li>
+<li>
+<p>线速度：v=\omega R=(-2t+4)R。</p>
+</li>
+<li>
+<p>加速度：\vec{a}=R\omega^{2}\vec{n}+R\beta\vec{\tau}=R(-2t+4)^{2}\vec{n}-2R\vec{\tau}。</p>
+</li>
+</ol>
+<p>七、1-6 相对运动</p>
+<ol>
+<li>位置矢量关系</li>
+</ol>
+<ul>
+<li>
+<p>条件：参照系S&rsquo;相对S平动，t=0时原点O与O&rsquo;重合，O&rsquo;相对O的位置矢量\vec{R}=\vec{u}t（\vec{u}为S&rsquo;相对S的速度）。</p>
+</li>
+<li>
+<p>公式：\vec{r}=\vec{r}&rsquo;+\vec{R}（\vec{r}：质点对S的位矢；\vec{r}&rsquo;：质点对S&rsquo;的位矢）。</p>
+</li>
+</ul>
+<ol start="2">
+<li>速度变换定理</li>
+</ol>
+<ul>
+<li>
+<p>公式：\vec{v}=\vec{v}&rsquo;+\vec{u}。</p>
+</li>
+<li>
+<p>\vec{v}：绝对速度（质点对S）。</p>
+</li>
+<li>
+<p>\vec{v}&rsquo;：相对速度（质点对S&rsquo;）。</p>
+</li>
+<li>
+<p>\vec{u}：牵连速度（S&rsquo;对S）。</p>
+</li>
+<li>
+<p>条件：v&laquo;c（低速下绝对时空观成立）。</p>
+</li>
+</ul>
+<ol start="3">
+<li>加速度变换</li>
+</ol>
+<ul>
+<li>公式：\vec{a}<em>{绝对}=\vec{a}</em>{相对}+\vec{a}<em>{牵连}（\vec{a}</em>{牵连}=\frac{d\vec{u}}{dt}）。</li>
+</ul>
+<ol start="4">
+<li>例题选摘</li>
+</ol>
+<p>（1）船上旗帜的速度</p>
+<ul>
+<li>
+<p>已知：旗相对船以2m/s向上运动，船相对地以3m/s向东运动。</p>
+</li>
+<li>
+<p>解：\vec{v}<em>{旗地}=\vec{v}</em>{旗船}+\vec{v}_{船地}=3\vec{i{i2\vec{j}（大小\sqrt{13}m/s，方向东偏上\arctan\frac{2}{3}）。</p>
+</li>
+</ul>
+<p>（2）船垂直横渡江河</p>
+<ul>
+<li>
+<p>已知：船相对水速度4km/h，水速3.5km/h。</p>
+</li>
+<li>
+<p>解：\sin\theta=\frac{3.5}{4}=0.875\Rightarrow\theta=61^{\circ}（船需与河岸上游成61^{\circ}角划行）。</p>
+</li>
+</ul>
+<p>八、国际单位制（SI）和量纲</p>
+<ol>
+<li>基本单位</li>
+</ol>
+<p>表格<br>
+物理量 名称 符号 量纲符号
+长度 米 m L
+质量 千克 kg M
+时间 秒 s T
+电流 安培 A I
+热力学温度 开尔文 K<br>
+物质的量 摩尔 mol N
+发光强度 坎德拉 cd J</p>
+<ol start="2">
+<li>量纲</li>
+</ol>
+<ul>
+<li>
+<p>表达式：dim Q=L^\alpha M^\beta T^\gamma I^\delta \Theta^\epsilon N^\zeta J^\eta。</p>
+</li>
+<li>
+<p>用途：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>单位换算。</p>
+</li>
+<li>
+<p>检验公式正确性（如[x]=L，[v_0t]=L，公式两边量纲需一致）。</p>
+</li>
+</ol>
+<p>九、小结与讨论</p>
+<ol>
+<li>基本量定义</li>
+</ol>
+<ul>
+<li>
+<p>位矢：\vec{r}=\vec{r}(t)。</p>
+</li>
+<li>
+<p>位移：\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)。</p>
+</li>
+<li>
+<p>速度：\vec{v}=\frac{d\vec{r}}{dt}。</p>
+</li>
+<li>
+<p>加速度：\vec{a}=\frac{d\vec{v}}{dt}=\frac{d^{2}\vec{r}}{dt^{2}}。</p>
+</li>
+</ul>
+<ol start="2">
+<li>
+<p>关键讨论</p>
+</li>
+<li>
+<p>\frac{dv}{dt}=0时，质点可能有法向加速度（如匀速圆周运动），并非无加速度。</p>
+</li>
+<li>
+<p>等加速运动（\vec{a}恒定）不一定是直线运动（如抛体运动）。</p>
+</li>
+<li>
+<p>圆周运动的加速度不一定指向圆心（变速率圆周运动中，切向加速度存在，总加速度不指向圆心）。</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/">质点力学</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Oct 09, 2025 16:06 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 嬉皮士-Hippie
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+  @font-face {
+    font-family: 'AaManYuShouXie';
+    src: url(https://cjh520-hjw.github.io/font/AaManYuShouXie.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: 'AaManYuShouXie';
+    --code-font-family: 'AaManYuShouXie';
+  }
+</style>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+</script>
+
+<style>
+    #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url(https://cjh520-hjw.github.io/icons/backTop.svg);
+    }
+</style>
+
+<script>
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+</script>
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "https://cjh520-hjw.github.io/icons/codeMore.png"
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  initCodeMoreBox();
+</script>
+
+
+
+    </body>
+</html>

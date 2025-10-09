@@ -7,12 +7,555 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright><atom:link href="https://cjh520-hjw.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>质点力学</title>
+        <link>https://cjh520-hjw.github.io/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/</link>
+        <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://cjh520-hjw.github.io/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/</guid>
+        <description>&lt;img src="https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg" alt="Featured image of post 质点力学" /&gt;&lt;h2 id=&#34;质点位置的确定方法&#34;&gt;质点位置的确定方法
+&lt;/h2&gt;&lt;p&gt;研究对象：质点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个有质量的几何点。忽略其大小、形状及内部结构的影响，在空间只占据一个点的位置。&lt;/li&gt;
+&lt;li&gt;实际研究对象的简化，属于理想模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;研究内容：质点位置随时间变化的规律&lt;/p&gt;
+&lt;p&gt;（质点何时在何处 ）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;何时：用时间 t 表示（时间参数）&lt;/li&gt;
+&lt;li&gt;何处：质点的位置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：以地球为研究对象&lt;/p&gt;
+&lt;p&gt;已知：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;地球半径 \( R_{\text{地}} = 6.37 \times 10^3\ \text{km} \)&lt;/li&gt;
+&lt;li&gt;日地距离 \( L_{\text{日地}} = 1.5 \times 10^8\ \text{km} \)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A. 公转&lt;/p&gt;
+&lt;p&gt;地球上各点运动状态的差别完全可以忽略不计，&lt;strong&gt;可视作质点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;B. 自转&lt;/p&gt;
+&lt;p&gt;地球上各点运动状态不同，&lt;strong&gt;不可视作质点&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;参照系&#34;&gt;参照系
+&lt;/h3&gt;&lt;p&gt;用来描述物体运动而选作参考的物体或物体系&lt;/p&gt;
+&lt;p&gt;要点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;运动学中参照系可任选&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;参照系不同，对运动的描述就不同&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;坐标系&lt;/p&gt;
+&lt;p&gt;（固定在参照系上，是参照系上的一个数学抽象 ）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直角坐标系 \((x,y,z)\)&lt;/li&gt;
+&lt;li&gt;球坐标系 \((r,\theta,\varphi)\)&lt;/li&gt;
+&lt;li&gt;柱坐标系 \((\rho,\varphi,z)\)&lt;/li&gt;
+&lt;li&gt;自然坐标系 \((s)\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;确定质点位置的常用方法&#34;&gt;确定质点位置的常用方法
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;坐标法（如直角坐标 ）&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;位矢法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;质点P某时刻位置由位置矢量\(\vec{r}\)表示：\(\vec{r} = x\vec{i} + y\vec{j} + z\vec{k}\)&lt;/p&gt;
+&lt;p&gt;位矢的大小为：\(|\vec{r}| = \sqrt{x^2 + y^2 + z^2}\)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;自然法&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;O — 自然坐标的原点（可任取 ）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;s — 自然坐标，s可正可负（P点相对O点沿正方向的轨迹曲线长度 ）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/%e7%89%a9%e7%90%86/1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;运动学方程&#34;&gt;运动学方程
+&lt;/h3&gt;&lt;p&gt;从数学上确定质点在空间的位置随时间的变化关系&lt;/p&gt;
+&lt;h4 id=&#34;坐标法直角坐标系&#34;&gt;坐标法（直角坐标系）
+&lt;/h4&gt;&lt;p&gt;\(\begin{cases}  x = f_1(t) \\  y = f_2(t) \\  z = f_3(t)  \end{cases}\) （消去 t 即得轨迹方程 ）&lt;/p&gt;
+&lt;h4 id=&#34;位矢法&#34;&gt;位矢法
+&lt;/h4&gt;&lt;p&gt;\(\vec{r} = \vec{r}(t) = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k}\)&lt;/p&gt;
+&lt;h4 id=&#34;自然法&#34;&gt;自然法
+&lt;/h4&gt;&lt;p&gt;\(s = f(t)\)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：质点的运动学方程解决了 “物体何时在何处” 的问题&lt;/p&gt;
+&lt;h4 id=&#34;例子&#34;&gt;例子
+&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;题目&lt;/strong&gt;：一质点在平面上作逆时针匀速圆周运动，半径 R，角速度 \(\omega\)，\(t=0\) 时刻，质点在 \(O&#39;\) 处。试写出运动方程。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/%e7%89%a9%e7%90%86/2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;解：设 t 时刻质点位于圆上某点 P&lt;/p&gt;
+&lt;p&gt;（1）坐标法（直角坐标系）&lt;/p&gt;
+&lt;p&gt;\(\begin{cases}  x = R\cos\omega t \\  y = R\sin\omega t  \end{cases}\) 消去 t 可得轨迹方程：\(x^2 + y^2 = R^2\)&lt;/p&gt;
+&lt;p&gt;（2）位矢法（以 O 点为参考点）&lt;/p&gt;
+&lt;p&gt;\(\vec{r} = x(t)\vec{i} + y(t)\vec{j} = R\cos\omega t \cdot \vec{i} + R\sin\omega t \cdot \vec{j}\)&lt;/p&gt;
+&lt;p&gt;（3）自然法（以 \(O&#39;\) 点为参考点，逆时针为正）&lt;/p&gt;
+&lt;p&gt;\(s = R\omega t \quad (t \text{ 小于一个周期})\)&lt;/p&gt;
+&lt;h2 id=&#34;质点的位移速度和加速度&#34;&gt;质点的位移、速度和加速度
+&lt;/h2&gt;&lt;h3 id=&#34;位移&#34;&gt;位移
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;定义：描述质点位置变化的物理量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;几何描述：$\overrightarrow{PQ}$（从初位置P到末位置Q的矢量）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数学描述：$\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)$（位置矢量的增量）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;讨论：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;矢量（有大小、方向），与路程不同。&lt;/li&gt;
+&lt;li&gt;与坐标选取无关。&lt;/li&gt;
+&lt;li&gt;由始末位置决定，与中间过程无关。&lt;/li&gt;
+&lt;li&gt;区分$|\Delta\vec{r}|$（位移大小）与$\Delta r$（位矢大小的增量）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;速度&#34;&gt;速度
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;定义：描述质点位置变化快慢的物理量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（1）平均速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：$\overline{\vec{v}}=\frac{\Delta\vec{r}}{\Delta t}$（单位时间内的位移）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）瞬时速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;公式：$\vec{v}=\lim_{\Delta t\to0}\overline{\vec{v}}=\lim_{\Delta t\to0}\frac{\Delta\vec{r}}{\Delta t}=\frac{d\vec{r}}{dt}$（位矢对时间的一阶导数）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方向：沿轨迹切线方向。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（3）平均速率与瞬时速率&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;平均速率：$\bar{v}=\frac{\Delta s}{\Delta t}$（$\Delta s$为路程）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;瞬时速率：$v=\lim_{\Delta t\to0}\frac{\Delta s}{\Delta t}=\frac{ds}{dt}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;讨论：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$|\Delta\vec{r}|\neq\Delta s$，故$|\overline{\vec{v}}|\neq\bar{v}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$\Delta t\to0$时，$|d\vec{r}|=ds$，故$|\vec{v}|=\frac{ds}{dt}=v$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;加速度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;定义：描述质点速度变化快慢的物理量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（1）速度增量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：$\Delta\vec{v}=\vec{v}(t+\Delta t)-\vec{v}(t)$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）平均加速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：$\overline{\vec{a}}=\frac{\Delta\vec{v}}{\Delta t}$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（3）瞬时加速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：$\vec{a}=\lim_{\Delta t\to0}\frac{\Delta\vec{v}}{\Delta t}=\frac{d\vec{v}}{dt}=\frac{d^{2}\vec{r}}{dt^{2}}$（速度对时间的一阶导数，位矢对时间的二阶导数）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;各运动参量在直角坐标系中的表示&#34;&gt;各运动参量在直角坐标系中的表示
+&lt;/h2&gt;&lt;h3 id=&#34;1-基本表达式&#34;&gt;1. 基本表达式
+&lt;/h3&gt;&lt;p&gt;（1）位矢&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$\vec{r}=x\vec{i}+y\vec{j}+z\vec{k}$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$\vec{v}=v_x\vec{i}+v_y\vec{j}+v_z\vec{k}，其中v_x=\frac{dx}{dt}，v_y=\frac{dy}{dt}，v_z=\frac{dz}{dt}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;大小：$v=\sqrt{v_x^{2}+v_y^{2}+v_z^{2}}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（3）加速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;$其中a_x=\frac{dv_x}{dt}=\frac{d^{2}x}{dt^{2}}，a_y=\frac{dv_y}{dt}=\frac{d^{2}y}{dt^{2}}，a_z=\frac{dv_z}{dt}=\frac{d^{2}z}{dt^{2}}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;$大小：a=\sqrt{a_x^{2}+a_y^{2}+a_z^{2}}$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2vecrvecvveca的关系&#34;&gt;2.$\vec{r}、\vec{v}、\vec{a}的关系$
+&lt;/h3&gt;&lt;p&gt;（1）共同点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;均为矢量（方向性）、时间t的函数（瞬时性）、具有相对性（不同参照系描述不同）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）数学联系&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;微分法（运动学第一类问题）：\vec{r}\to\vec{v}\to\vec{a}（求导）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分法（运动学第二类问题）：\vec{a}\to\vec{v}\to\vec{r}（积分，需结合初始条件）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;例题选摘&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（1）变加速直线运动（a=2t）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;已知：t=0时，x_0=0，v_0=0，求t=2s时的速度和位置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;速度：\int_{0}^{v}dv=\int_{0}^{2}2tdt\Rightarrow v=4m/s。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;位置：\int_{0}^{x}dx=\int_{0}^{2}t^{2}dt\Rightarrow x\approx2.67m。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（2）匀加速直线运动&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;已知：a为常数，t=0时x=x_0，v=v_0。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;速度方程：v=v_0+at。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运动方程：x=x_0+v_0t+\frac{1}{2}at^{2}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;五、1-4 用自然坐标表示平面曲线运动中的速度和加速度&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自然坐标系&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;建立：已知轨迹时，选参考点和正方向，运动方程为s=s(t)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单位矢量：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单位切向量\vec{\tau}：沿切向指向运动方向。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单位法向量\vec{n}：沿法向指向轨迹凹侧。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;速度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;大小：v=\frac{ds}{dt}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;表达式：\vec{v}=v\vec{\tau}=\frac{ds}{dt}\vec{\tau}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方向：沿\vec{\tau}方向。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;加速度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;分解：法向加速度（\vec{a}&lt;em&gt;n，反映速度方向变化）+切向加速度（\vec{a}&lt;/em&gt;\tau，反映速度大小变化）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（1）匀速率圆周运动&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;特点：速度大小不变，仅法向加速度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公式：\vec{a}_n=\frac{v^{2}}{R}\vec{n}（R为圆半径），\vec{a}=\vec{a}_n。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）变速率圆周运动&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：\vec{a}=\vec{a}&lt;em&gt;n+\vec{a}&lt;/em&gt;\tau，其中\vec{a}&lt;em&gt;n=\frac{v^{2}}{R}\vec{n}，\vec{a}&lt;/em&gt;\tau=\frac{dv}{dt}\vec{\tau}。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（3）一般曲线运动&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;曲率半径\rho：描述曲线弯曲程度（\rho越小越弯）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公式：\vec{a}&lt;em&gt;n=\frac{v^{2}}{\rho}\vec{n}，\vec{a}&lt;/em&gt;\tau=\frac{dv}{dt}\vec{\tau}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（4）总加速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;大小：a=\sqrt{a_n^{2}+a_\tau^{2}}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方向：\tan\theta=\frac{a_n}{a_\tau}（\theta为\vec{a}与\vec{\tau}的夹角）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;例题：汽车弧形公路行驶&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;已知：s=20t-0.2t^{2}（SI），R=200m，求t=1s时的速度和加速度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;速度：v=\frac{ds}{dt}=20-0.4t|_{t=1}=19.6m/s。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切向加速度：a_\tau=\frac{dv}{dt}=-0.4m/s^{2}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;法向加速度：a_n=\frac{v^{2}}{R}\approx1.92m/s^{2}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;总加速度：a=\sqrt{a_n^{2}+a_\tau^{2}}\approx1.96m/s^{2}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;六、1-5 圆周运动的角量表示&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;平面极坐标系与角量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;位置表示：(r,\theta)（极径r，极角\theta）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;四个角量：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;角坐标\theta：\theta=\theta(t)（角运动方程）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;角位移\Delta\theta：\Delta\theta=\theta(t+\Delta t)-\theta(t)（逆时针为正）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;角速度\omega：\bar{\omega}=\frac{\Delta\theta}{\Delta t}（平均），\omega=\frac{d\theta}{dt}（瞬时，单位rad/s）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;角加速度\beta：\bar{\beta}=\frac{\Delta\omega}{\Delta t}（平均），\beta=\frac{d\omega}{dt}（瞬时）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;角量与线量的关系&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;线速度：v=\omega r。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;法向加速度：a_n=\frac{v^{2}}{r}=\omega^{2}r。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切向加速度：a_\tau=\frac{dv}{dt}=\beta r。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;矢量关系：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{\omega}=\omega\vec{k}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{v}=\vec{\omega}\times\vec{r}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{a}=\vec{\beta}\times\vec{r}+\vec{\omega}\times\vec{v}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例题：圆周运动（\theta=-t^{2}+4t）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;解：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;角速度：\omega=\frac{d\theta}{dt}=-2t+4。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;角加速度：\beta=\frac{d\omega}{dt}=-2。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;线速度：v=\omega R=(-2t+4)R。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加速度：\vec{a}=R\omega^{2}\vec{n}+R\beta\vec{\tau}=R(-2t+4)^{2}\vec{n}-2R\vec{\tau}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;七、1-6 相对运动&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;位置矢量关系&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;条件：参照系S&amp;rsquo;相对S平动，t=0时原点O与O&amp;rsquo;重合，O&amp;rsquo;相对O的位置矢量\vec{R}=\vec{u}t（\vec{u}为S&amp;rsquo;相对S的速度）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公式：\vec{r}=\vec{r}&amp;rsquo;+\vec{R}（\vec{r}：质点对S的位矢；\vec{r}&amp;rsquo;：质点对S&amp;rsquo;的位矢）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;速度变换定理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;公式：\vec{v}=\vec{v}&amp;rsquo;+\vec{u}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{v}：绝对速度（质点对S）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{v}&amp;rsquo;：相对速度（质点对S&amp;rsquo;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\vec{u}：牵连速度（S&amp;rsquo;对S）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;条件：v&amp;laquo;c（低速下绝对时空观成立）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;加速度变换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;公式：\vec{a}&lt;em&gt;{绝对}=\vec{a}&lt;/em&gt;{相对}+\vec{a}&lt;em&gt;{牵连}（\vec{a}&lt;/em&gt;{牵连}=\frac{d\vec{u}}{dt}）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;例题选摘&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（1）船上旗帜的速度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;已知：旗相对船以2m/s向上运动，船相对地以3m/s向东运动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解：\vec{v}&lt;em&gt;{旗地}=\vec{v}&lt;/em&gt;{旗船}+\vec{v}_{船地}=3\vec{i{i2\vec{j}（大小\sqrt{13}m/s，方向东偏上\arctan\frac{2}{3}）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（2）船垂直横渡江河&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;已知：船相对水速度4km/h，水速3.5km/h。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解：\sin\theta=\frac{3.5}{4}=0.875\Rightarrow\theta=61^{\circ}（船需与河岸上游成61^{\circ}角划行）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;八、国际单位制（SI）和量纲&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基本单位&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;表格&lt;br&gt;
+物理量 名称 符号 量纲符号
+长度 米 m L
+质量 千克 kg M
+时间 秒 s T
+电流 安培 A I
+热力学温度 开尔文 K&lt;br&gt;
+物质的量 摩尔 mol N
+发光强度 坎德拉 cd J&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;量纲&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;表达式：dim Q=L^\alpha M^\beta T^\gamma I^\delta \Theta^\epsilon N^\zeta J^\eta。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用途：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;单位换算。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;检验公式正确性（如[x]=L，[v_0t]=L，公式两边量纲需一致）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;九、小结与讨论&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基本量定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;位矢：\vec{r}=\vec{r}(t)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;位移：\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;速度：\vec{v}=\frac{d\vec{r}}{dt}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加速度：\vec{a}=\frac{d\vec{v}}{dt}=\frac{d^{2}\vec{r}}{dt^{2}}。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;关键讨论&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\frac{dv}{dt}=0时，质点可能有法向加速度（如匀速圆周运动），并非无加速度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;等加速运动（\vec{a}恒定）不一定是直线运动（如抛体运动）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;圆周运动的加速度不一定指向圆心（变速率圆周运动中，切向加速度存在，总加速度不指向圆心）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>C&#43;&#43;课程安排</title>
         <link>https://cjh520-hjw.github.io/p/c-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</link>
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://cjh520-hjw.github.io/p/c-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</guid>
-        <description>&lt;img src="https://cjh520-hjw.github.io/images/C&#43;&#43;/shanghai.jpg" alt="Featured image of post C&#43;&#43;课程安排" /&gt;&lt;ul&gt;
+        <description>&lt;img src="https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/shanghai.jpg" alt="Featured image of post C&#43;&#43;课程安排" /&gt;&lt;ul&gt;
 &lt;li&gt;明确C++课程学习阶段以及课程内容&lt;/li&gt;
 &lt;/ul&gt;
 &lt;table&gt;
@@ -56,7 +599,7 @@
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
         <guid>https://cjh520-hjw.github.io/p/c-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</guid>
-        <description>&lt;img src="https://cjh520-hjw.github.io/images/C&#43;&#43;/jiangsu.jpg" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h2 id=&#34;1-c初识&#34;&gt;1 C++初识
+        <description>&lt;img src="https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/jiangsu.jpg" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h2 id=&#34;1-c初识&#34;&gt;1 C++初识
 &lt;/h2&gt;&lt;h3 id=&#34;11--第一个c程序&#34;&gt;1.1  第一个C++程序
 &lt;/h3&gt;&lt;p&gt;编写一个C++程序总共分为4个步骤&lt;/p&gt;
 &lt;ul&gt;
@@ -3723,26 +4266,172 @@
 &lt;blockquote&gt;
 &lt;p&gt;总结2：对数组名进行sizeof，可以获取整个数组占内存空间的大小&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;练习案例1&lt;/strong&gt;：五只小猪称体重&lt;/p&gt;
-&lt;blockquote class=&#34;alert alert-note&#34;&gt;
-    &lt;/blockquote&gt;
-&lt;blockquote class=&#34;alert alert-tip&#34;&gt;
-    &lt;/blockquote&gt;
-&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
-    &lt;/blockquote&gt;
-&lt;blockquote class=&#34;alert alert-error&#34;&gt;
-    &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;案例描述：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在一个数组中记录了五只小猪的体重，如：int arr[5] = {300,350,200,400,250};&lt;/p&gt;
 &lt;p&gt;找出并打印最重的小猪体重。&lt;/p&gt;
-&lt;p&gt;**练习案例2：**数组元素逆置&lt;/p&gt;
-&lt;p&gt;**案例描述：**请声明一个5个元素的数组，并且将元素逆置.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//五只小猪称体重
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//1.创建5只小猪的体重
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;350&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;400&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;250&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//2.从数组中找到最大值。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//先认定一个最大值为0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//cout &amp;lt;&amp;lt; arr[i] &amp;lt;&amp;lt;endl;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//如果访问的数组中的元素比我认定的最大值要大，更新最大值。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;max&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//3.打印最大值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;最重的小猪体重为：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;max&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;练习案例2&lt;/strong&gt;：数组元素逆置&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;案例描述&lt;/strong&gt;：请声明一个5个元素的数组，并且将元素逆置.&lt;/p&gt;
 &lt;p&gt;(如原数组元素为：1,3,2,5,4;逆置后输出结果为:4,5,2,3,1);&lt;/p&gt;
-&lt;h4 id=&#34;523-冒泡排序&#34;&gt;5.2.3 冒泡排序
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//元素逆置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//实现数组元素逆置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//1.创建数组
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;数组逆置前：&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//2.实现逆置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//2.1记录起始下标的位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//2.2记录结束下标的位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//2.3起始下标与结束下标的元素进行互换
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//2.4起始位置++  结束位置--
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//2.5循环执行2.1操作，直到起始位置 &amp;gt;= 结束位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//起始元素下标
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//末尾元素下标
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//如果start &amp;lt; end，执行互换
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;//3.打印逆置后的数组
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;数组逆置后：&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;523-冒泡排序&#34;&gt;5.2.3 冒泡排序
 &lt;/h4&gt;&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 最常用的排序算法，对数组内元素进行排序&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;比较相邻的元素。如果第一个比第二个大，就交换他们两个。&lt;/li&gt;
-&lt;li&gt;对每一对相邻元素做同样的工作，执行完毕后，找到第一个最大值。&lt;/li&gt;
-&lt;li&gt;重复以上的步骤，每次比较次数-1，直到不需要比较&lt;/li&gt;
+&lt;li&gt;比较&lt;strong&gt;相邻&lt;/strong&gt;的元素。如果第一个比第二个大，就交换他们两个。&lt;/li&gt;
+&lt;li&gt;对每一对相邻元素做同样的工作，执行完毕后，&lt;strong&gt;找到第一个最大值&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;重复以上的步骤，&lt;strong&gt;每次比较次数-1，直到不需要比较&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets/1541905327273.png&#34;
 	
@@ -3834,7 +4523,7 @@
 &lt;li&gt;&lt;code&gt; 数据类型  数组名[  ][ 列数 ] = { 数据1，数据2，数据3，数据4};&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
-&lt;p&gt;建议：以上4种定义方式，利用==第二种更加直观，提高代码的可读性==&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;建议：以上4种定义方式，利用&lt;mark&gt;第二种更加直观，提高代码的可读性&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3925,7 +4614,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：在定义二维数组时，如果初始化了数据，可以省略行数&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：在定义二维数组时，如果&lt;strong&gt;初始化了数据，可以省略行数&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;532-二维数组数组名&#34;&gt;5.3.2 二维数组数组名
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;查看二维数组所占内存空间&lt;/li&gt;
@@ -4090,7 +4779,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;6-函数&#34;&gt;6 函数
 &lt;/h2&gt;&lt;h3 id=&#34;61-概述&#34;&gt;6.1 概述
-&lt;/h3&gt;&lt;p&gt;**作用：**将一段经常使用的代码封装起来，减少重复代码&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：将一段经常使用的代码封装起来，减少重复代码&lt;/p&gt;
 &lt;p&gt;一个较大的程序，一般分为若干个程序块，每个模块实现特定的功能。&lt;/p&gt;
 &lt;h3 id=&#34;62-函数的定义&#34;&gt;6.2 函数的定义
 &lt;/h3&gt;&lt;p&gt;函数的定义一般主要有5个步骤：&lt;/p&gt;
@@ -4149,9 +4838,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;63-函数的调用&#34;&gt;6.3 函数的调用
-&lt;/h3&gt;&lt;p&gt;**功能：**使用定义好的函数&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;功能&lt;/strong&gt;：使用定义好的函数&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt; 函数名（参数）&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -4209,11 +4898,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：函数定义里小括号内称为形参，函数调用时传入的参数称为实参&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：函数定义里小括号内称为&lt;strong&gt;形参&lt;/strong&gt;，函数调用时传入的参数称为&lt;strong&gt;实参&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;64-值传递&#34;&gt;6.4 值传递
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;所谓值传递，就是函数调用时实参将数值传入给形参&lt;/li&gt;
-&lt;li&gt;值传递时，==如果形参发生，并不会影响实参==&lt;/li&gt;
+&lt;li&gt;所谓值传递，就是函数调用时&lt;strong&gt;实参将数值&lt;/strong&gt;传入给形参&lt;/li&gt;
+&lt;li&gt;值传递时，&lt;mark&gt;如果形参发生，并不会影响实参&lt;/mark&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -4251,8 +4940,8 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//如果不需要返回值，声明时可以写void
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;交换前：&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;num1 = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;num2 = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
@@ -4265,7 +4954,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;num1 = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;num2 = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;num2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//return ; 当函数声明时候，不需要返回值，可以不写return
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//return ; 当函数声明时候，如果不需要返回值，可以不写return
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -4273,8 +4962,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//做值传递时，形参发生任何改变，不影响实参
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;mian中的 a = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;mian中的 b = &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -4362,7 +5051,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;66-函数的声明&#34;&gt;6.6 函数的声明
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 告诉编译器函数名称及如何调用函数。函数的实际主体可以单独定义。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 告诉&lt;strong&gt;编译器&lt;/strong&gt;函数名称及如何调用函数。函数的实际主体可以单独定义。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;函数的&lt;strong&gt;声明可以多次&lt;/strong&gt;，但是函数的&lt;strong&gt;定义只能有一次&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -4390,17 +5079,14 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//声明可以多次，定义只能一次
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//声明
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//定义
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -4413,16 +5099,23 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//声明可以多次，定义只能一次
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//定义
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nl&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;67-函数的分文件编写&#34;&gt;6.7 函数的分文件编写
-&lt;/h3&gt;&lt;p&gt;**作用：**让代码结构更加清晰&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：让代码结构更加清晰&lt;/p&gt;
 &lt;p&gt;函数分文件编写一般有4个步骤&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;创建后缀名为.h的头文件&lt;/li&gt;
-&lt;li&gt;创建后缀名为.cpp的源文件&lt;/li&gt;
-&lt;li&gt;在头文件中写函数的声明&lt;/li&gt;
-&lt;li&gt;在源文件中写函数的定义&lt;/li&gt;
+&lt;li&gt;创建后缀名为**.h的头**文件&lt;/li&gt;
+&lt;li&gt;创建后缀名为**.cpp的源**文件&lt;/li&gt;
+&lt;li&gt;在&lt;strong&gt;头文件中写函数的声明&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;在&lt;strong&gt;源文件中写函数的定义&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -4436,8 +5129,8 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//swap.h文件
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//cout与cin的头文件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//实现两个数字交换的函数声明
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
@@ -4505,7 +5198,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;7-指针&#34;&gt;7 指针
 &lt;/h2&gt;&lt;h3 id=&#34;71-指针的基本概念&#34;&gt;7.1 指针的基本概念
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;指针的作用：&lt;/strong&gt; 可以通过指针间接访问内存&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;指针的作用：&lt;/strong&gt; 可以通过指针间接访问&lt;strong&gt;内存&lt;/strong&gt;，&lt;strong&gt;解引用&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;内存编号是从0开始记录的，一般用十六进制数字表示&lt;/li&gt;
 &lt;li&gt;可以利用指针变量保存地址&lt;/li&gt;
@@ -4563,15 +5256,15 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;指针变量和普通变量的区别&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;普通变量存放的是数据,指针变量存放的是地址&lt;/li&gt;
-&lt;li&gt;指针变量可以通过&amp;quot; * &amp;ldquo;操作符，操作指针变量指向的内存空间，这个过程称为解引用&lt;/li&gt;
+&lt;li&gt;普通变量存放的是&lt;strong&gt;数据&lt;/strong&gt;,指针变量存放的是&lt;strong&gt;地址&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;指针变量可以通过&amp;quot; * &amp;ldquo;操作符，操作指针变量指向的内存空间，这个过程称为&lt;strong&gt;解引用&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;总结1： 我们可以通过 &amp;amp; 符号 获取变量的地址&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;总结2：利用指针可以记录地址&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结2：利用指针可以&lt;strong&gt;记录地址&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;总结3：对指针变量解引用，可以操作指针指向的内存&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结3：对指针变量&lt;strong&gt;解引用&lt;/strong&gt;，可以操作指针指向的&lt;strong&gt;内存&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;73-指针所占内存空间&#34;&gt;7.3 指针所占内存空间
 &lt;/h3&gt;&lt;p&gt;提问：指针也是种数据类型，那么这种数据类型占用多少内存空间？&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
@@ -4594,6 +5287,7 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -4602,10 +5296,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//指针指向数据a的地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;//可以直接int * p = &amp;amp;a;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//* 解引用
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//就是sizeof(int *)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -4616,11 +5311,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：所有指针类型在32位操作系统下是4个字节&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所有&lt;/strong&gt;指针类型在32位操作系统(x86)下是4个字节&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所有&lt;/strong&gt;指针类型在64位操作系统(x64)下是8个字节&lt;/p&gt;
+&lt;p&gt;注意区分偏移量，偏移量与指向的数据类型有关&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;74-空指针和野指针&#34;&gt;7.4 空指针和野指针
-&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;空指针&lt;/strong&gt;：指针变量指向内存中编号为0的空间&lt;/p&gt;
-&lt;p&gt;**用途：**初始化指针变量&lt;/p&gt;
-&lt;p&gt;**注意：**空指针指向的内存是不可以访问的&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;空指针&lt;/strong&gt;：指针变量指向内存中&lt;strong&gt;编号为0&lt;/strong&gt;的空间&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;用途&lt;/strong&gt;：&lt;strong&gt;初始化&lt;/strong&gt;指针变量&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：空指针指向的内存是&lt;strong&gt;不可以访问&lt;/strong&gt;的(编号0~255是系统占用的)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例1：空指针&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4654,7 +5352,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;野指针&lt;/strong&gt;：指针变量指向非法的内存空间&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;野指针&lt;/strong&gt;：指针变量指向&lt;strong&gt;非法的&lt;/strong&gt;内存空间&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例2：野指针&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4675,8 +5373,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//指针变量p指向内存地址编号为0x1100的空间
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x1100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;mh&#34;&gt;0x1100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//0x1100只是一个一个十六进制数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;c1&#34;&gt;//访问野指针报错 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -4687,7 +5385,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：空指针和野指针都不是我们申请的空间，因此不要访问。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：&lt;strong&gt;空指针和野指针都不是&lt;/strong&gt;我们申请的空间，因此不要访问。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;75-const修饰指针&#34;&gt;7.5 const修饰指针
 &lt;/h3&gt;&lt;p&gt;const修饰指针有三种情况&lt;/p&gt;
 &lt;ol&gt;
@@ -4753,9 +5451,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;技巧：看const右侧紧跟着的是指针还是常量, 是指针就是常量指针，是常量就是指针常量&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;技巧：看const&lt;strong&gt;右侧紧跟着的&lt;/strong&gt;是指针还是常量, 是指针就是常量指针，是常量就是指针常量&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;76-指针和数组&#34;&gt;7.6 指针和数组
-&lt;/h3&gt;&lt;p&gt;**作用：**利用指针访问数组中元素&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：利用指针访问数组中元素&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4804,7 +5502,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;77-指针和函数&#34;&gt;7.7 指针和函数
-&lt;/h3&gt;&lt;p&gt;**作用：**利用指针作函数参数，可以修改实参的值&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：利用指针作函数参数，可以修改实参的值&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4875,9 +5573,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：如果不想修改实参，就用值传递，如果想修改实参，就用地址传递&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：如果不想修改实参，就用值传递，如果&lt;strong&gt;想修改实参&lt;/strong&gt;，就用&lt;strong&gt;地址传递&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;78-指针数组函数&#34;&gt;7.8 指针、数组、函数
-&lt;/h3&gt;&lt;p&gt;**案例描述：**封装一个函数，利用冒泡排序，实现对整型数组的升序排序&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;案例描述&lt;/strong&gt;：封装一个函数，利用冒泡排序，实现对整型数组的升序排序&lt;/p&gt;
 &lt;p&gt;例如数组：int arr[10] = { 4,3,6,9,1,2,10,8,7,5 };&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -4965,10 +5663,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：当数组名传入到函数作为参数时，被退化为指向首元素的指针&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：当数组名传入到函数作为参数时，被退化为指向首元素的指针&lt;/p&gt;
+&lt;p&gt;数组长度&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;8-结构体&#34;&gt;8 结构体
 &lt;/h2&gt;&lt;h3 id=&#34;81-结构体基本概念&#34;&gt;8.1 结构体基本概念
-&lt;/h3&gt;&lt;p&gt;结构体属于用户==自定义的数据类型==，允许用户存储不同的数据类型&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;结构体属于用户&lt;mark&gt;自定义的数据类型&lt;/mark&gt;，允许用户存储不同的数据类型&lt;/p&gt;
 &lt;h3 id=&#34;82-结构体定义和使用&#34;&gt;8.2 结构体定义和使用
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt;struct 结构体名 { 结构体成员列表 }；&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;通过结构体创建变量的方式有三种：&lt;/p&gt;
@@ -5061,13 +5760,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结1：定义结构体时的关键字是struct，不可省略&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结1：&lt;strong&gt;定义&lt;/strong&gt;结构体时的关键字是struct，&lt;strong&gt;不可省略&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;总结2：创建结构体变量时，关键字struct可以省略&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结2：&lt;strong&gt;创建&lt;/strong&gt;结构体变量时，关键字struct&lt;strong&gt;可以省略&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;总结3：结构体变量利用操作符 &amp;lsquo;&amp;rsquo;.&amp;rsquo;&amp;rsquo;  访问成员&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结3：结构体变量利用操作符 &#39;&amp;rsquo;.&#39;&amp;rsquo;  访问成员&lt;/p&gt;
+&lt;p&gt;string记得加头文件 &amp;lt;string&amp;gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;83-结构体数组&#34;&gt;8.3 结构体数组
-&lt;/h3&gt;&lt;p&gt;**作用：**将自定义的结构体放入到数组中方便维护&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：将自定义的结构体放入到数组中方便维护&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;语法：&lt;/strong&gt;&lt;code&gt; struct  结构体名 数组名[元素个数] = {  {} , {} , ... {} }&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5133,7 +5833,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;84-结构体指针&#34;&gt;8.4 结构体指针
-&lt;/h3&gt;&lt;p&gt;**作用：**通过指针访问结构体中的成员&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：通过指针访问结构体中的成员&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;利用操作符 &lt;code&gt;-&amp;gt; &lt;/code&gt;可以通过结构体指针访问结构体属性&lt;/li&gt;
 &lt;/ul&gt;
@@ -5193,10 +5893,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;总结：结构体指针可以通过 -&amp;gt; 操作符 来访问结构体中的成员&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;总结：结构体指针可以通过 -&amp;gt; 操作符 来访问结构体中的成员&lt;/p&gt;
+&lt;p&gt;注意指针类型是自定义的类型&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;85-结构体嵌套结构体&#34;&gt;8.5 结构体嵌套结构体
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用：&lt;/strong&gt; 结构体中的成员可以是另一个结构体&lt;/p&gt;
-&lt;p&gt;**例如：**每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;例如&lt;/strong&gt;：每个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5282,7 +5983,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;**总结：**在结构体中可以定义另一个结构体作为成员，用来解决实际问题&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：在结构体中可以定义另一个结构体作为成员，用来解决实际问题&lt;/p&gt;
+&lt;p&gt;注意学生类型定义在老师前面&lt;/p&gt;
 &lt;h3 id=&#34;86-结构体做函数参数&#34;&gt;8.6 结构体做函数参数
 &lt;/h3&gt;&lt;p&gt;**作用：**将结构体作为参数向函数中传递&lt;/p&gt;
 &lt;p&gt;传递方式有两种：&lt;/p&gt;
@@ -5380,7 +6082,7 @@
 &lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;总结：如果不想修改主函数中的数据，用值传递，反之用地址传递&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;87-结构体中-const使用场景&#34;&gt;8.7 结构体中 const使用场景
-&lt;/h3&gt;&lt;p&gt;**作用：**用const来防止误操作&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;作用&lt;/strong&gt;：用const来防止误操作&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -5533,8 +6235,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;tArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nameSeed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;tArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;score&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;61&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			&lt;span class=&#34;n&#34;&gt;tArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;score&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rand&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;61&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//0+40~60+40
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -5692,7 +6394,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;len&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hero&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//获取数组元素个数
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;bubbleSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//排序
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;bubbleSort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//排序//arr是名字就是传地址了
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printHeros&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//打印
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
@@ -5746,33 +6448,34 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;axmath&#34;&gt;Axmath
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;独立公式（单独成行）：使用 \[...\] 包裹，公式将居中显示，\[ (-2^{15} \sim 2^{15} - 1) \]&lt;/li&gt;
+&lt;li&gt;行内公式（嵌入文本）：&lt;code&gt;这是一个行内公式 $E=mc^2$，它会和文字在同一行显示&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;独立公式（单独成行）：&lt;code&gt;$$E=mc^2$$&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;如何快速方便地在博客中插入自己手绘的图片&#34;&gt;如何快速方便地在博客中插入自己手绘的图片？
 &lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;平板与电脑粘贴板共享：使用“微信输入法”&lt;/li&gt;
-&lt;li&gt;平板上：
-&lt;ul&gt;
-&lt;li&gt;进行手绘：平板打开https://excalidraw.com/&lt;/li&gt;
-&lt;li&gt;左上角三条杠-导出图片-选择背景&lt;strong&gt;透明&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;选择&lt;strong&gt;复制图像&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;平板与电脑粘贴板共享：使用“微信输入法”&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;电脑上：
-&lt;ul&gt;
-&lt;li&gt;文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开&lt;/li&gt;
-&lt;li&gt;typora中打入&lt;img src=&#34;https://cjh520-hjw.github.io/&#34;
+&lt;li&gt;
+&lt;p&gt;平板上：&lt;/p&gt;
+&lt;p&gt;进行手绘：平板打开https://excalidraw.com/&lt;/p&gt;
+&lt;p&gt;左上角三条杠-导出图片-选择背景&lt;strong&gt;透明&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;选择&lt;strong&gt;复制图像&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;电脑上：&lt;/p&gt;
+&lt;p&gt;文件夹提前固定：提前将存放图片的文件夹固定到资源管理器左侧，方便打开&lt;/p&gt;
+&lt;p&gt;typora中打入&lt;img src=&#34;https://cjh520-hjw.github.io/&#34;
 	
 	
 	
 	loading=&#34;lazy&#34;
 	
 	
-&gt;    会自动跳出选择本机文件&lt;/li&gt;
-&lt;li&gt;粘贴板共享粘贴图片-选择图片&lt;/li&gt;
-&lt;li&gt;typora里删&lt;code&gt;/images&lt;/code&gt;前面的东西&lt;/li&gt;
-&lt;li&gt;在typora的图片格式上     右键还可以调整图片大小&lt;/li&gt;
-&lt;/ul&gt;
+&gt;    会自动跳出选择本机文件&lt;/p&gt;
+&lt;p&gt;粘贴板共享粘贴图片-选择图片&lt;/p&gt;
+&lt;p&gt;typora里删&lt;code&gt;/images&lt;/code&gt;前面的东西&lt;/p&gt;
+&lt;p&gt;在typora的图片格式上     右键还可以调整图片大小&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;如何快速方便地在博客中插入截屏的图片&#34;&gt;如何快速方便地在博客中插入截屏的图片？
@@ -5831,7 +6534,77 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;li&gt;religious&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/details&gt;&lt;/blockquote&gt;
-&lt;h4 id=&#34;样式二&#34;&gt;样式二
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; [!note]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;summary&amp;gt;religious　　/rɪˈlɪdʒəs/　　adj.宗教的，虔诚的&amp;lt;/summary&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 常用句型：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - to do
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - doing
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - of
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 词组：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious beliefs　宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious freedom　宗教自由  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; We stand for religious freedom.　我们支持宗教自由。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious people　虔诚的人  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 派生：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religion　n.宗教，宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religiously　adv.与宗教相关地
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 前缀与词根：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - -ous=构成形容词：有……特性的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 近义反义：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - holy　adj.虔诚的
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 熟词生义：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious beliefs　宗教信仰
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; - religious 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; &amp;lt;/details&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;样式二&#34;&gt;样式二
 &lt;/h4&gt;&lt;p&gt;abandon  /əˈbændən/🔊（可###）&lt;/p&gt;
 &lt;p&gt;🥳基本句型：&lt;/p&gt;
 &lt;ul&gt;
@@ -6438,16 +7211,9 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;字体&#34;&gt;字体
 &lt;/h2&gt;&lt;h3 id=&#34;适合博客的字体&#34;&gt;适合博客的字体
-&lt;/h3&gt;&lt;p&gt;中文是游趣体&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;中文是游趣体，中英文是Aa漫语手写体，英文是Lato，编程字体是&lt;strong&gt;Consolas&lt;/strong&gt;或者Momo&lt;/p&gt;
 &lt;h2 id=&#34;博客图片路径&#34;&gt;博客图片路径
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/5.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;![](/images/C++/5.jpg)&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;学习的待办&#34;&gt;学习的待办
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; primer的附录还没有看完&lt;/li&gt;
@@ -6643,41 +7409,13 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;链接&#34;&gt;链接
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;In this example we will be using [KaTeX](https://katex.org/)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Van&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;de&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Graaf&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Canon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;](&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;en&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wikipedia&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wiki&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Canons_of_page_construction&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;#Van_de_Graaf_canon)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;文件名变量名命令&#34;&gt;文件名、变量名、命令
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; `/layouts/partials/math.html`  把路径 /layouts/partials/math.html 标记为代码片段
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;粗体&#34;&gt;粗体
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**Note:** Use the online reference of [Supported TeX Functions]粗体
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;段落&#34;&gt;段落
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;In this example we will be using [KaTeX](https://katex.org/)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[The Van de Graaf Canon](https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;文件名变量名命令&#34;&gt;文件名、变量名、命令
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt; &lt;/code&gt;/layouts/partials/math.html&lt;code&gt;  把路径 /layouts/partials/math.html 标记为代码片段&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;粗体&#34;&gt;粗体
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;**Note:** Use the online reference of [Supported TeX Functions]粗体&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;段落&#34;&gt;段落
 &lt;/h4&gt;&lt;p&gt;空行&lt;/p&gt;
 &lt;h4 id=&#34;引用&#34;&gt;引用
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -6699,19 +7437,8 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;图片&#34;&gt;图片
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg)  ![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![Photo by Helena Hertz on Unsplash](helena-hertz-wWZzXlDpMog-unsplash.jpg)  ![Photo by Hudai Gayiran on Unsplash](hudai-gayiran-3Od_VKcDEAA-unsplash.jpg)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;表格&#34;&gt;表格
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;![Photo by Florian Klauer on Unsplash](florian-klauer-nptLmg6jqDo-unsplash.jpg) &lt;/code&gt; &lt;code&gt;![Photo by Luca Bravo on Unsplash](luca-bravo-alS7ewQ41M8-unsplash.jpg) &lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;表格&#34;&gt;表格
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -6725,15 +7452,8 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;高亮&#34;&gt;高亮
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;mark&amp;gt;高亮&amp;lt;/mark&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h4 id=&#34;脚注&#34;&gt;脚注
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;&amp;lt;mark&amp;gt;高亮&amp;lt;/mark&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;脚注&#34;&gt;脚注
 &lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -7139,6 +7859,417 @@ Religious people are less likely to commit suicide.　有信仰的人自杀的�
 &lt;p&gt;近义反义：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;holy　adj.虔诚的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-tip&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;wipe　　/waɪp/　　vt.n.擦，拭&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wipe out 彻底消灭，全部摧毁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wipe the sweat 擦汗&lt;/li&gt;
+&lt;li&gt;wipe your hands 擦手&lt;/li&gt;
+&lt;li&gt;wipe the data 清除数据&lt;/li&gt;
+&lt;li&gt;wipe your memory 抹去记忆&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wipe v.擦,拭;抹去&lt;/li&gt;
+&lt;li&gt;wiper n. (汽车的）雨刷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;erase vt.消除,抹去;擦掉（笔迹）；删除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vt. 抹去，消除&lt;/li&gt;
+&lt;li&gt;n.湿纸巾&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;request　　/rI&#39;kwest/　　vt.n.请求，要求 &lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;request sb to do要求某人做某事&lt;/li&gt;
+&lt;li&gt;at your request应你的要求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a.friend.request好友请求&lt;/li&gt;
+&lt;li&gt;arequest for help请求帮助&lt;/li&gt;
+&lt;li&gt;request a meeting要求会面&lt;/li&gt;
+&lt;li&gt;religious people　虔诚的人&lt;/li&gt;
+&lt;li&gt;Her request was quickly approved.　她的请求很快得到了批准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;demand vt.n. 要求，需求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;点播的歌曲&lt;br&gt;
+Take your time. I&amp;rsquo;m gonna put in a karaoke request.　慢慢聊吧，我去点歌。&lt;br&gt;
+And here&amp;rsquo;s a special request. I&amp;rsquo;ve never even heard of this song, but let&amp;rsquo;s give it a spin:&amp;lsquo;&amp;lsquo;Special Feeling.&amp;quot;　&lt;br&gt;
+接下来是一首:持别的点播歌曲。我之前从没听过这首歌，不过大家还是听听看吧，《特别的感觉》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-error&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;conceal　　/ken&#39;siu/　　vt.掩盖，隐藏&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;conceal sth from sb瞒着某人某事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;conceal a fact 掩盖事实&lt;/li&gt;
+&lt;li&gt;conceal a weapon藏匿武器&lt;/li&gt;
+&lt;li&gt;conceal your identity 隐藏身份&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;concealed    adj. 隐蔽的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hide&lt;br&gt;
+vt.藏；遮住，遮挡；掩盖，隐瞒&lt;br&gt;
+vi.vt.躲避，隐匿&lt;br&gt;
+n.隐蔽处；毛皮；人身安全&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;p&gt;midnight　午夜，半夜&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-tip&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt; claim　　/kleIm/　　vt.声称&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;claim to do 声称要做某事&lt;/li&gt;
+&lt;li&gt;a claim on sth 对&amp;hellip;的所有权&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;claim.your baggage行李认领&lt;/li&gt;
+&lt;li&gt;claim.compensation索赔&lt;/li&gt;
+&lt;li&gt;deny.a.claim 否认说法&lt;/li&gt;
+&lt;li&gt;make a claim提出索赔&lt;/li&gt;
+&lt;li&gt;She claims to be the princess.   她声称自己是公主。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reclaim v.取回，收回;开垦&lt;/li&gt;
+&lt;li&gt;claimant n.索要者&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;contend&lt;br&gt;
+vt.声称，主张&lt;br&gt;
+vi.竞争，争夺；处理，对付&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vt. 要求拥有，认领； 获得 ；夺去(生命)&lt;br&gt;
+The loser is lucky to escape unharmed while the winner claims his prize.&lt;br&gt;
+败者安然无恙地逃脱实属幸运，而胜者则领取奖励。&lt;br&gt;
+Without you, men like Dominic will thrive, and violence can claim many more lives.&lt;br&gt;
+没有你，多米尼克那样的人就会趁机得势，暴力会夺走更多生命。&lt;/li&gt;
+&lt;li&gt;vt.vi.索要，索取　claim sth from sth&lt;br&gt;
+We can perhaps claim compensation from the steel suppliers for failure to deliveron time.&lt;br&gt;
+我们也许可以向钢铁供应商索赔没能及时交货的损失。&lt;br&gt;
+n.声称 ；所有权；要求，索赔&lt;br&gt;
+And you feel your blood gives you a claim on our gold?&lt;br&gt;
+而你认为血统给了你向我们讨金子的权利?&lt;br&gt;
+So,I heard the insurance companies refusing to pay the claim on that car you crashed, Ethan.&lt;br&gt;
+我听说保险公司拒绝赔偿你撞坏的那辆车，伊森。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;install　　/Insto:l/　　vt. 安装&lt;/summary&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;install a camera 安装摄像头&lt;br&gt;
+I&amp;rsquo;m sorry. I&amp;rsquo;ve got a printer to install.　很抱歉,我去装打印机。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;installation n. 安装&lt;/li&gt;
+&lt;li&gt;installment n.一期付款;一节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;in-=表否定;在里面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vt. 把&amp;hellip;装到计算机上&lt;br&gt;
+I just want you to install a browser.　我只是想装个浏览器而已。&lt;/li&gt;
+&lt;li&gt;vt.任命&lt;br&gt;
+He was installed as president yesterday. 　他昨天正式就任校长。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;effective　　/ɪˈfektɪv/　　adj.有效的&lt;/summary&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an effective method 有效的方法&lt;/li&gt;
+&lt;li&gt;religious freedom　宗教自由&lt;br&gt;
+We stand for religious freedom.　我们支持宗教自由。&lt;/li&gt;
+&lt;li&gt;religious people　虔诚的人&lt;br&gt;
+Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;effect    n. 影响；效果 v. 使发生&lt;/li&gt;
+&lt;li&gt;effectively    adv. 有效地；实际上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ef- (ex-) = 向外；没有；加强语气&lt;br&gt;
+-ive = 构成形容词或名词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ineffective　adj.无效果的,不起作用的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;adj.生效的&lt;br&gt;
+become effective 开始生效&lt;br&gt;
+effective immediately立即生效&lt;/li&gt;
+&lt;li&gt;adj.实际的&lt;br&gt;
+an effective leader 实际上的领导&lt;br&gt;
+effective power 实权&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-tip&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;fantastic　　/fænˈtæstɪk/　　adj.极好的&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a fantastic view美丽的风景&lt;/li&gt;
+&lt;li&gt;a fantastic achievement了不起的成就&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fantasy n.幻想&lt;/li&gt;
+&lt;li&gt;fantasise v.幻想，做白日梦&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;fan = 出现&lt;/li&gt;
+&lt;li&gt;-ic = 构成形容词&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;amazing adj,惊异的，了不起的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;adj, 极大的&lt;/li&gt;
+&lt;li&gt;adj. 奇异的,荒诞的&lt;br&gt;
+Those animals may seem to us to be very remote, strange, even fantastic.&lt;br&gt;
+对我们来说,这些动物似乎离我们非常遥远，它们奇形怪状、荒诞离谱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;inform　　/ɪnˈfɔːm/　　vt.通知,告知&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inform sb of sth 通知,告知某人某事&lt;br&gt;
+We will inform you when it&amp;rsquo;s time to do the interview.&lt;br&gt;
+要做采访时我们会通知你。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inform the police 通知警察&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;information n.信息&lt;/li&gt;
+&lt;li&gt;informed adj.见多识广的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;in-=表否定;在里面&lt;/li&gt;
+&lt;li&gt;form=形式,形态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;notify vt. (正式)通知,告知&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vt. 了解&lt;br&gt;
+They must use research to inform themselves of the missing parts of the story.&lt;br&gt;
+记者必须通过调查研究,来使自己了解到被遗漏的那部分情况。&lt;/li&gt;
+&lt;li&gt;vt. 影响&lt;br&gt;
+I felt if I told you it would inform your behavior with him,&lt;br&gt;
+如果我告诉你,会影响你跟他在一起的行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-error&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;passport　　/ˈpɑːspɔːt/　　n.护照&lt;/summary&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a valid passport有效护照&lt;/li&gt;
+&lt;li&gt;a passport to freedom自由的通行证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;port    n. 港口；港口城市&lt;/li&gt;
+&lt;li&gt;airport    n. 机场&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pass = 经过，路过&lt;br&gt;
+port = 携带&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n. 手段,途径&lt;br&gt;
+This is going to be my passport to wealth, independence and freedom.&lt;br&gt;
+这很快会成为我获取富贵及独立自主的通行证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;forum　　/ˈfɔːrəm/　　n. 论坛，讨论会&lt;/summary&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the World Economic Forum 世界经济论坛&lt;br&gt;
+The World Economic Forum is a not-for-profit organization established in 1971.&lt;br&gt;
+世界经济论坛是1971年成立的非营利组织。&lt;/li&gt;
+&lt;li&gt;an open forum 公开讨论会&lt;/li&gt;
+&lt;li&gt;a forum on women&amp;rsquo;s health 关于女性健康的论坛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-tip&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;tone　　/təʊn/　　n.语气&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tone up 使(皮肤、肌肉等)更强健&lt;/li&gt;
+&lt;li&gt;tone down 缓和&amp;hellip;的语气&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a tone of voice 语气&lt;br&gt;
+Neil: Use a soft tone of voice. It makes you sound kind.&lt;br&gt;
+语气要轻柔些,这样听起来会比较友好。&lt;/li&gt;
+&lt;li&gt;a friendly tone 友好的语气&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tonic n.补药;奎宁水&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ton=音色,声色&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;shade&lt;br&gt;
+n.阴凉处；灯罩；色度；细微差别&lt;br&gt;
+vt.给&amp;hellip;遮挡光线;加灯罩;画阴影&lt;br&gt;
+the lighter shade of red　浅红色&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n. 色调&lt;br&gt;
+a brown tone 棕色调&lt;/li&gt;
+&lt;li&gt;vt.使更健壮，使更结实&lt;br&gt;
+This is a great way to tone and strengthen your upper legs.&lt;br&gt;
+这是强健大腿的好方法。&lt;/li&gt;
+&lt;li&gt;n. 健壮度&lt;br&gt;
+Well, she had excellent muscle tone.&lt;br&gt;
+她的肌肉很结实。&lt;/li&gt;
+&lt;li&gt;n. 音色&lt;br&gt;
+Professor: As I said, tone quality differs from instrument to instrument.&lt;br&gt;
+教授：就像我说的,每件乐器的音质都不同。&lt;/li&gt;
+&lt;li&gt;n. 风格&lt;br&gt;
+The iPhone X really sets the tone for the next decade in technology.&lt;br&gt;
+iPhoneX确实为未来10年的技术奠定了基调。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-warn&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;range　　/reɪndʒ/　　n.一系列 范围；vi.(在一定的范围内）变化 包括&lt;/summary&gt;
+&lt;p&gt;常用句型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a range of sth一系列的&lt;/li&gt;
+&lt;li&gt;As you can see, we offer a full range of services&lt;br&gt;
+如你所见,我们能提供一系列的服务。&lt;/li&gt;
+&lt;li&gt;range from A to B(在从A到B的范围内）变化&lt;/li&gt;
+&lt;li&gt;range from A to B 包括(从A到B的)各类事物&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a new range 新的产品系列&lt;/li&gt;
+&lt;li&gt;age range年龄段&lt;/li&gt;
+&lt;li&gt;at short range 近距离地&lt;br&gt;
+Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;派生：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wide-ranging adj.范围大的&lt;/li&gt;
+&lt;li&gt;long-range adj.远程的;长期的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rang=排列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;近义反义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;seriesn.一系列;系列节目;系列比赛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n. 射程&lt;br&gt;
+The test missiles, experts say, had the range to reach the United States.&lt;br&gt;
+专家表示,这些试射导弹的射程能够抵达美国&lt;/li&gt;
+&lt;li&gt;n. 山脉&lt;br&gt;
+Where the desert ends beneath vast mountain ranges.&lt;br&gt;
+沙漠在此结束,之后又是宽广的山脉。&lt;/li&gt;
+&lt;li&gt;vt.(按一定顺序)排列&lt;br&gt;
+Ranged on benches down the sides of the room, the eighty girls sat motionless and erect.&lt;br&gt;
+八十个姑娘坐在屋子两边的长凳上，身子笔直，一动不动。&lt;br&gt;
+He had ranged the bottles from small to large in rows against the wall.&lt;br&gt;
+他把瓶子从小到大靠墙排成几排。&lt;/li&gt;
+&lt;li&gt;vi. vt.徘徊，漫步&lt;br&gt;
+I&amp;rsquo;ve got chickens on my farm and they range around and do their own thing, lay a few eggs.&lt;br&gt;
+我的农场里也养了一些鸡，它们到处溜达，做自己的事，下一些蛋。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;alert alert-error&#34;&gt;
+    &lt;details&gt;
+&lt;summary&gt;bonus　　/rɪˈlɪdʒəs/　　n. 奖金,红利&lt;/summary&gt;
+&lt;p&gt;词组：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a $20 bonus 20 美元奖金&lt;/li&gt;
+&lt;li&gt;an annual bonus 年终奖&lt;/li&gt;
+&lt;li&gt;an added bonus 意外的收获&lt;br&gt;
+Religious people are less likely to commit suicide.　有信仰的人自杀的可能性更低&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前缀与词根：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bon = 好的，善的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;熟词生义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n. 额外的好处&lt;br&gt;
+During winter, chimneys also have the added bonus of a source of heat.&lt;br&gt;
+冬天，烟囱还有个额外的好处：提供热源。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/details&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;第2天&#34;&gt;第2天
