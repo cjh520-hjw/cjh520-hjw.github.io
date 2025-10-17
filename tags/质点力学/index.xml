@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Thu, 09 Oct 2025 16:06:50 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/tags/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 17 Oct 2025 23:44:45 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/tags/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>质点力学</title>
         <link>https://cjh520-hjw.github.io/p/%E8%B4%A8%E7%82%B9%E5%8A%9B%E5%AD%A6/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
@@ -115,18 +115,10 @@
 &lt;h2 id=&#34;质点的位移速度和加速度&#34;&gt;质点的位移、速度和加速度
 &lt;/h2&gt;&lt;h3 id=&#34;位移&#34;&gt;位移
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;定义：描述质点位置变化的物理量。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;几何描述：$\overrightarrow{PQ}$（从初位置P到末位置Q的矢量）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数学描述：$\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)$（位置矢量的增量）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;讨论：&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;定义：描述质点位置变化的物理量。&lt;/li&gt;
+&lt;li&gt;几何描述：$\overrightarrow{PQ}$（从初位置P到末位置Q的矢量）。&lt;/li&gt;
+&lt;li&gt;数学描述：$\Delta\vec{r}=\vec{r}(t+\Delta t)-\vec{r}(t)$（位置矢量的增量）。&lt;/li&gt;
+&lt;li&gt;讨论：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
 &lt;li&gt;矢量（有大小、方向），与路程不同。&lt;/li&gt;
