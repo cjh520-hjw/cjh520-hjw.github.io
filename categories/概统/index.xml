@@ -7,90 +7,126 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Fri, 17 Oct 2025 23:44:45 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E6%A6%82%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 26 Oct 2025 13:10:07 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/categories/%E6%A6%82%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>概统</title>
         <link>https://cjh520-hjw.github.io/p/%E6%A6%82%E7%BB%9F/</link>
         <pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
         
         <guid>https://cjh520-hjw.github.io/p/%E6%A6%82%E7%BB%9F/</guid>
-        <description>&lt;img src="https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/shenzhen.jpg" alt="Featured image of post 概统" /&gt;&lt;h2 id=&#34;第一章&#34;&gt;第一章
-&lt;/h2&gt;&lt;p&gt;随机事件&lt;/p&gt;
+        <description>&lt;img src="https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/shenzhen.jpg" alt="Featured image of post 概统" /&gt;&lt;h2 id=&#34;概率论的基本概念&#34;&gt;概率论的基本概念
+&lt;/h2&gt;&lt;h3 id=&#34;随机试验&#34;&gt;随机试验
+&lt;/h3&gt;&lt;p&gt;E&lt;/p&gt;
+&lt;h3 id=&#34;随机事件与样本空间&#34;&gt;随机事件与样本空间
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;样本空间Ω&lt;/li&gt;
+&lt;li&gt;样本点ω&lt;/li&gt;
+&lt;li&gt;必然事件Ω&lt;/li&gt;
+&lt;li&gt;不可能事件 $\varphi$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;事件间的关系与运算&#34;&gt;事件间的关系与运算
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;包含与相等&lt;/p&gt;
+&lt;p&gt;$\mathbf{A=B\Leftrightarrow A\subset B且B\subset A.}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;和事件&lt;/p&gt;
+&lt;p&gt;$\text{记作}\bigcup_{i=1}^nA_i\text{ 或}\sum_{i=1}^nA_i$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积事件&lt;/p&gt;
+&lt;p&gt;优先级：积&amp;gt;和&lt;/p&gt;
+&lt;p&gt;$\mathbf{A_1A_2&amp;hellip;A_n}\text{或}\prod_{i=1}^nA_i\text{ 或}\bigcap_{i=1}^nA_i$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;差事件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;互斥事件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;逆事件&lt;/p&gt;
+&lt;p&gt;$A-B=A\bar{B}=A-AB$&lt;/p&gt;
+&lt;p&gt;$\bar{\Omega}{=}\phi,\bar{\phi}{=}\Omega$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;事件的运算性质&#34;&gt;事件的运算性质
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;分配&lt;/p&gt;
+&lt;p&gt;\(\begin{aligned}(\mathrm{A}\cup\mathrm{B})\mathrm{C}=&amp;(\mathrm{AC})\cup(\mathrm{BC})\\(\mathrm{AB})\cup\mathrm{C}=&amp;(\mathrm{A}\cup\mathrm{C})(\mathrm{B}\cup\mathrm{C})\end{aligned}\)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对偶&lt;/p&gt;
+&lt;p&gt;\(\begin{aligned}&amp;\overline{A\cup B}=\overline{A}\cap\overline{B},\quad\overline{AB}=\overline{A}\cup\overline{B}\\&amp;\text{可推广}\overline{\bigcup_kA_k}=\bigcap_k\overline{A_k},\quad\overline{\bigcap_kA_k}=\bigcup_k\overline{A}_k\end{aligned}\)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;古典概型&#34;&gt;古典概型
+&lt;/h3&gt;&lt;p&gt;特点：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;基本结果：ω		点		样本点—样本空间Ω&lt;/p&gt;
-&lt;p&gt;​					Ω=｛ω1，…ωn｝&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;复合结果&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;有限性&lt;/li&gt;
+&lt;li&gt;等可能性性&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;有序样本   				 可辨     Ω=｛ZF，FZ｝&lt;/p&gt;
-&lt;p&gt;无序样本：状态即可  不可辨    Ω=｛（ZF）｝&lt;/p&gt;
-&lt;p&gt;Δ：一直投出反面&lt;/p&gt;
-&lt;p&gt;十∞ ：           正&lt;/p&gt;
-&lt;p&gt;\(\varOmega =\left\{ 1,2,...,+\infty \right\}\)&lt;/p&gt;
-&lt;p&gt;\(\Omega = \{t : t \geqslant 0\} = [0, \infty)\)&lt;/p&gt;
-&lt;p&gt;可预测&lt;/p&gt;
-&lt;p&gt;不可预测&lt;/p&gt;
-&lt;p&gt;样本空间表示法：&lt;/p&gt;
+&lt;p&gt;计算公式：&lt;/p&gt;
+$$P(A)=\frac rn=\frac{A\text{中样本点数}}{\Omega\text{中样本点总数}}$$$$P(A)=\frac rn=\frac{A\text{所包含的基本事件数}}{\text{基本事件总数}}$$&lt;h3 id=&#34;几何概型&#34;&gt;几何概型
+&lt;/h3&gt;&lt;p&gt;几何方法：度量（长度、面积、体积）&lt;/p&gt;
+&lt;p&gt;连续无穷多的古典概型试验结果   归结为   几何概率&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;会面问题&lt;/li&gt;
+&lt;li&gt;针&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;概率的定义&#34;&gt;概率的定义
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;非负性&lt;/li&gt;
+&lt;li&gt;规范性0、1&lt;/li&gt;
+&lt;li&gt;可列可加性（两两互不相容）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;概率的性质&#34;&gt;概率的性质
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;互补性（逆）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;P(A-B)=P(A)-P(AB)&lt;/p&gt;
+&lt;p&gt;$\text{特别地,当}B\subset A\text{ 时,}P(A-B)=P(A)-P(B),\text{且}P(B)\leq P(A)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加法&lt;/p&gt;
+&lt;p&gt;$\mathbf{P(A+B)=P(A)+P(B)-P(AB)}$&lt;/p&gt;
+&lt;p&gt;$P\left(\bigcup_{i=1}^nA_i\right)=\sum_{k=1}^n(-1)^{k-1}\sum_{1\leq i_1&amp;lt;\cdots&amp;lt;i_k\leq n}P\left(\bigcap_{j=1}^kA_{i_j}\right)$&lt;/p&gt;
+&lt;p&gt;（奇加偶减）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可分性&lt;/p&gt;
+&lt;p&gt;$P(A)=P(AB)+P(A\bar{B})\ P(B)=P(AB)+P(\bar{A}B)$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;$\omega \in A \Leftrightarrow A  发生$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$\omega \notin \varPhi ， \omega \in \varOmega $&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;匹配问题（信封）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;事件之间的关系（核心部分）&lt;/p&gt;
+&lt;h3 id=&#34;条件概率&#34;&gt;条件概率
+&lt;/h3&gt;&lt;p&gt;$\begin{array}{cc}\mathrm{P(A)&amp;gt;0}\text{时,}P(B\mid A)=\frac{P(AB)}{P(A)}\end{array}$&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;相等关系：&lt;/p&gt;
-&lt;p&gt;$A = B \Leftrightarrow A \subset B  且  B \subset A$&lt;/p&gt;
+&lt;p&gt;$P(A\bigcup B\mid C)=P(A\mid C)+P(B\mid C)$&lt;/p&gt;
+&lt;p&gt;$P\left(\bigcup_{i=1}^\infty A_i\mid B\right)=\sum_{i=1}^\infty P\left(A_i\mid B\right)$&lt;/p&gt;
+&lt;p&gt;（不相容）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;包含关系：&lt;/p&gt;
-&lt;p&gt;$A \subset B \Leftrightarrow \omega \in A \Rightarrow \omega \in B$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;并事件（和事件）：&lt;/p&gt;
-&lt;p&gt;$\omega \in A \cup B \Leftrightarrow \omega \in A  或  \omega \in B$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;交事件（积事件）:&lt;/p&gt;
-&lt;p&gt;$\omega \in A  B \Leftrightarrow \omega \in A  且  \omega \in B$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对立事件（逆事件）：&lt;/p&gt;
-&lt;p&gt;$\omega \in \overline{A} \Leftrightarrow \omega \notin A$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;差事件：&lt;/p&gt;
-&lt;p&gt;$\omega \in A \setminus B \Leftrightarrow \omega \in A  且  \omega \notin B $&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;互斥事件（不相容事件）:&lt;/p&gt;
-&lt;p&gt;$AB = \varPhi \Leftrightarrow A \subset \overline{B} \Leftrightarrow B \subset \overline{A}$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;$A - B = A\overline{B} = A - AB$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;分配：&lt;/p&gt;
+&lt;p&gt;$P(\bar{A}|B)=1-P(A|B)$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$A(B \cup C) = AB \cup AC$&lt;/p&gt;
-&lt;p&gt;$A \cup BC = (A \cup B)(A \cup C)$&lt;/p&gt;
-&lt;ol start=&#34;10&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;对偶/德：&lt;/p&gt;
-&lt;p&gt;$\overline{A \cup B} = \overline{A}\cap\overline{B}$&lt;/p&gt;
-&lt;p&gt;$\overline{AB} = \overline{A} \cup \overline{B}$&lt;/p&gt;
-&lt;p&gt;长杠变短杠，开口换方向，三个也一样&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;优先级:积&amp;gt;和&lt;/p&gt;
-&lt;p&gt;互不相容 ⇏ 对立&lt;/p&gt;
-</description>
+&lt;h3 id=&#34;乘法公式&#34;&gt;乘法公式
+&lt;/h3&gt;&lt;p&gt;$\mathrm{P(A_1A_2&amp;hellip;A_n)=P(A_1)P(A_2|A_1)&amp;hellip;P(A_n|A_1A_2&amp;hellip;A_{n-1})}$&lt;/p&gt;
+&lt;h2 id=&#34;随机变量及其分布&#34;&gt;随机变量及其分布
+&lt;/h2&gt;&lt;h2 id=&#34;多维随机变量及其概率分布&#34;&gt;多维随机变量及其概率分布
+&lt;/h2&gt;&lt;h2 id=&#34;随机变量的数字特征&#34;&gt;随机变量的数字特征
+&lt;/h2&gt;&lt;h2 id=&#34;大数定律和中心极限定理&#34;&gt;大数定律和中心极限定理
+&lt;/h2&gt;&lt;h2 id=&#34;数理统计的基本概念&#34;&gt;数理统计的基本概念
+&lt;/h2&gt;&lt;h2 id=&#34;参数估计&#34;&gt;参数估计
+&lt;/h2&gt;&lt;h2 id=&#34;假设检验&#34;&gt;假设检验
+&lt;/h2&gt;</description>
         </item>
         
     </channel>

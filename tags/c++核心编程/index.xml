@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>嬉皮士-Hippie</copyright>
-        <lastBuildDate>Fri, 17 Oct 2025 23:44:45 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/tags/c++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 23 Oct 2025 15:24:55 +0800</lastBuildDate><atom:link href="https://cjh520-hjw.github.io/tags/c++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>C&#43;&#43;核心编程</title>
         <link>https://cjh520-hjw.github.io/p/c-%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/</link>
         <pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate>
@@ -1559,22 +1559,11 @@
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;115
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;116
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;117
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;118
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;119
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;120
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;121
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;122
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//立方体类设计
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//1、创建立方体类
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//2、设计属性
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//3、设计行为 获取立方体面积和体积
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//4、分别利用全局函数和成员函数 判断两个立方体是否相等
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//立方体类
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Cube&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -1686,6 +1675,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;成员函数判断：c1和c2是不相等的&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;pause&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;pause&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -4315,7 +4305,7 @@
 &lt;/div&gt;&lt;h3 id=&#34;46--继承&#34;&gt;4.6  继承
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;继承是面向对象三大特性之一&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;有些类与类之间存在特殊的关系，例如下图中：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/1544861202252.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/1544861202252.png&#34;
 	
 	
 	
@@ -4738,7 +4728,7 @@
 &lt;li&gt;保护继承&lt;/li&gt;
 &lt;li&gt;私有继承&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/clip_image002.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/clip_image002.png&#34;
 	
 	
 	
@@ -4995,7 +4985,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;利用工具查看：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/1545881904150.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/1545881904150.png&#34;
 	
 	
 	
@@ -5008,7 +4998,7 @@
 &lt;p&gt;打开工具窗口后，定位到当前CPP文件的盘符&lt;/p&gt;
 &lt;p&gt;然后输入： cl /d1 reportSingleClassLayout查看的类名   所属文件名&lt;/p&gt;
 &lt;p&gt;效果如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/1545882158050.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/1545882158050.png&#34;
 	
 	
 	
@@ -5529,7 +5519,7 @@
 &lt;p&gt;​	又有某个类同时继承者两个派生类&lt;/p&gt;
 &lt;p&gt;​	这种继承被称为菱形继承，或者钻石继承&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;典型的菱形继承案例：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/clip_image002.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/clip_image002.jpg&#34;
 	
 	
 	
@@ -6130,7 +6120,7 @@
 &lt;/h4&gt;&lt;p&gt;&lt;strong&gt;案例描述：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;制作饮品的大致流程为：煮水 -  冲泡 - 倒入杯中 - 加入辅料&lt;/p&gt;
 &lt;p&gt;利用多态技术实现本案例，提供抽象制作饮品基类，提供子类制作咖啡和茶叶&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/assets/1545985945198.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cjh520-hjw.github.io/images/C&amp;#43;&amp;#43;/assets3/1545985945198.png&#34;
 	
 	
 	

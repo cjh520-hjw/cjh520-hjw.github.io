@@ -10,7 +10,7 @@
 <meta property='og:description' content="C++核心编程 本阶段主要针对C++面向对象编程技术做详细讲解，探讨C++中的核心和精髓。\n1 内存分区模型 C++程序在执行时，将内存大方向划分为4个区域\n代码区：存放函数体的二进制代码，由操作系统进行管理的 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放, 存放函数的参数值,局部变量等 堆区：由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收 内存四区意义：\n">
 <meta property='og:url' content='https://cjh520-hjw.github.io/p/c-%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/'>
 <meta property='og:site_name' content='嬉皮士-Hippie'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;核心编程' /><meta property='article:published_time' content='2025-10-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-17T23:44:45&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C&#43;&#43;核心编程' /><meta property='article:published_time' content='2025-10-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-10-23T15:24:55&#43;08:00'/><meta property='og:image' content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg' />
 <meta name="twitter:title" content="C++核心编程">
 <meta name="twitter:description" content="C++核心编程 本阶段主要针对C++面向对象编程技术做详细讲解，探讨C++中的核心和精髓。\n1 内存分区模型 C++程序在执行时，将内存大方向划分为4个区域\n代码区：存放函数体的二进制代码，由操作系统进行管理的 全局区：存放全局变量和静态变量以及常量 栈区：由编译器自动分配释放, 存放函数的参数值,局部变量等 堆区：由程序员分配和释放,若程序员不释放,程序结束时由操作系统回收 内存四区意义：\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://cjh520-hjw.github.io/images/%E5%9F%8E%E5%B8%82/hangzhou.jpg' />
@@ -3618,22 +3618,11 @@
 </span><span class="lnt">115
 </span><span class="lnt">116
 </span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#include&lt;iostream&gt;
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//立方体类设计
-</span></span></span><span class="line"><span class="cl"><span class="c1">//1、创建立方体类
-</span></span></span><span class="line"><span class="cl"><span class="c1">//2、设计属性
-</span></span></span><span class="line"><span class="cl"><span class="c1">//3、设计行为 获取立方体面积和体积
-</span></span></span><span class="line"><span class="cl"><span class="c1">//4、分别利用全局函数和成员函数 判断两个立方体是否相等
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="c1">//立方体类
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Cube</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
@@ -3745,6 +3734,7 @@
 </span></span><span class="line"><span class="cl">		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;成员函数判断：c1和c2是不相等的&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">	<span class="p">}</span>
 </span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">	<span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -6374,7 +6364,7 @@
 </div><h3 id="46--继承">4.6  继承
 </h3><p><strong>继承是面向对象三大特性之一</strong></p>
 <p>有些类与类之间存在特殊的关系，例如下图中：</p>
-<p><img src="/assets/1544861202252.png"
+<p><img src="/images/C&#43;&#43;/assets3/1544861202252.png"
 	
 	
 	
@@ -6797,7 +6787,7 @@
 <li>保护继承</li>
 <li>私有继承</li>
 </ul>
-<p><img src="/assets/clip_image002.png"
+<p><img src="/images/C&#43;&#43;/assets3/clip_image002.png"
 	
 	
 	
@@ -7054,7 +7044,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>利用工具查看：</p>
-<p><img src="/assets/1545881904150.png"
+<p><img src="/images/C&#43;&#43;/assets3/1545881904150.png"
 	
 	
 	
@@ -7067,7 +7057,7 @@
 <p>打开工具窗口后，定位到当前CPP文件的盘符</p>
 <p>然后输入： cl /d1 reportSingleClassLayout查看的类名   所属文件名</p>
 <p>效果如下图：</p>
-<p><img src="/assets/1545882158050.png"
+<p><img src="/images/C&#43;&#43;/assets3/1545882158050.png"
 	
 	
 	
@@ -7588,7 +7578,7 @@
 <p>​	又有某个类同时继承者两个派生类</p>
 <p>​	这种继承被称为菱形继承，或者钻石继承</p>
 <p><strong>典型的菱形继承案例：</strong></p>
-<p><img src="/assets/clip_image002.jpg"
+<p><img src="/images/C&#43;&#43;/assets3/clip_image002.jpg"
 	
 	
 	
@@ -8189,7 +8179,7 @@
 </h4><p><strong>案例描述：</strong></p>
 <p>制作饮品的大致流程为：煮水 -  冲泡 - 倒入杯中 - 加入辅料</p>
 <p>利用多态技术实现本案例，提供抽象制作饮品基类，提供子类制作咖啡和茶叶</p>
-<p><img src="/assets/1545985945198.png"
+<p><img src="/images/C&#43;&#43;/assets3/1545985945198.png"
 	
 	
 	
@@ -9362,7 +9352,7 @@
 
 
         <span>
-            最后更新于 Oct 17, 2025 23:44 &#43;0800
+            最后更新于 Oct 23, 2025 15:24 &#43;0800
         </span>
     </section></footer>
 
